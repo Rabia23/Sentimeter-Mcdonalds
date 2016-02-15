@@ -29,10 +29,16 @@
       $scope.north_south_percentage = [];
       $scope.patch_qsc_labels = [];
 
+      $scope.all_zeros = false;
+
       _.each($scope.complaint_view[0].data.action_analysis, function (value) {
          $scope.patch_qsc_labels.push({action_name: Global.complaintAnalysisAction[value.action_taken][0], action_class: Global.complaintAnalysisActionClass[value.action_taken]});
       });
       $scope.patch_qsc_labels = _.sortBy($scope.patch_qsc_labels, function (value) { return Global.complaintAnalysisActionPriority[value.action_name];});
+
+      if($scope.complaint_view[0].data.feedback_count === 0){
+        $scope.all_zeros = true;
+      }
 
       _.each($scope.complaint_view, function (value) {
         var region_name = value.object.name;

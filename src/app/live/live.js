@@ -92,6 +92,7 @@ angular.module( 'livefeed.live', [
       $scope.leader_board_data = data.leaderboard_view;
       $scope.segmentation_ratings = data.segmentation_rating;
       $scope.concerns = data.concerns;
+      $scope.strength = data.strength;
       $rootScope.$broadcast('live-data-received');
 
 
@@ -124,6 +125,7 @@ angular.module( 'livefeed.live', [
     $scope.leader_board_data = dat.leaderboard_view;
     $scope.segmentation_ratings = dat.segmentation_rating;
     $scope.concerns = dat.concerns;
+    $scope.strength = data.strength;
     $rootScope.$broadcast('live-data-received');
     $scope.$digest();
 

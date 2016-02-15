@@ -737,7 +737,8 @@ angular.module("live/benchmark-map/benchmark-map.tpl.html", []).run(["$templateC
     "<div class=\"slide win-height\">\n" +
     "        <div class=\"slide-holder\">\n" +
     "            <div class=\"holder\">\n" +
-    "                <div class=\"detail-holder\">\n" +
+    "                <div ng-show=\"branches.length == 0\">No feedback received</div>\n" +
+    "                <div class=\"detail-holder\" ng-hide=\"branches.length == 0\">\n" +
     "                    <div class=\"table-inner\">\n" +
     "                        <div class=\"info-block\">\n" +
     "                            <div class=\"inner-box\">\n" +
@@ -872,7 +873,7 @@ angular.module("live/live.tpl.html", []).run(["$templateCache", function($templa
     "			<ui-view name = \"qsc\"></ui-view>\n" +
     "			<ui-view name = \"business_segment\"></ui-view>\n" +
     "			<ui-view name = \"overall_rating\"></ui-view>\n" +
-    "			<ui-view name = \"top_concern\"></ui-view>\n" +
+    "			<ui-view name = \"strength\"></ui-view>\n" +
     "			<ui-view name = \"top_concern\"></ui-view>\n" +
     "			<ui-view name = \"patch_qsc_analysis\"></ui-view>\n" +
     "			<ui-view name = \"benchmark_map\"></ui-view>\n" +
@@ -918,7 +919,8 @@ angular.module("live/patch-qsc-analysis/patch-qsc-analysis.tpl.html", []).run(["
     "                        <li class = {{label.action_class}} ng-repeat=\"label in patch_qsc_labels\"><span class=\"bullet\"></span> {{label.action_name}}</li>\n" +
     "                    </ul>\n" +
     "                </div>\n" +
-    "                <div class=\"block-holder\">\n" +
+    "                <div ng-show=\"all_zeros\">No data generated</div>\n" +
+    "                <div class=\"block-holder\" ng-hide=\"all_zeros\">\n" +
     "                    <div class=\"c-holder\">\n" +
     "                        <div class=\"box-holder\" patch-pie-chart data-data = \"pakistan_analysis\">\n" +
     "                            <div id=\"piechart\"></div>\n" +
@@ -977,11 +979,12 @@ angular.module("live/qsc/qsc.tpl.html", []).run(["$templateCache", function($tem
 
 angular.module("live/strength/strength.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/strength/strength.tpl.html",
-    "<div class=\"slide win-height\" strength data-data = \"top_concern_data\">\n" +
+    "<div class=\"slide win-height\" strength data-data = \"strength_data\">\n" +
     "	<div class=\"slide-holder\">\n" +
     "		<div class=\"holder\">\n" +
     "			<div class=\"chart-outer\">\n" +
-    "				<div id=\"container\"></div>\n" +
+    "				<div id=\"strengthPieChart\" ng-hide=\"strength.feedback_count == 0\"></div>\n" +
+    "				<div ng-show=\"strength.feedback_count == 0\">No data generated</div>\n" +
     "			</div>\n" +
     "		</div>\n" +
     "	</div>\n" +
@@ -1177,7 +1180,7 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
     "					<div ng-show=\"users.length == 0\" class=\"message-block\">\n" +
     "						<i class=\"fa fa-info-circle\"></i>\n" +
     "						<h2>No User Added</h2>\n" +
-    "            <h4>Click on Add button to Add New User</h4>\n" +
+    "                        <h4>Click on Add button to Add New User</h4>\n" +
     "					</div>\n" +
     "					<flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message>\n" +
     "					<ul class=\"users-list\" data-users = \"users\">\n" +

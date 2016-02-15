@@ -1,7 +1,8 @@
 <div class="slide win-height">
         <div class="slide-holder">
             <div class="holder">
-                <div class="detail-holder">
+                <div ng-show="branches.length == 0">No feedback received</div>
+                <div class="detail-holder" ng-hide="branches.length == 0">
                     <div class="table-inner">
                         <div class="info-block">
                             <div class="inner-box">
