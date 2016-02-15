@@ -83,6 +83,7 @@
                _.find($scope.donut_graph_data.donutData[1], function (dat) {
                  if (data['label'] === dat['label']) {
                    donut_data.push({id: "", label: dat['label'], value: data['value'] + dat['value']});
+                   // TODO take the colors to helper factories file
                    var color = dat['action_taken'] === 1 ? '#e73a3a' : dat['action_taken'] === 2 ? '#01ad0f' : '#FFCC00';
                    donut_colors.push(color);
                  }

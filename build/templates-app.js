@@ -1107,7 +1107,7 @@ angular.module("manage-users/edit-user-modal.tpl.html", []).run(["$templateCache
     "							<div ng-show=\"UserForm.email.$error.required && (!UserForm.email.$pristine || submitted == true)\"\n" +
     "							class=\"form-error-message pull-left\">Email is required.\n" +
     "						  </div>\n" +
-    "							<div ng-show=\"UserForm.email.$error.email && (!UserForm.email.$pristine || submitted == true)\"\n" +
+    "							<div ng-show=\"UserForm.email.$error.pattern && (!UserForm.email.$pristine || submitted == true)\"\n" +
     "							class=\"form-error-message pull-left\">Wrong email pattern.\n" +
     "							</div>\n" +
     "						</div>\n" +
@@ -1142,7 +1142,7 @@ angular.module("manage-users/edit-user-modal.tpl.html", []).run(["$templateCache
     "						<label class=\"col-sm-2 col-md-3 control-label\" for=\"code\">Regions</label>\n" +
     "						<div class=\"col-sm-10 col-md-9\">\n" +
     "							<select id=\"region\" class=\"barcode\" custom-form  ng-options = \"region.id as region.name for region in regions track by region.id\"\n" +
-    "							ng-model = \"user.region_id\" name = \"region\" required=\"true\">\n" +
+    "							ng-model = \"user.region_id\" name = \"region\" required=\"true\" ng-selected = \"user.region_id\">\n" +
     "								<option class=\"hideme\" value = \"\">Please Select a Region</option>\n" +
     "							</select>\n" +
     "							<div ng-show=\"UserForm.region.$error.required && (!UserForm.region.$pristine || submitted == true)\"\n" +

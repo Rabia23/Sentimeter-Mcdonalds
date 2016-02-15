@@ -20,7 +20,7 @@ angular.module( 'livefeed', [
     window._
 )
 
-.run( function run ($rootScope, Auth, $state, TokenHandler, Flash) {
+.run( function run ($rootScope, Auth, $state, TokenHandler, flashService) {
 
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
     if (toState.authenticate && !Auth.is_logged_in()) {
@@ -39,7 +39,7 @@ angular.module( 'livefeed', [
   });
 
   $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-    Flash.dismiss($rootScope.flashId);
+    flashService.dismissFlash();
   });
 
   $rootScope.logout = function(){
@@ -49,8 +49,7 @@ angular.module( 'livefeed', [
   };
 
   $rootScope.onAlertDismiss = function(flash){
-    console.log(flash);
-    $rootScope.flashId = undefined;
+    flashService.dismissFlash();
   };
 
 })
@@ -63,16 +62,26 @@ angular.module( 'livefeed', [
   };
 
   //console.log("Offline service: "+offlineService.init());
-
 })
 
-.factory('flashService', function(Flash, $rootScope){
+.factory('flashService', function(Flash, $rootScope, $timeout){
+  var flashId;
   return {
     createFlash: function(message, type){
-      if( $rootScope.flashId !== undefined){
-        Flash.dismiss($rootScope.flashId);
-      }
-        $rootScope.flashId = Flash.create(type, message, 5000, {class: 'custom-class'}, true);
+      $timeout(function(){
+        if(flashId !== undefined){
+          Flash.dismiss(flashId);
+        }
+        flashId = Flash.create(type, message, 5000, {class: 'custom-class'}, true);
+      });
+    },
+    dismissFlash: function(){
+      $timeout(function(){
+        if(flashId){
+          Flash.dismiss(flashId);
+          flashId = undefined;
+        }
+      });
     }
   };
 })

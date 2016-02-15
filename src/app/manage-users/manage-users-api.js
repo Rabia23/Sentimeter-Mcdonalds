@@ -14,7 +14,8 @@ angular.module( 'livefeed.manage_users.api', [
                     manage_users: {method: "GET",isArray: false, params: {endpoint: "manage_user"}},
                     add_user: {method: "POST",isArray: false, params: {endpoint: "user/"}},
                     edit_user: {method: "PUT",isArray: false, params: {endpoint: "user/"}},
-                    delete_user: {method: "DELETE", isArray: false, params:{endpoint: "user/"}}
+                    delete_user: {method: "DELETE", isArray: false, params:{endpoint: "user/"}},
+                    disassociate: {method: "GET", isArray: false, params: {endpoint: "disassociate"}}
                  });
   }
   ManageApi.prototype.manage_users = function(){
@@ -24,6 +25,10 @@ angular.module( 'livefeed.manage_users.api', [
   ManageApi.prototype.delete_user = function(user_id){
     var token = $rootScope.token || TokenHandler.get_token();
     return this.service.delete_user({id: user_id, token: token});
+  };
+  ManageApi.prototype.disassociate = function(){
+    var token = $rootScope.token || TokenHandler.get_token();
+    return this.service.disassociate({id: user_id, token: token});
   };
   ManageApi.prototype.edit_user = function(user){
     var token = $rootScope.token || TokenHandler.get_token();
