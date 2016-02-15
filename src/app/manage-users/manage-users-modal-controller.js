@@ -81,8 +81,6 @@
 
     $scope.user = angular.copy(user);
 
-
-
     $scope.edit_form = true;
 
     $scope.submitted = false;

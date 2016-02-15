@@ -154,16 +154,16 @@
             if($scope.branch_id){
               return $scope.branch_id;
             }
-            else{
-              return $scope.user.branch.id;
+            else if(user.branch){
+              return user.branch.id;
             }
           },
           region_id: function(){
             if($scope.region_id){
               return $scope.region_id;
             }
-            else{
-              return $scope.user.region.id;
+            else if(user.region){
+              return user.region.id;
             }
 
           },
