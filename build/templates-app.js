@@ -1127,7 +1127,6 @@ angular.module("manage-users/edit-user-modal.tpl.html", []).run(["$templateCache
     "				</div>\n" +
     "				<div class=\"col-xs-12\">\n" +
     "					<div class=\"form-group\" ng-if = \"user.role == 3\">\n" +
-    "						{{user.branch_id}}\n" +
     "						<label class=\"col-sm-2 col-md-3 control-label\" for=\"branch\">Branch</label>\n" +
     "						<div class=\"col-sm-10 col-md-9\">\n" +
     "								<select id=\"branch\" class=\"barcode\" custom-form  ng-options = \"branch.id as branch.name for branch in branches track by branch.id\"\n" +
@@ -1175,9 +1174,10 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
     "			<div class=\"col-lg-12\">\n" +
     "				<h1>{{user_list}}</h1>\n" +
     "				<div class=\"users-area\">\n" +
-    "					<div ng-show=\"show_users\" class=\"message-block alert alert-info\">\n" +
+    "					<div ng-show=\"users.length == 0\" class=\"message-block\">\n" +
     "						<i class=\"fa fa-info-circle\"></i>\n" +
     "						<h2>No User Added</h2>\n" +
+    "            <h4>Click on Add button to Add New User</h4>\n" +
     "					</div>\n" +
     "					<flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message>\n" +
     "					<ul class=\"users-list\" data-users = \"users\">\n" +

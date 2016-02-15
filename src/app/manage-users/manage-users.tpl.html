@@ -8,9 +8,10 @@
 			<div class="col-lg-12">
 				<h1>{{user_list}}</h1>
 				<div class="users-area">
-					<div ng-show="show_users" class="message-block alert alert-info">
+					<div ng-show="users.length == 0" class="message-block">
 						<i class="fa fa-info-circle"></i>
 						<h2>No User Added</h2>
+            <h4>Click on Add button to Add New User</h4>
 					</div>
 					<flash-message  show-close="true" on-dismiss="onAlertDismiss(flash)"></flash-message>
 					<ul class="users-list" data-users = "users">
