@@ -69,6 +69,7 @@
                 "balloon": {},
                 "legend": {
                   "enabled": true,
+                  "switchable" : false,
                   "align": "center",
                   "equalWidths": false,
                   "markerLabelGap": 25,
@@ -77,9 +78,9 @@
                   "valueText": "",
                   "valueWidth": 0,
                   "position": "right",
-                 "marginRight":80,
+                  "marginRight":80,
                   "marginTop": 50,
-                 "autoMargins":false,
+                  "autoMargins":false,
                   "fontSize": 45,
                   "verticalGap": vertical_gap
                 },

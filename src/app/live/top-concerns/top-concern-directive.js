@@ -69,6 +69,7 @@
                 "balloon": {},
                 "legend": {
                   "enabled": true,
+                  "switchable" : false,
                   "align": "center",
                   "equalWidths": false,
                   "markerLabelGap": 25,

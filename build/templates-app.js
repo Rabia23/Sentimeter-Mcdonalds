@@ -358,7 +358,7 @@ angular.module("dashboard/opportunities/opportunities.tpl.html", []).run(["$temp
     "<div class=\"ibox float-e-margins float-e-margin-none\" ng-class=\"{loading: show_loading}\">\n" +
     "  <div class=\"title-outer\">\n" +
     "    <div class=\"ibox-title\">\n" +
-    "	  <h5>McDonald's Opportunities</h5>\n" +
+    "	  <h5>What would make you visit McDonald's more often?</h5>\n" +
     "	</div>\n" +
     "  </div>\n" +
     "  <div class=\"content-holder\">\n" +
@@ -370,7 +370,7 @@ angular.module("dashboard/opportunities/opportunities.tpl.html", []).run(["$temp
     "			  <div class=\"progress-area\">\n" +
     "			    <div class=\"progress-holder\" ng-repeat = \"dat in opportunity_data\" data-color = \"dat.colour\" data-data = \"opportunity_data\" opportunity-bar-background>\n" +
     "				  <div class=\"progress-inner\">\n" +
-    "				    <small><em>{{dat.name}} <b>{{dat.complaints}} Suggestions</b></em></small>\n" +
+    "				    <small><em>{{dat.name}} </em></small>\n" +
     "					<div class=\"progress-block\"><uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar></div>\n" +
     "				  </div>\n" +
     "				</div>\n" +
@@ -710,7 +710,7 @@ angular.module("dashboard/top-concern/top-concern.tpl.html", []).run(["$template
     "    <div class=\"ibox float-e-margins float-e-margin-none\" ng-class=\"{loading: show_loading}\">\n" +
     "      <div class=\"title-outer\">\n" +
     "        <div class=\"ibox-title\">\n" +
-    "          <h5>Top Concerns</h5>\n" +
+    "          <h5>Top Opportunities</h5>\n" +
     "        </div>\n" +
     "      </div>\n" +
     "      <div class=\"content-holder\" top-concerns data-data = \"data\">\n" +
@@ -817,7 +817,7 @@ angular.module("live/live.tpl.html", []).run(["$templateCache", function($templa
     "					<div class=\"heading-slide\"><h2>qsc complaints</h2></div>\n" +
     "					<div class=\"heading-slide\"><h2>business segment</h2></div>\n" +
     "					<div class=\"heading-slide\"><h2>overall rating</h2></div>\n" +
-    "					<div class=\"heading-slide\"><h2>Strength</h2></div>\n" +
+    "					<div class=\"heading-slide\"><h2>What would make you visit McDonald's more often?</h2></div>\n" +
     "					<div class=\"heading-slide\"><h2>Top Opportunities</h2></div>\n" +
     "					<div class=\"heading-slide\"><h2>Complaint analysis</h2></div>\n" +
     "					<div class=\"heading-slide\"><h2>Leaderboard</h2></div>\n" +
@@ -828,7 +828,7 @@ angular.module("live/live.tpl.html", []).run(["$templateCache", function($templa
     "						<li>Since Last Week</li>\n" +
     "						<li>Since Yesterday Morning</li>\n" +
     "						<li>Since Yesterday Morning</li>\n" +
-    "						<li>Since Beginning</li>\n" +
+    "						<li>Since Yesterday Morning</li>\n" +
     "						<li>Since Beginning</li>\n" +
     "						<li>Since Yesterday Morning</li>\n" +
     "						<li>Since Yesterday Morning</li>\n" +
@@ -884,7 +884,7 @@ angular.module("live/live.tpl.html", []).run(["$templateCache", function($templa
     "				<li><a href=\"#\"><span>QSc</span></a></li>\n" +
     "				<li><a href=\"#\"><span>Business Segment</span></a></li>\n" +
     "				<li><a href=\"#\"><span>Overall rating</span></a></li>\n" +
-    "				<li><a href=\"#\"><span>Strength</span></a></li>\n" +
+    "				<li><a href=\"#\"><span>Top Strengths</span></a></li>\n" +
     "				<li><a href=\"#\"><span>Top Opportunities</span></a></li>\n" +
     "				<li><a href=\"#\"><span>Complaint analysis</span></a></li>\n" +
     "				<li><a href=\"#\"><span>Leaderboard</span></a></li>\n" +
