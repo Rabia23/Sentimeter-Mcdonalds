@@ -78,10 +78,10 @@
                   "valueText": "",
                   "valueWidth": 0,
                   "position": "right",
-                 "marginRight":200,
+                  "marginRight":-20,
                   "marginTop": 50,
                  "autoMargins":false,
-                  "fontSize": 45,
+                  "fontSize": 40,
                   "verticalGap": vertical_gap
                 },
                 "titles": [],
