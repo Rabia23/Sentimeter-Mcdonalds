@@ -10,11 +10,11 @@
       link: function(scope, ele, attrs) {
 
         var graph_show = false;
-        var live_top_concerns;
+        var live_strength;
 
         var width = screen.width;
         var marginRight = "-35%";
-        var marginLeft = "-15%";
+        var marginLeft = "-30%";
         if(width < 1440){
           marginRight = "-18%";
           marginLeft = "10%";
@@ -38,7 +38,7 @@
           if(watchedData !== undefined){
             var data = scope.data;
             if(!graph_show){
-              live_top_concerns = AmCharts.makeChart("container",{
+              live_strength = AmCharts.makeChart("strengthPieChart",{
                 "type": "pie",
                 "angle": 25,
                 "startDuration": 0,
@@ -55,11 +55,11 @@
                 "color": "#FFFFFF",
                 "labelsEnabled": true,
                 "colors": [
-                    "#cb1e24",
-                    "#178aea",
-                    "#434347",
-                    "#f1d400",
-                    "#90ec7c"
+                    "#4CCC72",
+                    "#3598DC",
+                    "#E74D3D",
+                    "#F0C547",
+                    "#9C59B8"
                 ],
                 "titleField": "category",
                 "valueField": "column-1",
@@ -77,7 +77,7 @@
                   "valueText": "",
                   "valueWidth": 0,
                   "position": "right",
-                 "marginRight":200,
+                 "marginRight":80,
                   "marginTop": 50,
                  "autoMargins":false,
                   "fontSize": 45,
@@ -89,8 +89,8 @@
               graph_show = true;
             }
             else{
-              live_top_concerns.dataProvider = data;
-              live_top_concerns.validateData();
+              live_strength.dataProvider = data;
+              live_strength.validateData();
             }
 
 
