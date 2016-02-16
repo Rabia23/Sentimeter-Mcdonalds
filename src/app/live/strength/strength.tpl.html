@@ -1,9 +1,9 @@
-<div class="slide win-height" strength data-data = "strength_data">
+<div class="slide win-height">
 	<div class="slide-holder">
 		<div class="holder">
-			<div class="chart-outer">
-				<div id="strengthPieChart" ng-hide="strength.feedback_count == 0"></div>
-				<div ng-show="strength.feedback_count == 0" class="error-msg">
+			<div class="chart-outer" strength data-data = "strength_data" ng-hide="all_zero">
+				<div id="strengthPieChart"></div>
+				<div ng-show="all_zero" class="error-msg">
 					<span>No Data Generated</span>
 				</div>
 			</div>
