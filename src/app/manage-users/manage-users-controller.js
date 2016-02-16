@@ -53,6 +53,30 @@
 
     });
 
+
+    $scope.disassociate = function(user, index){
+      console.log(user);
+      ManageApi.disassociate(user.id).$promise.then(function(data){
+        console.log(data);
+        if(data.success){
+          user = data.response;
+          user.user_role = Enum.get_user_label(user.role);
+          if(user.is_active){
+            user.status = "Active";
+          }
+          else{
+            user.status = "Inactive";
+          }
+          $scope.users[index] = user;
+          message = "User successfully disassociateed.";
+          flashService.createFlash(message, "success");
+        }
+        else{
+          flashService.createFlash($scope.error_message, "danger");
+        }
+      });
+    };
+
     $scope.deactivate = function(user,index){
       ManageApi.delete_user(user.id).$promise.then(function(data){
         var message = "";
@@ -86,6 +110,8 @@
 
       });
     };
+
+
 
     $scope.open = function (size) {
       flashService.dismissFlash();
@@ -176,7 +202,7 @@
       });
 
       editInstance.result.then(function (edited_user) {
-        flashService.dismissFlash();
+        //flashService.dismissFlash();
         $scope.users[index] = edited_user;
         $scope.users[index].user_role = Enum.get_user_label($scope.users[index].role);
         if($scope.users[index].is_active === true) {

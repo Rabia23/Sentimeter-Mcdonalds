@@ -26,7 +26,7 @@ angular.module( 'livefeed.manage_users.api', [
     var token = $rootScope.token || TokenHandler.get_token();
     return this.service.delete_user({id: user_id, token: token});
   };
-  ManageApi.prototype.disassociate = function(){
+  ManageApi.prototype.disassociate = function(user_id){
     var token = $rootScope.token || TokenHandler.get_token();
     return this.service.disassociate({id: user_id, token: token});
   };
@@ -37,10 +37,10 @@ angular.module( 'livefeed.manage_users.api', [
     if(user.password){
       user_json.new_password = user.password;
     }
-    if(user.role == 4){
+    if(user.role == 4 && !user.region){
       user_json.region_id = user.region_id;
     }
-    if(user.role == 2 || user.role == 3){
+    if((user.role == 2 || user.role == 3) && !user.branch){
       user_json.branch_id = user.branch_id;
     }
     return this.service.edit_user(user_json);

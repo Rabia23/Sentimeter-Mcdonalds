@@ -1129,7 +1129,7 @@ angular.module("manage-users/edit-user-modal.tpl.html", []).run(["$templateCache
     "					</div>\n" +
     "				</div>\n" +
     "				<div class=\"col-xs-12\">\n" +
-    "					<div class=\"form-group\" ng-if = \"user.role == 3\">\n" +
+    "					<div class=\"form-group\" ng-if = \"user.role == 3 && !user.branch\">\n" +
     "						<label class=\"col-sm-2 col-md-3 control-label\" for=\"branch\">Branch</label>\n" +
     "						<div class=\"col-sm-10 col-md-9\">\n" +
     "								<select id=\"branch\" class=\"barcode\" custom-form  ng-options = \"branch.id as branch.name for branch in branches track by branch.id\"\n" +
@@ -1141,7 +1141,7 @@ angular.module("manage-users/edit-user-modal.tpl.html", []).run(["$templateCache
     "							</div>\n" +
     "						</div>\n" +
     "					</div>\n" +
-    "					<div class=\"form-group\" ng-if = \"user.role == 4\">\n" +
+    "					<div class=\"form-group\" ng-if = \"user.role == 4 && !user.region\">\n" +
     "						<label class=\"col-sm-2 col-md-3 control-label\" for=\"code\">Regions</label>\n" +
     "						<div class=\"col-sm-10 col-md-9\">\n" +
     "							<select id=\"region\" class=\"barcode\" custom-form  ng-options = \"region.id as region.name for region in regions track by region.id\"\n" +
@@ -1197,7 +1197,14 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
     "									</li>\n" +
     "									<li ng-if = \"child_role == 2 || child_role == 3\">\n" +
     "										<span class=\"title\">Branch :</span>\n" +
-    "										<div class=\"text\">{{user.branch.name}}</div>\n" +
+    "										<div class=\"text\" ng-show = \"user.branch\">\n" +
+    "                      {{user.branch.name}}\n" +
+    "                    </div>\n" +
+    "                    <div class = \"text\" ng-hide = \"user.branch\">\n" +
+    "                      <a ng-click = \"edit(user, $index)\">\n" +
+    "                        Add Branch\n" +
+    "                      </a>\n" +
+    "                    </div>\n" +
     "									</li>\n" +
     "									<li>\n" +
     "										<span class=\"title\">User Name :</span>\n" +
@@ -1217,15 +1224,24 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
     "									</li>\n" +
     "									<li ng-if = \"child_role == 4\" >\n" +
     "										<span class=\"title\">Region:</span>\n" +
-    "										<div class=\"text\" >{{user.region.name}}</div>\n" +
+    "										<div class=\"text\" ng-show = \"user.region\">\n" +
+    "                      {{user.region.name}}\n" +
+    "                    </div>\n" +
+    "                    <div class=\"text\" ng-hide = \"user.region\">\n" +
+    "                      <a ng-click = \"edit(user, $index)\"> Add Region </a>\n" +
+    "                    </div>\n" +
     "									</li>\n" +
     "								</ul>\n" +
     "								<div class=\"btn-box\">\n" +
     "									<span class=\"btn-holder\">\n" +
-    "										<a ng-click = \"edit(user, $index)\" class=\"fa fa-pencil-square-o\"></a>\n" +
+    "										<a ng-click = \"edit(user, $index)\" class=\"fa fa-pencil-square-o\" title = \"Edit User\"></a>\n" +
     "									</span>\n" +
     "									<span class=\"btn-holder\">\n" +
-    "										<a ng-click = \"deactivate(user, $index)\" ng-class=\"{'fa fa-user btn-active': (user.is_active == false), 'fa fa-user-times btn-deactive': (user.is_active == true)}\"></a>\n" +
+    "										<a ng-click = \"deactivate(user, $index)\" title = \"activate/deactivate user\" ng-class=\"{'fa fa-user btn-active': (user.is_active == false), 'fa fa-user-times btn-deactive': (user.is_active == true)}\"></a>\n" +
+    "									</span>\n" +
+    "\n" +
+    "                  <span class=\"btn-holder\">\n" +
+    "										<a ng-click = \"disassociate(user, $index)\" title = \"disassociate user\" class=\"fa fa-remove\" ng-if = \"(child_role == 4 && user.region) || ((child_role == 2 || child_role == 3) && (user.branch))\"></a>\n" +
     "									</span>\n" +
     "\n" +
     "								</div>\n" +

@@ -8,6 +8,8 @@
 
       $scope.remember_me = false;
 
+      flashService.dismissFlash();
+
       $rootScope.$on('app-online', function(event, args) {
         console.log("online in login");
       });
@@ -22,8 +24,6 @@
 
       if(Auth.is_remembered() === "true"){
         var object = TokenHandler.get_login_detail();
-        console.log("remember me..");
-        console.log(object);
         $scope.authenticate.username = object.username;
         $scope.authenticate.password = object.password;
         $scope.remember_me = true;

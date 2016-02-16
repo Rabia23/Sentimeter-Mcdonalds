@@ -23,6 +23,7 @@ angular.module( 'livefeed', [
 .run( function run ($rootScope, Auth, $state, TokenHandler, flashService) {
 
   $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+    flashService.dismissFlash();
     if (toState.authenticate && !Auth.is_logged_in()) {
       event.preventDefault();
       $state.go('login');
@@ -36,10 +37,7 @@ angular.module( 'livefeed', [
 
   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     $rootScope.currentState = toState.name;
-  });
 
-  $rootScope.$on('$stateChangeStart', function(event, toState, toParams, fromState, fromParams){
-    flashService.dismissFlash();
   });
 
   $rootScope.logout = function(){
@@ -78,6 +76,8 @@ angular.module( 'livefeed', [
     dismissFlash: function(){
       $timeout(function(){
         if(flashId){
+          console.log("in the if");
+          console.log(flashId);
           Flash.dismiss(flashId);
           flashId = undefined;
         }
