@@ -46,16 +46,29 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 #piechart{
 	.amcharts-chart-div{
 		&:after{
-			left: 19%;
-			right: 19%;
+//			left: 19%;
+//			right: 19%;
+//			top: 30%;
+//			bottom: 5%;
+//			
+//			@include media("≥widescreen"){
+//				left: 21%;
+//				right: 21%;
+//				bottom: 0;
+//			}
+			
+			left: 11%;
+			right: 0;
 			top: 30%;
-			bottom: 5%;
+			bottom: 0;
 			
 			@include media("≥widescreen"){
-				left: 21%;
-				right: 21%;
-				bottom: 0;
+				left: 18%;
+				right: 12%;
+				top: 36%;
+				bottom: -3%;
 			}
+			
 		}
 	}
 }
@@ -63,16 +76,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 #strengthPieChart{
 	.amcharts-chart-div{
 		&:after{
-			left: 0;
+			left: 11%;
 			right: 0;
-			top: 40%;
+			top: 30%;
 			bottom: 0;
 			
 			@include media("≥widescreen"){
-				left: 20%;
-				right: 15%;
-				top: 40%;
-				bottom: -2%;
+				left: 18%;
+				right: 12%;
+				top: 36%;
+				bottom: -3%;
 			}
 		}
 	}
@@ -112,4 +125,18 @@ svg{
 
 .amChartsLegend.amcharts-legend-div{
 	text{text-shadow: none !important;}
+}
+
+.error-msg{
+	width: 100%;
+	text-align: center;
+	
+	> *{
+		@include inline-block(middle);
+		text-transform: capitalize;
+		color: $white;
+		font-size: 24px;
+		line-height: 24px;
+		text-shadow: 0 0 1px #000;
+	}
 }

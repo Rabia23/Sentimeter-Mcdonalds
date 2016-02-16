@@ -737,7 +737,9 @@ angular.module("live/benchmark-map/benchmark-map.tpl.html", []).run(["$templateC
     "<div class=\"slide win-height\">\n" +
     "        <div class=\"slide-holder\">\n" +
     "            <div class=\"holder\">\n" +
-    "                <div ng-show=\"branches.length == 0\">No feedback received</div>\n" +
+    "                <div ng-show=\"branches.length == 0\" class=\"error-msg\">\n" +
+    "                	<span>No Feedback Received</span>\n" +
+    "                </div>\n" +
     "                <div class=\"detail-holder\" ng-hide=\"branches.length == 0\">\n" +
     "                    <div class=\"table-inner\">\n" +
     "                        <div class=\"info-block\">\n" +
@@ -984,7 +986,9 @@ angular.module("live/strength/strength.tpl.html", []).run(["$templateCache", fun
     "		<div class=\"holder\">\n" +
     "			<div class=\"chart-outer\">\n" +
     "				<div id=\"strengthPieChart\" ng-hide=\"strength.feedback_count == 0\"></div>\n" +
-    "				<div ng-show=\"strength.feedback_count == 0\">No data generated</div>\n" +
+    "				<div ng-show=\"strength.feedback_count == 0\" class=\"error-msg\">\n" +
+    "					<span>No Data Generated</span>\n" +
+    "				</div>\n" +
     "			</div>\n" +
     "		</div>\n" +
     "	</div>\n" +
