@@ -3,7 +3,9 @@
 		<div class="holder">
 			<div class="chart-outer">
 				<div id="strengthPieChart" ng-hide="strength.feedback_count == 0"></div>
-				<div ng-show="strength.feedback_count == 0">No data generated</div>
+				<div ng-show="strength.feedback_count == 0" class="error-msg">
+					<span>No Data Generated</span>
+				</div>
 			</div>
 		</div>
 	</div>
