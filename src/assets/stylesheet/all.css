@@ -483,6 +483,7 @@ body.login{background: #eee !important;}
 .comments-drop .btn.btn-info:hover,
 .comments-drop .btn.btn-info:active,
 .comments-drop .btn.btn-info:focus{
+	color: #000;
 	background: #ffeb7e;
 	border-color: #ffeb7e;
 	background: -moz-linear-gradient(bottom, #ffeb7e 0%, #fde976 20%, #f5e056 77%, #f3de4f 100%);
@@ -718,7 +719,7 @@ body.login{background: #eee !important;}
 .modal-1200 .modal-header h2{
 	margin: 0;
 	font-weight: 700;
-	line-height: 1.25;
+	line-height: 1.35;
 	overflow: hidden;
 }
 .modal-1200 .modal-header .close-btn-font{
@@ -770,6 +771,7 @@ body.login{background: #eee !important;}
 	-webkit-border-radius: 5px;
 	height: 7px;
 }
+.modal-1200 .modal-body .table-block .jcf-scrollable-wrapper .jcf-scrollbar-vertical .jcf-scrollbar-handle{min-height: 30px !important;}
 .comments-holder .jcf-scrollbar-vertical .jcf-scrollbar-handle,
 .modal-1200 .modal-body .jcf-scrollbar-vertical .jcf-scrollbar-handle{width: 7px;}
 .modal-1200 .modal-body .table-container{
@@ -1660,6 +1662,7 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 	color: #12122e;
 	font-size: 14px;
 	line-height: 1.1;
+	text-transform: capitalize;
 }
 #wrapper .ibox.detail-block .ibox-content h1{
 	color: #a6a6ab;
