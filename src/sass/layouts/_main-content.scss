@@ -46,29 +46,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 #piechart{
 	.amcharts-chart-div{
 		&:after{
-//			left: 19%;
-//			right: 19%;
-//			top: 30%;
-//			bottom: 5%;
-//			
-//			@include media("≥widescreen"){
-//				left: 21%;
-//				right: 21%;
-//				bottom: 0;
-//			}
-			
-			left: 11%;
-			right: 0;
+			left: 19%;
+			right: 19%;
 			top: 30%;
-			bottom: 0;
+			bottom: 5%;
 			
 			@include media("≥widescreen"){
-				left: 18%;
-				right: 12%;
-				top: 36%;
-				bottom: -3%;
-			}
-			
+				left: 21%;
+				right: 21%;
+				bottom: 0;
+			}			
 		}
 	}
 }
