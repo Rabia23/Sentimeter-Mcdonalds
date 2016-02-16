@@ -849,12 +849,12 @@ angular.module("live/live.tpl.html", []).run(["$templateCache", function($templa
     "						<li>{{top_ranking.overall_experience.option_text}}</li>\n" +
     "					</ul>\n" +
     "				</li>\n" +
-    "				<!--<li>-->\n" +
-    "					<!--<strong class=\"title\">top Concern</strong>-->\n" +
-    "					<!--<ul>-->\n" +
-    "						<!--<li>{{top_ranking.top_concern}}</li>-->\n" +
-    "					<!--</ul>-->\n" +
-    "				<!--</li>-->\n" +
+    "				<li>\n" +
+    "					<strong class=\"title\">Top Segment</strong>\n" +
+    "					<ul>\n" +
+    "						<li>{{top_ranking.top_segment.segment}}</li>\n" +
+    "					</ul>\n" +
+    "				</li>\n" +
     "				<li>\n" +
     "					<strong class=\"title\">Positive / Negative Feedback</strong>\n" +
     "					<ul>\n" +
