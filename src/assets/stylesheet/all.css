@@ -15,7 +15,7 @@ body.login{background: #eee !important;}
 }
 .morris-block-holder .morris-graph-holder .morris-holder{padding: 0 3px;}
 .morris-block-holder .morris-graph-holder .morris-holder .chart-container{
-	max-width: 60%;
+	max-width: 70%;
 	margin: 0 auto;
 }
 .morris-block-holder .morris-graph-holder .morris-holder .chart-container .chart-doughnut{
@@ -2316,6 +2316,7 @@ li.active,
 }
 
 @media screen and (max-width: 1279px) {
+	.morris-block-holder .morris-graph-holder .morris-holder .chart-container{max-width: 60%;}
 	.users-list ul li .title{width: 77px;}
 	.business-segment .progress-area .progress-holder .progress-inner{max-height: inherit;}
 	.progress-area .progress-holder,
@@ -2387,6 +2388,7 @@ li.active,
 }
 
 @media screen and (max-width: 991px) {
+	.morris-block-holder .morris-graph-holder .morris-holder .chart-container{max-width: 80%;}
 	.promotions .btn.dim{
 		font-size: 15px;
 		line-height: 22px;
@@ -2486,6 +2488,7 @@ li.active,
 }
 
 @media screen and (max-width: 767px) {
+	.morris-block-holder .morris-graph-holder .morris-holder .chart-container{max-width: 60%;}
 	.promotions .btn.dim{
 		font-size: 14px;
 		line-height: 20px;

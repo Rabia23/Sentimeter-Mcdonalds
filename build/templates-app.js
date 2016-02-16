@@ -78,6 +78,9 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "				<li ng-class = \"{'active': currentState == 'users'}\">\n" +
     "					<a ui-sref=\"users\"><i class=\"fa fa-user\"></i> <span class=\"nav-label\">Manage Users</span></a>\n" +
     "				</li>\n" +
+    "				<li ng-class = \"{'active': currentState == 'coupon'}\">\n" +
+    "					<a ui-sref=\"coupon\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
+    "				</li>\n" +
     "			</ul>\n" +
     "    	</div>\n" +
     "	</div>\n" +
@@ -87,24 +90,15 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
 
 angular.module("coupon/coupon.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("coupon/coupon.tpl.html",
-    "<div class=\"section\">\n" +
-    "	<div class=\"login-block\">\n" +
-    "		<div class=\"form-holder\">\n" +
-    "			<div class=\"inner-holder\">\n" +
-    "				<h3>Give Away</h3>\n" +
-    "				<form action=\"#\" class=\"coupon-form\">\n" +
-    "					<fieldset>\n" +
-    "						<input type=\"text\" class=\"form-control\" placeholder=\"Enter McDonald Code\">\n" +
-    "						<input type=\"submit\" value=\"Log in\" class=\"btn btn-info\">\n" +
-    "					</fieldset>\n" +
-    "				</form>\n" +
-    "				<div class=\"form-text\">\n" +
-    "					<h4>inValid COde</h4>\n" +
-    "					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus, nunc id sagittis ornare, lorem.</p>\n" +
-    "				</div>\n" +
-    "			</div>\n" +
-    "		</div>\n" +
-    "	</div>\n" +
+    "<div id=\"wrapper\">\n" +
+    "  <ui-view name = \"sidebar\"></ui-view>\n" +
+    "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
+    "     <ui-view name = \"header\"></ui-view>\n" +
+    "	 <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
+    "		\n" +
+    "	  </div>\n" +
+    "  </div>\n" +
+    "  <ui-view name = \"footer\"></ui-view>\n" +
     "</div>");
 }]);
 
@@ -466,6 +460,8 @@ angular.module("dashboard/overall-rating/overall-rating.tpl.html", []).run(["$te
     "          <a ng-click = \"Next()\" ng-show = \"mainView\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
     "          <a ng-click = \"labelPrev()\" ng-show = \"optionView\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
     "          <a ng-click = \"labelNext()\" ng-show = \"optionView\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
+    "          <a ng-click = \"optionPrev()\" ng-show = \"optionView == false\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
+    "          <a ng-click = \"optionNext()\" ng-show = \"optionView == false\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
     "          <div id=\"chartdiv\" style=\"width: 100%; height: 320px;\"></div>\n" +
     "      </div>\n" +
     "  </div>\n" +
@@ -847,12 +843,12 @@ angular.module("live/live.tpl.html", []).run(["$templateCache", function($templa
     "						<li>{{top_ranking.overall_experience.option_text}}</li>\n" +
     "					</ul>\n" +
     "				</li>\n" +
-    "				<!--<li>-->\n" +
-    "					<!--<strong class=\"title\">top Concern</strong>-->\n" +
-    "					<!--<ul>-->\n" +
-    "						<!--<li>{{top_ranking.top_concern}}</li>-->\n" +
-    "					<!--</ul>-->\n" +
-    "				<!--</li>-->\n" +
+    "				<li>\n" +
+    "					<strong class=\"title\">Top Segment</strong>\n" +
+    "					<ul>\n" +
+    "						<li>{{top_ranking.top_segment.segment}}</li>\n" +
+    "					</ul>\n" +
+    "				</li>\n" +
     "				<li>\n" +
     "					<strong class=\"title\">Positive / Negative Feedback</strong>\n" +
     "					<ul>\n" +
@@ -921,7 +917,9 @@ angular.module("live/patch-qsc-analysis/patch-qsc-analysis.tpl.html", []).run(["
     "                        <li class = {{label.action_class}} ng-repeat=\"label in patch_qsc_labels\"><span class=\"bullet\"></span> {{label.action_name}}</li>\n" +
     "                    </ul>\n" +
     "                </div>\n" +
-    "                <div ng-show=\"all_zeros\">No data generated</div>\n" +
+    "                <div class=\"error-msg\" ng-show=\"all_zeros\">\n" +
+    "                    <span>No data generated</span>\n" +
+    "                </div>\n" +
     "                <div class=\"block-holder\" ng-hide=\"all_zeros\">\n" +
     "                    <div class=\"c-holder\">\n" +
     "                        <div class=\"box-holder\" patch-pie-chart data-data = \"pakistan_analysis\">\n" +
@@ -981,12 +979,12 @@ angular.module("live/qsc/qsc.tpl.html", []).run(["$templateCache", function($tem
 
 angular.module("live/strength/strength.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/strength/strength.tpl.html",
-    "<div class=\"slide win-height\" strength data-data = \"strength_data\">\n" +
+    "<div class=\"slide win-height\">\n" +
     "	<div class=\"slide-holder\">\n" +
     "		<div class=\"holder\">\n" +
-    "			<div class=\"chart-outer\">\n" +
-    "				<div id=\"strengthPieChart\" ng-hide=\"strength.feedback_count == 0\"></div>\n" +
-    "				<div ng-show=\"strength.feedback_count == 0\" class=\"error-msg\">\n" +
+    "			<div class=\"chart-outer\" strength data-data = \"strength_data\" ng-hide=\"all_zero\">\n" +
+    "				<div id=\"strengthPieChart\"></div>\n" +
+    "				<div ng-show=\"all_zero\" class=\"error-msg\">\n" +
     "					<span>No Data Generated</span>\n" +
     "				</div>\n" +
     "			</div>\n" +
@@ -997,11 +995,14 @@ angular.module("live/strength/strength.tpl.html", []).run(["$templateCache", fun
 
 angular.module("live/top-concerns/top-concern.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/top-concerns/top-concern.tpl.html",
-    "<div class=\"slide win-height\" top-concern data-data = \"top_concern_data\">\n" +
+    "<div class=\"slide win-height\">\n" +
     "	<div class=\"slide-holder\">\n" +
     "		<div class=\"holder\">\n" +
-    "			<div class=\"chart-outer\">\n" +
+    "			<div class=\"chart-outer\" top-concern data-data = \"top_concern_data\" ng-hide=\"all_zero\">\n" +
     "				<div id=\"container\"></div>\n" +
+    "				<div ng-show=\"all_zero\" class=\"error-msg\">\n" +
+    "					<span>No Data Generated</span>\n" +
+    "				</div>\n" +
     "			</div>\n" +
     "		</div>\n" +
     "	</div>\n" +

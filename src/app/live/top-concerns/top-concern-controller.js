@@ -7,8 +7,12 @@
     
     function top_concern(){
       var concern_list = $scope.concerns.concern_list;
+      $scope.all_zero = true;
       $scope.top_concern_data = [];
       _.each(concern_list, function(value, index){
+        if(value.weight > 0){
+          $scope.all_zero = false;
+        }
         if(value.name == "Bun"){
           $scope.top_concern_data.push({"category": value.name.toUpperCase()+" [Burnt, Dry]", "column-1": value.weight});
         }

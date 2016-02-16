@@ -2,6 +2,24 @@
     angular.module('livefeed.dashboard.overall_rating')
 
     .controller( 'TimeLineCtrl', function DashboardController( $scope, overallRatingChartService, Graphs, Global, flashService ) {
+       var height = 0;
+       var width = 0;
+
+       $(window).resize( function(){
+         height = $(window).height();
+         width = $(window).width();
+         if($scope.mainView === false && $scope.optionView === true){
+            $scope.labelClick($scope.option);
+         }
+         else if($scope.mainView === false && $scope.optionView === false){
+            $scope.optionClick($scope.option_object);
+         }
+         else {
+             mainRating();
+         }
+
+       }).resize();
+
        $scope.today = new Date();
 
        function resetDates(){
@@ -103,17 +121,21 @@
              return value.priority;
          });
        }
-
        function mainRating() {
+
            $scope.mainView = true;
            $scope.show_loading = true;
            $scope.optionView = false;
            Graphs.overall_rating(null, $scope.start_date, $scope.end_date).$promise.then(function (data) {
              if(data.success) {
-               if(screen.width < 640) {
+               if(width < height) {
+                  console.log("main rating");
+                  console.log("potrait");
                   calculate_data_sets(data, 3);
                }
                else {
+                   console.log("main rating");
+                   console.log("landscape");
                    calculate_data_sets(data, 7);
                }
                calculate_labels($scope.data_array[0][0].data.feedbacks);
@@ -128,16 +150,21 @@
        }
 
        $scope.labelClick = function(option){
+          $scope.option = option;
           if(option.parent_id == null){
             $scope.show_loading = true;
             $scope.optionView = true;
             Graphs.overall_rating(option.option_id, $scope.start_date, $scope.end_date).$promise.then(function(data) {
               if(data.success) {
                 $scope.mainView = false;
-                if(screen.width < 640) {
+                if(width < height)  {
+                  console.log("label click");
+                  console.log("potrait");
                   calculate_data_sets(data, 3);
                 }
                 else {
+                  console.log("label click");
+                  console.log("landscape");
                   calculate_data_sets(data, 7);
                 }
                 calculate_option_labels($scope.data_array[0][0].data.feedbacks);
@@ -152,7 +179,13 @@
           }
        };
 
+        function drawOptionGraph(data){
+         $scope.overall_rating_data = [];
+         $scope.overall_rating_data = [$scope.labels, data];
+       }
+
        $scope.optionClick = function (option_object){
+         $scope.option_object = option_object;
          var option_id = option_object.item.dataContext[option_object.graph.id];
          var date = option_object.item.category;
          if(option_id !== undefined) {
@@ -179,8 +212,23 @@
                   $scope.labels = _.sortBy($scope.labels, function (value) {
                      return value.priority;
                   });
-                  var qsc_suboptions_data = overallRatingChartService.getAreaSegmentChart(data.response);
-                  $scope.overall_rating_data = [$scope.labels, qsc_suboptions_data];
+                  var qsc_suboptions_data;
+                  $scope.segments_data_array = [];
+                  $scope.page = 1;
+                  $scope.max_page = 1;
+                  qsc_suboptions_data = overallRatingChartService.getAreaSegmentChart(data.response.options);
+                  if(width < height) {
+                    console.log("option click");
+                    console.log("potrait");
+                    while (qsc_suboptions_data.length > 0) {
+                      $scope.segments_data_array.push(qsc_suboptions_data.splice(0, 3));
+                    }
+                    $scope.max_page = $scope.segments_data_array.length;
+                    drawOptionGraph($scope.segments_data_array[0]);
+                  }
+                  else {
+                    drawOptionGraph(qsc_suboptions_data);
+                  }
                 }
              }
              else {
@@ -209,6 +257,12 @@
            drawLabelGraph($scope.data_array[($scope.page -1 )]);
          }
        };
+       $scope.optionNext = function(){
+         if($scope.page < $scope.max_page){
+           $scope.page = $scope.page + 1;
+           drawOptionGraph($scope.segments_data_array[($scope.page -1 )]);
+         }
+       };
 
        $scope.backToMain = function() {
          mainRating();
@@ -227,8 +281,14 @@
            drawLabelGraph($scope.data_array[($scope.page -1 )]);
          }
        };
+       $scope.optionPrev = function(){
+         if($scope.page > 1){
+           $scope.page = $scope.page - 1;
+           drawOptionGraph($scope.segments_data_array[($scope.page -1 )]);
+         }
+       };
 
        resetDates();
-       mainRating();
+       //mainRating();
     });
 })();
