@@ -20,7 +20,8 @@
 }
 
 #piechart,
-#container{
+#container,
+#strengthPieChart{
 	width: 100% !important;
 	height: 100% !important;
 	
@@ -59,6 +60,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 	}
 }
 
+#strengthPieChart{
+	.amcharts-chart-div{
+		&:after{
+			left: 0;
+			right: 0;
+			top: 40%;
+			bottom: 0;
+			
+			@include media("≥widescreen"){
+				left: 20%;
+				right: 15%;
+				top: 40%;
+				bottom: -2%;
+			}
+		}
+	}
+}
+
 #container{
 	.amcharts-chart-div{
 		&:after{
@@ -80,6 +99,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 	overflow: visible !important;
 	
 	.amcharts-chart-div{overflow: visible !important;}
+	.amcharts-legend-div{
+		display: none !important;
+		font-size: 0;
+		line-height: 0;
+	}
 }
 
 svg{
