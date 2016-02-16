@@ -154,7 +154,7 @@ angular.module("dashboard/category-performance-analysis/category-performance-ana
     "              <div class=\"morris-graph-holder\">\n" +
     "                <div class=\"morris-holder\">\n" +
     "                  <div ng-hide = \"segment.show_string\">\n" +
-    "                    <canvas id=\"doughnut\" class=\"chart chart-doughnut\" chart-data=\"segment.data\" chart-labels=\"segment.labels\" chart-colours=\"segment.colors\" chart-options = \"segment.options\"></canvas>\n" +
+    "                    <canvas id=\"doughnut\" width=\"100\" height=\"100\" class=\"chart chart-doughnut\" chart-data=\"segment.data\" chart-labels=\"segment.labels\" chart-colours=\"segment.colors\" chart-options = \"segment.options\"></canvas>\n" +
     "                  </div>\n" +
     "                  <div ng-show=\"segment.show_string\">No Data Available</div>\n" +
     "                </div>\n" +

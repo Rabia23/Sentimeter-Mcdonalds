@@ -14,6 +14,14 @@ body.login{background: #eee !important;}
 	text-align: center;
 }
 .morris-block-holder .morris-graph-holder .morris-holder{padding: 0 3px;}
+.morris-block-holder .morris-graph-holder .morris-holder .chart-container{
+	max-width: 60%;
+	margin: 0 auto;
+}
+.morris-block-holder .morris-graph-holder .morris-holder .chart-container .chart-doughnut{
+	width: 100% !important;
+	height: auto !important;
+}
 .regional-holder,
 .morris-holder{
 	white-space: nowrap;
@@ -2644,4 +2652,6 @@ li.active,
 	body.mini-navbar .tab-links a{font-size: 10px;}
 	.promotions .btn.dim .title{height: auto !important;}
 	.loader{margin: 10% 15%;}
+	.morris-block-holder .morris-graph-holder .morris-holder .chart-container{max-width: 70%;}
+	.morris-block-holder .morris-content-holder{width: 50%;}
 }

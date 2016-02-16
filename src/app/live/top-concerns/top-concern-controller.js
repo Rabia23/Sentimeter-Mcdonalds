@@ -7,7 +7,6 @@
     
     function top_concern(){
       var concern_list = $scope.concerns.concern_list;
-      console.log(concern_list);
       $scope.top_concern_data = [];
       _.each(concern_list, function(value, index){
         if(value.name == "Bun"){

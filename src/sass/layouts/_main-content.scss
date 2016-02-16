@@ -99,6 +99,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 	overflow: visible !important;
 	
 	.amcharts-chart-div{overflow: visible !important;}
+	.amcharts-legend-div{
+		display: none !important;
+		font-size: 0;
+		line-height: 0;
+	}
 }
 
 svg{
