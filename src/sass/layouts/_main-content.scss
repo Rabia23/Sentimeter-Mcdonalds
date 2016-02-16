@@ -20,7 +20,8 @@
 }
 
 #piechart,
-#container{
+#container,
+#strengthPieChart{
 	width: 100% !important;
 	height: 100% !important;
 	
@@ -54,6 +55,24 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 				left: 21%;
 				right: 21%;
 				bottom: 0;
+			}
+		}
+	}
+}
+
+#strengthPieChart{
+	.amcharts-chart-div{
+		&:after{
+			left: 0;
+			right: 0;
+			top: 40%;
+			bottom: 0;
+			
+			@include media("≥widescreen"){
+				left: 20%;
+				right: 15%;
+				top: 40%;
+				bottom: -2%;
 			}
 		}
 	}

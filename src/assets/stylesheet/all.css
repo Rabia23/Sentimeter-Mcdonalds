@@ -750,6 +750,7 @@ body.login{background: #eee !important;}
 	background: none !important;
 	height: 7px;
 }
+.table-block .jcf-scrollbar.jcf-scrollbar-horizontal{display: none !important;}
 .comments-holder .jcf-scrollbar-vertical,
 .modal-1200 .modal-body .jcf-scrollbar-vertical{width: 7px;}
 .comments-holder .jcf-scrollbar-vertical .jcf-scrollbar-handle,
@@ -2592,6 +2593,7 @@ li.active,
 		font-size: 30px;
 		line-height: 30px;
 	}
+	.loader{margin: 10% 25%;}
 }
 
 @media screen and (max-width: 768px) {
@@ -2621,7 +2623,7 @@ li.active,
 		font-size: 18px;
 		line-height: 1.4;
 	}
-	.modal-1200 .modal-body .table-container{height: 300px !important;}
+	.modal-1200 .modal-body .table-container{height: 317px !important;}
 	.modal-1200 .modal-body .table-block{min-height: 354px !important;}
 	#wrapper .navbar-header{
 		float: none;
@@ -2641,4 +2643,5 @@ li.active,
 	}
 	body.mini-navbar .tab-links a{font-size: 10px;}
 	.promotions .btn.dim .title{height: auto !important;}
+	.loader{margin: 10% 15%;}
 }
