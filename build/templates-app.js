@@ -78,6 +78,9 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "				<li ng-class = \"{'active': currentState == 'users'}\">\n" +
     "					<a ui-sref=\"users\"><i class=\"fa fa-user\"></i> <span class=\"nav-label\">Manage Users</span></a>\n" +
     "				</li>\n" +
+    "				<li ng-class = \"{'active': currentState == 'coupon'}\">\n" +
+    "					<a ui-sref=\"coupon\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
+    "				</li>\n" +
     "			</ul>\n" +
     "    	</div>\n" +
     "	</div>\n" +
@@ -87,24 +90,15 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
 
 angular.module("coupon/coupon.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("coupon/coupon.tpl.html",
-    "<div class=\"section\">\n" +
-    "	<div class=\"login-block\">\n" +
-    "		<div class=\"form-holder\">\n" +
-    "			<div class=\"inner-holder\">\n" +
-    "				<h3>Give Away</h3>\n" +
-    "				<form action=\"#\" class=\"coupon-form\">\n" +
-    "					<fieldset>\n" +
-    "						<input type=\"text\" class=\"form-control\" placeholder=\"Enter McDonald Code\">\n" +
-    "						<input type=\"submit\" value=\"Log in\" class=\"btn btn-info\">\n" +
-    "					</fieldset>\n" +
-    "				</form>\n" +
-    "				<div class=\"form-text\">\n" +
-    "					<h4>inValid COde</h4>\n" +
-    "					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris tempus, nunc id sagittis ornare, lorem.</p>\n" +
-    "				</div>\n" +
-    "			</div>\n" +
-    "		</div>\n" +
-    "	</div>\n" +
+    "<div id=\"wrapper\">\n" +
+    "  <ui-view name = \"sidebar\"></ui-view>\n" +
+    "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
+    "     <ui-view name = \"header\"></ui-view>\n" +
+    "	 <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
+    "		\n" +
+    "	  </div>\n" +
+    "  </div>\n" +
+    "  <ui-view name = \"footer\"></ui-view>\n" +
     "</div>");
 }]);
 
