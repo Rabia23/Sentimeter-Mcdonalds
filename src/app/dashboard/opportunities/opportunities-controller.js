@@ -1,10 +1,7 @@
-angular.module( 'livefeed.dashboard.opportunities', [
-  'factories',
-  'helper_factories',
-   'ngFlash'
-])
+(function() {
+  angular.module('livefeed.dashboard.opportunities')
 
-.controller( 'OpportunitiesCtrl', function OpportunitiesCtrl( $scope, Graphs, Global, flashService ) {
+  .controller( 'OpportunitiesCtrl', function OpportunitiesCtrl( $scope, Graphs, Global, flashService ) {
     $scope.start_date = null;
     $scope.end_date = null;
     $scope.show_loading = true;
@@ -35,38 +32,5 @@ angular.module( 'livefeed.dashboard.opportunities', [
         flashService.createFlash($scope.error_message, "danger");
       }
     });
-})
-
-.directive('opportunityBarBackground', function() {
-  return {
-      restrict: 'A',
-      scope: {
-        data: '=',
-        color: "="
-      },
-      link: function(scope, ele, attrs) {
-        scope.$watch('data', function(watchedData) {
-          if(watchedData !== undefined){
-            $(ele).find(".progress-bar").css("background-color", ('' + scope.color));
-            $(ele).find(".progress-bar").css("color", ('' + scope.color));
-          }
-        });
-      }
-  };
-});
-
-//.directive('sameHeight', function() {
-//  return {
-//      restrict: 'A',
-//      scope: {
-//        mydata: '='
-//      },
-//      link: function(scope, ele, attrs) {
-//        scope.$watch('mydata', function(watchedData) {
-//          if(watchedData !== undefined){
-//            window.initSameHeight();
-//          }
-//        });
-//      }
-//  };
-//});
+  });
+})();
