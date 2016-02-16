@@ -14,7 +14,7 @@
 
         var width = screen.width;
         var marginRight = "-35%";
-        var marginLeft = "-15%";  
+        var marginLeft = "-15%";
         if(width < 1440){
           marginRight = "-18%";
           marginLeft = "10%";
@@ -42,13 +42,15 @@
                 "type": "pie",
                 "angle": 25,
                 "startDuration": 0,
+                "pullOutDuration": 0,
+                "pullOutRadius": 0,
                 "balloonText": "<span style='font-size:20px'>[[title]]</span><br><span style='font-size:16px'>[[value]]</span>",
                 "depth3D": 55,
                 "innerRadius": "35%",
                 "marginRight": marginRight,
                 "marginLeft": marginLeft,
-                "marginTop": -95,
-                "marginBottom": "-8%",
+                "marginTop": "3%",
+                "marginBottom": "14%",
                 "autoMargins":false,
                 "labelRadius": -75,
                 "labelText": "[[value]]",
@@ -94,7 +96,7 @@
               live_top_concerns.validateData();
             }
 
-            
+
           }
         });
       }
@@ -102,4 +104,3 @@
   });
 
 })();
-
