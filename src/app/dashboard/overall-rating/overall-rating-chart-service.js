@@ -43,7 +43,7 @@ angular.module('livefeed.overall_rating.chart', [
             var segment_data = [];
             var segment_array = {};
 
-            var segments = _.map(graph_data.options[0].segment_list ,function(value){
+            var segments = _.map(graph_data[0].segment_list ,function(value){
                 segment_data.push({category: value.segment});
                return value.segment;
             });
@@ -52,7 +52,7 @@ angular.module('livefeed.overall_rating.chart', [
                segment_array[value] = [];
             });
 
-            _.each(graph_data.options, function(value, upper_index){
+            _.each(graph_data, function(value, upper_index){
                 var list = value.segment_list;
                 _.each(list, function(list_value, index){
                     segment_array[list_value.segment].push(list_value.option_count);

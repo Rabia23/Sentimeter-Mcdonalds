@@ -95,8 +95,9 @@
                     percentageInnerCutout: 70,
                     tooltipTemplate: "<%if (label) %><%= value %>",
                     tooltipYPadding: 4,
-                    tooltipXPadding: 4,
-                    tooltipFontSize: 12
+                    tooltipXPadding: 2,
+                    tooltipCornerRadius: 0,
+                    tooltipFontSize: 14
                   },
                   priority: Global.segmentationPriority[data.segment]
                 };
