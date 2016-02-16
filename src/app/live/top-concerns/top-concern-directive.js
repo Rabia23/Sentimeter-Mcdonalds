@@ -15,9 +15,15 @@
         var width = screen.width;
         var marginRight = "-35%";
         var marginLeft = "-15%";
-        if(width < 1440){
-          marginRight = "-18%";
-          marginLeft = "10%";
+        var fontsize = 40;
+        if(width < 1600 && width > 1441){
+          marginRight = "-20%";
+          marginLeft = "-10%";
+          fontsize = 30;
+        }else if(width < 1440){
+          marginRight = "0%";
+          marginLeft = "5%";
+          fontsize = 25;
         }
 
         var vertical_gap = 0;
@@ -83,7 +89,7 @@
                   "marginRight":-20,
                   "marginTop": 50,
                  "autoMargins":false,
-                  "fontSize": 40,
+                  "fontSize": fontsize,
                   "verticalGap": vertical_gap
                 },
                 "titles": [],
