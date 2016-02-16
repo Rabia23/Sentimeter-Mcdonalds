@@ -39,6 +39,8 @@
 background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 70%);
 background: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 70%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#00000000',GradientType=1 );
+			max-width: 770px;
+			margin: 0 auto;
 		}
 	}
 }
@@ -69,8 +71,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 			bottom: 0;
 			
 			@include media("≥widescreen"){
-				left: 18%;
-				right: 12%;
+				left: 16%;
+				right: 10%;
 				top: 36%;
 				bottom: -3%;
 			}
@@ -83,12 +85,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 		&:after{
 			left: 30%;
 			right: 0;
-			top: 40%;
+			top: 36%;
 			bottom: 10%;
 			
 			@include media("≥widescreen"){
-				left: 30%;
-				right: 10%;
+				left: 28%;
+				right: 7%;
 				bottom: -50px;
 			}
 		}
