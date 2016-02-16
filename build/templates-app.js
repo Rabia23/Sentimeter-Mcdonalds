@@ -95,7 +95,80 @@ angular.module("coupon/coupon.tpl.html", []).run(["$templateCache", function($te
     "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
     "     <ui-view name = \"header\"></ui-view>\n" +
     "	 <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
-    "		\n" +
+    "	 	<h1>How To Guide</h1>\n" +
+    "	 	<h2>Table of Content</h2>\n" +
+    "		<div class=\"accordion-holder\">\n" +
+    "			<ul class=\"accordion\">\n" +
+    "				<li>\n" +
+    "					<a>IOS Application</a>\n" +
+    "					<div class=\"slide\">\n" +
+    "\n" +
+    "					</div>\n" +
+    "				</li>\n" +
+    "				<li>\n" +
+    "					<a>Web Application</a>\n" +
+    "					<div class=\"slide\">\n" +
+    "						<ul class=\"accordion\">\n" +
+    "							<li>\n" +
+    "								<a>Live Dashboard</a>\n" +
+    "								<div class=\"slide\"></div>\n" +
+    "							</li>\n" +
+    "							<li>\n" +
+    "								<a>Web Dashboard</a>\n" +
+    "								<div class=\"slide\">\n" +
+    "									<ul class=\"accordion\">\n" +
+    "										<li>\n" +
+    "											<a>Dashboard</a>\n" +
+    "											<div class=\"slide\">\n" +
+    "												<ul class=\"accordion\">\n" +
+    "													<li>\n" +
+    "														<a></a>\n" +
+    "														<div class=\"slide\">\n" +
+    "															<ol>\n" +
+    "																<li></li>\n" +
+    "																<li></li>\n" +
+    "															</ol>\n" +
+    "														</div>\n" +
+    "													</li>\n" +
+    "													<li>\n" +
+    "														<a></a>\n" +
+    "														<div class=\"slide\"></div>\n" +
+    "													</li>\n" +
+    "													<li>\n" +
+    "														<a></a>\n" +
+    "														<div class=\"slide\"></div>\n" +
+    "													</li>\n" +
+    "													<li>\n" +
+    "														<a></a>\n" +
+    "														<div class=\"slide\"></div>\n" +
+    "													</li>\n" +
+    "													<li>\n" +
+    "														<a></a>\n" +
+    "														<div class=\"slide\"></div>\n" +
+    "													</li>\n" +
+    "													<li>\n" +
+    "														<a></a>\n" +
+    "														<div class=\"slide\"></div>\n" +
+    "													</li>\n" +
+    "												</ul>\n" +
+    "											</div>\n" +
+    "										</li>\n" +
+    "										<li>\n" +
+    "											<a>Promotions</a>\n" +
+    "											<div class=\"slide\"></div>\n" +
+    "										</li>\n" +
+    "										<li>\n" +
+    "											<a>Manage Users</a>\n" +
+    "											<div class=\"slide\"></div>\n" +
+    "										</li>\n" +
+    "									</ul>\n" +
+    "								</div>\n" +
+    "							</li>\n" +
+    "						</ul>\n" +
+    "					</div>\n" +
+    "				</li>\n" +
+    "			</ul>\n" +
+    "		</div>\n" +
     "	  </div>\n" +
     "  </div>\n" +
     "  <ui-view name = \"footer\"></ui-view>\n" +
