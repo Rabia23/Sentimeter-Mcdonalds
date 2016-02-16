@@ -923,7 +923,9 @@ angular.module("live/patch-qsc-analysis/patch-qsc-analysis.tpl.html", []).run(["
     "                        <li class = {{label.action_class}} ng-repeat=\"label in patch_qsc_labels\"><span class=\"bullet\"></span> {{label.action_name}}</li>\n" +
     "                    </ul>\n" +
     "                </div>\n" +
-    "                <div ng-show=\"all_zeros\">No data generated</div>\n" +
+    "                <div class=\"error-msg\" ng-show=\"all_zeros\">\n" +
+    "                    <span>No data generated</span>\n" +
+    "                </div>\n" +
     "                <div class=\"block-holder\" ng-hide=\"all_zeros\">\n" +
     "                    <div class=\"c-holder\">\n" +
     "                        <div class=\"box-holder\" patch-pie-chart data-data = \"pakistan_analysis\">\n" +
@@ -983,12 +985,12 @@ angular.module("live/qsc/qsc.tpl.html", []).run(["$templateCache", function($tem
 
 angular.module("live/strength/strength.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/strength/strength.tpl.html",
-    "<div class=\"slide win-height\" strength data-data = \"strength_data\">\n" +
+    "<div class=\"slide win-height\">\n" +
     "	<div class=\"slide-holder\">\n" +
     "		<div class=\"holder\">\n" +
-    "			<div class=\"chart-outer\">\n" +
-    "				<div id=\"strengthPieChart\" ng-hide=\"strength.feedback_count == 0\"></div>\n" +
-    "				<div ng-show=\"strength.feedback_count == 0\" class=\"error-msg\">\n" +
+    "			<div class=\"chart-outer\" strength data-data = \"strength_data\" ng-hide=\"all_zero\">\n" +
+    "				<div id=\"strengthPieChart\"></div>\n" +
+    "				<div ng-show=\"all_zero\" class=\"error-msg\">\n" +
     "					<span>No Data Generated</span>\n" +
     "				</div>\n" +
     "			</div>\n" +
@@ -999,11 +1001,14 @@ angular.module("live/strength/strength.tpl.html", []).run(["$templateCache", fun
 
 angular.module("live/top-concerns/top-concern.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/top-concerns/top-concern.tpl.html",
-    "<div class=\"slide win-height\" top-concern data-data = \"top_concern_data\">\n" +
+    "<div class=\"slide win-height\">\n" +
     "	<div class=\"slide-holder\">\n" +
     "		<div class=\"holder\">\n" +
-    "			<div class=\"chart-outer\">\n" +
+    "			<div class=\"chart-outer\" top-concern data-data = \"top_concern_data\" ng-hide=\"all_zero\">\n" +
     "				<div id=\"container\"></div>\n" +
+    "				<div ng-show=\"all_zero\" class=\"error-msg\">\n" +
+    "					<span>No Data Generated</span>\n" +
+    "				</div>\n" +
     "			</div>\n" +
     "		</div>\n" +
     "	</div>\n" +
