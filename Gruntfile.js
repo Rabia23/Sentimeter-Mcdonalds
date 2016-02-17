@@ -18,6 +18,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-http-server');
+  grunt.loadNpmTasks('grunt-lintspaces');
 
   /**
    * Load in our build configuration file.
@@ -298,6 +299,40 @@ module.exports = function ( grunt ) {
       globals: {}
     },
 
+    lintspaces: {
+      all: {
+        src: [
+          '**/*.tpl.html'
+        ],
+        options: {
+          // newline: true,
+          // newlineMaximum: 2,
+          // trailingspaces: true,
+          indentation: 'spaces',
+          spaces: 2
+        }
+      }
+      // javascript: {
+      //     src: [
+      //         'js/src/**/*.js'
+      //     ],
+      //     options: {
+      //         newline: true,
+      //         trailingspaces: true,
+      //         indentation: 'tabs',
+      //         ignores: ['js-comments']
+      //     }
+      // },
+      // external: {
+      //   src: [
+      //       '**/*'
+      //   ],
+      //   options: {
+      //       editorconfig: '.editorconfig'
+      //   }
+      // }
+    },
+
      /**
      * `coffeelint` does the same as `jshint`, but for CoffeeScript.
      * CoffeeScript is not the default in ngBoilerplate, so we're just using
@@ -552,7 +587,7 @@ module.exports = function ( grunt ) {
    * The `build` task gets your app ready to run for development and testing.
    */
   grunt.registerTask( 'build', [
-    'clean', 'html2js', 'jshint', 'coffeelint', 'coffee','sass:dev',
+    'clean', 'html2js', 'jshint','lintspaces' ,'coffeelint', 'coffee','sass:dev',
     'concat:build_css','copy:build_app_assets', 'copy:build_vendor_assets',
     'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_vendorcss', 'index:build'
   ]);

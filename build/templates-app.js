@@ -19,7 +19,7 @@ angular.module("common/footer.tpl.html", []).run(["$templateCache", function($te
 angular.module("common/header.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("common/header.tpl.html",
     "<div class=\"header-visual\">\n" +
-    "  <nav class=\"navbar dashboard\" role=\"navigation\" style=\"margin-bottom: 0;z-index: 999;\">\n" +
+    "  <nav class=\"navbar dashboard\" role=\"navigation\">\n" +
     "    <div class=\"navbar-header\">\n" +
     "      <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary\" toggle-menu>\n" +
     "        <i class=\"fa fa-bars\"></i>\n" +
@@ -159,7 +159,7 @@ angular.module("dashboard/dashboard.tpl.html", []).run(["$templateCache", functi
     "    <ui-view name = \"positive_negative_feedback\"></ui-view>\n" +
     "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
     "      <div class=\"row same-height-parent\">\n" +
-    "        <flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message> \n" +
+    "        <flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show = \"show_alert\"></flash-message> \n" +
     "        <div class=\"col-lg-6 col-lg-push-6\">\n" +
     "          <div class=\"same-height-block blocks-holder\">\n" +
     "            <div class=\"row\">\n" +
@@ -716,9 +716,12 @@ angular.module("dashboard/top-concern/top-concern.tpl.html", []).run(["$template
 
 angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("how-to/how-to.tpl.html",
-    "<div id=\"wrapper\">\n" +
-    "  <div id=\"page-wrapper\" class=\"gray-bg add\">\n" +
+    "<div id=\"wrapper\" class=\"add\">\n" +
+    "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
     "     <header class=\"doc-header\">\n" +
+    "         <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary visible-xs menu-opener\">\n" +
+    "          <i class=\"fa fa-bars\"></i>\n" +
+    "        </a>\n" +
     "     	<div class=\"logo-holder\">\n" +
     "			<div class=\"logo\">\n" +
     "			   <a href=\"http://www.mcdonalds.com.pk/\" target=\"_blank\"> <img alt=\"image\" class=\"img-responsive\" src=\"assets/images/logo.jpg\"></a>\n" +
@@ -726,7 +729,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "		  </div>\n" +
     "     </header>\n" +
     "     <div class=\"doc-block\">\n" +
-    "     	<nav class=\"navbar-default navbar-static-side hidden-print hidden-xs hidden-sm affix-top\" data-spy=\"affix\" role=\"navigation\" >\n" +
+    "     	<nav class=\"navbar-default navbar-static-side\" role=\"navigation\" >\n" +
     "			<div class=\"sidebar-collapse\">\n" +
     "			   <div id=\"side-menu\" class=\"nav metismenu\">\n" +
     "					<ul class=\"nav metismenu\" id=\"side-menu\">\n" +
@@ -738,13 +741,11 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "										<li class=\"active\">\n" +
     "										  <a href=\"/dashboard\">Dashboard</a>\n" +
     "										  <ul class=\"nav nav-fourth-level collapse\">\n" +
-    "                                            <li class=\"active\"><a href=\"/overallrating\">Overall Rating</a></li>\n" +
-    "<!--\n" +
-    "                                            <li><a href=\"#\"></a></li>\n" +
-    "                                            <li><a href=\"#\"></a></li>\n" +
-    "                                            <li><a href=\"#\"></a></li>\n" +
-    "                                            <li><a href=\"#\"></a></li>\n" +
-    "-->\n" +
+    "                                            <li class=\"active\"><a href=\"#overallrating\">Overall Rating</a></li>\n" +
+    "                                            <li><a href=\"#businessSegment\">Business Segment Breakdown</a></li>\n" +
+    "                                            <li><a href=\"#qsc\">QSC Analysis</a></li>\n" +
+    "                                            <li><a href=\"#map\">Benchmark Map</a></li>\n" +
+    "                                            <li><a href=\"#timeline\">Timeline</a></li>\n" +
     "                                          </ul>\n" +
     "										</li>\n" +
     "										<li><a href=\"#promotions\">Promotions</a></li>\n" +
@@ -777,6 +778,98 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "				<h1>Dashboard</h1>\n" +
     "				<section class=\"info-section\" id=\"overallrating\">\n" +
     "				  <h2>Overall Rating Section</h2>\n" +
+    "                  <div class=\"text-block\">\n" +
+    "                      <ol class=\"steps-list\">\n" +
+    "                          <li>\n" +
+    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Select Start and End Dates From the Calender Popup\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                          </li>\n" +
+    "                      </ol>\n" +
+    "                  </div>\n" +
+    "				</section>\n" +
+    "				<section class=\"info-section\" id=\"businessSegment\">\n" +
+    "				  <h2>Business Segment Breakdown Section</h2>\n" +
+    "                  <div class=\"text-block\">\n" +
+    "                      <ol class=\"steps-list\">\n" +
+    "                          <li>\n" +
+    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Select Start and End Dates From the Calender Popup\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                          </li>\n" +
+    "                      </ol>\n" +
+    "                  </div>\n" +
+    "				</section>\n" +
+    "				<section class=\"info-section\" id=\"qsc\">\n" +
+    "				  <h2>QSC Analysis Section</h2>\n" +
+    "                  <div class=\"text-block\">\n" +
+    "                      <ol class=\"steps-list\">\n" +
+    "                          <li>\n" +
+    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Select Start and End Dates From the Calender Popup\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                          </li>\n" +
+    "                      </ol>\n" +
+    "                  </div>\n" +
+    "				</section>\n" +
+    "				<section class=\"info-section\" id=\"map\">\n" +
+    "				  <h2>Benchmark Map Section</h2>\n" +
+    "                  <div class=\"text-block\">\n" +
+    "                      <ol class=\"steps-list\">\n" +
+    "                          <li>\n" +
+    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Select Start and End Dates From the Calender Popup\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                          </li>\n" +
+    "                      </ol>\n" +
+    "                  </div>\n" +
+    "				</section>\n" +
+    "				<section class=\"info-section\" id=\"timeline\">\n" +
+    "				  <h2>Timeline Section</h2>\n" +
     "                  <div class=\"text-block\">\n" +
     "                      <ol class=\"steps-list\">\n" +
     "                          <li>\n" +
@@ -1099,7 +1192,7 @@ angular.module("login/login.tpl.html", []).run(["$templateCache", function($temp
     "		<div class=\"login-block\">\n" +
     "			<div class=\"form-holder\" ng-class=\"{loading: show_loading}\">\n" +
     "				<div class=\"form-inner\">\n" +
-    "					<flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message> \n" +
+    "					<flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show = \"show_alert\"></flash-message> \n" +
     "					<div class=\"inner-holder\">\n" +
     "						<h3>Log In</h3>\n" +
     "						<form class=\"login-form\" name = \"LoginForm\" ng-submit=\"login(LoginForm.$valid)\" novalidate>\n" +
@@ -1143,7 +1236,7 @@ angular.module("manage-users/edit-user-modal.tpl.html", []).run(["$templateCache
     "		<div class=\"modal-body\" ng-class = \"{'loading': show_loading}\">\n" +
     "			<div class=\"row\">\n" +
     "				<div class=\"col-xs-12\">\n" +
-    "					<flash-message duration=\"5000\" show-close=\"true\"></flash-message>\n" +
+    "					<flash-message duration=\"5000\" show-close=\"true\" ng-show = \"show_flash\"></flash-message>\n" +
     "					<div class=\"form-group\">\n" +
     "						<label class=\"col-sm-2 col-md-3 control-label\" for=\"firsName\">First Name</label>\n" +
     "						<div class=\"col-sm-10 col-md-9\">\n" +
@@ -1266,7 +1359,7 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
     "						<h2>No User Added</h2>\n" +
     "                        <h4>Click on Add button to Add New User</h4>\n" +
     "					</div>\n" +
-    "					<flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message>\n" +
+    "					<flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show = \"show_alert\"></flash-message>\n" +
     "					<ul class=\"users-list\" data-users = \"users\">\n" +
     "						<li ng-repeat = \"user in users track by $index\" ng-class=\"{'deactivate': user.is_active == false, 'inactive': user.is_active == false}\">\n" +
     "							<div class=\"ibox\">\n" +
@@ -1406,7 +1499,7 @@ angular.module("promotions/promotions.tpl.html", []).run(["$templateCache", func
     "			<div class=\"col-lg-12\">\n" +
     "				<div class=\"row\">\n" +
     "					<div class=\"col-xs-12\">\n" +
-    "            <flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message>\n" +
+    "            <flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show = \"show_alert\"></flash-message>\n" +
     "						<ul class=\"btn-list\">\n" +
     "							<li ng-repeat = \"promotion in promotions\">\n" +
     "								<a class=\"btn ibox dim btn-large-dim btn-outline\" ng-click = \"detail(promotion.id)\">\n" +

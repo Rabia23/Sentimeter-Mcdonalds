@@ -10,14 +10,20 @@
       link: function(scope, ele, attrs) {
 
         var graph_show = false;
-        var live_strength;
-
+        var live_top_concerns;
+        // TODO this code is repeating in 2 directives, make a service for this
         var width = screen.width;
         var marginRight = "-35%";
-        var marginLeft = "-30%";
-        if(width < 1440){
-          marginRight = "-18%";
-          marginLeft = "10%";
+        var marginLeft = "-15%";
+        var fontsize = 40;
+        if(width < 1600 && width > 1441){
+          marginRight = "-20%";
+          marginLeft = "-10%";
+          fontsize = 30;
+        }else if(width < 1440){
+          marginRight = "0%";
+          marginLeft = "5%";
+          fontsize = 25;
         }
 
         var vertical_gap = 0;
@@ -33,6 +39,7 @@
         if ( ms_ie ) {
             vertical_gap = -20;
         }
+
         scope.$watch('data', function(watchedData) {
 
           if(watchedData !== undefined){
@@ -95,8 +102,6 @@
               live_strength.dataProvider = data;
               live_strength.validateData();
             }
-
-
           }
         });
       }

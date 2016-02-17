@@ -8,8 +8,6 @@
 
       $scope.remember_me = false;
 
-      flashService.dismissFlash();
-
       $rootScope.$on('app-online', function(event, args) {
         console.log("online in login");
       });
