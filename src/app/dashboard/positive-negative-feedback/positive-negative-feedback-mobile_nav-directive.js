@@ -4,10 +4,14 @@
     .directive('mobileNav', function(){
       return {
         restrict: 'A',
+          scope: {
+          action: '&'
+        },
         link: function(scope, ele, attrs){
           window.initMobileNav();
           window.initPositionFixed();
           ele.bind("click", function(event){
+            scope.$apply(scope.action());
             assignHeight();
           });
 

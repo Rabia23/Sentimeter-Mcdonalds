@@ -131,13 +131,9 @@
            Graphs.overall_rating(null, $scope.start_date, $scope.end_date).$promise.then(function (data) {
              if(data.success) {
                if(width < height) {
-                  console.log("main rating");
-                  console.log("potrait");
                   calculate_data_sets(data, 3);
                }
                else {
-                   console.log("main rating");
-                   console.log("landscape");
                    calculate_data_sets(data, 7);
                }
                calculate_labels($scope.data_array[0][0].data.feedbacks);
@@ -160,13 +156,9 @@
               if(data.success) {
                 $scope.mainView = false;
                 if(width < height)  {
-                  console.log("label click");
-                  console.log("potrait");
                   calculate_data_sets(data, 3);
                 }
                 else {
-                  console.log("label click");
-                  console.log("landscape");
                   calculate_data_sets(data, 7);
                 }
                 calculate_option_labels($scope.data_array[0][0].data.feedbacks);
@@ -220,8 +212,6 @@
                   $scope.max_page = 1;
                   qsc_suboptions_data = overallRatingChartService.getAreaSegmentChart(data.response.options);
                   if(width < height) {
-                    console.log("option click");
-                    console.log("potrait");
                     while (qsc_suboptions_data.length > 0) {
                       $scope.segments_data_array.push(qsc_suboptions_data.splice(0, 3));
                     }

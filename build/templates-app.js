@@ -446,8 +446,8 @@ angular.module("dashboard/overall-rating/overall-rating.tpl.html", []).run(["$te
     "          <a ng-click = \"Next()\" ng-show = \"mainView\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
     "          <a ng-click = \"labelPrev()\" ng-show = \"optionView\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
     "          <a ng-click = \"labelNext()\" ng-show = \"optionView\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
-    "          <a ng-click = \"optionPrev()\" ng-show = \"optionView == false\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
-    "          <a ng-click = \"optionNext()\" ng-show = \"optionView == false\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
+    "          <a ng-click = \"optionPrev()\" ng-show = \"optionView == false && mainView == false\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
+    "          <a ng-click = \"optionNext()\" ng-show = \"optionView == false && mainView == false\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
     "          <div id=\"chartdiv\" style=\"width: 100%; height: 320px;\"></div>\n" +
     "      </div>\n" +
     "  </div>\n" +
@@ -516,7 +516,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
 angular.module("dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html",
     "<div class=\"comment-block\">\n" +
-    "  <a style = \"cursor:pointer;\" class=\"nav-opener\" mobile-nav>\n" +
+    "  <a style = \"cursor:pointer;\" class=\"nav-opener\" mobile-nav data-action=\"getComments()\">\n" +
     "    <i class=\"fa fa-comments-o\"></i>\n" +
     "    <!--  <span class=\"count\">{{feedback_count}}</span> -->\n" +
     "  </a>\n" +
@@ -1315,11 +1315,11 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
     "										<a ng-click = \"edit(user, $index)\" class=\"fa fa-pencil-square-o\" title = \"Edit User\"></a>\n" +
     "									</span>\n" +
     "									<span class=\"btn-holder\">\n" +
-    "										<a ng-click = \"deactivate(user, $index)\" title = \"activate/deactivate user\" ng-class=\"{'fa fa-user btn-active': (user.is_active == false), 'fa fa-user-times btn-deactive': (user.is_active == true)}\"></a>\n" +
+    "										<a ng-click = \"deactivate(user, $index)\" title = \"Activate/Deactivate User\" ng-class=\"{'fa fa-user btn-active': (user.is_active == false), 'fa fa-user-times btn-deactive': (user.is_active == true)}\"></a>\n" +
     "									</span>\n" +
     "\n" +
     "                  <span class=\"btn-holder\">\n" +
-    "										<a ng-click = \"disassociate(user, $index)\" title = \"disassociate user\" class=\"fa fa-remove\" ng-if = \"(child_role == 4 && user.region) || ((child_role == 2 || child_role == 3) && (user.branch))\"></a>\n" +
+    "										<a ng-click = \"disassociate(user, $index)\" title = \"Disassociate User\" class=\"fa fa-remove\" ng-if = \"(child_role == 4 && user.region) || ((child_role == 2 || child_role == 3) && (user.branch))\"></a>\n" +
     "									</span>\n" +
     "\n" +
     "								</div>\n" +

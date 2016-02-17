@@ -68,11 +68,11 @@
 										<a ng-click = "edit(user, $index)" class="fa fa-pencil-square-o" title = "Edit User"></a>
 									</span>
 									<span class="btn-holder">
-										<a ng-click = "deactivate(user, $index)" title = "activate/deactivate user" ng-class="{'fa fa-user btn-active': (user.is_active == false), 'fa fa-user-times btn-deactive': (user.is_active == true)}"></a>
+										<a ng-click = "deactivate(user, $index)" title = "Activate/Deactivate User" ng-class="{'fa fa-user btn-active': (user.is_active == false), 'fa fa-user-times btn-deactive': (user.is_active == true)}"></a>
 									</span>
 
                   <span class="btn-holder">
-										<a ng-click = "disassociate(user, $index)" title = "disassociate user" class="fa fa-remove" ng-if = "(child_role == 4 && user.region) || ((child_role == 2 || child_role == 3) && (user.branch))"></a>
+										<a ng-click = "disassociate(user, $index)" title = "Disassociate User" class="fa fa-remove" ng-if = "(child_role == 4 && user.region) || ((child_role == 2 || child_role == 3) && (user.branch))"></a>
 									</span>
 
 								</div>
