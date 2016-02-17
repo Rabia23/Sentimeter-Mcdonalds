@@ -921,24 +921,27 @@ angular.module("live/benchmark-map/benchmark-map.tpl.html", []).run(["$templateC
     "                  <strong>\n" +
     "                    {{leader_board_data.gro.count}}\n" +
     "                  </strong>\n" +
-    "                    feedback received, \n" +
+    "                    feedback received,\n" +
     "                    <span class=\"branch\">\n" +
     "                      <strong>\n" +
     "                        {{leader_board_data.gro.branch.branch_name}}\n" +
-    "                      </strong> \n" +
+    "                      </strong>\n" +
     "                      Branch\n" +
     "                    </span>\n" +
     "                  </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"inner-box\">\n" +
-    "                <h3>City Of The Day</h3>\n" +
-    "                <div class=\"hold\">\n" +
-    "                    <span class=\"name\">{{leader_board_data.city.city_name}}</span>\n" +
-    "                    <div class=\"info\">\n" +
-    "                        <strong>{{leader_board_data.city.count}}</strong> feedback received\n" +
-    "                    </div>\n" +
+    "              <h3>City Of The Day</h3>\n" +
+    "              <div class=\"hold\">\n" +
+    "                <span class=\"name\">{{leader_board_data.city.city_name}}</span>\n" +
+    "                <div class=\"info\">\n" +
+    "                  <strong>\n" +
+    "                    {{leader_board_data.city.count}}\n" +
+    "                  </strong>\n" +
+    "                  feedback received\n" +
     "                </div>\n" +
+    "              </div>\n" +
     "            </div>\n" +
     "          </div>\n" +
     "        </div>\n" +
@@ -970,7 +973,7 @@ angular.module("live/business-segments/business-segment.tpl.html", []).run(["$te
     "        <div class=\"list-holder\">\n" +
     "          <ul class=\"list\">\n" +
     "            <li class = {{label.option_class}} ng-repeat=\"label in business_segments_labels\">\n" +
-    "              <span class=\"bullet\"></span> \n" +
+    "              <span class=\"bullet\"></span>\n" +
     "              {{label.option_name}}\n" +
     "            </li>\n" +
     "          </ul>\n" +
@@ -1061,7 +1064,6 @@ angular.module("live/live.tpl.html", []).run(["$templateCache", function($templa
     "      <ui-view name = \"top_concern\"></ui-view>\n" +
     "      <ui-view name = \"patch_qsc_analysis\"></ui-view>\n" +
     "      <ui-view name = \"benchmark_map\"></ui-view>\n" +
-    "\n" +
     "    </div>\n" +
     "    <div class=\"pagination-holder\" init-slide>\n" +
     "      <ul class=\"pagination\">\n" +
@@ -1101,7 +1103,7 @@ angular.module("live/patch-qsc-analysis/patch-qsc-analysis.tpl.html", []).run(["
     "        <div class=\"list-holder\">\n" +
     "          <ul class=\"list\">\n" +
     "            <li class = {{label.action_class}} ng-repeat=\"label in patch_qsc_labels\">\n" +
-    "              <span class=\"bullet\"></span> \n" +
+    "              <span class=\"bullet\"></span>\n" +
     "              {{label.action_name}}\n" +
     "            </li>\n" +
     "          </ul>\n" +
