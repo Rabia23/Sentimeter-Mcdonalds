@@ -1,116 +1,98 @@
-<form  class="info-form" name="UserForm" ng-submit="add(UserForm.$valid)" novalidate>
-	<fieldset>
-		<div class="modal-header">
-			<a class="close" ng-click = "cancel()">
-				<span aria-hidden="true">&times;</span>
-				<span class="sr-only">Close</span>
-			</a>
-			<h2 ng-if = "!edit_form">Add User</h2>
-			<h2 ng-if = "edit_form">Edit User</h2>
-		</div>
-		<div class="modal-body" ng-class = "{'loading': show_loading}">
-			<div class="row">
-				<div class="col-xs-12">
-					<flash-message duration="5000" show-close="true" ng-show = "show_flash"></flash-message>
-					<div class="form-group">
-						<label class="col-sm-2 col-md-3 control-label" for="firsName">First Name</label>
-						<div class="col-sm-10 col-md-9">
-							<input type="text" id="first_name" class="form-control" ng-model = "user.first_name" name = "first_name"
-							required = true maxlength="12">
-							<div ng-show="UserForm.first_name.$error.required && (!UserForm.first_name.$pristine || submitted == true)"
-							class="form-error-message pull-left">First Name is required.
-						  </div>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 col-md-3 control-label" for="lastName">Last Name</label>
-						<div class="col-sm-10 col-md-9">
-							<input type="text" id="last_name" class="form-control" ng-model = "user.last_name" name = "last_name"
-							required="true" maxlength="12">
-							<div ng-show="UserForm.last_name.$error.required && (!UserForm.last_name.$pristine || submitted == true)"
-							class="form-error-message pull-left">Last Name is required.
-						  </div>
-						</div>
-					</div>
-					<div class="form-group" ng-if = "!edit_form">
-						<label class="col-sm-2 col-md-3 control-label" for="userName">User Name</label>
-						<div class="col-sm-10 col-md-9">
-							<input type="text" id="username" class="form-control" ng-model = "user.username" name = "username"
-							required = true autocomplete="off">
-							<div ng-show="UserForm.username.$error.required && (!UserForm.username.$pristine || submitted == true)"
-							class="form-error-message pull-left">User Name is required.
-						  </div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12">
-					<div class="form-group">
-						<label class="col-sm-2 col-md-3 control-label" for="password">Password</label>
-						<div class="col-sm-10 col-md-9">
-							<input type="password" id="password" class="form-control" ng-model = "user.password" name="password"
-							autocomplete="off" ng-required = "!edit_form">
-							<div ng-show="UserForm.password.$error.required && (!UserForm.password.$pristine || submitted == true)"
-							class="form-error-message pull-left">Password is required.
-							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 col-md-3 control-label" for="email">Email</label>
-						<div class="col-sm-10 col-md-9">
-							<input type="email" id="email" class="form-control" ng-model = "user.email" name = "email"
-							required = true autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
-							<div ng-show="UserForm.email.$error.required && (!UserForm.email.$pristine || submitted == true)"
-							class="form-error-message pull-left">Email is required.
-						  </div>
-							<div ng-show="UserForm.email.$error.pattern && (!UserForm.email.$pristine || submitted == true)"
-							class="form-error-message pull-left">Wrong email pattern.
-							</div>
-						</div>
-					</div>
-					<div class="form-group">
-						<label class="col-sm-2 col-md-3 control-label" for="phone_no">Phone No.</label>
-						<div class="col-sm-10 col-md-9">
-							<input type="tel" id="phone_no" class="form-control" ng-model = "user.phone_no" name = "phone_no"
-							required = true ng-pattern="/^[0-9]+$/" maxlength = "15">
-							<div ng-show="UserForm.phone_no.$error.required && (!UserForm.phone_no.$pristine || submitted == true)"
-							class="form-error-message pull-left">Phone no is required.
-							</div>
-							<div ng-show="UserForm.phone_no.$error.pattern && (!UserForm.phone_no.$pristine || submitted == true)"
-							class="form-error-message pull-left">Wrong number pattern.</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-12">
-					<div class="form-group" ng-if = "user.role == 3 && !user.branch">
-						<label class="col-sm-2 col-md-3 control-label" for="branch">Branch</label>
-						<div class="col-sm-10 col-md-9">
-								<select id="branch" class="barcode" custom-form  ng-options = "branch.id as branch.name for branch in branches track by branch.id"
-							ng-model = "user.branch_id" name = "branch" required>
-									<option class="hideme" value = "">Please Select a Branch</option>
-							</select>
-							<div ng-show="UserForm.branch.$error.required && (!UserForm.branch.$pristine || submitted == true)"
-							class="form-error-message pull-left">Branch is required.
-							</div>
-						</div>
-					</div>
-					<div class="form-group" ng-if = "user.role == 4 && !user.region">
-						<label class="col-sm-2 col-md-3 control-label" for="code">Regions</label>
-						<div class="col-sm-10 col-md-9">
-							<select id="region" class="barcode" custom-form  ng-options = "region.id as region.name for region in regions track by region.id"
-							ng-model = "user.region_id" name = "region" required="true" ng-selected = "user.region_id">
-								<option class="hideme" value = "">Please Select a Region</option>
-							</select>
-							<div ng-show="UserForm.region.$error.required && (!UserForm.region.$pristine || submitted == true)"
-							class="form-error-message pull-left">Region is required.
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="modal-footer">
-			<a class="btn btn-white" ng-click = "cancel()">Cancel</a>
-			<button class="btn btn-primary" type = "submit">Save changes</button>
-		</div>
-	</fieldset>
+<form class="info-form" name="UserForm" ng-submit="add(UserForm.$valid)" novalidate>
+  <fieldset>
+    <div class="modal-header">
+      <a class="close" ng-click="cancel()">
+        <span aria-hidden="true">&times;</span>
+        <span class="sr-only">Close</span>
+      </a>
+      <h2 ng-if="!edit_form">Add User</h2>
+      <h2 ng-if="edit_form">Edit User</h2>
+    </div>
+    <div class="modal-body" ng-class="{'loading': show_loading}">
+      <div class="row">
+        <div class="col-xs-12">
+          <flash-message duration="5000" show-close="true" ng-show="show_flash"></flash-message>
+          <div class="form-group">
+            <label class="col-sm-2 col-md-3 control-label" for="firsName">First Name</label>
+            <div class="col-sm-10 col-md-9">
+              <input type="text" id="first_name" class="form-control" ng-model="user.first_name" name="first_name" required=t rue maxlength="12">
+              <div ng-show="UserForm.first_name.$error.required && (!UserForm.first_name.$pristine || submitted == true)" class="form-error-message pull-left">First Name is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 col-md-3 control-label" for="lastName">Last Name</label>
+            <div class="col-sm-10 col-md-9">
+              <input type="text" id="last_name" class="form-control" ng-model="user.last_name" name="last_name" required="true" maxlength="12">
+              <div ng-show="UserForm.last_name.$error.required && (!UserForm.last_name.$pristine || submitted == true)" class="form-error-message pull-left">Last Name is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group" ng-if="!edit_form">
+            <label class="col-sm-2 col-md-3 control-label" for="userName">User Name</label>
+            <div class="col-sm-10 col-md-9">
+              <input type="text" id="username" class="form-control" ng-model="user.username" name="username" required=t rue autocomplete="off">
+              <div ng-show="UserForm.username.$error.required && (!UserForm.username.$pristine || submitted == true)" class="form-error-message pull-left">User Name is required.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group">
+            <label class="col-sm-2 col-md-3 control-label" for="password">Password</label>
+            <div class="col-sm-10 col-md-9">
+              <input type="password" id="password" class="form-control" ng-model="user.password" name="password" autocomplete="off" ng-required="!edit_form">
+              <div ng-show="UserForm.password.$error.required && (!UserForm.password.$pristine || submitted == true)" class="form-error-message pull-left">Password is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 col-md-3 control-label" for="email">Email</label>
+            <div class="col-sm-10 col-md-9">
+              <input type="email" id="email" class="form-control" ng-model="user.email" name="email" required=t rue autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+              <div ng-show="UserForm.email.$error.required && (!UserForm.email.$pristine || submitted == true)" class="form-error-message pull-left">Email is required.
+              </div>
+              <div ng-show="UserForm.email.$error.pattern && (!UserForm.email.$pristine || submitted == true)" class="form-error-message pull-left">Wrong email pattern.
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-2 col-md-3 control-label" for="phone_no">Phone No.</label>
+            <div class="col-sm-10 col-md-9">
+              <input type="tel" id="phone_no" class="form-control" ng-model="user.phone_no" name="phone_no" required=t rue ng-pattern="/^[0-9]+$/" maxlength="15">
+              <div ng-show="UserForm.phone_no.$error.required && (!UserForm.phone_no.$pristine || submitted == true)" class="form-error-message pull-left">Phone no is required.
+              </div>
+              <div ng-show="UserForm.phone_no.$error.pattern && (!UserForm.phone_no.$pristine || submitted == true)" class="form-error-message pull-left">Wrong number pattern.</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="form-group" ng-if="user.role == 3 && !user.branch">
+            <label class="col-sm-2 col-md-3 control-label" for="branch">Branch</label>
+            <div class="col-sm-10 col-md-9">
+              <select id="branch" class="barcode" custom-form ng-options="branch.id as branch.name for branch in branches track by branch.id" ng-model="user.branch_id" name="branch" required>
+                <option class="hideme" value="">Please Select a Branch</option>
+              </select>
+              <div ng-show="UserForm.branch.$error.required && (!UserForm.branch.$pristine || submitted == true)" class="form-error-message pull-left">Branch is required.
+              </div>
+            </div>
+          </div>
+          <div class="form-group" ng-if="user.role == 4 && !user.region">
+            <label class="col-sm-2 col-md-3 control-label" for="code">Regions</label>
+            <div class="col-sm-10 col-md-9">
+              <select id="region" class="barcode" custom-form ng-options="region.id as region.name for region in regions track by region.id" ng-model="user.region_id" name="region" required="true" ng-selected="user.region_id">
+                <option class="hideme" value="">Please Select a Region</option>
+              </select>
+              <div ng-show="UserForm.region.$error.required && (!UserForm.region.$pristine || submitted == true)" class="form-error-message pull-left">Region is required.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a class="btn btn-white" ng-click="cancel()">Cancel</a>
+      <button class="btn btn-primary" type="submit">Save changes</button>
+    </div>
+  </fieldset>
 </form>
