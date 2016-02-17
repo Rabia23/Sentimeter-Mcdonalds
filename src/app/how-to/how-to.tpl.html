@@ -1,83 +1,88 @@
 <div id="wrapper">
-  <ui-view name = "sidebar"></ui-view>
-  <div id="page-wrapper" class="gray-bg">
-     <ui-view name = "header"></ui-view>
-	 <div class="wrapper wrapper-content animated fadeInRight">
-	 	<h1>How To Guide</h1>
-	 	<h2>Table of Content</h2>
-		<div class="accordion-holder">
-			<ul class="accordion">
-				<li>
-					<a>IOS Application</a>
-					<div class="slide">
-
-					</div>
-				</li>
-				<li>
-					<a>Web Application</a>
-					<div class="slide">
-						<ul class="accordion">
-							<li>
-								<a>Live Dashboard</a>
-								<div class="slide"></div>
-							</li>
-							<li>
-								<a>Web Dashboard</a>
-								<div class="slide">
-									<ul class="accordion">
-										<li>
-											<a>Dashboard</a>
-											<div class="slide">
-												<ul class="accordion">
-													<li>
-														<a></a>
-														<div class="slide">
-															<ol>
-																<li></li>
-																<li></li>
-															</ol>
-														</div>
-													</li>
-													<li>
-														<a></a>
-														<div class="slide"></div>
-													</li>
-													<li>
-														<a></a>
-														<div class="slide"></div>
-													</li>
-													<li>
-														<a></a>
-														<div class="slide"></div>
-													</li>
-													<li>
-														<a></a>
-														<div class="slide"></div>
-													</li>
-													<li>
-														<a></a>
-														<div class="slide"></div>
-													</li>
-												</ul>
-											</div>
+  <div id="page-wrapper" class="gray-bg add">
+     <header class="doc-header">
+     	<div class="logo-holder">
+			<div class="logo">
+			   <a href="http://www.mcdonalds.com.pk/" target="_blank"> <img alt="image" class="img-responsive" src="assets/images/logo.jpg"></a>
+			</div>
+		  </div>
+     </header>
+     <div class="doc-block">
+     	<nav class="navbar-default navbar-static-side hidden-print hidden-xs hidden-sm affix-top" data-spy="affix" role="navigation" >
+			<div class="sidebar-collapse">
+			   <div id="side-menu" class="nav metismenu">
+					<ul class="nav metismenu" id="side-menu">
+						<li class="active">
+							<a href="#">Web Application</a>
+							<ul class="nav nav-second-level collapse">
+								<li class="active"><a href="#">Web Dashboard</a>
+									<ul class="nav nav-third-level collapse">
+										<li class="active">
+										  <a href="/dashboard">Dashboard</a>
+										  <ul class="nav nav-fourth-level collapse">
+                                            <li class="active"><a href="/overallrating">Overall Rating</a></li>
+<!--
+                                            <li><a href="#"></a></li>
+                                            <li><a href="#"></a></li>
+                                            <li><a href="#"></a></li>
+                                            <li><a href="#"></a></li>
+-->
+                                          </ul>
 										</li>
-										<li>
-											<a>Promotions</a>
-											<div class="slide"></div>
-										</li>
-										<li>
-											<a>Manage Users</a>
-											<div class="slide"></div>
-										</li>
+										<li><a href="#promotions">Promotions</a></li>
+										<li><a href="#manageusers">Manage Users</a></li>
 									</ul>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-		</div>
-	  </div>
+								</li>
+								<li><a href="#">Livefeed Dashboard</a>
+									<ul class="nav nav-third-level collapse">
+										<li><a href="#">Second Level Item</a></li>
+										<li><a href="#">Second Level Item</a></li>
+										<li><a href="#">Second Level Item</a></li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li>
+							<a href="#">Iso Application</a>
+							<ul class="nav nav-third-level collapse">
+								<li><a href="#">Second Level Item</a></li>
+								<li><a href="#">Second Level Item</a></li>
+								<li><a href="#">Second Level Item</a></li>
+							</ul>
+						</li>
+					</ul>
+			   </div>
+			</div>
+		  </nav>
+		 <div class="wrapper wrapper-content animated fadeInRight">
+			 <section class="Section" id="dashboard">
+				<h1>Dashboard</h1>
+				<section class="info-section" id="overallrating">
+				  <h2>Overall Rating Section</h2>
+                  <div class="text-block">
+                      <ol class="steps-list">
+                          <li>
+                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>
+                              <div class="step-holder"><img src="assets/images/step1.jpg" class="img-responsive" alt="overall Rating Step 1"></div>
+                          </li>
+                          <li>
+                              Select Start and End Dates From the Calender Popup
+                              <div class="step-holder"><img src="assets/images/step2.jpg" class="img-responsive" alt="overall Rating Step 2"></div>
+                          </li>
+                          <li>
+                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>
+                              <div class="step-holder"><img src="assets/images/step3.jpg" class="img-responsive" alt="overall Rating Step 3"></div>
+                          </li>
+                          <li>
+                              The Line Chart Graph Rerender and show you Data of Specific Dates
+                              <div class="step-holder"><img src="assets/images/step4.jpg" class="img-responsive" alt="overall Rating Step 4"></div>
+                          </li>
+                      </ol>
+                  </div>
+				</section>
+			 </section>
+		  </div>
+     </div>
   </div>
   <ui-view name = "footer"></ui-view>
 </div>

@@ -79,10 +79,10 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "					<a ui-sref=\"users\"><i class=\"fa fa-user\"></i> <span class=\"nav-label\">Manage Users</span></a>\n" +
     "				</li>\n" +
     "				<li ng-class = \"{'active': currentState == 'how_to'}\">\n" +
-    "					<a ui-sref=\"how_to\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
+    "					<a ui-sref=\"how_to\" target=\"_blank\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
     "				</li>\n" +
     "			</ul>\n" +
-    "    	</div>\n" +
+    "    </div>\n" +
     "	</div>\n" +
     "</nav>\n" +
     "");
@@ -717,88 +717,94 @@ angular.module("dashboard/top-concern/top-concern.tpl.html", []).run(["$template
 angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("how-to/how-to.tpl.html",
     "<div id=\"wrapper\">\n" +
-    "  <ui-view name = \"sidebar\"></ui-view>\n" +
-    "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
-    "     <ui-view name = \"header\"></ui-view>\n" +
-    "	 <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
-    "	 	<h1>How To Guide</h1>\n" +
-    "	 	<h2>Table of Content</h2>\n" +
-    "		<div class=\"accordion-holder\">\n" +
-    "			<ul class=\"accordion\">\n" +
-    "				<li>\n" +
-    "					<a>IOS Application</a>\n" +
-    "					<div class=\"slide\">\n" +
-    "\n" +
-    "					</div>\n" +
-    "				</li>\n" +
-    "				<li>\n" +
-    "					<a>Web Application</a>\n" +
-    "					<div class=\"slide\">\n" +
-    "						<ul class=\"accordion\">\n" +
-    "							<li>\n" +
-    "								<a>Live Dashboard</a>\n" +
-    "								<div class=\"slide\"></div>\n" +
-    "							</li>\n" +
-    "							<li>\n" +
-    "								<a>Web Dashboard</a>\n" +
-    "								<div class=\"slide\">\n" +
-    "									<ul class=\"accordion\">\n" +
-    "										<li>\n" +
-    "											<a>Dashboard</a>\n" +
-    "											<div class=\"slide\">\n" +
-    "												<ul class=\"accordion\">\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\">\n" +
-    "															<ol>\n" +
-    "																<li></li>\n" +
-    "																<li></li>\n" +
-    "															</ol>\n" +
-    "														</div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "												</ul>\n" +
-    "											</div>\n" +
+    "  <div id=\"page-wrapper\" class=\"gray-bg add\">\n" +
+    "     <header class=\"doc-header\">\n" +
+    "     	<div class=\"logo-holder\">\n" +
+    "			<div class=\"logo\">\n" +
+    "			   <a href=\"http://www.mcdonalds.com.pk/\" target=\"_blank\"> <img alt=\"image\" class=\"img-responsive\" src=\"assets/images/logo.jpg\"></a>\n" +
+    "			</div>\n" +
+    "		  </div>\n" +
+    "     </header>\n" +
+    "     <div class=\"doc-block\">\n" +
+    "     	<nav class=\"navbar-default navbar-static-side hidden-print hidden-xs hidden-sm affix-top\" data-spy=\"affix\" role=\"navigation\" >\n" +
+    "			<div class=\"sidebar-collapse\">\n" +
+    "			   <div id=\"side-menu\" class=\"nav metismenu\">\n" +
+    "					<ul class=\"nav metismenu\" id=\"side-menu\">\n" +
+    "						<li class=\"active\">\n" +
+    "							<a href=\"#\">Web Application</a>\n" +
+    "							<ul class=\"nav nav-second-level collapse\">\n" +
+    "								<li class=\"active\"><a href=\"#\">Web Dashboard</a>\n" +
+    "									<ul class=\"nav nav-third-level collapse\">\n" +
+    "										<li class=\"active\">\n" +
+    "										  <a href=\"/dashboard\">Dashboard</a>\n" +
+    "										  <ul class=\"nav nav-fourth-level collapse\">\n" +
+    "                                            <li class=\"active\"><a href=\"/overallrating\">Overall Rating</a></li>\n" +
+    "<!--\n" +
+    "                                            <li><a href=\"#\"></a></li>\n" +
+    "                                            <li><a href=\"#\"></a></li>\n" +
+    "                                            <li><a href=\"#\"></a></li>\n" +
+    "                                            <li><a href=\"#\"></a></li>\n" +
+    "-->\n" +
+    "                                          </ul>\n" +
     "										</li>\n" +
-    "										<li>\n" +
-    "											<a>Promotions</a>\n" +
-    "											<div class=\"slide\"></div>\n" +
-    "										</li>\n" +
-    "										<li>\n" +
-    "											<a>Manage Users</a>\n" +
-    "											<div class=\"slide\"></div>\n" +
-    "										</li>\n" +
+    "										<li><a href=\"#promotions\">Promotions</a></li>\n" +
+    "										<li><a href=\"#manageusers\">Manage Users</a></li>\n" +
     "									</ul>\n" +
-    "								</div>\n" +
-    "							</li>\n" +
-    "						</ul>\n" +
-    "					</div>\n" +
-    "				</li>\n" +
-    "			</ul>\n" +
-    "		</div>\n" +
-    "	  </div>\n" +
+    "								</li>\n" +
+    "								<li><a href=\"#\">Livefeed Dashboard</a>\n" +
+    "									<ul class=\"nav nav-third-level collapse\">\n" +
+    "										<li><a href=\"#\">Second Level Item</a></li>\n" +
+    "										<li><a href=\"#\">Second Level Item</a></li>\n" +
+    "										<li><a href=\"#\">Second Level Item</a></li>\n" +
+    "									</ul>\n" +
+    "								</li>\n" +
+    "							</ul>\n" +
+    "						</li>\n" +
+    "						<li>\n" +
+    "							<a href=\"#\">Iso Application</a>\n" +
+    "							<ul class=\"nav nav-third-level collapse\">\n" +
+    "								<li><a href=\"#\">Second Level Item</a></li>\n" +
+    "								<li><a href=\"#\">Second Level Item</a></li>\n" +
+    "								<li><a href=\"#\">Second Level Item</a></li>\n" +
+    "							</ul>\n" +
+    "						</li>\n" +
+    "					</ul>\n" +
+    "			   </div>\n" +
+    "			</div>\n" +
+    "		  </nav>\n" +
+    "		 <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
+    "			 <section class=\"Section\" id=\"dashboard\">\n" +
+    "				<h1>Dashboard</h1>\n" +
+    "				<section class=\"info-section\" id=\"overallrating\">\n" +
+    "				  <h2>Overall Rating Section</h2>\n" +
+    "                  <div class=\"text-block\">\n" +
+    "                      <ol class=\"steps-list\">\n" +
+    "                          <li>\n" +
+    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Select Start and End Dates From the Calender Popup\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                          </li>\n" +
+    "                      </ol>\n" +
+    "                  </div>\n" +
+    "				</section>\n" +
+    "			 </section>\n" +
+    "		  </div>\n" +
+    "     </div>\n" +
     "  </div>\n" +
     "  <ui-view name = \"footer\"></ui-view>\n" +
-    "</div>");
+    "</div>\n" +
+    "");
 }]);
 
 angular.module("live/benchmark-map/benchmark-map.tpl.html", []).run(["$templateCache", function($templateCache) {
