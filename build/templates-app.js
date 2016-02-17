@@ -1084,7 +1084,7 @@ angular.module("live/top-concerns/top-concern.tpl.html", []).run(["$templateCach
 
 angular.module("login/login.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("login/login.tpl.html",
-    "<div class=\"wrapper wrapper-content animated fadeInLeft\">\n" +
+    "<div class=\"wrapper wrapper-content animated fadeInDown\">\n" +
     "	<div id=\"header\">\n" +
     "		<div class=\"logo\"><a href=\"http:\\\\mcdonalds.com.pk\" target=\"_blank\"><img src=\"assets/images/logo.png\" width=\"116\" height=\"112\" alt=\"McDonald &reg;\"></a>	</div>\n" +
     "		<h2>Customer Centric Approach</h2>\n" +

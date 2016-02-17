@@ -718,7 +718,7 @@ body.login{background: #eee !important;}
 .modal-1200 .modal-header h2{
 	margin: 0;
 	font-weight: 700;
-	line-height: 1.25;
+	line-height: 1.35;
 	overflow: hidden;
 }
 .modal-1200 .modal-header .close-btn-font{
@@ -916,7 +916,7 @@ body.login{background: #eee !important;}
 .modal-1200 .table tbody td{
 	position: relative;
 	font-size: 12px;
-	line-height: 1.23 !important;
+	line-height: 1.24 !important;
 	padding-top: 8px;
 	padding-bottom: 8px;
 	border: 0;
@@ -925,7 +925,6 @@ body.login{background: #eee !important;}
 	border-left: 1px solid #d9d9d9 !important;
 	overflow: hidden;
 	background: none;
-	min-height: 38px;
 }
 .modal-1200 .table tbody td:first-child{border-left: 0 !important;}
 .modal-1200 .table tbody td .text{overflow: hidden;}
