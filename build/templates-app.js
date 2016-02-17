@@ -560,13 +560,12 @@ angular.module("dashboard/regional-analysis/regional-analysis.tpl.html", []).run
     "        <li ng-class=\"{active: radioModel == 'Complaints'}\"><a ng-model=\"radioModel\" uib-btn-radio=\"'Complaints'\" ng-click=\"showChart(null, 'areas')\">Complaints</a></li>\n" +
     "        <li ng-class=\"{active: radioModel == 'Rating'}\"><a ng-model=\"radioModel\" uib-btn-radio=\"'Rating'\" ng-click=\"showChart(null, 'areas')\">Rating</a></li>\n" +
     "        <li ng-class=\"{active: radioModel == 'QSC'}\"><a ng-model=\"radioModel\" uib-btn-radio=\"'QSC'\" ng-click=\"showChart(null, 'areas')\">QSC</a></li>\n" +
-    "        <li>\n" +
+    "        <li class=\"item5\">\n" +
     "          <div class=\"calender-outer\">\n" +
     "            <span class=\"calendar-holder\">\n" +
-    "              <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\"\n" +
-    "	   ng-model=\"date\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
-    "	          <i class=\"fa fa-calendar\" map-range-click></i>\n" +
-    "	       </span>\n" +
+    "              <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
+    "              <i class=\"fa fa-calendar\" map-range-click></i>\n" +
+    "            </span>\n" +
     "          </div>\n" +
     "        </li>\n" +
     "      </ul>\n" +
@@ -612,7 +611,6 @@ angular.module("dashboard/regional-analysis/regional-analysis.tpl.html", []).run
     "          <strong class=\"title\"><a ng-click = \"showChart(region, 'cities')\" style = \"cursor:pointer;\">{{region.name}}</a></strong>\n" +
     "        </div>\n" +
     "        <div ng-show=\"show_string && area_view == false && regional_view == true\">No region available</div>\n" +
-    "\n" +
     "        <div class=\"morris-content-holder\" ng-repeat=\"city in donut_cities_data.objects track by $index\" ng-show=\"area_view == false && regional_view == false && city_view == true\">\n" +
     "          <div class=\"morris-graph-holder\" same-city-height data-data=\"donut_cities_data.donutData[$index]\">\n" +
     "            <div class=\"morris-holder\">\n" +
@@ -623,7 +621,6 @@ angular.module("dashboard/regional-analysis/regional-analysis.tpl.html", []).run
     "          <strong class=\"title\"><a ng-click = \"showChart(city, 'branches')\" style = \"cursor:pointer;\">{{city.name}}</a></strong>\n" +
     "        </div>\n" +
     "        <div ng-show=\"show_string && area_view == false && regional_view == false && city_view == true\">No city available</div>\n" +
-    "\n" +
     "        <div class=\"morris-content-holder\" ng-repeat=\"branch in donut_branches_data.objects track by $index\" ng-show=\"area_view == false && regional_view == false && city_view == false\">\n" +
     "          <div class=\"morris-graph-holder\" same-branch-height data-data=\"donut_branches_data.donutData[$index]\">\n" +
     "            <div class=\"morris-holder\">\n" +
@@ -905,11 +902,11 @@ angular.module("live/benchmark-map/benchmark-map.tpl.html", []).run(["$templateC
     "                  <strong>\n" +
     "                    {{leader_board_data.gro.count}}\n" +
     "                  </strong>\n" +
-    "                    feedback received, \n" +
+    "                    feedback received,\n" +
     "                    <span class=\"branch\">\n" +
     "                      <strong>\n" +
     "                        {{leader_board_data.gro.branch.branch_name}}\n" +
-    "                      </strong> \n" +
+    "                      </strong>\n" +
     "                      Branch\n" +
     "                    </span>\n" +
     "                  </div>\n" +
@@ -957,7 +954,7 @@ angular.module("live/business-segments/business-segment.tpl.html", []).run(["$te
     "        <div class=\"list-holder\">\n" +
     "          <ul class=\"list\">\n" +
     "            <li class = {{label.option_class}} ng-repeat=\"label in business_segments_labels\">\n" +
-    "              <span class=\"bullet\"></span> \n" +
+    "              <span class=\"bullet\"></span>\n" +
     "              {{label.option_name}}\n" +
     "            </li>\n" +
     "          </ul>\n" +
@@ -1048,7 +1045,6 @@ angular.module("live/live.tpl.html", []).run(["$templateCache", function($templa
     "      <ui-view name = \"top_concern\"></ui-view>\n" +
     "      <ui-view name = \"patch_qsc_analysis\"></ui-view>\n" +
     "      <ui-view name = \"benchmark_map\"></ui-view>\n" +
-    "\n" +
     "    </div>\n" +
     "    <div class=\"pagination-holder\" init-slide>\n" +
     "      <ul class=\"pagination\">\n" +
@@ -1088,7 +1084,7 @@ angular.module("live/patch-qsc-analysis/patch-qsc-analysis.tpl.html", []).run(["
     "        <div class=\"list-holder\">\n" +
     "          <ul class=\"list\">\n" +
     "            <li class = {{label.action_class}} ng-repeat=\"label in patch_qsc_labels\">\n" +
-    "              <span class=\"bullet\"></span> \n" +
+    "              <span class=\"bullet\"></span>\n" +
     "              {{label.action_name}}\n" +
     "            </li>\n" +
     "          </ul>\n" +
@@ -1423,41 +1419,44 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
 angular.module("promotions/promotions-detail.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("promotions/promotions-detail.tpl.html",
     "<div id=\"wrapper\">\n" +
-    "  <ui-view name = \"sidebar\"></ui-view>\n" +
+    "  <ui-view name=\"sidebar\"></ui-view>\n" +
     "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
-    "     <ui-view name = \"header\"></ui-view>\n" +
-    "   <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
-    "    <div class=\"row promotions\" ng-class = \"{loading: show_loading}\">\n" +
-    "      <flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message> \n" +
-    "      <div class=\"col-lg-12\">\n" +
-    "        <h1>{{promotion.title}} Promotion</h1>\n" +
-    "        <div class=\"row grid-container\">\n" +
-    "          <div class=\"col-sm-6 col-lg-4 grid-item\" ng-repeat = \"question in questions track by $index\">\n" +
-    "            <div class=\"ibox float-e-margins\">\n" +
-    "              <div class=\"ibox-title\">\n" +
-    "                <h3>{{question.question}}</h3>\n" +
-    "              </div>\n" +
-    "              <div class=\"ibox-content\" ng-if = \"question.type == 5\">\n" +
-    "                <div class=\"data-container\">\n" +
-    "                  <div id = \"graph_{{$index}}\">\n" +
-    "                  <div class=\"progres-container\">\n" +
-    "                    <div class=\"progress-area\">\n" +
-    "                    <div class=\"progress-holder\" ng-repeat = \"dat in question.question_bar_chart\" data-color = \"dat.colour\" data-data = \"question.question_bar_chart\" question-bar-background>\n" +
-    "                      <div class=\"progress-inner\">\n" +
-    "                      <small><em>{{dat.name}} <b>{{dat.count}} Views</b></em></small>\n" +
-    "                      <div class=\"progress-block\"><uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar></div>\n" +
+    "    <ui-view name=\"header\"></ui-view>\n" +
+    "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
+    "      <div class=\"row promotions\" ng-class=\"{loading: show_loading}\">\n" +
+    "        <flash-message show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message>\n" +
+    "        <div class=\"col-lg-12\">\n" +
+    "          <h1>{{promotion.title}} Promotion</h1>\n" +
+    "          <div class=\"row grid-container\">\n" +
+    "            <div class=\"col-sm-6 col-lg-4 grid-item\" ng-repeat=\"question in questions track by $index\">\n" +
+    "              <div class=\"ibox float-e-margins\">\n" +
+    "                <div class=\"ibox-title\">\n" +
+    "                  <h3>{{question.question}}</h3>\n" +
+    "                </div>\n" +
+    "                <div class=\"ibox-content\" ng-if=\"question.type == 5\">\n" +
+    "                  <div class=\"data-container\">\n" +
+    "                    <div id=\"graph_{{$index}}\">\n" +
+    "                      <div class=\"progres-container\">\n" +
+    "                        <div class=\"progress-area\">\n" +
+    "                          <div class=\"progress-holder\" ng-repeat=\"dat in question.question_bar_chart\" data-color=\"dat.colour\" data-data=\"question.question_bar_chart\" question-bar-background>\n" +
+    "                            <div class=\"progress-inner\">\n" +
+    "                              <small><em>{{dat.name}} <b>{{dat.count}} Views</b></em></small>\n" +
+    "                              <div class=\"progress-block\">\n" +
+    "                                <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
+    "                              </div>\n" +
+    "                            </div>\n" +
+    "                          </div>\n" +
+    "                        </div>\n" +
     "                      </div>\n" +
     "                    </div>\n" +
-    "                    </div>\n" +
-    "                  </div>\n" +
     "                  </div>\n" +
     "                </div>\n" +
-    "              </div>\n" +
-    "              <div class=\"ibox-content\" ng-if = \"question.type == 4\" question-pie-chart data-data = \"question.question_pie_chart\">\n" +
-    "                <div class=\"data-container\">\n" +
-    "                  <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\" ng-hide = \"all_zero\"></div>\n" +
-    "                  <div ng-show = \"all_zero\" class=\"message-holder\">\n" +
-    "                    <h2>No Data Available</h2>\n" +
+    "                <div class=\"ibox-content\" ng-if=\"question.type == 4\" question-pie-chart data-data=\"question.question_pie_chart\">\n" +
+    "                  <div class=\"data-container\">\n" +
+    "                    <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
+    "                    <div ng-show=\"all_zero\" class=\"message-holder\">\n" +
+    "                      <h2>No Data Available</h2>\n" +
+    "                    </div>\n" +
     "                  </div>\n" +
     "                </div>\n" +
     "              </div>\n" +
@@ -1466,40 +1465,37 @@ angular.module("promotions/promotions-detail.tpl.html", []).run(["$templateCache
     "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
-    "    </div>\n" +
     "  </div>\n" +
-    "  <ui-view name = \"footer\"></ui-view>\n" +
-    "</div>\n" +
-    "");
+    "  <ui-view name=\"footer\"></ui-view>\n" +
+    "</div>");
 }]);
 
 angular.module("promotions/promotions.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("promotions/promotions.tpl.html",
     "<div id=\"wrapper\">\n" +
-    "  <ui-view name = \"sidebar\"></ui-view>\n" +
+    "  <ui-view name=\"sidebar\"></ui-view>\n" +
     "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
-    "     <ui-view name = \"header\"></ui-view>\n" +
-    "	 <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
-    "		<div class=\"row promotions\" ng-class = \"{loading: show_loading}\">\n" +
-    "			<div class=\"col-lg-12\">\n" +
-    "				<div class=\"row\">\n" +
-    "					<div class=\"col-xs-12\">\n" +
-    "            <flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show = \"show_alert\"></flash-message>\n" +
-    "						<ul class=\"btn-list\">\n" +
-    "							<li ng-repeat = \"promotion in promotions\">\n" +
-    "								<a class=\"btn ibox dim btn-large-dim btn-outline\" ng-click = \"detail(promotion.id)\">\n" +
-    "									<span class=\"ico-holder\"><img src=\"assets/images/promo1.jpg\" alt=\"\"></span>\n" +
-    "									<span class=\"title\" promotion-same-height data-promotion = \"promotion\">{{promotion.title}} Promotion</span>\n" +
-    "								</a>\n" +
-    "							</li>\n" +
-    "						</ul>\n" +
-    "					</div>\n" +
-    "				</div>\n" +
-    "			</div>\n" +
-    "		</div>\n" +
-    "	  </div>\n" +
+    "    <ui-view name=\"header\"></ui-view>\n" +
+    "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
+    "      <div class=\"row promotions\" ng-class=\"{loading: show_loading}\">\n" +
+    "        <div class=\"col-lg-12\">\n" +
+    "          <div class=\"row\">\n" +
+    "            <div class=\"col-xs-12\">\n" +
+    "              <flash-message show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show=\"show_alert\"></flash-message>\n" +
+    "              <ul class=\"btn-list\">\n" +
+    "                <li ng-repeat=\"promotion in promotions\">\n" +
+    "                  <a class=\"btn ibox dim btn-large-dim btn-outline\" ng-click=\"detail(promotion.id)\">\n" +
+    "                    <span class=\"ico-holder\"><img src=\"assets/images/promo1.jpg\" alt=\"\"></span>\n" +
+    "                    <span class=\"title\" promotion-same-height data-promotion=\"promotion\">{{promotion.title}} Promotion</span>\n" +
+    "                  </a>\n" +
+    "                </li>\n" +
+    "              </ul>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
     "  </div>\n" +
-    "  <ui-view name = \"footer\"></ui-view>\n" +
-    "</div>\n" +
-    "");
+    "  <ui-view name=\"footer\"></ui-view>\n" +
+    "</div>");
 }]);

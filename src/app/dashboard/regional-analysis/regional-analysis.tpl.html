@@ -11,13 +11,12 @@
         <li ng-class="{active: radioModel == 'Complaints'}"><a ng-model="radioModel" uib-btn-radio="'Complaints'" ng-click="showChart(null, 'areas')">Complaints</a></li>
         <li ng-class="{active: radioModel == 'Rating'}"><a ng-model="radioModel" uib-btn-radio="'Rating'" ng-click="showChart(null, 'areas')">Rating</a></li>
         <li ng-class="{active: radioModel == 'QSC'}"><a ng-model="radioModel" uib-btn-radio="'QSC'" ng-click="showChart(null, 'areas')">QSC</a></li>
-        <li>
+        <li class="item5">
           <div class="calender-outer">
             <span class="calendar-holder">
-              <input date-range-picker id="daterange-map" readonly="readonly" name="daterange-map" class="date-picker" type="text"
-	   ng-model="date" max="today" options = "datePickerOption" readonly="true"/>
-	          <i class="fa fa-calendar" map-range-click></i>
-	       </span>
+              <input date-range-picker id="daterange-map" readonly="readonly" name="daterange-map" class="date-picker" type="text" ng-model="date" max="today" options = "datePickerOption" readonly="true"/>
+              <i class="fa fa-calendar" map-range-click></i>
+            </span>
           </div>
         </li>
       </ul>
@@ -63,7 +62,6 @@
           <strong class="title"><a ng-click = "showChart(region, 'cities')" style = "cursor:pointer;">{{region.name}}</a></strong>
         </div>
         <div ng-show="show_string && area_view == false && regional_view == true">No region available</div>
-
         <div class="morris-content-holder" ng-repeat="city in donut_cities_data.objects track by $index" ng-show="area_view == false && regional_view == false && city_view == true">
           <div class="morris-graph-holder" same-city-height data-data="donut_cities_data.donutData[$index]">
             <div class="morris-holder">
@@ -74,7 +72,6 @@
           <strong class="title"><a ng-click = "showChart(city, 'branches')" style = "cursor:pointer;">{{city.name}}</a></strong>
         </div>
         <div ng-show="show_string && area_view == false && regional_view == false && city_view == true">No city available</div>
-
         <div class="morris-content-holder" ng-repeat="branch in donut_branches_data.objects track by $index" ng-show="area_view == false && regional_view == false && city_view == false">
           <div class="morris-graph-holder" same-branch-height data-data="donut_branches_data.donutData[$index]">
             <div class="morris-holder">
