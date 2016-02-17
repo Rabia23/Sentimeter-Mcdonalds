@@ -18,8 +18,8 @@
             name: data.option__text,
             complaints: data.count,
             percentage: data.count === 0 ? 0 : Math.round((data.count / opportunity_data.response.feedback_count) * 100),
-            colour: Global.topConcernsColors(index),
-            priority: Global.opportunityPriority[data.option__text]
+            colour: Global.opportunityClass[data.option__text][1],
+            priority: Global.opportunityClass[data.option__text][0]
           };
         });
         $scope.opportunity_data = _.sortBy($scope.opportunity_data, function (value) {

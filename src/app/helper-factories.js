@@ -13,6 +13,14 @@ angular.module( 'helper_factories', ['ngResource'])
       return colors[index];
     },
 
+    opportunityClass: {
+      "Quality of Food": [1, "#4CCC72"],
+      "Friendly & Courteous Staff": [2, "#3598DC"],
+      "Clean Restaurant": [3, "#E74D3D"],
+      "Variety in Menu": [4, "#F0C547"],
+      "Special Promotions": [5,"#9C59B8"]
+    },
+
     opportunityPriority: {
       "Quality of Food": 1,
       "Friendly & Courteous Staff": 2,
