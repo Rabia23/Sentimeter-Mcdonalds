@@ -1,4 +1,4 @@
-angular.module('templates-app', ['common/footer.tpl.html', 'common/header.tpl.html', 'common/sidebar.tpl.html', 'coupon/coupon.tpl.html', 'dashboard/category-performance-analysis/category-performance-analysis.tpl.html', 'dashboard/dashboard.tpl.html', 'dashboard/feedback-map/feedback-map.tpl.html', 'dashboard/opportunities/opportunities.tpl.html', 'dashboard/overall-feedback/overall-feedback.tpl.html', 'dashboard/overall-rating/overall-rating.tpl.html', 'dashboard/positive-negative-feedback/comments-modal.tpl.html', 'dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html', 'dashboard/regional-analysis/regional-analysis.tpl.html', 'dashboard/regional-analysis/sqc-modal.tpl.html', 'dashboard/statistics/statistics.tpl.html', 'dashboard/top-concern/top-concern.tpl.html', 'live/benchmark-map/benchmark-map.tpl.html', 'live/business-segments/business-segment.tpl.html', 'live/live.tpl.html', 'live/overall-ratings/overall-rating.tpl.html', 'live/patch-qsc-analysis/patch-qsc-analysis.tpl.html', 'live/qsc/qsc.tpl.html', 'live/strength/strength.tpl.html', 'live/top-concerns/top-concern.tpl.html', 'login/login.tpl.html', 'manage-users/edit-user-modal.tpl.html', 'manage-users/manage-users.tpl.html', 'promotions/promotions-detail.tpl.html', 'promotions/promotions.tpl.html']);
+angular.module('templates-app', ['common/footer.tpl.html', 'common/header.tpl.html', 'common/sidebar.tpl.html', 'dashboard/category-performance-analysis/category-performance-analysis.tpl.html', 'dashboard/dashboard.tpl.html', 'dashboard/feedback-map/feedback-map.tpl.html', 'dashboard/opportunities/opportunities.tpl.html', 'dashboard/overall-feedback/overall-feedback.tpl.html', 'dashboard/overall-rating/overall-rating.tpl.html', 'dashboard/positive-negative-feedback/comments-modal.tpl.html', 'dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html', 'dashboard/regional-analysis/regional-analysis.tpl.html', 'dashboard/regional-analysis/sqc-modal.tpl.html', 'dashboard/statistics/statistics.tpl.html', 'dashboard/top-concern/top-concern.tpl.html', 'how-to/how-to.tpl.html', 'live/benchmark-map/benchmark-map.tpl.html', 'live/business-segments/business-segment.tpl.html', 'live/live.tpl.html', 'live/overall-ratings/overall-rating.tpl.html', 'live/patch-qsc-analysis/patch-qsc-analysis.tpl.html', 'live/qsc/qsc.tpl.html', 'live/strength/strength.tpl.html', 'live/top-concerns/top-concern.tpl.html', 'login/login.tpl.html', 'manage-users/edit-user-modal.tpl.html', 'manage-users/manage-users.tpl.html', 'promotions/promotions-detail.tpl.html', 'promotions/promotions.tpl.html']);
 
 angular.module("common/footer.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("common/footer.tpl.html",
@@ -78,101 +78,14 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "				<li ng-class = \"{'active': currentState == 'users'}\">\n" +
     "					<a ui-sref=\"users\"><i class=\"fa fa-user\"></i> <span class=\"nav-label\">Manage Users</span></a>\n" +
     "				</li>\n" +
-    "				<li ng-class = \"{'active': currentState == 'coupon'}\">\n" +
-    "					<a ui-sref=\"coupon\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
+    "				<li ng-class = \"{'active': currentState == 'how_to'}\">\n" +
+    "					<a ui-sref=\"how_to\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
     "				</li>\n" +
     "			</ul>\n" +
     "    	</div>\n" +
     "	</div>\n" +
     "</nav>\n" +
     "");
-}]);
-
-angular.module("coupon/coupon.tpl.html", []).run(["$templateCache", function($templateCache) {
-  $templateCache.put("coupon/coupon.tpl.html",
-    "<div id=\"wrapper\">\n" +
-    "  <ui-view name = \"sidebar\"></ui-view>\n" +
-    "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
-    "     <ui-view name = \"header\"></ui-view>\n" +
-    "	 <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
-    "	 	<h1>How To Guide</h1>\n" +
-    "	 	<h2>Table of Content</h2>\n" +
-    "		<div class=\"accordion-holder\">\n" +
-    "			<ul class=\"accordion\">\n" +
-    "				<li>\n" +
-    "					<a>IOS Application</a>\n" +
-    "					<div class=\"slide\">\n" +
-    "\n" +
-    "					</div>\n" +
-    "				</li>\n" +
-    "				<li>\n" +
-    "					<a>Web Application</a>\n" +
-    "					<div class=\"slide\">\n" +
-    "						<ul class=\"accordion\">\n" +
-    "							<li>\n" +
-    "								<a>Live Dashboard</a>\n" +
-    "								<div class=\"slide\"></div>\n" +
-    "							</li>\n" +
-    "							<li>\n" +
-    "								<a>Web Dashboard</a>\n" +
-    "								<div class=\"slide\">\n" +
-    "									<ul class=\"accordion\">\n" +
-    "										<li>\n" +
-    "											<a>Dashboard</a>\n" +
-    "											<div class=\"slide\">\n" +
-    "												<ul class=\"accordion\">\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\">\n" +
-    "															<ol>\n" +
-    "																<li></li>\n" +
-    "																<li></li>\n" +
-    "															</ol>\n" +
-    "														</div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "												</ul>\n" +
-    "											</div>\n" +
-    "										</li>\n" +
-    "										<li>\n" +
-    "											<a>Promotions</a>\n" +
-    "											<div class=\"slide\"></div>\n" +
-    "										</li>\n" +
-    "										<li>\n" +
-    "											<a>Manage Users</a>\n" +
-    "											<div class=\"slide\"></div>\n" +
-    "										</li>\n" +
-    "									</ul>\n" +
-    "								</div>\n" +
-    "							</li>\n" +
-    "						</ul>\n" +
-    "					</div>\n" +
-    "				</li>\n" +
-    "			</ul>\n" +
-    "		</div>\n" +
-    "	  </div>\n" +
-    "  </div>\n" +
-    "  <ui-view name = \"footer\"></ui-view>\n" +
-    "</div>");
 }]);
 
 angular.module("dashboard/category-performance-analysis/category-performance-analysis.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -801,6 +714,93 @@ angular.module("dashboard/top-concern/top-concern.tpl.html", []).run(["$template
     "");
 }]);
 
+angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("how-to/how-to.tpl.html",
+    "<div id=\"wrapper\">\n" +
+    "  <ui-view name = \"sidebar\"></ui-view>\n" +
+    "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
+    "     <ui-view name = \"header\"></ui-view>\n" +
+    "	 <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
+    "	 	<h1>How To Guide</h1>\n" +
+    "	 	<h2>Table of Content</h2>\n" +
+    "		<div class=\"accordion-holder\">\n" +
+    "			<ul class=\"accordion\">\n" +
+    "				<li>\n" +
+    "					<a>IOS Application</a>\n" +
+    "					<div class=\"slide\">\n" +
+    "\n" +
+    "					</div>\n" +
+    "				</li>\n" +
+    "				<li>\n" +
+    "					<a>Web Application</a>\n" +
+    "					<div class=\"slide\">\n" +
+    "						<ul class=\"accordion\">\n" +
+    "							<li>\n" +
+    "								<a>Live Dashboard</a>\n" +
+    "								<div class=\"slide\"></div>\n" +
+    "							</li>\n" +
+    "							<li>\n" +
+    "								<a>Web Dashboard</a>\n" +
+    "								<div class=\"slide\">\n" +
+    "									<ul class=\"accordion\">\n" +
+    "										<li>\n" +
+    "											<a>Dashboard</a>\n" +
+    "											<div class=\"slide\">\n" +
+    "												<ul class=\"accordion\">\n" +
+    "													<li>\n" +
+    "														<a></a>\n" +
+    "														<div class=\"slide\">\n" +
+    "															<ol>\n" +
+    "																<li></li>\n" +
+    "																<li></li>\n" +
+    "															</ol>\n" +
+    "														</div>\n" +
+    "													</li>\n" +
+    "													<li>\n" +
+    "														<a></a>\n" +
+    "														<div class=\"slide\"></div>\n" +
+    "													</li>\n" +
+    "													<li>\n" +
+    "														<a></a>\n" +
+    "														<div class=\"slide\"></div>\n" +
+    "													</li>\n" +
+    "													<li>\n" +
+    "														<a></a>\n" +
+    "														<div class=\"slide\"></div>\n" +
+    "													</li>\n" +
+    "													<li>\n" +
+    "														<a></a>\n" +
+    "														<div class=\"slide\"></div>\n" +
+    "													</li>\n" +
+    "													<li>\n" +
+    "														<a></a>\n" +
+    "														<div class=\"slide\"></div>\n" +
+    "													</li>\n" +
+    "												</ul>\n" +
+    "											</div>\n" +
+    "										</li>\n" +
+    "										<li>\n" +
+    "											<a>Promotions</a>\n" +
+    "											<div class=\"slide\"></div>\n" +
+    "										</li>\n" +
+    "										<li>\n" +
+    "											<a>Manage Users</a>\n" +
+    "											<div class=\"slide\"></div>\n" +
+    "										</li>\n" +
+    "									</ul>\n" +
+    "								</div>\n" +
+    "							</li>\n" +
+    "						</ul>\n" +
+    "					</div>\n" +
+    "				</li>\n" +
+    "			</ul>\n" +
+    "		</div>\n" +
+    "	  </div>\n" +
+    "  </div>\n" +
+    "  <ui-view name = \"footer\"></ui-view>\n" +
+    "</div>");
+}]);
+
 angular.module("live/benchmark-map/benchmark-map.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/benchmark-map/benchmark-map.tpl.html",
     "<div class=\"slide win-height\">\n" +
@@ -1315,11 +1315,11 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
     "										<a ng-click = \"edit(user, $index)\" class=\"fa fa-pencil-square-o\" title = \"Edit User\"></a>\n" +
     "									</span>\n" +
     "									<span class=\"btn-holder\">\n" +
-    "										<a ng-click = \"deactivate(user, $index)\" title = \"activate/deactivate user\" ng-class=\"{'fa fa-user btn-active': (user.is_active == false), 'fa fa-user-times btn-deactive': (user.is_active == true)}\"></a>\n" +
+    "										<a ng-click = \"deactivate(user, $index)\" title = \"Activate/Deactivate User\" ng-class=\"{'fa fa-user btn-active': (user.is_active == false), 'fa fa-user-times btn-deactive': (user.is_active == true)}\"></a>\n" +
     "									</span>\n" +
     "\n" +
     "                  <span class=\"btn-holder\">\n" +
-    "										<a ng-click = \"disassociate(user, $index)\" title = \"disassociate user\" class=\"fa fa-remove\" ng-if = \"(child_role == 4 && user.region) || ((child_role == 2 || child_role == 3) && (user.branch))\"></a>\n" +
+    "										<a ng-click = \"disassociate(user, $index)\" title = \"Disassociate User\" class=\"fa fa-remove\" ng-if = \"(child_role == 4 && user.region) || ((child_role == 2 || child_role == 3) && (user.branch))\"></a>\n" +
     "									</span>\n" +
     "\n" +
     "								</div>\n" +

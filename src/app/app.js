@@ -3,7 +3,7 @@ angular.module( 'livefeed', [
   'templates-common',
   'livefeed.dashboard',
   'livefeed.login',
-  'livefeed.coupon',
+  'livefeed.how_to',
   'livefeed.live',
   'livefeed.manage_users',
   'livefeed.promotions',
