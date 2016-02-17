@@ -19,7 +19,7 @@ angular.module("common/footer.tpl.html", []).run(["$templateCache", function($te
 angular.module("common/header.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("common/header.tpl.html",
     "<div class=\"header-visual\">\n" +
-    "  <nav class=\"navbar dashboard\" role=\"navigation\" style=\"margin-bottom: 0;z-index: 999;\">\n" +
+    "  <nav class=\"navbar dashboard\" role=\"navigation\">\n" +
     "    <div class=\"navbar-header\">\n" +
     "      <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary\" toggle-menu>\n" +
     "        <i class=\"fa fa-bars\"></i>\n" +
@@ -716,9 +716,12 @@ angular.module("dashboard/top-concern/top-concern.tpl.html", []).run(["$template
 
 angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("how-to/how-to.tpl.html",
-    "<div id=\"wrapper\">\n" +
-    "  <div id=\"page-wrapper\" class=\"gray-bg add\">\n" +
+    "<div id=\"wrapper\" class=\"add\">\n" +
+    "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
     "     <header class=\"doc-header\">\n" +
+    "         <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary visible-xs menu-opener\">\n" +
+    "          <i class=\"fa fa-bars\"></i>\n" +
+    "        </a>\n" +
     "     	<div class=\"logo-holder\">\n" +
     "			<div class=\"logo\">\n" +
     "			   <a href=\"http://www.mcdonalds.com.pk/\" target=\"_blank\"> <img alt=\"image\" class=\"img-responsive\" src=\"assets/images/logo.jpg\"></a>\n" +
@@ -726,7 +729,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "		  </div>\n" +
     "     </header>\n" +
     "     <div class=\"doc-block\">\n" +
-    "     	<nav class=\"navbar-default navbar-static-side hidden-print hidden-xs hidden-sm affix-top\" data-spy=\"affix\" role=\"navigation\" >\n" +
+    "     	<nav class=\"navbar-default navbar-static-side\" role=\"navigation\" >\n" +
     "			<div class=\"sidebar-collapse\">\n" +
     "			   <div id=\"side-menu\" class=\"nav metismenu\">\n" +
     "					<ul class=\"nav metismenu\" id=\"side-menu\">\n" +
@@ -738,13 +741,11 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "										<li class=\"active\">\n" +
     "										  <a href=\"/dashboard\">Dashboard</a>\n" +
     "										  <ul class=\"nav nav-fourth-level collapse\">\n" +
-    "                                            <li class=\"active\"><a href=\"/overallrating\">Overall Rating</a></li>\n" +
-    "<!--\n" +
-    "                                            <li><a href=\"#\"></a></li>\n" +
-    "                                            <li><a href=\"#\"></a></li>\n" +
-    "                                            <li><a href=\"#\"></a></li>\n" +
-    "                                            <li><a href=\"#\"></a></li>\n" +
-    "-->\n" +
+    "                                            <li class=\"active\"><a href=\"#overallrating\">Overall Rating</a></li>\n" +
+    "                                            <li><a href=\"#businessSegment\">Business Segment Breakdown</a></li>\n" +
+    "                                            <li><a href=\"#qsc\">QSC Analysis</a></li>\n" +
+    "                                            <li><a href=\"#map\">Benchmark Map</a></li>\n" +
+    "                                            <li><a href=\"#timeline\">Timeline</a></li>\n" +
     "                                          </ul>\n" +
     "										</li>\n" +
     "										<li><a href=\"#promotions\">Promotions</a></li>\n" +
@@ -777,6 +778,98 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "				<h1>Dashboard</h1>\n" +
     "				<section class=\"info-section\" id=\"overallrating\">\n" +
     "				  <h2>Overall Rating Section</h2>\n" +
+    "                  <div class=\"text-block\">\n" +
+    "                      <ol class=\"steps-list\">\n" +
+    "                          <li>\n" +
+    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Select Start and End Dates From the Calender Popup\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                          </li>\n" +
+    "                      </ol>\n" +
+    "                  </div>\n" +
+    "				</section>\n" +
+    "				<section class=\"info-section\" id=\"businessSegment\">\n" +
+    "				  <h2>Business Segment Breakdown Section</h2>\n" +
+    "                  <div class=\"text-block\">\n" +
+    "                      <ol class=\"steps-list\">\n" +
+    "                          <li>\n" +
+    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Select Start and End Dates From the Calender Popup\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                          </li>\n" +
+    "                      </ol>\n" +
+    "                  </div>\n" +
+    "				</section>\n" +
+    "				<section class=\"info-section\" id=\"qsc\">\n" +
+    "				  <h2>QSC Analysis Section</h2>\n" +
+    "                  <div class=\"text-block\">\n" +
+    "                      <ol class=\"steps-list\">\n" +
+    "                          <li>\n" +
+    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Select Start and End Dates From the Calender Popup\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                          </li>\n" +
+    "                      </ol>\n" +
+    "                  </div>\n" +
+    "				</section>\n" +
+    "				<section class=\"info-section\" id=\"map\">\n" +
+    "				  <h2>Benchmark Map Section</h2>\n" +
+    "                  <div class=\"text-block\">\n" +
+    "                      <ol class=\"steps-list\">\n" +
+    "                          <li>\n" +
+    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Select Start and End Dates From the Calender Popup\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                          </li>\n" +
+    "                      </ol>\n" +
+    "                  </div>\n" +
+    "				</section>\n" +
+    "				<section class=\"info-section\" id=\"timeline\">\n" +
+    "				  <h2>Timeline Section</h2>\n" +
     "                  <div class=\"text-block\">\n" +
     "                      <ol class=\"steps-list\">\n" +
     "                          <li>\n" +

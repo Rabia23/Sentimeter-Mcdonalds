@@ -2090,13 +2090,16 @@ li.active,
 	vertical-align: middle;
 	white-space: normal;
 }
-#page-wrapper.add{
+#wrapper.add #page-wrapper{
   margin-left: 0;
   background: #fff;
 }
+#wrapper.add #footer{left: 0;}
+#wrapper.add #footer .footer-inner{background: #f3f3f4;}
 .doc-header{
-	overflow: hidden;
-	text-align: center;
+  overflow: hidden;
+  text-align: center;
+  margin: 0 0 20px;
 }
 .doc-header:after{
 	position: absolute;
@@ -2143,6 +2146,7 @@ li.active,
 }
 .doc-block .navbar-static-side a{
   float: right;
+  text-align: right;
   font-weight: 400;
   padding: 5px 15px 5px 0 !important;
   color: #767676;
@@ -2192,9 +2196,15 @@ li.active,
   height: 100%;
 }
 .doc-block .sidebar-collapse:before{display: none;}
+.doc-block h1{margin: 0 0 20px;}
+.doc-block h2{margin: 0 0 15px;}
+.info-section{
+  overflow: hidden;
+  margin: 0 0 20px;
+}
 #wrapper .doc-block .wrapper{
   overflow: hidden;
-  padding-left: 220px !important;
+  padding: 0 10px 0 220px !important;
 }
 .steps-list{
 	overflow: hidden;
@@ -2205,12 +2215,11 @@ li.active,
 .steps-list li{
 	float: left;
 	width: 100%;
-	margin: 0 0 10px;
+	margin: 0 0 30px;
 }
-
 .steps-list li .step-holder{
 	overflow: hidden;
-	padding: 10px 0;
+	padding: 15px 0;
 	max-width: 500px;
 }
 
@@ -2232,6 +2241,13 @@ li.active,
 	.modal-1200 .modal-body .table-container{height: 300px !important;}
 	#wrapper .navbar-top-links li a{padding: 20px 10px;}
 	.info-holder .table-container{max-height: 526px;}
+   #wrapper .doc-block .navbar-static-side{
+     left: auto;
+     bottom: auto;
+     display: block !important;
+     width: 170px !important;
+     top: auto;
+  }
 }
 
 @media screen and (min-width: 992px) {
@@ -2514,6 +2530,7 @@ li.active,
 		font-size: 16px;
 		line-height: 24px;
 	}
+  #wrapper .doc-block .wrapper{padding: 0 10px 0 200px !important;}
 }
 
 @media screen and (max-width: 991px) {
@@ -2736,6 +2753,19 @@ li.active,
 	}
 	.loader{margin: 8% 27%;}
     #wrapper .timeline-section .ibox-content{height: auto !important;}
+    .steps-list{
+      font-size: 14px;
+      line-height: 18px;
+      padding: 0 0 0 25px;
+    }
+  .doc-header:after{height: 20px;}
+  .doc-header:before{
+    height: 20px;
+    width: 200px;
+    margin-left: -100px;
+  }
+    #wrapper .doc-block .wrapper{padding: 0 10px !important;}
+    body.mini-navbar #wrapper.add #page-wrapper{margin-left: 0;}
 }
 
 @media screen and (max-width: 768px) {

@@ -538,6 +538,12 @@ function initMobileNav() {
     menuOpener: '.nav-opener , .btn-close',
     menuDrop: '.comments-drop'
   });
+  jQuery('body').mobileNav({
+    hideOnClickOutside: true,
+    menuActiveClass: 'aside-active',
+    menuOpener: '.menu-opener , .btn-close',
+    menuDrop: '.navbar-default'
+  });
 }
 
 // initialize custom form elements
