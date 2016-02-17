@@ -5,20 +5,23 @@
 
       $scope.show_error_message = false;
 
-      Graphs.comments(1).$promise.then(function(data){
-        if(data.success) {
-          $scope.show_error_message = false;
-          $scope.feedback_count = data.response.feedback_count;
-          $scope.comments = _.map(data.response.feedbacks, function (data) {
-            return commentService.getComment(data);
-          });
-        }
-        else{
-          $scope.show_error_message = true;
-          $scope.error_message = data.message;
-          flashService.createFlash($scope.error_message, "danger");
-        }
-      });
+      $scope.getComments = function() {
+
+        Graphs.comments(1).$promise.then(function(data){
+          if(data.success) {
+            $scope.show_error_message = false;
+            $scope.feedback_count = data.response.feedback_count;
+            $scope.comments = _.map(data.response.feedbacks, function (data) {
+              return commentService.getComment(data);
+            });
+          }
+          else{
+            $scope.show_error_message = true;
+            $scope.error_message = data.message;
+            flashService.createFlash($scope.error_message, "danger");
+          }
+        });
+      };
 
       $scope.open = function (size) {
 
@@ -32,11 +35,6 @@
             }
           }
         });
-
-        modalInstance.result.then(function (selectedItem) {
-          //$scope.selected = selectedItem;
-        });
       };
-
     });
 })();

@@ -446,8 +446,8 @@ angular.module("dashboard/overall-rating/overall-rating.tpl.html", []).run(["$te
     "          <a ng-click = \"Next()\" ng-show = \"mainView\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
     "          <a ng-click = \"labelPrev()\" ng-show = \"optionView\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
     "          <a ng-click = \"labelNext()\" ng-show = \"optionView\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
-    "          <a ng-click = \"optionPrev()\" ng-show = \"optionView == false\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
-    "          <a ng-click = \"optionNext()\" ng-show = \"optionView == false\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
+    "          <a ng-click = \"optionPrev()\" ng-show = \"optionView == false && mainView == false\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
+    "          <a ng-click = \"optionNext()\" ng-show = \"optionView == false && mainView == false\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
     "          <div id=\"chartdiv\" style=\"width: 100%; height: 320px;\"></div>\n" +
     "      </div>\n" +
     "  </div>\n" +
@@ -516,7 +516,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
 angular.module("dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html",
     "<div class=\"comment-block\">\n" +
-    "  <a style = \"cursor:pointer;\" class=\"nav-opener\" mobile-nav>\n" +
+    "  <a style = \"cursor:pointer;\" class=\"nav-opener\" mobile-nav data-action=\"getComments()\">\n" +
     "    <i class=\"fa fa-comments-o\"></i>\n" +
     "    <!--  <span class=\"count\">{{feedback_count}}</span> -->\n" +
     "  </a>\n" +
