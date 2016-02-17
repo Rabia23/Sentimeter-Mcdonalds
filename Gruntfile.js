@@ -307,7 +307,7 @@ module.exports = function ( grunt ) {
         options: {
           // newline: true,
           // newlineMaximum: 2,
-          // trailingspaces: true,
+          trailingspaces: true,
           indentation: 'spaces',
           spaces: 2
         }
@@ -322,14 +322,6 @@ module.exports = function ( grunt ) {
       //         indentation: 'tabs',
       //         ignores: ['js-comments']
       //     }
-      // },
-      // external: {
-      //   src: [
-      //       '**/*'
-      //   ],
-      //   options: {
-      //       editorconfig: '.editorconfig'
-      //   }
       // }
     },
 
