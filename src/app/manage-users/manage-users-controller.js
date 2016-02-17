@@ -68,7 +68,7 @@
             user.status = "Inactive";
           }
           $scope.users[index] = user;
-          message = "User successfully disassociateed.";
+          message = "User successfully disassociated.";
           flashService.createFlash(message, "success");
         }
         else{

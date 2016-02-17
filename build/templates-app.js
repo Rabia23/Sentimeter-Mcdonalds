@@ -79,7 +79,7 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "					<a ui-sref=\"users\"><i class=\"fa fa-user\"></i> <span class=\"nav-label\">Manage Users</span></a>\n" +
     "				</li>\n" +
     "				<li ng-class = \"{'active': currentState == 'how_to'}\">\n" +
-    "					<a ui-sref=\"how_to\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
+    "					<a ui-sref=\"how_to\" target=\"_blank\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
     "				</li>\n" +
     "			</ul>\n" +
     "    </div>\n" +
@@ -446,8 +446,8 @@ angular.module("dashboard/overall-rating/overall-rating.tpl.html", []).run(["$te
     "          <a ng-click = \"Next()\" ng-show = \"mainView\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
     "          <a ng-click = \"labelPrev()\" ng-show = \"optionView\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
     "          <a ng-click = \"labelNext()\" ng-show = \"optionView\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
-    "          <a ng-click = \"optionPrev()\" ng-show = \"optionView == false\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
-    "          <a ng-click = \"optionNext()\" ng-show = \"optionView == false\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
+    "          <a ng-click = \"optionPrev()\" ng-show = \"optionView == false && mainView == false\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
+    "          <a ng-click = \"optionNext()\" ng-show = \"optionView == false && mainView == false\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
     "          <div id=\"chartdiv\" style=\"width: 100%; height: 320px;\"></div>\n" +
     "      </div>\n" +
     "  </div>\n" +
@@ -516,7 +516,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
 angular.module("dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html",
     "<div class=\"comment-block\">\n" +
-    "  <a style = \"cursor:pointer;\" class=\"nav-opener\" mobile-nav>\n" +
+    "  <a style = \"cursor:pointer;\" class=\"nav-opener\" mobile-nav data-action=\"getComments()\">\n" +
     "    <i class=\"fa fa-comments-o\"></i>\n" +
     "    <!--  <span class=\"count\">{{feedback_count}}</span> -->\n" +
     "  </a>\n" +
@@ -717,111 +717,90 @@ angular.module("dashboard/top-concern/top-concern.tpl.html", []).run(["$template
 angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("how-to/how-to.tpl.html",
     "<div id=\"wrapper\">\n" +
-    "  <ui-view name = \"sidebar\"></ui-view>\n" +
-    "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
-    "     <ui-view name = \"header\"></ui-view>\n" +
-    "     <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
-    "       <h1>How To Guide</h1>\n" +
-    "       <h2>Table of Content</h2>\n" +
-    "       <uib-accordion close-others=\"oneAtATime\">\n" +
-    "         <uib-accordion-group heading=\"Static Header, initially expanded\" is-open=\"isFirstOpen\">\n" +
-    "           This content is straight in the template.\n" +
-    "         </uib-accordion-group>\n" +
-    "         <uib-accordion-group heading=\"IOS Application\">\n" +
-    "           <p>The body of the uib-accordion group grows to fit the contents</p>\n" +
-    "           <button type=\"button\" class=\"btn btn-default btn-sm\" ng-click=\"addItem()\">Add Item</button>\n" +
-    "           <div ng-repeat=\"item in items\">{{item}}</div>\n" +
-    "         </uib-accordion-group>\n" +
-    "         <uib-accordion-group heading=\"Web Application\">\n" +
-    "           <uib-accordion close-others=\"oneAtATime\">\n" +
-    "             <uib-accordion-group heading=\"Static Header, initially expanded\">\n" +
-    "               This content is straight in the template.\n" +
-    "             </uib-accordion-group>\n" +
-    "             <uib-accordion-group heading=\"IOS Application\">\n" +
-    "               <p>The body of the uib-accordion group grows to fit the contents</p>\n" +
-    "               <button type=\"button\" class=\"btn btn-default btn-sm\" ng-click=\"addItem()\">Add Item</button>\n" +
-    "               <div ng-repeat=\"item in items\">{{item}}</div>\n" +
-    "             </uib-accordion-group>\n" +
-    "             <uib-accordion-group heading=\"Web Application\">\n" +
-    "               <ui-accordion>\n" +
-    "             </uib-accordion-group>\n" +
-    "          </uib-accordion>\n" +
-    "         </uib-accordion-group>\n" +
-    "      </uib-accordion>\n" +
-    "  		<!-- <div class=\"accordion-holder\">\n" +
-    "  			<ul class=\"accordion\">\n" +
-    "  				<li>\n" +
-    "  					<a>IOS Application</a>\n" +
-    "  					<div class=\"slide\">\n" +
-    "\n" +
-    "  					</div>\n" +
-    "  				</li>\n" +
-    "  				<li>\n" +
-    "  					<a>Web Application</a>\n" +
-    "  					<div class=\"slide\">\n" +
-    "  						<ul class=\"accordion\">\n" +
-    "  							<li>\n" +
-    "  								<a>Live Dashboard</a>\n" +
-    "  								<div class=\"slide\"></div>\n" +
-    "  							</li>\n" +
-    "  							<li>\n" +
-    "  								<a>Web Dashboard</a>\n" +
-    "  								<div class=\"slide\">\n" +
-    "  									<ul class=\"accordion\">\n" +
-    "  										<li>\n" +
-    "  											<a>Dashboard</a>\n" +
-    "  											<div class=\"slide\">\n" +
-    "  												<ul class=\"accordion\">\n" +
-    "  													<li>\n" +
-    "  														<a></a>\n" +
-    "  														<div class=\"slide\">\n" +
-    "  															<ol>\n" +
-    "  																<li></li>\n" +
-    "  																<li></li>\n" +
-    "  															</ol>\n" +
-    "  														</div>\n" +
-    "  													</li>\n" +
-    "  													<li>\n" +
-    "  														<a></a>\n" +
-    "  														<div class=\"slide\"></div>\n" +
-    "  													</li>\n" +
-    "  													<li>\n" +
-    "  														<a></a>\n" +
-    "  														<div class=\"slide\"></div>\n" +
-    "  													</li>\n" +
-    "  													<li>\n" +
-    "  														<a></a>\n" +
-    "  														<div class=\"slide\"></div>\n" +
-    "  													</li>\n" +
-    "  													<li>\n" +
-    "  														<a></a>\n" +
-    "  														<div class=\"slide\"></div>\n" +
-    "  													</li>\n" +
-    "  													<li>\n" +
-    "  														<a></a>\n" +
-    "  														<div class=\"slide\"></div>\n" +
-    "  													</li>\n" +
-    "  												</ul>\n" +
-    "  											</div>\n" +
-    "  										</li>\n" +
-    "  										<li>\n" +
-    "  											<a>Promotions</a>\n" +
-    "  											<div class=\"slide\"></div>\n" +
-    "  										</li>\n" +
-    "  										<li>\n" +
-    "  											<a>Manage Users</a>\n" +
-    "  											<div class=\"slide\"></div>\n" +
-    "  										</li>\n" +
-    "  									</ul>\n" +
-    "  								</div>\n" +
-    "  							</li>\n" +
-    "  						</ul>\n" +
-    "  					</div>\n" +
-    "  				</li>\n" +
-    "  			</ul>\n" +
-    "  		</div>\n" +
-    "  	  </div> -->\n" +
-    "      </div>\n" +
+    "  <div id=\"page-wrapper\" class=\"gray-bg add\">\n" +
+    "     <header class=\"doc-header\">\n" +
+    "     	<div class=\"logo-holder\">\n" +
+    "			<div class=\"logo\">\n" +
+    "			   <a href=\"http://www.mcdonalds.com.pk/\" target=\"_blank\"> <img alt=\"image\" class=\"img-responsive\" src=\"assets/images/logo.jpg\"></a>\n" +
+    "			</div>\n" +
+    "		  </div>\n" +
+    "     </header>\n" +
+    "     <div class=\"doc-block\">\n" +
+    "     	<nav class=\"navbar-default navbar-static-side hidden-print hidden-xs hidden-sm affix-top\" data-spy=\"affix\" role=\"navigation\" >\n" +
+    "			<div class=\"sidebar-collapse\">\n" +
+    "			   <div id=\"side-menu\" class=\"nav metismenu\">\n" +
+    "					<ul class=\"nav metismenu\" id=\"side-menu\">\n" +
+    "						<li class=\"active\">\n" +
+    "							<a href=\"#\">Web Application</a>\n" +
+    "							<ul class=\"nav nav-second-level collapse\">\n" +
+    "								<li class=\"active\"><a href=\"#\">Web Dashboard</a>\n" +
+    "									<ul class=\"nav nav-third-level collapse\">\n" +
+    "										<li class=\"active\">\n" +
+    "										  <a href=\"/dashboard\">Dashboard</a>\n" +
+    "										  <ul class=\"nav nav-fourth-level collapse\">\n" +
+    "                                            <li class=\"active\"><a href=\"/overallrating\">Overall Rating</a></li>\n" +
+    "<!--\n" +
+    "                                            <li><a href=\"#\"></a></li>\n" +
+    "                                            <li><a href=\"#\"></a></li>\n" +
+    "                                            <li><a href=\"#\"></a></li>\n" +
+    "                                            <li><a href=\"#\"></a></li>\n" +
+    "-->\n" +
+    "                                          </ul>\n" +
+    "										</li>\n" +
+    "										<li><a href=\"#promotions\">Promotions</a></li>\n" +
+    "										<li><a href=\"#manageusers\">Manage Users</a></li>\n" +
+    "									</ul>\n" +
+    "								</li>\n" +
+    "								<li><a href=\"#\">Livefeed Dashboard</a>\n" +
+    "									<ul class=\"nav nav-third-level collapse\">\n" +
+    "										<li><a href=\"#\">Second Level Item</a></li>\n" +
+    "										<li><a href=\"#\">Second Level Item</a></li>\n" +
+    "										<li><a href=\"#\">Second Level Item</a></li>\n" +
+    "									</ul>\n" +
+    "								</li>\n" +
+    "							</ul>\n" +
+    "						</li>\n" +
+    "						<li>\n" +
+    "							<a href=\"#\">Iso Application</a>\n" +
+    "							<ul class=\"nav nav-third-level collapse\">\n" +
+    "								<li><a href=\"#\">Second Level Item</a></li>\n" +
+    "								<li><a href=\"#\">Second Level Item</a></li>\n" +
+    "								<li><a href=\"#\">Second Level Item</a></li>\n" +
+    "							</ul>\n" +
+    "						</li>\n" +
+    "					</ul>\n" +
+    "			   </div>\n" +
+    "			</div>\n" +
+    "		  </nav>\n" +
+    "		 <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
+    "			 <section class=\"Section\" id=\"dashboard\">\n" +
+    "				<h1>Dashboard</h1>\n" +
+    "				<section class=\"info-section\" id=\"overallrating\">\n" +
+    "				  <h2>Overall Rating Section</h2>\n" +
+    "                  <div class=\"text-block\">\n" +
+    "                      <ol class=\"steps-list\">\n" +
+    "                          <li>\n" +
+    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Select Start and End Dates From the Calender Popup\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                          </li>\n" +
+    "                          <li>\n" +
+    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                          </li>\n" +
+    "                      </ol>\n" +
+    "                  </div>\n" +
+    "				</section>\n" +
+    "			 </section>\n" +
+    "		  </div>\n" +
+    "     </div>\n" +
     "  </div>\n" +
     "  <ui-view name = \"footer\"></ui-view>\n" +
     "</div>\n" +
@@ -1111,7 +1090,7 @@ angular.module("live/top-concerns/top-concern.tpl.html", []).run(["$templateCach
 
 angular.module("login/login.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("login/login.tpl.html",
-    "<div class=\"wrapper wrapper-content animated fadeInLeft\">\n" +
+    "<div class=\"wrapper wrapper-content animated fadeInDown\">\n" +
     "	<div id=\"header\">\n" +
     "		<div class=\"logo\"><a href=\"http:\\\\mcdonalds.com.pk\" target=\"_blank\"><img src=\"assets/images/logo.png\" width=\"116\" height=\"112\" alt=\"McDonald &reg;\"></a>	</div>\n" +
     "		<h2>Customer Centric Approach</h2>\n" +
@@ -1342,11 +1321,11 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
     "										<a ng-click = \"edit(user, $index)\" class=\"fa fa-pencil-square-o\" title = \"Edit User\"></a>\n" +
     "									</span>\n" +
     "									<span class=\"btn-holder\">\n" +
-    "										<a ng-click = \"deactivate(user, $index)\" title = \"activate/deactivate user\" ng-class=\"{'fa fa-user btn-active': (user.is_active == false), 'fa fa-user-times btn-deactive': (user.is_active == true)}\"></a>\n" +
+    "										<a ng-click = \"deactivate(user, $index)\" title = \"Activate/Deactivate User\" ng-class=\"{'fa fa-user btn-active': (user.is_active == false), 'fa fa-user-times btn-deactive': (user.is_active == true)}\"></a>\n" +
     "									</span>\n" +
     "\n" +
     "                  <span class=\"btn-holder\">\n" +
-    "										<a ng-click = \"disassociate(user, $index)\" title = \"disassociate user\" class=\"fa fa-remove\" ng-if = \"(child_role == 4 && user.region) || ((child_role == 2 || child_role == 3) && (user.branch))\"></a>\n" +
+    "										<a ng-click = \"disassociate(user, $index)\" title = \"Disassociate User\" class=\"fa fa-remove\" ng-if = \"(child_role == 4 && user.region) || ((child_role == 2 || child_role == 3) && (user.branch))\"></a>\n" +
     "									</span>\n" +
     "\n" +
     "								</div>\n" +
