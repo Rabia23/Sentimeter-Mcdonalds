@@ -308,21 +308,14 @@ module.exports = function ( grunt ) {
           // newline: true,
           // newlineMaximum: 2,
           trailingspaces: true,
+          allowsBOM: false,
+          indent_style: true,
+          indent_size: true,
           indentation: 'spaces',
-          spaces: 2
+          spaces: 2,
+          indentationGuess: true
         }
       }
-      // javascript: {
-      //     src: [
-      //         'js/src/**/*.js'
-      //     ],
-      //     options: {
-      //         newline: true,
-      //         trailingspaces: true,
-      //         indentation: 'tabs',
-      //         ignores: ['js-comments']
-      //     }
-      // }
     },
 
      /**

@@ -98,10 +98,10 @@ angular.module("dashboard/category-performance-analysis/category-performance-ana
     "          <li class=\"item4\" ng-class=\"{active: class == 'Cleanliness'}\"><a ng-click=\"onClick(CleanlinessID, 'Cleanliness')\">Cleanliness</a></li>\n" +
     "          <li class=\"item5\">\n" +
     "            <div class=\"calender-outer\">\n" +
-    "                <span class=\"calendar-holder\">\n" +
-    "                  <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
-    "                  <i class=\"fa fa-calendar\" map-range-click></i>\n" +
-    "                </span>\n" +
+    "              <span class=\"calendar-holder\">\n" +
+    "                <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
+    "                <i class=\"fa fa-calendar\" map-range-click></i>\n" +
+    "              </span>\n" +
     "            </div>\n" +
     "          </li>\n" +
     "        </ul>\n" +
@@ -253,7 +253,7 @@ angular.module("dashboard/dashboard.tpl.html", []).run(["$templateCache", functi
     "                  <div class=\"col-sm-6 col-md-12\">\n" +
     "                    <div class=\"ibox float-e-margins detail-block\" ng-class=\"{loading: show_loading}\">\n" +
     "                      <div class=\"title-outer\">\n" +
-    "                                  <div class=\"ibox-title\"><h5>Top GRO</h5></div>\n" +
+    "                        <div class=\"ibox-title\"><h5>Top GRO</h5></div>\n" +
     "                      </div>\n" +
     "                      <div class=\"content-holder\">\n" +
     "                        <div class=\"w1\">\n" +
@@ -333,36 +333,37 @@ angular.module("dashboard/opportunities/opportunities.tpl.html", []).run(["$temp
     "<div class=\"ibox float-e-margins float-e-margin-none\" ng-class=\"{loading: show_loading}\">\n" +
     "  <div class=\"title-outer\">\n" +
     "    <div class=\"ibox-title\">\n" +
-    "	  <h5>What would make you visit McDonald's more often?</h5>\n" +
-    "	</div>\n" +
+    "      <h5>What would make you visit McDonald's more often?</h5>\n" +
+    "    </div>\n" +
     "  </div>\n" +
     "  <div class=\"content-holder\">\n" +
     "    <div class=\"content-inner\">\n" +
-    "	  <div class=\"content-block\">\n" +
-    "	    <div class=\"ibox-content\">\n" +
-    "		  <div class=\"chart-outer\">\n" +
-    "		    <div class=\"progres-container\">\n" +
-    "			  <div class=\"progress-area\">\n" +
-    "			    <div class=\"progress-holder\" ng-repeat = \"dat in opportunity_data\" data-color = \"dat.colour\" data-data = \"opportunity_data\" opportunity-bar-background>\n" +
-    "				  <div class=\"progress-inner\">\n" +
-    "				    <small><em>{{dat.name}} </em></small>\n" +
-    "					<div class=\"progress-block\"><uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar></div>\n" +
-    "				  </div>\n" +
-    "				</div>\n" +
-    "			  </div>\n" +
-    "			</div>\n" +
-    "		  </div>\n" +
-    "  		</div>\n" +
-    "	  </div>\n" +
-    "	</div>\n" +
+    "      <div class=\"content-block\">\n" +
+    "        <div class=\"ibox-content\">\n" +
+    "          <div class=\"chart-outer\">\n" +
+    "            <div class=\"progres-container\">\n" +
+    "              <div class=\"progress-area\">\n" +
+    "                <div class=\"progress-holder\" ng-repeat=\"dat in opportunity_data\" data-color=\"dat.colour\" data-data=\"opportunity_data\" opportunity-bar-background>\n" +
+    "                  <div class=\"progress-inner\">\n" +
+    "                    <small><em>{{dat.name}} </em></small>\n" +
+    "                    <div class=\"progress-block\">\n" +
+    "                      <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
     "  </div>\n" +
-    "</div>\n" +
-    "");
+    "</div>");
 }]);
 
 angular.module("dashboard/overall-feedback/overall-feedback.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/overall-feedback/overall-feedback.tpl.html",
-    "<div class=\"row inner-row rating\" same-bar-height data-data = \"bar.data\">\n" +
+    "<div class=\"row inner-row rating\" same-bar-height data-data=\"bar.data\">\n" +
     "  <div class=\"col-xs-12\">\n" +
     "    <div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\">\n" +
     "      <div class=\"title-outer\">\n" +
@@ -370,148 +371,147 @@ angular.module("dashboard/overall-feedback/overall-feedback.tpl.html", []).run([
     "          <h5>Overall Rating</h5>\n" +
     "          <div class=\"ibox-tools\">\n" +
     "            <ul class=\"tab-links\">\n" +
-    "			  <li>\n" +
-    "			    <div class=\"calender-outer\">\n" +
-    "				  <span class=\"calendar-holder\">\n" +
-    "				    <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
-    "					<i class=\"fa fa-calendar\" map-range-click></i>\n" +
-    "				  </span>\n" +
-    "				</div>\n" +
-    "			  </li>\n" +
-    "			</ul>\n" +
-    "		  </div>\n" +
-    "		</div>\n" +
-    "	  </div>\n" +
+    "              <li>\n" +
+    "                <div class=\"calender-outer\">\n" +
+    "                  <span class=\"calendar-holder\">\n" +
+    "                    <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
+    "                    <i class=\"fa fa-calendar\" map-range-click></i>\n" +
+    "                  </span>\n" +
+    "                </div>\n" +
+    "              </li>\n" +
+    "            </ul>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
     "      <div class=\"content-holder\">\n" +
     "        <div class=\"content-inner\">\n" +
     "          <div class=\"legends-outer\">\n" +
     "            <div class=\"legends-holder\">\n" +
-    "			  <ul class=\"legends-list\" ng-show=\"show_labels\">\n" +
-    "			    <li ng-repeat = \"label in labels track by $index\">\n" +
-    "				  <span class=\"bullet\" back-ground data-color = \"label.color\"></span>{{label.option_name}}\n" +
-    "			    </li>\n" +
-    "			  </ul>\n" +
-    "			</div>\n" +
-    "		  </div>\n" +
+    "              <ul class=\"legends-list\" ng-show=\"show_labels\">\n" +
+    "                <li ng-repeat=\"label in labels track by $index\">\n" +
+    "                  <span class=\"bullet\" back-ground data-color=\"label.color\"></span>{{label.option_name}}\n" +
+    "                </li>\n" +
+    "              </ul>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
     "          <div class=\"content-block\">\n" +
-    "			<div class=\"ibox-content float-chart-block\">\n" +
-    "			  <div class=\"flot-chart\">\n" +
-    "				<canvas ng-show = \"show_canvas\"  id=\"bar\" class=\"chart chart-bar\" chart-data=\"bar.data\" chart-labels=\"bar.labels\" chart-colours=\"bar.colours\" chart-options=\"bar.options\"></canvas>\n" +
-    "				<div ng-hide = \"show_canvas\" class=\"message-holder\"><h2>No Data Available</h2></div>\n" +
-    "			  </div>\n" +
-    "			</div>\n" +
-    "		  </div>\n" +
-    "		</div>\n" +
-    "	  </div>\n" +
-    "	</div>\n" +
+    "            <div class=\"ibox-content float-chart-block\">\n" +
+    "              <div class=\"flot-chart\">\n" +
+    "                <canvas ng-show=\"show_canvas\" id=\"bar\" class=\"chart chart-bar\" chart-data=\"bar.data\" chart-labels=\"bar.labels\" chart-colours=\"bar.colours\" chart-options=\"bar.options\"></canvas>\n" +
+    "                <div ng-hide=\"show_canvas\" class=\"message-holder\">\n" +
+    "                  <h2>No Data Available</h2></div>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
     "  </div>\n" +
-    "</div>\n" +
-    "");
+    "</div>");
 }]);
 
 angular.module("dashboard/overall-rating/overall-rating.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/overall-rating/overall-rating.tpl.html",
     "<div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\">\n" +
     "  <div class=\"ibox-title\">\n" +
-    "      <h5>Timeline</h5>\n" +
-    "      <div class=\"ibox-tools\">\n" +
-    "          <ul class=\"tab-links\">\n" +
-    "              <li>\n" +
-    "                  <div class=\"calender-outer\">\n" +
-    "					  <span class=\"calendar-holder\">\n" +
-    "						   <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" ng-disabled = \"!mainView\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
-    "						  <i class=\"fa fa-calendar\" map-range-click></i>\n" +
-    "					  </span>\n" +
-    "				  </div>\n" +
-    "              </li>\n" +
-    "          </ul>\n" +
-    "      <a ng-click = \"backToMain()\" ng-hide = \"mainView\" class=\"btn-back\">Back</a>\n" +
-    "      </div>\n" +
-    "  </div>\n" +
-    "  <div class=\"ibox-content\" same-rating-height data-data=\"overall_rating_data\">\n" +
-    "      <ul class=\"legends-list\">\n" +
-    "        <li ng-repeat = \"label in labels track by $index\">\n" +
-    "          <span class=\"bullet\" back-ground data-color = \"label.color\"></span>\n" +
-    "          <a ng-click=\"labelClick(label)\" ng-if = \"mainView\">{{label.option_name}}</a>\n" +
-    "          <span ng-if = \"!mainView\">{{label.option_name}}</span>\n" +
+    "    <h5>Timeline</h5>\n" +
+    "    <div class=\"ibox-tools\">\n" +
+    "      <ul class=\"tab-links\">\n" +
+    "        <li>\n" +
+    "          <div class=\"calender-outer\">\n" +
+    "            <span class=\"calendar-holder\">\n" +
+    "              <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" ng-disabled = \"!mainView\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
+    "              <i class=\"fa fa-calendar\" map-range-click></i>\n" +
+    "            </span>\n" +
+    "          </div>\n" +
     "        </li>\n" +
     "      </ul>\n" +
-    "      <div class=\"block-holder\" time-line data-data = \"overall_rating_data\" data-action=\"optionClick(option_object)\">\n" +
-    "      	  <a ng-click = \"Prev()\" ng-show = \"mainView\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
-    "          <a ng-click = \"Next()\" ng-show = \"mainView\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
-    "          <a ng-click = \"labelPrev()\" ng-show = \"optionView\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
-    "          <a ng-click = \"labelNext()\" ng-show = \"optionView\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
-    "          <a ng-click = \"optionPrev()\" ng-show = \"optionView == false && mainView == false\" class=\"btn-prev fa fa-angle-left\" ng-if = \"max_page > 1 && page > 1\"></a>\n" +
-    "          <a ng-click = \"optionNext()\" ng-show = \"optionView == false && mainView == false\" class=\"btn-next fa fa-angle-right\" ng-if = \"max_page > 1 && page < max_page\"></a>\n" +
-    "          <div id=\"chartdiv\" style=\"width: 100%; height: 320px;\"></div>\n" +
-    "      </div>\n" +
+    "      <a ng-click=\"backToMain()\" ng-hide=\"mainView\" class=\"btn-back\">Back</a>\n" +
+    "    </div>\n" +
     "  </div>\n" +
-    "</div>\n" +
-    "");
+    "  <div class=\"ibox-content\" same-rating-height data-data=\"overall_rating_data\">\n" +
+    "    <ul class=\"legends-list\">\n" +
+    "      <li ng-repeat=\"label in labels track by $index\">\n" +
+    "        <span class=\"bullet\" back-ground data-color=\"label.color\"></span>\n" +
+    "        <a ng-click=\"labelClick(label)\" ng-if=\"mainView\">{{label.option_name}}</a>\n" +
+    "        <span ng-if=\"!mainView\">{{label.option_name}}</span>\n" +
+    "      </li>\n" +
+    "    </ul>\n" +
+    "    <div class=\"block-holder\" time-line data-data=\"overall_rating_data\" data-action=\"optionClick(option_object)\">\n" +
+    "      <a ng-click=\"Prev()\" ng-show=\"mainView\" class=\"btn-prev fa fa-angle-left\" ng-if=\"max_page > 1 && page > 1\"></a>\n" +
+    "      <a ng-click=\"Next()\" ng-show=\"mainView\" class=\"btn-next fa fa-angle-right\" ng-if=\"max_page > 1 && page < max_page\"></a>\n" +
+    "      <a ng-click=\"labelPrev()\" ng-show=\"optionView\" class=\"btn-prev fa fa-angle-left\" ng-if=\"max_page > 1 && page > 1\"></a>\n" +
+    "      <a ng-click=\"labelNext()\" ng-show=\"optionView\" class=\"btn-next fa fa-angle-right\" ng-if=\"max_page > 1 && page < max_page\"></a>\n" +
+    "      <a ng-click=\"optionPrev()\" ng-show=\"optionView == false && mainView == false\" class=\"btn-prev fa fa-angle-left\" ng-if=\"max_page > 1 && page > 1\"></a>\n" +
+    "      <a ng-click=\"optionNext()\" ng-show=\"optionView == false && mainView == false\" class=\"btn-next fa fa-angle-right\" ng-if=\"max_page > 1 && page < max_page\"></a>\n" +
+    "      <div id=\"chartdiv\" style=\"width: 100%; height: 320px;\"></div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "</div>");
 }]);
 
 angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/positive-negative-feedback/comments-modal.tpl.html",
     "<div class=\"modal-header\">\n" +
-    "  <a ng-click = \"cancel()\" class=\"pull-right close-btn-font\"><i class=\"fa fa-times\"></i></a>\n" +
+    "  <a ng-click=\"cancel()\" class=\"pull-right close-btn-font\"><i class=\"fa fa-times\"></i></a>\n" +
     "  <h2>Positive Negative Feedback</h2>\n" +
     "</div>\n" +
     "<div class=\"modal-body\">\n" +
     "  <div class=\"table-holder\">\n" +
     "    <div class=\"table-block jcf-scrollable\" custom-form>\n" +
-    "  	  <table class=\"table\">\n" +
-    "	    <thead>\n" +
-    "		  <tr>\n" +
-    "			<th class=\"item1\">Name</th>\n" +
-    "			<th class=\"item2\">Phone / Email</th>\n" +
-    "			<th class=\"item3\">Branch</th>\n" +
-    "			<th class=\"item4\">Segment</th>\n" +
-    "			<th class=\"item5\">Comments</th>\n" +
-    "		    <th class=\"item6\">Status</th>\n" +
-    "		  </tr>\n" +
-    "		</thead>\n" +
-    "	  </table>\n" +
-    "	  <div class=\"table-container jcf-scrollable\" data-comments = \"comments\" ng-class = \"{loading: lock}\" when-scrolled=\"getMoreComments()\" custom-form>\n" +
-    "	    <table class=\"table\">\n" +
-    "		  <tbody>\n" +
-    "		    <tr ng-repeat = \"comment in comments\" ng-class = \"{negative: comment.data.is_negative, success: comment.data.action_taken === 2, defer: comment.data.action_taken === 3}\">\n" +
-    "			  <td class=\"item1\">{{comment.data.user_name}}</td>\n" +
-    "			  <td class=\"item2\"><a href=\"tel:{{comment.phone_no}}\" class=\"tel\">{{comment.phone_no}}</a><br>{{comment.email}}</td>\n" +
-    "			  <td class=\"item3\">{{comment.data.branch}}</td>\n" +
-    "			  <td class=\"item4\">{{comment.data.segment}}</td>\n" +
-    "			  <td class=\"item5\">\n" +
-    "			  	<div class=\"text\">{{comment.data.comment}}</div>\n" +
-    "			  </td>\n" +
-    "			  <td class=\"item6\">\n" +
-    "			    <div class=\"btn-group\" uib-dropdown dropdown-append-to-body ng-show = \"comment.show_dropdown\">\n" +
-    "				  <button type=\"button\" class=\"btn btn-info\" ng-click=\"selectedValue('Process',comment)\">Process</button>\n" +
-    "				  <button id=\"btn-append-to-body\" type=\"button\" class=\"btn btn-info\" uib-dropdown-toggle>\n" +
-    "				    <span class=\"caret\"></span>\n" +
-    "					<span class=\"sr-only\">Split button!</span>\n" +
-    "				  </button>\n" +
-    "				  <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"btn-append-to-body\">\n" +
-    "				    <li role=\"menuitem\">\n" +
-    "					  <a style = \"cursor:pointer;\" ng-click=\"selectedValue('Defer',comment)\">Defer</a>\n" +
-    "					</li>\n" +
-    "				  </ul>\n" +
-    "				</div>\n" +
-    "				<span ng-hide = \"comment.show_dropdown\">{{comment.action_string}}</span>\n" +
-    "			  </td>\n" +
-    "			</tr>\n" +
-    "		  </tbody>\n" +
-    "		</table>\n" +
-    "		<span class=\"loader\"></span>\n" +
-    "	  </div>\n" +
-    "  	</div>\n" +
+    "      <table class=\"table\">\n" +
+    "        <thead>\n" +
+    "          <tr>\n" +
+    "            <th class=\"item1\">Name</th>\n" +
+    "            <th class=\"item2\">Phone / Email</th>\n" +
+    "            <th class=\"item3\">Branch</th>\n" +
+    "            <th class=\"item4\">Segment</th>\n" +
+    "            <th class=\"item5\">Comments</th>\n" +
+    "            <th class=\"item6\">Status</th>\n" +
+    "          </tr>\n" +
+    "        </thead>\n" +
+    "      </table>\n" +
+    "      <div class=\"table-container jcf-scrollable\" data-comments=\"comments\" ng-class=\"{loading: lock}\" when-scrolled=\"getMoreComments()\" custom-form>\n" +
+    "        <table class=\"table\">\n" +
+    "          <tbody>\n" +
+    "            <tr ng-repeat=\"comment in comments\" ng-class=\"{negative: comment.data.is_negative, success: comment.data.action_taken === 2, defer: comment.data.action_taken === 3}\">\n" +
+    "              <td class=\"item1\">{{comment.data.user_name}}</td>\n" +
+    "              <td class=\"item2\"><a href=\"tel:{{comment.phone_no}}\" class=\"tel\">{{comment.phone_no}}</a>\n" +
+    "                <br>{{comment.email}}</td>\n" +
+    "              <td class=\"item3\">{{comment.data.branch}}</td>\n" +
+    "              <td class=\"item4\">{{comment.data.segment}}</td>\n" +
+    "              <td class=\"item5\">\n" +
+    "                <div class=\"text\">{{comment.data.comment}}</div>\n" +
+    "              </td>\n" +
+    "              <td class=\"item6\">\n" +
+    "                <div class=\"btn-group\" uib-dropdown dropdown-append-to-body ng-show=\"comment.show_dropdown\">\n" +
+    "                  <button type=\"button\" class=\"btn btn-info\" ng-click=\"selectedValue('Process',comment)\">Process</button>\n" +
+    "                  <button id=\"btn-append-to-body\" type=\"button\" class=\"btn btn-info\" uib-dropdown-toggle>\n" +
+    "                    <span class=\"caret\"></span>\n" +
+    "                    <span class=\"sr-only\">Split button!</span>\n" +
+    "                  </button>\n" +
+    "                  <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"btn-append-to-body\">\n" +
+    "                    <li role=\"menuitem\">\n" +
+    "                      <a style=\"cursor:pointer;\" ng-click=\"selectedValue('Defer',comment)\">Defer</a>\n" +
+    "                    </li>\n" +
+    "                  </ul>\n" +
+    "                </div>\n" +
+    "                <span ng-hide=\"comment.show_dropdown\">{{comment.action_string}}</span>\n" +
+    "              </td>\n" +
+    "            </tr>\n" +
+    "          </tbody>\n" +
+    "        </table>\n" +
+    "        <span class=\"loader\"></span>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
     "  </div>\n" +
-    "</div>\n" +
-    "");
+    "</div>");
 }]);
 
 angular.module("dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html",
     "<div class=\"comment-block\">\n" +
-    "  <a style = \"cursor:pointer;\" class=\"nav-opener\" mobile-nav data-action=\"getComments()\">\n" +
+    "  <a style=\"cursor:pointer;\" class=\"nav-opener\" mobile-nav data-action=\"getComments()\">\n" +
     "    <i class=\"fa fa-comments-o\"></i>\n" +
     "    <!--  <span class=\"count\">{{feedback_count}}</span> -->\n" +
     "  </a>\n" +
@@ -529,21 +529,20 @@ angular.module("dashboard/positive-negative-feedback/positive-negative-feedback.
     "        </div>\n" +
     "      </div>\n" +
     "      <div class=\"comments-holder\">\n" +
-    "          <ul class=\"comments-list list-unstyled jcf-scrollable\" custom-form data-comments = \"comments\">\n" +
-    "		    <li ng-if = \"feedback_count != 0\" ng-repeat = \"comment in comments\" ng-class = \"{negative: comment.data.is_negative, positive: !comment.data.is_negative, processed: comment.action_string == 'Processed', deferred: comment.action_string == 'Deferred'}\">\n" +
-    "			  <p>{{comment.data.comment}}</p>\n" +
-    "			  <time datetime=\"{{comment.date_time}}\">{{comment.date_time}}</time>\n" +
-    "            </li>\n" +
-    "			<li ng-if = \"feedback_count == 0\">No Data Available</li>\n" +
-    "          </ul>\n" +
+    "        <ul class=\"comments-list list-unstyled jcf-scrollable\" custom-form data-comments=\"comments\">\n" +
+    "          <li ng-if=\"feedback_count != 0\" ng-repeat=\"comment in comments\" ng-class=\"{negative: comment.data.is_negative, positive: !comment.data.is_negative, processed: comment.action_string == 'Processed', deferred: comment.action_string == 'Deferred'}\">\n" +
+    "            <p>{{comment.data.comment}}</p>\n" +
+    "            <time datetime=\"{{comment.date_time}}\">{{comment.date_time}}</time>\n" +
+    "          </li>\n" +
+    "          <li ng-if=\"feedback_count == 0\">No Data Available</li>\n" +
+    "        </ul>\n" +
     "      </div>\n" +
     "      <div class=\"btn-holder\">\n" +
-    "        <button class=\"btn btn-info pull-right btn-close\" ng-click = \"open()\" ng-disabled = \"feedback_count == 0\">View All</button>\n" +
+    "        <button class=\"btn btn-info pull-right btn-close\" ng-click=\"open()\" ng-disabled=\"feedback_count == 0\">View All</button>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
-    "</div>\n" +
-    "");
+    "</div>");
 }]);
 
 angular.module("dashboard/regional-analysis/regional-analysis.tpl.html", []).run(["$templateCache", function($templateCache) {
@@ -551,98 +550,92 @@ angular.module("dashboard/regional-analysis/regional-analysis.tpl.html", []).run
     "<div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\">\n" +
     "\n" +
     "  <div class=\"ibox-title\">\n" +
-    "	<h5>{{title}}</h5>\n" +
-    "	<!--<h5 ng-show = \"area_view\">{{title}}</h5>-->\n" +
-    "	<!--<h5 ng-show = \"area_view == false && regional_view == true\">{{selected_area.name}}'s Region Analysis</h5>-->\n" +
-    "	<!--<h5 ng-show = \"regional_view == false && city_view == true\">{{selected_region.name}}'s City Analysis</h5>-->\n" +
-    "	<!--<h5 ng-show = \"area_view == false && regional_view == false && city_view == false\">{{selected_city.name}}'s Branch Analysis</h5>-->\n" +
-    "	<div class=\"ibox-tools\">\n" +
-    "	  <ul class=\"tab-links\">\n" +
-    "		<li ng-class=\"{active: radioModel == 'Complaints'}\"><a ng-model=\"radioModel\" uib-btn-radio=\"'Complaints'\" ng-click = \"showChart(null, 'areas')\">Complaints</a></li>\n" +
-    "		<li ng-class=\"{active: radioModel == 'Rating'}\"><a ng-model=\"radioModel\" uib-btn-radio=\"'Rating'\" ng-click = \"showChart(null, 'areas')\">Rating</a></li>\n" +
-    "		<li ng-class=\"{active: radioModel == 'QSC'}\"><a ng-model=\"radioModel\" uib-btn-radio=\"'QSC'\" ng-click = \"showChart(null, 'areas')\">QSC</a></li>\n" +
-    "		<li>\n" +
-    "			<div class=\"calender-outer\">\n" +
-    "			  <span class=\"calendar-holder\">\n" +
-    "				   <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\"\n" +
+    "    <h5>{{title}}</h5>\n" +
+    "    <!--<h5 ng-show = \"area_view\">{{title}}</h5>-->\n" +
+    "    <!--<h5 ng-show = \"area_view == false && regional_view == true\">{{selected_area.name}}'s Region Analysis</h5>-->\n" +
+    "    <!--<h5 ng-show = \"regional_view == false && city_view == true\">{{selected_region.name}}'s City Analysis</h5>-->\n" +
+    "    <!--<h5 ng-show = \"area_view == false && regional_view == false && city_view == false\">{{selected_city.name}}'s Branch Analysis</h5>-->\n" +
+    "    <div class=\"ibox-tools\">\n" +
+    "      <ul class=\"tab-links\">\n" +
+    "        <li ng-class=\"{active: radioModel == 'Complaints'}\"><a ng-model=\"radioModel\" uib-btn-radio=\"'Complaints'\" ng-click=\"showChart(null, 'areas')\">Complaints</a></li>\n" +
+    "        <li ng-class=\"{active: radioModel == 'Rating'}\"><a ng-model=\"radioModel\" uib-btn-radio=\"'Rating'\" ng-click=\"showChart(null, 'areas')\">Rating</a></li>\n" +
+    "        <li ng-class=\"{active: radioModel == 'QSC'}\"><a ng-model=\"radioModel\" uib-btn-radio=\"'QSC'\" ng-click=\"showChart(null, 'areas')\">QSC</a></li>\n" +
+    "        <li>\n" +
+    "          <div class=\"calender-outer\">\n" +
+    "            <span class=\"calendar-holder\">\n" +
+    "              <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\"\n" +
     "	   ng-model=\"date\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
-    "				  <i class=\"fa fa-calendar\" map-range-click></i>\n" +
-    "			  </span>\n" +
-    "		  </div>\n" +
-    "		</li>\n" +
-    "	  </ul>\n" +
-    "	</div>\n" +
+    "	          <i class=\"fa fa-calendar\" map-range-click></i>\n" +
+    "	       </span>\n" +
+    "          </div>\n" +
+    "        </li>\n" +
+    "      </ul>\n" +
+    "    </div>\n" +
     "  </div>\n" +
     "  <div class=\"ibox-content morris-content-outer\">\n" +
-    "    <div class = \"breadcrum\">\n" +
-    "      <span ng-show = \"area_link == true\">\n" +
+    "    <div class=\"breadcrum\">\n" +
+    "      <span ng-show=\"area_link == true\">\n" +
     "        <a ng-click = \"backToAreas()\" style = \"cursor:pointer\">Area&nbsp;/</a>\n" +
     "      </span>\n" +
-    "      <span ng-show = \"area_link == true && region_link == true\">\n" +
+    "      <span ng-show=\"area_link == true && region_link == true\">\n" +
     "        <a ng-click = \"backToRegions(selected_area)\" style = \"cursor:pointer\">{{selected_area.name}}&nbsp;/</a>\n" +
     "      </span>\n" +
-    "	  <span ng-show = \"area_link == false && region_link == true\">\n" +
+    "      <span ng-show=\"area_link == false && region_link == true\">\n" +
     "        <a ng-click = \"backToRegions(selected_area)\" style = \"cursor:pointer\"> Region&nbsp;/</a>\n" +
     "      </span>\n" +
-    "	  <span ng-show = \"area_link == true && region_link == true && city_link == true\">\n" +
+    "      <span ng-show=\"area_link == true && region_link == true && city_link == true\">\n" +
     "        <a ng-click = \"backToCities(selected_region)\" style = \"cursor:pointer;\">{{selected_region.name}}</a>\n" +
     "      </span>\n" +
-    "      <span ng-show = \"area_link == false && region_link == true && city_link == true\">\n" +
+    "      <span ng-show=\"area_link == false && region_link == true && city_link == true\">\n" +
     "        <a ng-click = \"backToCities(selected_region)\" style = \"cursor:pointer;\">{{selected_region.name}}</a>\n" +
     "      </span>\n" +
     "    </div>\n" +
-    "     <div class=\"regional-holder\">\n" +
-    "       <div class=\"regional-frame\">\n" +
-    "	     <div class=\"morris-content-holder\" ng-repeat = \"area in donut_graph_data.objects track by $index\" ng-show = \"area_view == true\">\n" +
-    "		   <div class=\"morris-graph-holder\" same-region-height data-data=\"donut_graph_data.donutData[$index]\">\n" +
-    "		     <div class=\"morris-holder\">\n" +
-    "			   <div ng-show=\"area.show_chart\" morris-chart data-data=\"donut_graph_data.donutData[$index]\" data-type=\"donut\" data-options=\"donut_graph_data.donutOptions[$index]\"\n" +
-    "			     data-action=\"open(option,area,region,city,branch)\" style = \"height: 200px;\"></div>\n" +
-    "			   <div ng-hide=\"area.show_chart\">No data available</div>\n" +
-    "			 </div>\n" +
+    "    <div class=\"regional-holder\">\n" +
+    "      <div class=\"regional-frame\">\n" +
+    "        <div class=\"morris-content-holder\" ng-repeat=\"area in donut_graph_data.objects track by $index\" ng-show=\"area_view == true\">\n" +
+    "          <div class=\"morris-graph-holder\" same-region-height data-data=\"donut_graph_data.donutData[$index]\">\n" +
+    "            <div class=\"morris-holder\">\n" +
+    "              <div ng-show=\"area.show_chart\" morris-chart data-data=\"donut_graph_data.donutData[$index]\" data-type=\"donut\" data-options=\"donut_graph_data.donutOptions[$index]\" data-action=\"open(option,area,region,city,branch)\" style=\"height: 200px;\"></div>\n" +
+    "              <div ng-hide=\"area.show_chart\">No data available</div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "          <strong class=\"title\"><a ng-click = \"showChart(area, 'regions')\" style = \"cursor:pointer;\">{{area.name}}</a></strong>\n" +
+    "        </div>\n" +
+    "        <div ng-show=\"show_string && area_view == true\">No area available</div>\n" +
+    "        <div class=\"morris-content-holder\" ng-repeat=\"region in donut_regions_data.objects track by $index\" ng-show=\"area_view == false && regional_view == true\">\n" +
+    "          <div class=\"morris-graph-holder\" same-region-height data-data=\"donut_regions_data.donutData[$index]\">\n" +
+    "            <div class=\"morris-holder\">\n" +
+    "              <div ng-show=\"region.show_chart\" morris-chart data-data=\"donut_regions_data.donutData[$index]\" data-type=\"donut\" data-options=\"donut_regions_data.donutOptions[$index]\" data-action=\"open(option,selected_area,region,city,branch)\" style=\"height: 200px;\"></div>\n" +
+    "              <div ng-hide=\"region.show_chart\">No data available</div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "          <strong class=\"title\"><a ng-click = \"showChart(region, 'cities')\" style = \"cursor:pointer;\">{{region.name}}</a></strong>\n" +
+    "        </div>\n" +
+    "        <div ng-show=\"show_string && area_view == false && regional_view == true\">No region available</div>\n" +
     "\n" +
-    "		   </div>\n" +
-    "	       <strong class=\"title\"><a ng-click = \"showChart(area, 'regions')\" style = \"cursor:pointer;\">{{area.name}}</a></strong>\n" +
-    "		 </div>\n" +
-    "		 <div ng-show=\"show_string && area_view == true\">No area available</div>\n" +
+    "        <div class=\"morris-content-holder\" ng-repeat=\"city in donut_cities_data.objects track by $index\" ng-show=\"area_view == false && regional_view == false && city_view == true\">\n" +
+    "          <div class=\"morris-graph-holder\" same-city-height data-data=\"donut_cities_data.donutData[$index]\">\n" +
+    "            <div class=\"morris-holder\">\n" +
+    "              <div ng-show=\"city.show_chart\" morris-chart data-data=\"donut_cities_data.donutData[$index]\" data-type=\"donut\" data-options=\"donut_cities_data.donutOptions[$index]\" data-action=\"open(option,selected_area,selected_region,city,branch)\" style=\"height: 200px;\"></div>\n" +
+    "              <div ng-hide=\"city.show_chart\">No data available</div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "          <strong class=\"title\"><a ng-click = \"showChart(city, 'branches')\" style = \"cursor:pointer;\">{{city.name}}</a></strong>\n" +
+    "        </div>\n" +
+    "        <div ng-show=\"show_string && area_view == false && regional_view == false && city_view == true\">No city available</div>\n" +
     "\n" +
-    "		 <div class=\"morris-content-holder\" ng-repeat = \"region in donut_regions_data.objects track by $index\" ng-show = \"area_view == false && regional_view == true\">\n" +
-    "		   <div class=\"morris-graph-holder\" same-region-height data-data=\"donut_regions_data.donutData[$index]\">\n" +
-    "		     <div class=\"morris-holder\">\n" +
-    "			   <div ng-show=\"region.show_chart\" morris-chart data-data=\"donut_regions_data.donutData[$index]\" data-type=\"donut\" data-options=\"donut_regions_data.donutOptions[$index]\"\n" +
-    "                 data-action=\"open(option,selected_area,region,city,branch)\" style = \"height: 200px;\"></div>\n" +
-    "			   <div ng-hide=\"region.show_chart\">No data available</div>\n" +
-    "			 </div>\n" +
-    "		   </div>\n" +
-    "		   <strong class=\"title\"><a ng-click = \"showChart(region, 'cities')\" style = \"cursor:pointer;\">{{region.name}}</a></strong>\n" +
-    "		 </div>\n" +
-    "		 <div ng-show=\"show_string && area_view == false && regional_view == true\">No region available</div>\n" +
-    "\n" +
-    "		 <div class=\"morris-content-holder\" ng-repeat = \"city in donut_cities_data.objects track by $index\" ng-show = \"area_view == false && regional_view == false && city_view == true\">\n" +
-    "		   <div class=\"morris-graph-holder\" same-city-height data-data = \"donut_cities_data.donutData[$index]\">\n" +
-    "		     <div class=\"morris-holder\">\n" +
-    "			   <div ng-show=\"city.show_chart\" morris-chart data-data=\"donut_cities_data.donutData[$index]\" data-type=\"donut\" data-options=\"donut_cities_data.donutOptions[$index]\"\n" +
-    "                 data-action=\"open(option,selected_area,selected_region,city,branch)\" style = \"height: 200px;\"></div>\n" +
-    "			   <div ng-hide=\"city.show_chart\">No data available</div>\n" +
-    "			 </div>\n" +
-    "		   </div>\n" +
-    "		   <strong class=\"title\"><a ng-click = \"showChart(city, 'branches')\" style = \"cursor:pointer;\">{{city.name}}</a></strong>\n" +
-    "		 </div>\n" +
-    "		 <div ng-show=\"show_string && area_view == false && regional_view == false && city_view == true\">No city available</div>\n" +
-    "\n" +
-    "		 <div class=\"morris-content-holder\" ng-repeat = \"branch in donut_branches_data.objects track by $index\" ng-show = \"area_view == false && regional_view == false && city_view == false\">\n" +
-    "		   <div class=\"morris-graph-holder\" same-branch-height  data-data = \"donut_branches_data.donutData[$index]\">\n" +
-    "		     <div class=\"morris-holder\">\n" +
-    "			   <div ng-show=\"branch.show_chart\" morris-chart data-data=\"donut_branches_data.donutData[$index]\" data-type=\"donut\" data-options=\"donut_branches_data.donutOptions[$index]\"\n" +
-    "                 data-action=\"open(option,selected_area,selected_region,selected_city,branch)\" style = \"height: 200px;\"></div>\n" +
-    "			   <div ng-hide=\"branch.show_chart\">No data available</div>\n" +
-    "			 </div>\n" +
-    "		   </div>\n" +
-    "		   <strong class=\"title\">{{branch.name}}</strong>\n" +
-    "		 </div>\n" +
-    "		 <div ng-show=\"show_string && area_view == false && regional_view == false && city_view == false\">No branch available</div>\n" +
-    "	   </div>\n" +
-    "     </div>\n" +
+    "        <div class=\"morris-content-holder\" ng-repeat=\"branch in donut_branches_data.objects track by $index\" ng-show=\"area_view == false && regional_view == false && city_view == false\">\n" +
+    "          <div class=\"morris-graph-holder\" same-branch-height data-data=\"donut_branches_data.donutData[$index]\">\n" +
+    "            <div class=\"morris-holder\">\n" +
+    "              <div ng-show=\"branch.show_chart\" morris-chart data-data=\"donut_branches_data.donutData[$index]\" data-type=\"donut\" data-options=\"donut_branches_data.donutOptions[$index]\" data-action=\"open(option,selected_area,selected_region,selected_city,branch)\" style=\"height: 200px;\"></div>\n" +
+    "              <div ng-hide=\"branch.show_chart\">No data available</div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "          <strong class=\"title\">{{branch.name}}</strong>\n" +
+    "        </div>\n" +
+    "        <div ng-show=\"show_string && area_view == false && regional_view == false && city_view == false\">No branch available</div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
     "  </div>\n" +
     "</div>");
 }]);
@@ -650,39 +643,37 @@ angular.module("dashboard/regional-analysis/regional-analysis.tpl.html", []).run
 angular.module("dashboard/regional-analysis/sqc-modal.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/regional-analysis/sqc-modal.tpl.html",
     "<div class=\"modal-body info-area\">\n" +
-    "  <a ng-click = \"ok()\" class=\"pull-right close-btn-font\"><i class=\"fa fa-times\"></i></a>\n" +
+    "  <a ng-click=\"ok()\" class=\"pull-right close-btn-font\"><i class=\"fa fa-times\"></i></a>\n" +
     "  <h2>Regional Analysis</h2>\n" +
-    "	<a style = \"cursor:pointer;\" ng-class=\"{btnSlider: show_angle_left}\" ng-click=\"previous(area,region,city,branch,sqc_data)\"></a>\n" +
-    "	<a style = \"cursor:pointer;\" ng-class=\"{btnSlider:show_angle_right, right:show_angle_right}\" ng-click=\"next(area,region,city,branch,sqc_data)\"></a>\n" +
+    "  <a style=\"cursor:pointer;\" ng-class=\"{btnSlider: show_angle_left}\" ng-click=\"previous(area,region,city,branch,sqc_data)\"></a>\n" +
+    "  <a style=\"cursor:pointer;\" ng-class=\"{btnSlider:show_angle_right, right:show_angle_right}\" ng-click=\"next(area,region,city,branch,sqc_data)\"></a>\n" +
     "\n" +
     "  <div class=\"graph-container\" ng-class=\"{loading: show_loading}\">\n" +
-    "  	<div class=\"holder\">\n" +
-    "  		<div class=\"graph-holder\">\n" +
-    "		<div morris-chart-modal data-data=\"donut_subgraph_data.donutData\" data-type=\"donut\" data-options=\"donut_subgraph_data.donutOptions\"></div>\n" +
-    "	  </div>\n" +
-    "	  <div style = \"text-align: center;\" ng-show=\"show_div\">No data available</div>\n" +
-    "  	</div>\n" +
+    "    <div class=\"holder\">\n" +
+    "      <div class=\"graph-holder\">\n" +
+    "        <div morris-chart-modal data-data=\"donut_subgraph_data.donutData\" data-type=\"donut\" data-options=\"donut_subgraph_data.donutOptions\"></div>\n" +
+    "      </div>\n" +
+    "      <div style=\"text-align: center;\" ng-show=\"show_div\">No data available</div>\n" +
+    "    </div>\n" +
     "  </div>\n" +
-    "  <h3 style = \"text-align: center;\">{{ sqc.name }}</h3>\n" +
-    "</div>\n" +
-    "");
+    "  <h3 style=\"text-align: center;\">{{ sqc.name }}</h3>\n" +
+    "</div>");
 }]);
 
 angular.module("dashboard/statistics/statistics.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/statistics/statistics.tpl.html",
-    "<div ng-controller = \"StatisticsCtrl\">    \n" +
+    "<div ng-controller=\"StatisticsCtrl\">\n" +
     "  <section class=\"panel panel-default\">\n" +
     "    <div class=\"panel-body\">\n" +
     "      <h4>Statistics</h4>\n" +
     "    </div>\n" +
     "  </section>\n" +
-    "</div>\n" +
-    "  ");
+    "</div>");
 }]);
 
 angular.module("dashboard/top-concern/top-concern.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/top-concern/top-concern.tpl.html",
-    "<div class=\"row inner-row add\" same-height data-data = \"data\">\n" +
+    "<div class=\"row inner-row add\" same-height data-data=\"data\">\n" +
     "  <div class=\"col-xs-12\">\n" +
     "    <div class=\"ibox float-e-margins float-e-margin-none\" ng-class=\"{loading: show_loading}\">\n" +
     "      <div class=\"title-outer\">\n" +
@@ -690,256 +681,268 @@ angular.module("dashboard/top-concern/top-concern.tpl.html", []).run(["$template
     "          <h5>Top Opportunities</h5>\n" +
     "        </div>\n" +
     "      </div>\n" +
-    "      <div class=\"content-holder\" top-concerns data-data = \"data\">\n" +
+    "      <div class=\"content-holder\" top-concerns data-data=\"data\">\n" +
     "        <div class=\"ibox-content float-chart-block chart-box\">\n" +
-    "        	<div id=\"piechart\" style=\"width:100%; height:300px;\" ng-hide = \"all_zero\"></div>\n" +
-    "			<div ng-show = \"all_zero\" class=\"message-holder\">\n" +
-    "				<h2>No Data Available</h2>\n" +
-    "			</div>\n" +
+    "          <div id=\"piechart\" style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
+    "          <div ng-show=\"all_zero\" class=\"message-holder\">\n" +
+    "            <h2>No Data Available</h2>\n" +
+    "          </div>\n" +
     "        </div>\n" +
     "        <!--<div class=\"ibox-content\">-->\n" +
-    "          <!--<div class=\"graph-block\">-->\n" +
-    "            <!--&lt;!&ndash;<canvas id=\"doughnut\" class=\"chart chart-doughnut\" chart-data=\"data\" chart-labels=\"labels\"></canvas> &ndash;&gt;-->\n" +
-    "          <!--</div>-->\n" +
+    "        <!--<div class=\"graph-block\">-->\n" +
+    "        <!--&lt;!&ndash;<canvas id=\"doughnut\" class=\"chart chart-doughnut\" chart-data=\"data\" chart-labels=\"labels\"></canvas> &ndash;&gt;-->\n" +
+    "        <!--</div>-->\n" +
     "        <!--</div>-->\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
-    "</div>\n" +
-    "");
+    "</div>");
 }]);
 
 angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("how-to/how-to.tpl.html",
     "<div id=\"wrapper\" class=\"add\">\n" +
     "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
-    "     <header class=\"doc-header\">\n" +
-    "         <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary visible-xs menu-opener\">\n" +
-    "          <i class=\"fa fa-bars\"></i>\n" +
-    "        </a>\n" +
-    "     	<div class=\"logo-holder\">\n" +
-    "			<div class=\"logo\">\n" +
-    "			   <a href=\"http://www.mcdonalds.com.pk/\" target=\"_blank\"> <img alt=\"image\" class=\"img-responsive\" src=\"assets/images/logo.jpg\"></a>\n" +
-    "			</div>\n" +
-    "		  </div>\n" +
-    "     </header>\n" +
-    "     <div class=\"doc-block\">\n" +
-    "     	<nav class=\"navbar-default navbar-static-side\" role=\"navigation\" >\n" +
-    "			<div class=\"sidebar-collapse\">\n" +
-    "			   <div id=\"side-menu\" class=\"nav metismenu\">\n" +
-    "					<ul class=\"nav metismenu\" id=\"side-menu\">\n" +
-    "						<li class=\"active\">\n" +
-    "							<a href=\"#\">Web Application</a>\n" +
-    "							<ul class=\"nav nav-second-level collapse\">\n" +
-    "								<li class=\"active\"><a href=\"#\">Web Dashboard</a>\n" +
-    "									<ul class=\"nav nav-third-level collapse\">\n" +
-    "										<li class=\"active\">\n" +
-    "										  <a href=\"/dashboard\">Dashboard</a>\n" +
-    "										  <ul class=\"nav nav-fourth-level collapse\">\n" +
-    "                                            <li class=\"active\"><a href=\"#overallrating\">Overall Rating</a></li>\n" +
-    "                                            <li><a href=\"#businessSegment\">Business Segment Breakdown</a></li>\n" +
-    "                                            <li><a href=\"#qsc\">QSC Analysis</a></li>\n" +
-    "                                            <li><a href=\"#map\">Benchmark Map</a></li>\n" +
-    "                                            <li><a href=\"#timeline\">Timeline</a></li>\n" +
-    "                                          </ul>\n" +
-    "										</li>\n" +
-    "										<li><a href=\"#promotions\">Promotions</a></li>\n" +
-    "										<li><a href=\"#manageusers\">Manage Users</a></li>\n" +
-    "									</ul>\n" +
-    "								</li>\n" +
-    "								<li><a href=\"#\">Livefeed Dashboard</a>\n" +
-    "									<ul class=\"nav nav-third-level collapse\">\n" +
-    "										<li><a href=\"#\">Second Level Item</a></li>\n" +
-    "										<li><a href=\"#\">Second Level Item</a></li>\n" +
-    "										<li><a href=\"#\">Second Level Item</a></li>\n" +
-    "									</ul>\n" +
-    "								</li>\n" +
-    "							</ul>\n" +
-    "						</li>\n" +
-    "						<li>\n" +
-    "							<a href=\"#\">Iso Application</a>\n" +
-    "							<ul class=\"nav nav-third-level collapse\">\n" +
-    "								<li><a href=\"#\">Second Level Item</a></li>\n" +
-    "								<li><a href=\"#\">Second Level Item</a></li>\n" +
-    "								<li><a href=\"#\">Second Level Item</a></li>\n" +
-    "							</ul>\n" +
-    "						</li>\n" +
-    "					</ul>\n" +
-    "			   </div>\n" +
-    "			</div>\n" +
-    "		  </nav>\n" +
-    "		 <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
-    "			 <section class=\"Section\" id=\"dashboard\">\n" +
-    "				<h1>Dashboard</h1>\n" +
-    "				<section class=\"info-section\" id=\"overallrating\">\n" +
-    "				  <h2>Overall Rating Section</h2>\n" +
-    "                  <div class=\"text-block\">\n" +
-    "                      <ol class=\"steps-list\">\n" +
-    "                          <li>\n" +
-    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              Select Start and End Dates From the Calender Popup\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
-    "                          </li>\n" +
-    "                      </ol>\n" +
-    "                  </div>\n" +
-    "				</section>\n" +
-    "				<section class=\"info-section\" id=\"businessSegment\">\n" +
-    "				  <h2>Business Segment Breakdown Section</h2>\n" +
-    "                  <div class=\"text-block\">\n" +
-    "                      <ol class=\"steps-list\">\n" +
-    "                          <li>\n" +
-    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              Select Start and End Dates From the Calender Popup\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
-    "                          </li>\n" +
-    "                      </ol>\n" +
-    "                  </div>\n" +
-    "				</section>\n" +
-    "				<section class=\"info-section\" id=\"qsc\">\n" +
-    "				  <h2>QSC Analysis Section</h2>\n" +
-    "                  <div class=\"text-block\">\n" +
-    "                      <ol class=\"steps-list\">\n" +
-    "                          <li>\n" +
-    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              Select Start and End Dates From the Calender Popup\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
-    "                          </li>\n" +
-    "                      </ol>\n" +
-    "                  </div>\n" +
-    "				</section>\n" +
-    "				<section class=\"info-section\" id=\"map\">\n" +
-    "				  <h2>Benchmark Map Section</h2>\n" +
-    "                  <div class=\"text-block\">\n" +
-    "                      <ol class=\"steps-list\">\n" +
-    "                          <li>\n" +
-    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              Select Start and End Dates From the Calender Popup\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
-    "                          </li>\n" +
-    "                      </ol>\n" +
-    "                  </div>\n" +
-    "				</section>\n" +
-    "				<section class=\"info-section\" id=\"timeline\">\n" +
-    "				  <h2>Timeline Section</h2>\n" +
-    "                  <div class=\"text-block\">\n" +
-    "                      <ol class=\"steps-list\">\n" +
-    "                          <li>\n" +
-    "                              Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              Select Start and End Dates From the Calender Popup\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
-    "                          </li>\n" +
-    "                          <li>\n" +
-    "                              The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                              <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
-    "                          </li>\n" +
-    "                      </ol>\n" +
-    "                  </div>\n" +
-    "				</section>\n" +
-    "			 </section>\n" +
-    "		  </div>\n" +
-    "     </div>\n" +
+    "    <header class=\"doc-header\">\n" +
+    "      <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary visible-xs menu-opener\">\n" +
+    "        <i class=\"fa fa-bars\"></i>\n" +
+    "      </a>\n" +
+    "      <div class=\"logo-holder\">\n" +
+    "        <div class=\"logo\">\n" +
+    "          <a href=\"http://www.mcdonalds.com.pk/\" target=\"_blank\"> <img alt=\"image\" class=\"img-responsive\" src=\"assets/images/logo.jpg\"></a>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </header>\n" +
+    "    <div class=\"doc-block\">\n" +
+    "      <nav class=\"navbar-default navbar-static-side\" role=\"navigation\">\n" +
+    "        <div class=\"sidebar-collapse\">\n" +
+    "          <div id=\"side-menu\" class=\"nav metismenu\">\n" +
+    "            <ul class=\"nav metismenu\" id=\"side-menu\">\n" +
+    "              <li class=\"active\">\n" +
+    "                <a href=\"#\">Web Application</a>\n" +
+    "                <ul class=\"nav nav-second-level collapse\">\n" +
+    "                  <li class=\"active\"><a href=\"#\">Web Dashboard</a>\n" +
+    "                    <ul class=\"nav nav-third-level collapse\">\n" +
+    "                      <li class=\"active\">\n" +
+    "                        <a href=\"/dashboard\">Dashboard</a>\n" +
+    "                        <ul class=\"nav nav-fourth-level collapse\">\n" +
+    "                          <li class=\"active\"><a href=\"#overallrating\">Overall Rating</a></li>\n" +
+    "                          <li><a href=\"#businessSegment\">Business Segment Breakdown</a></li>\n" +
+    "                          <li><a href=\"#qsc\">QSC Analysis</a></li>\n" +
+    "                          <li><a href=\"#map\">Benchmark Map</a></li>\n" +
+    "                          <li><a href=\"#timeline\">Timeline</a></li>\n" +
+    "                        </ul>\n" +
+    "                      </li>\n" +
+    "                      <li><a href=\"#promotions\">Promotions</a></li>\n" +
+    "                      <li><a href=\"#manageusers\">Manage Users</a></li>\n" +
+    "                    </ul>\n" +
+    "                  </li>\n" +
+    "                  <li><a href=\"#\">Livefeed Dashboard</a>\n" +
+    "                    <ul class=\"nav nav-third-level collapse\">\n" +
+    "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
+    "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
+    "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
+    "                    </ul>\n" +
+    "                  </li>\n" +
+    "                </ul>\n" +
+    "              </li>\n" +
+    "              <li>\n" +
+    "                <a href=\"#\">Iso Application</a>\n" +
+    "                <ul class=\"nav nav-third-level collapse\">\n" +
+    "                  <li><a href=\"#\">Second Level Item</a></li>\n" +
+    "                  <li><a href=\"#\">Second Level Item</a></li>\n" +
+    "                  <li><a href=\"#\">Second Level Item</a></li>\n" +
+    "                </ul>\n" +
+    "              </li>\n" +
+    "            </ul>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </nav>\n" +
+    "      <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
+    "        <section class=\"Section\" id=\"dashboard\">\n" +
+    "          <h1>Dashboard</h1>\n" +
+    "          <section class=\"info-section\" id=\"overallrating\">\n" +
+    "            <h2>Overall Rating Section</h2>\n" +
+    "            <div class=\"text-block\">\n" +
+    "              <ol class=\"steps-list\">\n" +
+    "                <li>\n" +
+    "                  Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  Select Start and End Dates From the Calender Popup\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                </li>\n" +
+    "              </ol>\n" +
+    "            </div>\n" +
+    "          </section>\n" +
+    "          <section class=\"info-section\" id=\"businessSegment\">\n" +
+    "            <h2>Business Segment Breakdown Section</h2>\n" +
+    "            <div class=\"text-block\">\n" +
+    "              <ol class=\"steps-list\">\n" +
+    "                <li>\n" +
+    "                  Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  Select Start and End Dates From the Calender Popup\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                </li>\n" +
+    "              </ol>\n" +
+    "            </div>\n" +
+    "          </section>\n" +
+    "          <section class=\"info-section\" id=\"qsc\">\n" +
+    "            <h2>QSC Analysis Section</h2>\n" +
+    "            <div class=\"text-block\">\n" +
+    "              <ol class=\"steps-list\">\n" +
+    "                <li>\n" +
+    "                  Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  Select Start and End Dates From the Calender Popup\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                </li>\n" +
+    "              </ol>\n" +
+    "            </div>\n" +
+    "          </section>\n" +
+    "          <section class=\"info-section\" id=\"map\">\n" +
+    "            <h2>Benchmark Map Section</h2>\n" +
+    "            <div class=\"text-block\">\n" +
+    "              <ol class=\"steps-list\">\n" +
+    "                <li>\n" +
+    "                  Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  Select Start and End Dates From the Calender Popup\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                </li>\n" +
+    "              </ol>\n" +
+    "            </div>\n" +
+    "          </section>\n" +
+    "          <section class=\"info-section\" id=\"timeline\">\n" +
+    "            <h2>Timeline Section</h2>\n" +
+    "            <div class=\"text-block\">\n" +
+    "              <ol class=\"steps-list\">\n" +
+    "                <li>\n" +
+    "                  Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  Select Start and End Dates From the Calender Popup\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                </li>\n" +
+    "                <li>\n" +
+    "                  The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                  <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                </li>\n" +
+    "              </ol>\n" +
+    "            </div>\n" +
+    "          </section>\n" +
+    "        </section>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
     "  </div>\n" +
-    "  <ui-view name = \"footer\"></ui-view>\n" +
-    "</div>\n" +
-    "");
+    "  <ui-view name=\"footer\"></ui-view>\n" +
+    "</div>");
 }]);
 
 angular.module("live/benchmark-map/benchmark-map.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/benchmark-map/benchmark-map.tpl.html",
     "<div class=\"slide win-height\">\n" +
-    "        <div class=\"slide-holder\">\n" +
-    "            <div class=\"holder\">\n" +
-    "                <div ng-show=\"branches.length == 0\" class=\"error-msg\">\n" +
-    "                	<span>No Feedback Received</span>\n" +
-    "                </div>\n" +
-    "                <div class=\"detail-holder\" ng-hide=\"branches.length == 0\">\n" +
-    "                    <div class=\"table-inner\">\n" +
-    "                        <div class=\"info-block\">\n" +
-    "                            <div class=\"inner-box\">\n" +
-    "                                <h3>Gro Of The Day</h3>\n" +
-    "                                <div class=\"hold\">\n" +
-    "                                    <span class=\"name\">{{leader_board_data.gro.gro.gro_name}}</span>\n" +
-    "                                    <div class=\"info\">\n" +
-    "                                        <strong>{{leader_board_data.gro.count}}</strong> feedback received, <span class=\"branch\"><strong>{{leader_board_data.gro.branch.branch_name}}</strong> Branch</span>\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                            <div class=\"inner-box\">\n" +
-    "                                <h3>City Of The Day</h3>\n" +
-    "                                <div class=\"hold\">\n" +
-    "                                    <span class=\"name\">{{leader_board_data.city.city_name}}</span>\n" +
-    "                                    <div class=\"info\">\n" +
-    "                                        <strong>{{leader_board_data.city.count}}</strong> feedback received\n" +
-    "                                    </div>\n" +
-    "                                </div>\n" +
-    "                            </div>\n" +
-    "                        </div>\n" +
-    "                    </div>\n" +
-    "                    <div class=\"table-inner\">\n" +
-    "                      <div class=\"info-block\">\n" +
-    "                        <h3>Top leading Branches</h3>\n" +
-    "                        <ul>\n" +
-    "                          <li ng-repeat=\"branch_data in branches\">\n" +
-    "                            <span class=\"count\">{{branch_data.count}}</span>\n" +
-    "                            <div class=\"name\">{{branch_data.city.city_name}}-{{branch_data.branch.branch_name}}</div>\n" +
-    "                          </li>\n" +
-    "                        </ul>\n" +
-    "                      </div>\n" +
-    "                    </div>\n" +
+    "  <div class=\"slide-holder\">\n" +
+    "    <div class=\"holder\">\n" +
+    "      <div ng-show=\"branches.length == 0\" class=\"error-msg\">\n" +
+    "        <span>No Feedback Received</span>\n" +
+    "      </div>\n" +
+    "      <div class=\"detail-holder\" ng-hide=\"branches.length == 0\">\n" +
+    "        <div class=\"table-inner\">\n" +
+    "          <div class=\"info-block\">\n" +
+    "            <div class=\"inner-box\">\n" +
+    "              <h3>Gro Of The Day</h3>\n" +
+    "              <div class=\"hold\">\n" +
+    "                <span class=\"name\">\n" +
+    "                  {{leader_board_data.gro.gro.gro_name}}\n" +
+    "                </span>\n" +
+    "                <div class=\"info\">\n" +
+    "                  <strong>\n" +
+    "                    {{leader_board_data.gro.count}}\n" +
+    "                  </strong>\n" +
+    "                    feedback received, \n" +
+    "                    <span class=\"branch\">\n" +
+    "                      <strong>\n" +
+    "                        {{leader_board_data.gro.branch.branch_name}}\n" +
+    "                      </strong> \n" +
+    "                      Branch\n" +
+    "                    </span>\n" +
+    "                  </div>\n" +
     "                </div>\n" +
     "            </div>\n" +
+    "            <div class=\"inner-box\">\n" +
+    "              <h3>City Of The Day</h3>\n" +
+    "              <div class=\"hold\">\n" +
+    "                <span class=\"name\">{{leader_board_data.city.city_name}}</span>\n" +
+    "                <div class=\"info\">\n" +
+    "                  <strong>\n" +
+    "                    {{leader_board_data.city.count}}\n" +
+    "                  </strong>\n" +
+    "                  feedback received\n" +
+    "                </div>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
     "        </div>\n" +
+    "        <div class=\"table-inner\">\n" +
+    "          <div class=\"info-block\">\n" +
+    "            <h3>Top leading Branches</h3>\n" +
+    "            <ul>\n" +
+    "              <li ng-repeat=\"branch_data in branches\">\n" +
+    "                <span class=\"count\">{{branch_data.count}}</span>\n" +
+    "                <div class=\"name\">{{branch_data.city.city_name}}-{{branch_data.branch.branch_name}}</div>\n" +
+    "              </li>\n" +
+    "            </ul>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
     "    </div>\n" +
     "</div>\n" +
     "");
@@ -948,114 +951,117 @@ angular.module("live/benchmark-map/benchmark-map.tpl.html", []).run(["$templateC
 angular.module("live/business-segments/business-segment.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/business-segments/business-segment.tpl.html",
     "<div class=\"slide win-height\" business-segment data-data = \"segmentation_rating\">\n" +
-    "	<div class=\"slide-holder add\">\n" +
-    "		<div class=\"holder\">\n" +
-    "			<div class=\"inner-holder\">\n" +
-    "				<div class=\"list-holder\">\n" +
-    "					<ul class=\"list\">\n" +
-    "						<li class = {{label.option_class}} ng-repeat=\"label in business_segments_labels\"><span class=\"bullet\"></span> {{label.option_name}}</li>\n" +
-    "					</ul>\n" +
-    "				</div>\n" +
-    "				<div class=\"block-holder\">\n" +
-    "					<div class=\"c-holder\">\n" +
-    "						<div class=\"block\">\n" +
-    "							<div class=\"chart-outer\">\n" +
-    "								<div id=\"stackchart\"></div>\n" +
-    "							</div>\n" +
-    "						</div>\n" +
-    "					</div>\n" +
-    "				</div>\n" +
-    "			</div>\n" +
-    "		</div>\n" +
-    "	</div>\n" +
+    "  <div class=\"slide-holder add\">\n" +
+    "    <div class=\"holder\">\n" +
+    "      <div class=\"inner-holder\">\n" +
+    "        <div class=\"list-holder\">\n" +
+    "          <ul class=\"list\">\n" +
+    "            <li class = {{label.option_class}} ng-repeat=\"label in business_segments_labels\">\n" +
+    "              <span class=\"bullet\"></span> \n" +
+    "              {{label.option_name}}\n" +
+    "            </li>\n" +
+    "          </ul>\n" +
+    "        </div>\n" +
+    "        <div class=\"block-holder\">\n" +
+    "          <div class=\"c-holder\">\n" +
+    "            <div class=\"block\">\n" +
+    "              <div class=\"chart-outer\">\n" +
+    "                <div id=\"stackchart\"></div>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
     "</div>");
 }]);
 
 angular.module("live/live.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/live.tpl.html",
     "<div id=\"wrapper\">\n" +
-    "	<header id=\"header\">\n" +
-    "		<div class=\"header-block\">\n" +
-    "			<div class=\"logo\"><a href=\"http://www.mcdonalds.com.pk/\" target=\"_blank\"><img src=\"assets/images/logo.png\" alt=\"MacDonald's\"></a></div>\n" +
-    "			<div class=\"slider\">\n" +
-    "				<div class=\"slideset\">\n" +
-    "					<div class=\"heading-slide\"><h2>qsc complaints</h2></div>\n" +
-    "					<div class=\"heading-slide\"><h2>business segment</h2></div>\n" +
-    "					<div class=\"heading-slide\"><h2>overall rating</h2></div>\n" +
-    "					<div class=\"heading-slide\"><h2>What would make you visit McDonald's more often?</h2></div>\n" +
-    "					<div class=\"heading-slide\"><h2>Top Opportunities</h2></div>\n" +
-    "					<div class=\"heading-slide\"><h2>Complaint analysis</h2></div>\n" +
-    "					<div class=\"heading-slide\"><h2>Leaderboard</h2></div>\n" +
-    "				</div>\n" +
-    "				<div class=\"heading-holder\">\n" +
-    "					<h1>Country Wide</h1>\n" +
-    "					<ul class=\"timer-slider\">\n" +
-    "						<li>Since Last Week</li>\n" +
-    "						<li>Since Yesterday Morning</li>\n" +
-    "						<li>Since Yesterday Morning</li>\n" +
-    "						<li>Since Yesterday Morning</li>\n" +
-    "						<li>Since Beginning</li>\n" +
-    "						<li>Since Yesterday Morning</li>\n" +
-    "						<li>Since Yesterday Morning</li>\n" +
-    "					</ul>\n" +
-    "				</div>\n" +
-    "			</div>\n" +
-    "		</div>\n" +
-    "		<div class=\"header-content\">\n" +
-    "			<time datetime=\"2015-12-23 13:49\"><strong>{{time}}</strong>  {{date_output}}</time>\n" +
-    "			<ul class=\"info-list\">\n" +
-    "				<li>\n" +
-    "					<strong class=\"title\">Overall Experience</strong>\n" +
-    "					<ul>\n" +
-    "						<li>{{top_ranking.overall_experience.option_text}}</li>\n" +
-    "					</ul>\n" +
-    "				</li>\n" +
-    "				<li>\n" +
-    "					<strong class=\"title\">Top Segment</strong>\n" +
-    "					<ul>\n" +
-    "						<li>{{top_ranking.top_segment.segment}}</li>\n" +
-    "					</ul>\n" +
-    "				</li>\n" +
-    "				<li>\n" +
-    "					<strong class=\"title\">Positive / Negative Feedback</strong>\n" +
-    "					<ul>\n" +
-    "						<li class=\"positive\">{{top_ranking.positive_negative_feedback.positive_feedback_count}}</li>\n" +
-    "						<li>{{top_ranking.positive_negative_feedback.negative_feedback_count}}</li>\n" +
-    "					</ul>\n" +
-    "				</li>\n" +
-    "				<li>\n" +
-    "					<strong class=\"title\">QSC complaints</strong>\n" +
-    "					<ul>\n" +
-    "						<li ng-repeat = \"q_count in qsc_ranking\" ng-class = \"{'item2': q_count.option_name == 'Service', 'item3': q_count.option_name == 'Cleanliness'}\">{{q_count.option_count}}</li>\n" +
-    "					</ul>\n" +
-    "				</li>\n" +
-    "			</ul>\n" +
-    "		</div>\n" +
-    "	</header>\n" +
+    "  <header id=\"header\">\n" +
+    "    <div class=\"header-block\">\n" +
+    "      <div class=\"logo\"><a href=\"http://www.mcdonalds.com.pk/\" target=\"_blank\"><img src=\"assets/images/logo.png\" alt=\"MacDonald's\"></a></div>\n" +
+    "      <div class=\"slider\">\n" +
+    "        <div class=\"slideset\">\n" +
+    "          <div class=\"heading-slide\"><h2>qsc complaints</h2></div>\n" +
+    "          <div class=\"heading-slide\"><h2>business segment</h2></div>\n" +
+    "          <div class=\"heading-slide\"><h2>overall rating</h2></div>\n" +
+    "          <div class=\"heading-slide\"><h2>What would make you visit McDonald's more often?</h2></div>\n" +
+    "          <div class=\"heading-slide\"><h2>Top Opportunities</h2></div>\n" +
+    "          <div class=\"heading-slide\"><h2>Complaint analysis</h2></div>\n" +
+    "          <div class=\"heading-slide\"><h2>Leaderboard</h2></div>\n" +
+    "        </div>\n" +
+    "        <div class=\"heading-holder\">\n" +
+    "          <h1>Country Wide</h1>\n" +
+    "          <ul class=\"timer-slider\">\n" +
+    "            <li>Since Last Week</li>\n" +
+    "            <li>Since Yesterday Morning</li>\n" +
+    "            <li>Since Yesterday Morning</li>\n" +
+    "            <li>Since Yesterday Morning</li>\n" +
+    "            <li>Since Beginning</li>\n" +
+    "            <li>Since Yesterday Morning</li>\n" +
+    "            <li>Since Yesterday Morning</li>\n" +
+    "          </ul>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "    <div class=\"header-content\">\n" +
+    "      <time datetime=\"2015-12-23 13:49\"><strong>{{time}}</strong>  {{date_output}}</time>\n" +
+    "      <ul class=\"info-list\">\n" +
+    "        <li>\n" +
+    "          <strong class=\"title\">Overall Experience</strong>\n" +
+    "          <ul>\n" +
+    "            <li>{{top_ranking.overall_experience.option_text}}</li>\n" +
+    "          </ul>\n" +
+    "        </li>\n" +
+    "        <li>\n" +
+    "          <strong class=\"title\">Top Segment</strong>\n" +
+    "          <ul>\n" +
+    "            <li>{{top_ranking.top_segment.segment}}</li>\n" +
+    "          </ul>\n" +
+    "        </li>\n" +
+    "        <li>\n" +
+    "          <strong class=\"title\">Positive / Negative Feedback</strong>\n" +
+    "          <ul>\n" +
+    "            <li class=\"positive\">{{top_ranking.positive_negative_feedback.positive_feedback_count}}</li>\n" +
+    "            <li>{{top_ranking.positive_negative_feedback.negative_feedback_count}}</li>\n" +
+    "          </ul>\n" +
+    "        </li>\n" +
+    "        <li>\n" +
+    "          <strong class=\"title\">QSC complaints</strong>\n" +
+    "          <ul>\n" +
+    "            <li ng-repeat = \"q_count in qsc_ranking\" ng-class = \"{'item2': q_count.option_name == 'Service', 'item3': q_count.option_name == 'Cleanliness'}\">{{q_count.option_count}}</li>\n" +
+    "          </ul>\n" +
+    "        </li>\n" +
+    "      </ul>\n" +
+    "    </div>\n" +
+    "  </header>\n" +
     "\n" +
-    "	<div class=\"slideshow win-height win-min-height\">\n" +
-    "		<div class=\"slideset win-height\">\n" +
-    "			<ui-view name = \"qsc\"></ui-view>\n" +
-    "			<ui-view name = \"business_segment\"></ui-view>\n" +
-    "			<ui-view name = \"overall_rating\"></ui-view>\n" +
-    "			<ui-view name = \"strength\"></ui-view>\n" +
-    "			<ui-view name = \"top_concern\"></ui-view>\n" +
-    "			<ui-view name = \"patch_qsc_analysis\"></ui-view>\n" +
-    "			<ui-view name = \"benchmark_map\"></ui-view>\n" +
+    "  <div class=\"slideshow win-height win-min-height\">\n" +
+    "    <div class=\"slideset win-height\">\n" +
+    "      <ui-view name = \"qsc\"></ui-view>\n" +
+    "      <ui-view name = \"business_segment\"></ui-view>\n" +
+    "      <ui-view name = \"overall_rating\"></ui-view>\n" +
+    "      <ui-view name = \"strength\"></ui-view>\n" +
+    "      <ui-view name = \"top_concern\"></ui-view>\n" +
+    "      <ui-view name = \"patch_qsc_analysis\"></ui-view>\n" +
+    "      <ui-view name = \"benchmark_map\"></ui-view>\n" +
     "\n" +
-    "		</div>\n" +
-    "		<div class=\"pagination-holder\" init-slide>\n" +
-    "			<ul class=\"pagination\">\n" +
-    "				<li><a href=\"#\"><span>QSc</span></a></li>\n" +
-    "				<li><a href=\"#\"><span>Business Segment</span></a></li>\n" +
-    "				<li><a href=\"#\"><span>Overall rating</span></a></li>\n" +
-    "				<li><a href=\"#\"><span>Top Strengths</span></a></li>\n" +
-    "				<li><a href=\"#\"><span>Top Opportunities</span></a></li>\n" +
-    "				<li><a href=\"#\"><span>Complaint analysis</span></a></li>\n" +
-    "				<li><a href=\"#\"><span>Leaderboard</span></a></li>\n" +
-    "			</ul>\n" +
-    "		</div>\n" +
-    "	</div>\n" +
+    "    </div>\n" +
+    "    <div class=\"pagination-holder\" init-slide>\n" +
+    "      <ul class=\"pagination\">\n" +
+    "        <li><a href=\"#\"><span>QSc</span></a></li>\n" +
+    "        <li><a href=\"#\"><span>Business Segment</span></a></li>\n" +
+    "        <li><a href=\"#\"><span>Overall rating</span></a></li>\n" +
+    "        <li><a href=\"#\"><span>Top Strengths</span></a></li>\n" +
+    "        <li><a href=\"#\"><span>Top Opportunities</span></a></li>\n" +
+    "        <li><a href=\"#\"><span>Complaint analysis</span></a></li>\n" +
+    "        <li><a href=\"#\"><span>Leaderboard</span></a></li>\n" +
+    "      </ul>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
     "</div>\n" +
     "");
 }]);
@@ -1063,57 +1069,62 @@ angular.module("live/live.tpl.html", []).run(["$templateCache", function($templa
 angular.module("live/overall-ratings/overall-rating.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/overall-ratings/overall-rating.tpl.html",
     "<div class=\"slide win-height\" overall-rating data-data = \"overall_rating_data\">\n" +
-    "	<div class=\"slide-holder\">\n" +
-    "		<div class=\"holder\">\n" +
-    "			<div class=\"chart-outer\">\n" +
-    "				<div id=\"barchart\"></div>\n" +
-    "			</div>\n" +
-    "		</div>\n" +
-    "	</div>\n" +
+    "  <div class=\"slide-holder\">\n" +
+    "    <div class=\"holder\">\n" +
+    "      <div class=\"chart-outer\">\n" +
+    "        <div id=\"barchart\"></div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
     "</div>");
 }]);
 
 angular.module("live/patch-qsc-analysis/patch-qsc-analysis.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/patch-qsc-analysis/patch-qsc-analysis.tpl.html",
     "<div class=\"slide win-height\">\n" +
-    "    <div class=\"slide-holder add\">\n" +
-    "        <div class=\"holder\">\n" +
-    "            <div class=\"inner-holder\">\n" +
-    "                <div class=\"list-holder\">\n" +
-    "                    <ul class=\"list\">\n" +
-    "                        <li class = {{label.action_class}} ng-repeat=\"label in patch_qsc_labels\"><span class=\"bullet\"></span> {{label.action_name}}</li>\n" +
-    "                    </ul>\n" +
-    "                </div>\n" +
-    "                <div class=\"error-msg\" ng-show=\"all_zeros\">\n" +
-    "                    <span>No data generated</span>\n" +
-    "                </div>\n" +
-    "                <div class=\"block-holder\" ng-hide=\"all_zeros\">\n" +
-    "                    <div class=\"c-holder\">\n" +
-    "                        <div class=\"box-holder\" patch-pie-chart data-data = \"pakistan_analysis\">\n" +
-    "                            <div id=\"piechart\"></div>\n" +
-    "                        </div>\n" +
-    "                        <div class=\"box-holder\">\n" +
-    "							<div class=\"container-holder\">\n" +
-    "								<div class=\"container\">\n" +
-    "									<div class=\"box\" >\n" +
-    "										<div id=\"chartdiv\" patch-chart-div data-data = \"north_south_percentage\"></div>\n" +
-    "									</div>\n" +
-    "								</div>\n" +
-    "								<div class=\"container add\">\n" +
-    "									<div class=\"box\" >\n" +
-    "										<div id=\"patch-bar\" patch-bar-one data-data = \"north_analysis\"></div>\n" +
-    "									</div>\n" +
-    "									<div class=\"box\" >\n" +
-    "										<div id=\"patch-bar2\" patch-bar-two data-data = \"south_analysis\"></div>\n" +
-    "									</div>\n" +
-    "								</div>\n" +
-    "							</div>\n" +
-    "                        </div>\n" +
-    "                    </div>\n" +
-    "                </div>\n" +
-    "            </div>\n" +
+    "  <div class=\"slide-holder add\">\n" +
+    "    <div class=\"holder\">\n" +
+    "      <div class=\"inner-holder\">\n" +
+    "        <div class=\"list-holder\">\n" +
+    "          <ul class=\"list\">\n" +
+    "            <li class = {{label.action_class}} ng-repeat=\"label in patch_qsc_labels\">\n" +
+    "              <span class=\"bullet\"></span> \n" +
+    "              {{label.action_name}}\n" +
+    "            </li>\n" +
+    "          </ul>\n" +
     "        </div>\n" +
+    "        <div class=\"error-msg\" ng-show=\"all_zeros\">\n" +
+    "          <span>\n" +
+    "            No data generated\n" +
+    "          </span>\n" +
+    "        </div>\n" +
+    "        <div class=\"block-holder\" ng-hide=\"all_zeros\">\n" +
+    "          <div class=\"c-holder\">\n" +
+    "            <div class=\"box-holder\" patch-pie-chart data-data = \"pakistan_analysis\">\n" +
+    "              <div id=\"piechart\"></div>\n" +
+    "            </div>\n" +
+    "            <div class=\"box-holder\">\n" +
+    "              <div class=\"container-holder\">\n" +
+    "                <div class=\"container\">\n" +
+    "                  <div class=\"box\" >\n" +
+    "                    <div id=\"chartdiv\" patch-chart-div data-data = \"north_south_percentage\"></div>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"container add\">\n" +
+    "                  <div class=\"box\" >\n" +
+    "                    <div id=\"patch-bar\" patch-bar-one data-data = \"north_analysis\"></div>\n" +
+    "                  </div>\n" +
+    "                  <div class=\"box\" >\n" +
+    "                    <div id=\"patch-bar2\" patch-bar-two data-data = \"south_analysis\"></div>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
     "    </div>\n" +
+    "  </div>\n" +
     "</div>\n" +
     "");
 }]);
@@ -1121,58 +1132,58 @@ angular.module("live/patch-qsc-analysis/patch-qsc-analysis.tpl.html", []).run(["
 angular.module("live/qsc/qsc.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/qsc/qsc.tpl.html",
     "<div class=\"slide win-height\" qsc data-data = \"overall_rating_data\">\n" +
-    "	<div class=\"slide-holder add\">\n" +
-    "		<div class=\"holder\">\n" +
-    "			<div class=\"inner-holder\">\n" +
-    "				<div class=\"list-holder\">\n" +
-    "					<ul class=\"list\">\n" +
-    "						<li class = {{label.option_class}} ng-repeat=\"label in qsc_labels\"><span class=\"bullet\"></span> {{label.option_name}} </li>\n" +
-    "					</ul>\n" +
-    "				</div>\n" +
-    "				<div class=\"block-holder\">\n" +
-    "					<div class=\"c-holder\">\n" +
-    "						<div class=\"block\">\n" +
-    "							<div class=\"chart-outer\">\n" +
-    "								<div id=\"area-chart\"></div>\n" +
-    "							</div>\n" +
-    "						</div>\n" +
-    "					</div>\n" +
-    "				</div>\n" +
-    "			</div>\n" +
-    "		</div>\n" +
-    "	</div>\n" +
+    "  <div class=\"slide-holder add\">\n" +
+    "    <div class=\"holder\">\n" +
+    "      <div class=\"inner-holder\">\n" +
+    "        <div class=\"list-holder\">\n" +
+    "          <ul class=\"list\">\n" +
+    "            <li class = {{label.option_class}} ng-repeat=\"label in qsc_labels\"><span class=\"bullet\"></span> {{label.option_name}} </li>\n" +
+    "          </ul>\n" +
+    "        </div>\n" +
+    "        <div class=\"block-holder\">\n" +
+    "          <div class=\"c-holder\">\n" +
+    "            <div class=\"block\">\n" +
+    "              <div class=\"chart-outer\">\n" +
+    "                <div id=\"area-chart\"></div>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
     "</div>");
 }]);
 
 angular.module("live/strength/strength.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/strength/strength.tpl.html",
     "<div class=\"slide win-height\">\n" +
-    "	<div class=\"slide-holder\">\n" +
-    "		<div class=\"holder\">\n" +
-    "			<div class=\"chart-outer\" strength data-data = \"strength_data\" ng-hide=\"all_zero\">\n" +
-    "				<div id=\"strengthPieChart\"></div>\n" +
-    "				<div ng-show=\"all_zero\" class=\"error-msg\">\n" +
-    "					<span>No Data Generated</span>\n" +
-    "				</div>\n" +
-    "			</div>\n" +
-    "		</div>\n" +
-    "	</div>\n" +
+    "  <div class=\"slide-holder\">\n" +
+    "    <div class=\"holder\">\n" +
+    "      <div class=\"chart-outer\" strength data-data = \"strength_data\" ng-hide=\"all_zero\">\n" +
+    "        <div id=\"strengthPieChart\"></div>\n" +
+    "        <div ng-show=\"all_zero\" class=\"error-msg\">\n" +
+    "          <span>No Data Generated</span>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
     "</div>");
 }]);
 
 angular.module("live/top-concerns/top-concern.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("live/top-concerns/top-concern.tpl.html",
     "<div class=\"slide win-height\">\n" +
-    "	<div class=\"slide-holder\">\n" +
-    "		<div class=\"holder\">\n" +
-    "			<div class=\"chart-outer\" top-concern data-data = \"top_concern_data\" ng-hide=\"all_zero\">\n" +
-    "				<div id=\"container\"></div>\n" +
-    "				<div ng-show=\"all_zero\" class=\"error-msg\">\n" +
-    "					<span>No Data Generated</span>\n" +
-    "				</div>\n" +
-    "			</div>\n" +
-    "		</div>\n" +
-    "	</div>\n" +
+    "  <div class=\"slide-holder\">\n" +
+    "    <div class=\"holder\">\n" +
+    "      <div class=\"chart-outer\" top-concern data-data = \"top_concern_data\" ng-hide=\"all_zero\">\n" +
+    "        <div id=\"container\"></div>\n" +
+    "        <div ng-show=\"all_zero\" class=\"error-msg\">\n" +
+    "          <span>No Data Generated</span>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
     "</div>");
 }]);
 
