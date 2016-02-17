@@ -932,13 +932,16 @@ angular.module("live/benchmark-map/benchmark-map.tpl.html", []).run(["$templateC
     "                </div>\n" +
     "            </div>\n" +
     "            <div class=\"inner-box\">\n" +
-    "                <h3>City Of The Day</h3>\n" +
-    "                <div class=\"hold\">\n" +
-    "                    <span class=\"name\">{{leader_board_data.city.city_name}}</span>\n" +
-    "                    <div class=\"info\">\n" +
-    "                        <strong>{{leader_board_data.city.count}}</strong> feedback received\n" +
-    "                    </div>\n" +
+    "              <h3>City Of The Day</h3>\n" +
+    "              <div class=\"hold\">\n" +
+    "                <span class=\"name\">{{leader_board_data.city.city_name}}</span>\n" +
+    "                <div class=\"info\">\n" +
+    "                  <strong>\n" +
+    "                    {{leader_board_data.city.count}}\n" +
+    "                  </strong>\n" +
+    "                  feedback received\n" +
     "                </div>\n" +
+    "              </div>\n" +
     "            </div>\n" +
     "          </div>\n" +
     "        </div>\n" +
