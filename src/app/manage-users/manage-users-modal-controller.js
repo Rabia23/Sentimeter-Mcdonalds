@@ -3,7 +3,7 @@
 
 
 
-  .controller('ModalAddInstanceCtrl', function ($scope, $uibModalInstance, parent_id, child_role,branch_id, region_id, ManageApi, Enum, Filters, flashService) {
+  .controller('ModalAddInstanceCtrl', function ($scope, $uibModalInstance, parent_id, child_role,branch_id, region_id, ManageApi, Enum, Filters, flashService, $timeout) {
 
     $scope.user = {role: child_role, parent_id: parent_id};
     if(branch_id){
@@ -18,6 +18,12 @@
     $scope.submitted = false;
 
     $scope.show_loading = false;
+
+    $scope.show_flash = false;
+
+    $timeout(function(){
+      $scope.show_flash = true;
+    }, 5000);
 
     Filters.allRegions().$promise.then(function(data){
       if(data.success){
@@ -87,18 +93,13 @@
 
     $scope.show_error_message = false;
 
-    console.log(branch_id);
-    console.log(region_id);
+    flashService.dismissFlash();
     if(branch_id){
       $scope.user.branch_id = branch_id;
     }
     if(region_id){
       $scope.user.region_id = region_id;
     }
-
-    console.log("user");
-
-    console.log($scope.user);
 
     Filters.allRegions().$promise.then(function(data){
       if(data.success){
@@ -137,7 +138,6 @@
             $scope.ok($scope.user);
             var message = "User successfully edited.";
             flashService.createFlash(message, "success");
-
           }
           else{
             $scope.show_error_message = true;

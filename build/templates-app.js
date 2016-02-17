@@ -159,7 +159,7 @@ angular.module("dashboard/dashboard.tpl.html", []).run(["$templateCache", functi
     "    <ui-view name = \"positive_negative_feedback\"></ui-view>\n" +
     "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
     "      <div class=\"row same-height-parent\">\n" +
-    "        <flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message> \n" +
+    "        <flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show = \"show_alert\"></flash-message> \n" +
     "        <div class=\"col-lg-6 col-lg-push-6\">\n" +
     "          <div class=\"same-height-block blocks-holder\">\n" +
     "            <div class=\"row\">\n" +
@@ -1120,7 +1120,7 @@ angular.module("login/login.tpl.html", []).run(["$templateCache", function($temp
     "		<div class=\"login-block\">\n" +
     "			<div class=\"form-holder\" ng-class=\"{loading: show_loading}\">\n" +
     "				<div class=\"form-inner\">\n" +
-    "					<flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message> \n" +
+    "					<flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show = \"show_alert\"></flash-message> \n" +
     "					<div class=\"inner-holder\">\n" +
     "						<h3>Log In</h3>\n" +
     "						<form class=\"login-form\" name = \"LoginForm\" ng-submit=\"login(LoginForm.$valid)\" novalidate>\n" +
@@ -1164,7 +1164,7 @@ angular.module("manage-users/edit-user-modal.tpl.html", []).run(["$templateCache
     "		<div class=\"modal-body\" ng-class = \"{'loading': show_loading}\">\n" +
     "			<div class=\"row\">\n" +
     "				<div class=\"col-xs-12\">\n" +
-    "					<flash-message duration=\"5000\" show-close=\"true\"></flash-message>\n" +
+    "					<flash-message duration=\"5000\" show-close=\"true\" ng-show = \"show_flash\"></flash-message>\n" +
     "					<div class=\"form-group\">\n" +
     "						<label class=\"col-sm-2 col-md-3 control-label\" for=\"firsName\">First Name</label>\n" +
     "						<div class=\"col-sm-10 col-md-9\">\n" +
@@ -1287,7 +1287,7 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
     "						<h2>No User Added</h2>\n" +
     "                        <h4>Click on Add button to Add New User</h4>\n" +
     "					</div>\n" +
-    "					<flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message>\n" +
+    "					<flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show = \"show_alert\"></flash-message>\n" +
     "					<ul class=\"users-list\" data-users = \"users\">\n" +
     "						<li ng-repeat = \"user in users track by $index\" ng-class=\"{'deactivate': user.is_active == false, 'inactive': user.is_active == false}\">\n" +
     "							<div class=\"ibox\">\n" +
@@ -1427,7 +1427,7 @@ angular.module("promotions/promotions.tpl.html", []).run(["$templateCache", func
     "			<div class=\"col-lg-12\">\n" +
     "				<div class=\"row\">\n" +
     "					<div class=\"col-xs-12\">\n" +
-    "            <flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message>\n" +
+    "            <flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show = \"show_alert\"></flash-message>\n" +
     "						<ul class=\"btn-list\">\n" +
     "							<li ng-repeat = \"promotion in promotions\">\n" +
     "								<a class=\"btn ibox dim btn-large-dim btn-outline\" ng-click = \"detail(promotion.id)\">\n" +

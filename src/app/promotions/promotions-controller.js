@@ -12,7 +12,6 @@
         else{
           flashService.createFlash(data.message, "danger");
         }
-
       });
 
       $scope.detail = function(promotion_id){
