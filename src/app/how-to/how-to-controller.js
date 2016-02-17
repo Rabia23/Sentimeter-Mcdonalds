@@ -11,6 +11,10 @@
       console.log("offline in login");
     });
 
+    $scope.oneAtATime = true;
+
+    $scope.isFirstOpen = false;
+
 
 
   });

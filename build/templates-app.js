@@ -82,7 +82,7 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "					<a ui-sref=\"how_to\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
     "				</li>\n" +
     "			</ul>\n" +
-    "    	</div>\n" +
+    "    </div>\n" +
     "	</div>\n" +
     "</nav>\n" +
     "");
@@ -720,85 +720,112 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "  <ui-view name = \"sidebar\"></ui-view>\n" +
     "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
     "     <ui-view name = \"header\"></ui-view>\n" +
-    "	 <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
-    "	 	<h1>How To Guide</h1>\n" +
-    "	 	<h2>Table of Content</h2>\n" +
-    "		<div class=\"accordion-holder\">\n" +
-    "			<ul class=\"accordion\">\n" +
-    "				<li>\n" +
-    "					<a>IOS Application</a>\n" +
-    "					<div class=\"slide\">\n" +
+    "     <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
+    "       <h1>How To Guide</h1>\n" +
+    "       <h2>Table of Content</h2>\n" +
+    "       <uib-accordion close-others=\"oneAtATime\">\n" +
+    "         <uib-accordion-group heading=\"Static Header, initially expanded\" is-open=\"isFirstOpen\">\n" +
+    "           This content is straight in the template.\n" +
+    "         </uib-accordion-group>\n" +
+    "         <uib-accordion-group heading=\"IOS Application\">\n" +
+    "           <p>The body of the uib-accordion group grows to fit the contents</p>\n" +
+    "           <button type=\"button\" class=\"btn btn-default btn-sm\" ng-click=\"addItem()\">Add Item</button>\n" +
+    "           <div ng-repeat=\"item in items\">{{item}}</div>\n" +
+    "         </uib-accordion-group>\n" +
+    "         <uib-accordion-group heading=\"Web Application\">\n" +
+    "           <uib-accordion close-others=\"oneAtATime\">\n" +
+    "             <uib-accordion-group heading=\"Static Header, initially expanded\">\n" +
+    "               This content is straight in the template.\n" +
+    "             </uib-accordion-group>\n" +
+    "             <uib-accordion-group heading=\"IOS Application\">\n" +
+    "               <p>The body of the uib-accordion group grows to fit the contents</p>\n" +
+    "               <button type=\"button\" class=\"btn btn-default btn-sm\" ng-click=\"addItem()\">Add Item</button>\n" +
+    "               <div ng-repeat=\"item in items\">{{item}}</div>\n" +
+    "             </uib-accordion-group>\n" +
+    "             <uib-accordion-group heading=\"Web Application\">\n" +
+    "               <ui-accordion>\n" +
+    "             </uib-accordion-group>\n" +
+    "          </uib-accordion>\n" +
+    "         </uib-accordion-group>\n" +
+    "      </uib-accordion>\n" +
+    "  		<!-- <div class=\"accordion-holder\">\n" +
+    "  			<ul class=\"accordion\">\n" +
+    "  				<li>\n" +
+    "  					<a>IOS Application</a>\n" +
+    "  					<div class=\"slide\">\n" +
     "\n" +
-    "					</div>\n" +
-    "				</li>\n" +
-    "				<li>\n" +
-    "					<a>Web Application</a>\n" +
-    "					<div class=\"slide\">\n" +
-    "						<ul class=\"accordion\">\n" +
-    "							<li>\n" +
-    "								<a>Live Dashboard</a>\n" +
-    "								<div class=\"slide\"></div>\n" +
-    "							</li>\n" +
-    "							<li>\n" +
-    "								<a>Web Dashboard</a>\n" +
-    "								<div class=\"slide\">\n" +
-    "									<ul class=\"accordion\">\n" +
-    "										<li>\n" +
-    "											<a>Dashboard</a>\n" +
-    "											<div class=\"slide\">\n" +
-    "												<ul class=\"accordion\">\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\">\n" +
-    "															<ol>\n" +
-    "																<li></li>\n" +
-    "																<li></li>\n" +
-    "															</ol>\n" +
-    "														</div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "													<li>\n" +
-    "														<a></a>\n" +
-    "														<div class=\"slide\"></div>\n" +
-    "													</li>\n" +
-    "												</ul>\n" +
-    "											</div>\n" +
-    "										</li>\n" +
-    "										<li>\n" +
-    "											<a>Promotions</a>\n" +
-    "											<div class=\"slide\"></div>\n" +
-    "										</li>\n" +
-    "										<li>\n" +
-    "											<a>Manage Users</a>\n" +
-    "											<div class=\"slide\"></div>\n" +
-    "										</li>\n" +
-    "									</ul>\n" +
-    "								</div>\n" +
-    "							</li>\n" +
-    "						</ul>\n" +
-    "					</div>\n" +
-    "				</li>\n" +
-    "			</ul>\n" +
-    "		</div>\n" +
-    "	  </div>\n" +
+    "  					</div>\n" +
+    "  				</li>\n" +
+    "  				<li>\n" +
+    "  					<a>Web Application</a>\n" +
+    "  					<div class=\"slide\">\n" +
+    "  						<ul class=\"accordion\">\n" +
+    "  							<li>\n" +
+    "  								<a>Live Dashboard</a>\n" +
+    "  								<div class=\"slide\"></div>\n" +
+    "  							</li>\n" +
+    "  							<li>\n" +
+    "  								<a>Web Dashboard</a>\n" +
+    "  								<div class=\"slide\">\n" +
+    "  									<ul class=\"accordion\">\n" +
+    "  										<li>\n" +
+    "  											<a>Dashboard</a>\n" +
+    "  											<div class=\"slide\">\n" +
+    "  												<ul class=\"accordion\">\n" +
+    "  													<li>\n" +
+    "  														<a></a>\n" +
+    "  														<div class=\"slide\">\n" +
+    "  															<ol>\n" +
+    "  																<li></li>\n" +
+    "  																<li></li>\n" +
+    "  															</ol>\n" +
+    "  														</div>\n" +
+    "  													</li>\n" +
+    "  													<li>\n" +
+    "  														<a></a>\n" +
+    "  														<div class=\"slide\"></div>\n" +
+    "  													</li>\n" +
+    "  													<li>\n" +
+    "  														<a></a>\n" +
+    "  														<div class=\"slide\"></div>\n" +
+    "  													</li>\n" +
+    "  													<li>\n" +
+    "  														<a></a>\n" +
+    "  														<div class=\"slide\"></div>\n" +
+    "  													</li>\n" +
+    "  													<li>\n" +
+    "  														<a></a>\n" +
+    "  														<div class=\"slide\"></div>\n" +
+    "  													</li>\n" +
+    "  													<li>\n" +
+    "  														<a></a>\n" +
+    "  														<div class=\"slide\"></div>\n" +
+    "  													</li>\n" +
+    "  												</ul>\n" +
+    "  											</div>\n" +
+    "  										</li>\n" +
+    "  										<li>\n" +
+    "  											<a>Promotions</a>\n" +
+    "  											<div class=\"slide\"></div>\n" +
+    "  										</li>\n" +
+    "  										<li>\n" +
+    "  											<a>Manage Users</a>\n" +
+    "  											<div class=\"slide\"></div>\n" +
+    "  										</li>\n" +
+    "  									</ul>\n" +
+    "  								</div>\n" +
+    "  							</li>\n" +
+    "  						</ul>\n" +
+    "  					</div>\n" +
+    "  				</li>\n" +
+    "  			</ul>\n" +
+    "  		</div>\n" +
+    "  	  </div> -->\n" +
+    "      </div>\n" +
     "  </div>\n" +
     "  <ui-view name = \"footer\"></ui-view>\n" +
-    "</div>");
+    "</div>\n" +
+    "");
 }]);
 
 angular.module("live/benchmark-map/benchmark-map.tpl.html", []).run(["$templateCache", function($templateCache) {
