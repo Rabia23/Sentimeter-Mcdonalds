@@ -2,82 +2,108 @@
   <ui-view name = "sidebar"></ui-view>
   <div id="page-wrapper" class="gray-bg">
      <ui-view name = "header"></ui-view>
-	 <div class="wrapper wrapper-content animated fadeInRight">
-	 	<h1>How To Guide</h1>
-	 	<h2>Table of Content</h2>
-		<div class="accordion-holder">
-			<ul class="accordion">
-				<li>
-					<a>IOS Application</a>
-					<div class="slide">
+     <div class="wrapper wrapper-content animated fadeInRight">
+       <h1>How To Guide</h1>
+       <h2>Table of Content</h2>
+       <uib-accordion close-others="oneAtATime">
+         <uib-accordion-group heading="Static Header, initially expanded" is-open="isFirstOpen">
+           This content is straight in the template.
+         </uib-accordion-group>
+         <uib-accordion-group heading="IOS Application">
+           <p>The body of the uib-accordion group grows to fit the contents</p>
+           <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+           <div ng-repeat="item in items">{{item}}</div>
+         </uib-accordion-group>
+         <uib-accordion-group heading="Web Application">
+           <uib-accordion close-others="oneAtATime">
+             <uib-accordion-group heading="Static Header, initially expanded">
+               This content is straight in the template.
+             </uib-accordion-group>
+             <uib-accordion-group heading="IOS Application">
+               <p>The body of the uib-accordion group grows to fit the contents</p>
+               <button type="button" class="btn btn-default btn-sm" ng-click="addItem()">Add Item</button>
+               <div ng-repeat="item in items">{{item}}</div>
+             </uib-accordion-group>
+             <uib-accordion-group heading="Web Application">
+               <ui-accordion>
+             </uib-accordion-group>
+          </uib-accordion>
+         </uib-accordion-group>
+      </uib-accordion>
+  		<!-- <div class="accordion-holder">
+  			<ul class="accordion">
+  				<li>
+  					<a>IOS Application</a>
+  					<div class="slide">
 
-					</div>
-				</li>
-				<li>
-					<a>Web Application</a>
-					<div class="slide">
-						<ul class="accordion">
-							<li>
-								<a>Live Dashboard</a>
-								<div class="slide"></div>
-							</li>
-							<li>
-								<a>Web Dashboard</a>
-								<div class="slide">
-									<ul class="accordion">
-										<li>
-											<a>Dashboard</a>
-											<div class="slide">
-												<ul class="accordion">
-													<li>
-														<a></a>
-														<div class="slide">
-															<ol>
-																<li></li>
-																<li></li>
-															</ol>
-														</div>
-													</li>
-													<li>
-														<a></a>
-														<div class="slide"></div>
-													</li>
-													<li>
-														<a></a>
-														<div class="slide"></div>
-													</li>
-													<li>
-														<a></a>
-														<div class="slide"></div>
-													</li>
-													<li>
-														<a></a>
-														<div class="slide"></div>
-													</li>
-													<li>
-														<a></a>
-														<div class="slide"></div>
-													</li>
-												</ul>
-											</div>
-										</li>
-										<li>
-											<a>Promotions</a>
-											<div class="slide"></div>
-										</li>
-										<li>
-											<a>Manage Users</a>
-											<div class="slide"></div>
-										</li>
-									</ul>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</li>
-			</ul>
-		</div>
-	  </div>
+  					</div>
+  				</li>
+  				<li>
+  					<a>Web Application</a>
+  					<div class="slide">
+  						<ul class="accordion">
+  							<li>
+  								<a>Live Dashboard</a>
+  								<div class="slide"></div>
+  							</li>
+  							<li>
+  								<a>Web Dashboard</a>
+  								<div class="slide">
+  									<ul class="accordion">
+  										<li>
+  											<a>Dashboard</a>
+  											<div class="slide">
+  												<ul class="accordion">
+  													<li>
+  														<a></a>
+  														<div class="slide">
+  															<ol>
+  																<li></li>
+  																<li></li>
+  															</ol>
+  														</div>
+  													</li>
+  													<li>
+  														<a></a>
+  														<div class="slide"></div>
+  													</li>
+  													<li>
+  														<a></a>
+  														<div class="slide"></div>
+  													</li>
+  													<li>
+  														<a></a>
+  														<div class="slide"></div>
+  													</li>
+  													<li>
+  														<a></a>
+  														<div class="slide"></div>
+  													</li>
+  													<li>
+  														<a></a>
+  														<div class="slide"></div>
+  													</li>
+  												</ul>
+  											</div>
+  										</li>
+  										<li>
+  											<a>Promotions</a>
+  											<div class="slide"></div>
+  										</li>
+  										<li>
+  											<a>Manage Users</a>
+  											<div class="slide"></div>
+  										</li>
+  									</ul>
+  								</div>
+  							</li>
+  						</ul>
+  					</div>
+  				</li>
+  			</ul>
+  		</div>
+  	  </div> -->
+      </div>
   </div>
   <ui-view name = "footer"></ui-view>
 </div>
