@@ -5,6 +5,8 @@
        var height = 0;
        var width = 0;
 
+       // ToDo: create new directive
+
        $(window).resize( function(){
          height = $(window).height();
          width = $(window).width();
