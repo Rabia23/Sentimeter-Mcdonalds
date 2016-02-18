@@ -2163,6 +2163,8 @@ li.active,
   padding: 5px 15px 5px 0 !important;
   color: #767676;
 }
+.doc-block .navbar-static-side ul.metismenu ul{height: 0 !important;}
+.doc-block .navbar-static-side ul.metismenu .active > ul{height: auto !important;}
 .doc-block .navbar-static-side ul{
   overflow: hidden;
   clear: both;
