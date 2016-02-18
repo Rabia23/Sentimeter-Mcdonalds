@@ -32,7 +32,10 @@
         <li>
           <strong class="title">Overall Experience</strong>
           <ul>
-            <li>{{top_ranking.overall_experience.option_text}}</li>
+            <li>{{top_ranking.overall_experience.option__text}}</li>
+          </ul>
+          <ul ng-show="top_ranking.overall_experience == null">
+            <li>N/A</li>
           </ul>
         </li>
         <li>

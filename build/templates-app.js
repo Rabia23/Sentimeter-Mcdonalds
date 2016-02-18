@@ -1010,7 +1010,10 @@ angular.module("live/live.tpl.html", []).run(["$templateCache", function($templa
     "        <li>\n" +
     "          <strong class=\"title\">Overall Experience</strong>\n" +
     "          <ul>\n" +
-    "            <li>{{top_ranking.overall_experience.option_text}}</li>\n" +
+    "            <li>{{top_ranking.overall_experience.option__text}}</li>\n" +
+    "          </ul>\n" +
+    "          <ul ng-show=\"top_ranking.overall_experience == null\">\n" +
+    "            <li>N/A</li>\n" +
     "          </ul>\n" +
     "        </li>\n" +
     "        <li>\n" +
