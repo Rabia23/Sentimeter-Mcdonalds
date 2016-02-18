@@ -305,8 +305,6 @@ module.exports = function ( grunt ) {
           '**/*.tpl.html'
         ],
         options: {
-          // newline: true,
-          // newlineMaximum: 2,
           trailingspaces: true,
           allowsBOM: false,
           indent_style: true,

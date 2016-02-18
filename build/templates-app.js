@@ -711,31 +711,36 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "      </div>\n" +
     "    </header>\n" +
     "    <div class=\"doc-block\">\n" +
-    "      <nav class=\"navbar-default navbar-static-side\" role=\"navigation\">\n" +
+    "      <nav class=\"navbar-default navbar-static-side\" role=\"navigation\" nav-focus>\n" +
     "        <div class=\"sidebar-collapse\">\n" +
     "          <div id=\"side-menu\" class=\"nav metismenu\">\n" +
     "            <ul class=\"nav metismenu\" id=\"side-menu\">\n" +
-    "              <li class=\"active\">\n" +
-    "                <a href=\"#\">Web Application</a>\n" +
-    "                <ul class=\"nav nav-second-level collapse\">\n" +
-    "                  <li class=\"active\"><a href=\"#\">Web Dashboard</a>\n" +
-    "                    <ul class=\"nav nav-third-level collapse\">\n" +
-    "                      <li class=\"active\">\n" +
-    "                        <a href=\"/dashboard\">Dashboard</a>\n" +
-    "                        <ul class=\"nav nav-fourth-level collapse\">\n" +
-    "                          <li class=\"active\"><a href=\"#overallrating\" class=\"menu-close\">Overall Rating</a></li>\n" +
-    "                          <li><a href=\"#businessSegment\" class=\"menu-close\">Business Segment Breakdown</a></li>\n" +
-    "                          <li><a href=\"#qsc\" class=\"menu-close\">QSC Analysis</a></li>\n" +
-    "                          <li><a href=\"#map\" class=\"menu-close\">Benchmark Map</a></li>\n" +
-    "                          <li><a href=\"#timeline\" class=\"menu-close\">Timeline</a></li>\n" +
+    "              <li>\n" +
+    "                <a>Web Application</a>\n" +
+    "                <ul class=\"nav nav-second-level\">\n" +
+    "                  <li>\n" +
+    "                    <a>Web Dashboard</a>\n" +
+    "                    <ul class=\"nav nav-third-level\">\n" +
+    "                      <li id = \"dashboard-li\">\n" +
+    "                        <a ng-click = \"gotoElement('dashboard')\">Dashboard</a>\n" +
+    "                        <ul class=\"nav nav-fourth-level\">\n" +
+    "                          <li id = \"overallrating-li\">\n" +
+    "                            <a ng-click = \"gotoElement('overallrating')\" class=\"menu-close\">Overall Rating</a>\n" +
+    "                          </li>\n" +
+    "                          <li id = \"businessSegment-li\">\n" +
+    "                            <a ng-click = \"gotoElement('businessSegment')\" class=\"menu-close\">Business Segment Breakdown</a>\n" +
+    "                          </li>\n" +
+    "                          <li id = \"qsc-li\"><a ng-click = \"gotoElement('qsc')\" class=\"menu-close\">QSC Analysis</a></li>\n" +
+    "                          <li id = \"map-li\"><a ng-click = \"gotoElement('map')\" class=\"menu-close\">Benchmark Map</a></li>\n" +
+    "                          <li id = \"timeline-li\"><a ng-click = \"gotoElement('timeline')\" class=\"menu-close\">Timeline</a></li>\n" +
     "                        </ul>\n" +
     "                      </li>\n" +
-    "                      <li><a href=\"#promotions\">Promotions</a></li>\n" +
-    "                      <li><a href=\"#manageusers\">Manage Users</a></li>\n" +
+    "                      <li id = \"promotions-li\"><a ng-click = \"gotoElement('promotions')\">Promotions</a></li>\n" +
+    "                      <li id = \"manageusers-li\"><a ng-click = \"gotoElement('manageusers')\">Manage Users</a></li>\n" +
     "                    </ul>\n" +
     "                  </li>\n" +
     "                  <li><a href=\"#\">Livefeed Dashboard</a>\n" +
-    "                    <ul class=\"nav nav-third-level collapse\">\n" +
+    "                    <ul class=\"nav nav-third-level\">\n" +
     "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
     "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
     "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
