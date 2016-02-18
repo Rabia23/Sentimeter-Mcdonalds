@@ -540,8 +540,8 @@ function initMobileNav() {
   });
   jQuery('body').mobileNav({
     hideOnClickOutside: true,
-    menuActiveClass: 'aside-active',
-    menuOpener: '.menu-opener , .btn-close',
+    menuActiveClass: 'doc-active',
+    menuOpener: '.menu-opener , .menu-close',
     menuDrop: '.navbar-default'
   });
 }
