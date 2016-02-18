@@ -412,7 +412,7 @@ angular.module("dashboard/overall-feedback/overall-feedback.tpl.html", []).run([
 
 angular.module("dashboard/overall-rating/overall-rating.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/overall-rating/overall-rating.tpl.html",
-    "<div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\">\n" +
+    "<div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\" resize>\n" +
     "  <div class=\"ibox-title\">\n" +
     "    <h5>Timeline</h5>\n" +
     "    <div class=\"ibox-tools\">\n" +
@@ -1010,7 +1010,10 @@ angular.module("live/live.tpl.html", []).run(["$templateCache", function($templa
     "        <li>\n" +
     "          <strong class=\"title\">Overall Experience</strong>\n" +
     "          <ul>\n" +
-    "            <li>{{top_ranking.overall_experience.option_text}}</li>\n" +
+    "            <li>{{top_ranking.overall_experience.option__text}}</li>\n" +
+    "          </ul>\n" +
+    "          <ul ng-show=\"top_ranking.overall_experience == null\">\n" +
+    "            <li>N/A</li>\n" +
     "          </ul>\n" +
     "        </li>\n" +
     "        <li>\n" +

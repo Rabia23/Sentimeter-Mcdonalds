@@ -87,7 +87,9 @@
                     "gridColor": "#FFFE6E",
                     "tickLength": 0,
                     "title": "",
-                    "minimum": 0
+                    "minimum": 0,
+                    "autoGridCount": false,
+                    "gridCount": 6
                   }
                 ],
                 "allLabels": [],
