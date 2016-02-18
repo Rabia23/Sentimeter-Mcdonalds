@@ -16,7 +16,7 @@ function initSlideShow() {
     pagerLinks: '.slideshow .pagination li',
     event: 'click',
     useSwipe: true,
-    autoRotation: false,
+    autoRotation: true,
     pauseOnHover: false,
     autoHeight: true,
     switchTime: 24000,
@@ -29,7 +29,7 @@ function initSlideShow() {
     pagerLinks: '.pagination li',
     event: 'click',
     useSwipe: true,
-    autoRotation: false,
+    autoRotation: true,
     pauseOnHover: false,
     autoHeight: true,
     switchTime: 24000,
@@ -42,7 +42,7 @@ function initSlideShow() {
     pagerLinks: '.pagination li',
     event: 'click',
     useSwipe: true,
-    autoRotation: false,
+    autoRotation: true,
     pauseOnHover: false,
     autoHeight: true,
     switchTime: 24000,
@@ -540,8 +540,8 @@ function initMobileNav() {
   });
   jQuery('body').mobileNav({
     hideOnClickOutside: true,
-    menuActiveClass: 'aside-active',
-    menuOpener: '.menu-opener , .btn-close',
+    menuActiveClass: 'doc-active',
+    menuOpener: '.menu-opener , .menu-close',
     menuDrop: '.navbar-default'
   });
 }

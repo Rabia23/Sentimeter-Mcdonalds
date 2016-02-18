@@ -116,6 +116,13 @@ svg{
 	text{text-shadow: none !important;}
 }
 
+.block-holder{
+  .error-msg{
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
 .error-msg{
 	width: 100%;
 	text-align: center;
@@ -123,9 +130,8 @@ svg{
 	> *{
 		@include inline-block(middle);
 		text-transform: capitalize;
-		color: $white;
-		font-size: 24px;
-		line-height: 24px;
-		text-shadow: 0 0 1px #000;
+		color: $mine-shaft;
+		font-size: 30px;
+		line-height: 30px;
 	}
 }

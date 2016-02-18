@@ -12,7 +12,7 @@
     });
 
     $scope.gotoElement = function (eID){
-      $location.hash('bottom');
+      //$location.hash(eID);
       anchorSmoothScroll.scrollTo(eID);
       
     };

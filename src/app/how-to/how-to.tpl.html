@@ -1,7 +1,7 @@
 <div id="wrapper" class="add">
   <div id="page-wrapper" class="gray-bg">
     <header class="doc-header">
-      <a class="navbar-minimalize minimalize-styl-2 btn btn-primary visible-xs menu-opener" doc-nav>
+      <a class="navbar-minimalize minimalize-styl-2 btn btn-danger visible-xs menu-opener" doc-nav>
         <i class="fa fa-bars"></i>
       </a>
       <div class="logo-holder">
@@ -15,32 +15,32 @@
         <div class="sidebar-collapse">
           <div id="side-menu" class="nav metismenu">
             <ul class="nav metismenu" id="side-menu">
-              <li class="active">
+              <li>
                 <a>Web Application</a>
-                <ul class="nav nav-second-level collapse">
-                  <li class="active">
+                <ul class="nav nav-second-level">
+                  <li>
                     <a>Web Dashboard</a>
-                    <ul class="nav nav-third-level collapse">
-                      <li class="active">
+                    <ul class="nav nav-third-level">
+                      <li id = "dashboard-li">
                         <a ng-click = "gotoElement('dashboard')">Dashboard</a>
-                        <ul class="nav nav-fourth-level collapse">
-                          <li class="active">
-                            <a ng-click = "gotoElement('overallrating')">Overall Rating</a>
+                        <ul class="nav nav-fourth-level">
+                          <li id = "overallrating-li">
+                            <a ng-click = "gotoElement('overallrating')" class="menu-close">Overall Rating</a>
                           </li>
-                          <li>
-                            <a ng-click = "gotoElement('businessSegment')">Business Segment Breakdown</a>
+                          <li id = "businessSegment-li">
+                            <a ng-click = "gotoElement('businessSegment')" class="menu-close">Business Segment Breakdown</a>
                           </li>
-                          <li><a ng-click = "gotoElement('qsc')">QSC Analysis</a></li>
-                          <li><a ng-click = "gotoElement('map')">Benchmark Map</a></li>
-                          <li><a ng-click = "gotoElement('timeline')">Timeline</a></li>
+                          <li id = "qsc-li"><a ng-click = "gotoElement('qsc')" class="menu-close">QSC Analysis</a></li>
+                          <li id = "map-li"><a ng-click = "gotoElement('map')" class="menu-close">Benchmark Map</a></li>
+                          <li id = "timeline-li"><a ng-click = "gotoElement('timeline')" class="menu-close">Timeline</a></li>
                         </ul>
                       </li>
-                      <li><a ng-click = "gotoElement('promotions')">Promotions</a></li>
-                      <li><a ng-click = "gotoElement('manageusers')">Manage Users</a></li>
+                      <li id = "promotions-li"><a ng-click = "gotoElement('promotions')">Promotions</a></li>
+                      <li id = "manageusers-li"><a ng-click = "gotoElement('manageusers')">Manage Users</a></li>
                     </ul>
                   </li>
                   <li><a href="#">Livefeed Dashboard</a>
-                    <ul class="nav nav-third-level collapse">
+                    <ul class="nav nav-third-level">
                       <li><a href="#">Second Level Item</a></li>
                       <li><a href="#">Second Level Item</a></li>
                       <li><a href="#">Second Level Item</a></li>
@@ -49,7 +49,7 @@
                 </ul>
               </li>
               <li>
-                <a href="#">Iso Application</a>
+                <a href="#">IOS Application</a>
                 <ul class="nav nav-third-level collapse">
                   <li><a href="#">Second Level Item</a></li>
                   <li><a href="#">Second Level Item</a></li>

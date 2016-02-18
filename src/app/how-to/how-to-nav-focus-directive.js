@@ -6,33 +6,36 @@
       restrict: 'A',
       link: function(scope, ele, attrs) {
         
-        $("nav li").on("click", function(){
-          console.log("clicked");
+        $("nav li").on("click", function(e){
+          e.stopPropagation();
+          e.preventDefault();
           $("nav li").removeClass("active");
           $(this).addClass("active");
           $(this).parents("li").addClass("active");
         });
         
-        // $(document).on("scroll", function() {
-        //   assignClass();
-        // });
+        $(document).on("scroll", function() {
+          makeActive();
+        });
 
-        // assignClass();
+        makeActive();
 
-        // function assignClass(){
-        //   var height;
-        //   var window_height = document.body.offsetHeight;
-        //   var content_top = $(".wrapper-content").offset().top;
-        //   if($(window).scrollTop() === 0){
-        //     $("nav").removeClass("position-fixed");
-        //   }
-        //   else if($(window).scrollTop() > 0 && $(window).scrollTop() <= content_top){
-        //     $("nav").removeClass("position-fixed");
-        //   }
-        //   else if($(window).scrollTop() > content_top){
-        //     $("nav").addClass("position-fixed");
-        //   }
-        // }
+        function makeActive(){
+          var height;
+          var window_height = document.body.offsetHeight;
+
+          $("section").each(function(index, value){
+            if(( $(window).scrollTop() >= $(value).offset().top ) && ( $(window).scrollTop() < ($(value).offset().top + $(value).height()))){
+              var id = $(value).attr("id");
+              $("nav li").removeClass("active");
+              var newId = id + "-li";
+              console.log(newId);
+              console.log($("nav li#"+ newId));
+              $("nav li#"+ newId).addClass("active");
+              $("nav li#"+ newId).parents("li").addClass("active");
+            }
+          });
+        }
       
       }
     };
