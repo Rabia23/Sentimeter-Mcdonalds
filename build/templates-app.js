@@ -744,7 +744,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "                </ul>\n" +
     "              </li>\n" +
     "              <li>\n" +
-    "                <a href=\"#\">Iso Application</a>\n" +
+    "                <a href=\"#\">IOS Application</a>\n" +
     "                <ul class=\"nav nav-third-level collapse\">\n" +
     "                  <li><a href=\"#\">Second Level Item</a></li>\n" +
     "                  <li><a href=\"#\">Second Level Item</a></li>\n" +
