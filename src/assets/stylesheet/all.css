@@ -2149,7 +2149,7 @@ li.active,
 }
 .doc-block .navbar-static-side{
   float: left;
-  position: fixed;
+  position: absolute;
   width: 200px;
 }
 .doc-block .navbar-static-side li{
@@ -2253,14 +2253,17 @@ li.active,
 	.modal-1200 .modal-body .table-container{height: 300px !important;}
 	#wrapper .navbar-top-links li a{padding: 20px 10px;}
 	.info-holder .table-container{max-height: 526px;}
-   #wrapper .doc-block .navbar-static-side{
-     left: auto;
-     bottom: auto;
-     display: block !important;
-     width: 170px !important;
-     top: auto;
-  }
-  #wrapper .doc-block .navbar-static-side.position-fixed{top: 10px !important;}
+    #wrapper .doc-block .navbar-static-side{
+        left: auto;
+        bottom: auto;
+        display: block !important;
+        width: 170px !important;
+        top: auto;
+    }
+    #wrapper .doc-block .navbar-static-side.position-fixed{
+        top: 10px !important;
+        position: fixed;
+    }
 }
 
 @media screen and (min-width: 992px) {
