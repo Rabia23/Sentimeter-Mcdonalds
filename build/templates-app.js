@@ -412,7 +412,7 @@ angular.module("dashboard/overall-feedback/overall-feedback.tpl.html", []).run([
 
 angular.module("dashboard/overall-rating/overall-rating.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/overall-rating/overall-rating.tpl.html",
-    "<div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\" resize>\n" +
+    "<div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\">\n" +
     "  <div class=\"ibox-title\">\n" +
     "    <h5>Timeline</h5>\n" +
     "    <div class=\"ibox-tools\">\n" +
@@ -701,7 +701,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "<div id=\"wrapper\" class=\"add\">\n" +
     "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
     "    <header class=\"doc-header\">\n" +
-    "      <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary visible-xs menu-opener\" doc-nav>\n" +
+    "      <a class=\"navbar-minimalize minimalize-styl-2 btn btn-danger visible-xs menu-opener\" doc-nav>\n" +
     "        <i class=\"fa fa-bars\"></i>\n" +
     "      </a>\n" +
     "      <div class=\"logo-holder\">\n" +
@@ -723,11 +723,11 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "                      <li class=\"active\">\n" +
     "                        <a href=\"/dashboard\">Dashboard</a>\n" +
     "                        <ul class=\"nav nav-fourth-level collapse\">\n" +
-    "                          <li class=\"active\"><a href=\"#overallrating\">Overall Rating</a></li>\n" +
-    "                          <li><a href=\"#businessSegment\">Business Segment Breakdown</a></li>\n" +
-    "                          <li><a href=\"#qsc\">QSC Analysis</a></li>\n" +
-    "                          <li><a href=\"#map\">Benchmark Map</a></li>\n" +
-    "                          <li><a href=\"#timeline\">Timeline</a></li>\n" +
+    "                          <li class=\"active\"><a href=\"#overallrating\" class=\"menu-close\">Overall Rating</a></li>\n" +
+    "                          <li><a href=\"#businessSegment\" class=\"menu-close\">Business Segment Breakdown</a></li>\n" +
+    "                          <li><a href=\"#qsc\" class=\"menu-close\">QSC Analysis</a></li>\n" +
+    "                          <li><a href=\"#map\" class=\"menu-close\">Benchmark Map</a></li>\n" +
+    "                          <li><a href=\"#timeline\" class=\"menu-close\">Timeline</a></li>\n" +
     "                        </ul>\n" +
     "                      </li>\n" +
     "                      <li><a href=\"#promotions\">Promotions</a></li>\n" +
@@ -744,7 +744,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "                </ul>\n" +
     "              </li>\n" +
     "              <li>\n" +
-    "                <a href=\"#\">Iso Application</a>\n" +
+    "                <a href=\"#\">IOS Application</a>\n" +
     "                <ul class=\"nav nav-third-level collapse\">\n" +
     "                  <li><a href=\"#\">Second Level Item</a></li>\n" +
     "                  <li><a href=\"#\">Second Level Item</a></li>\n" +
@@ -1089,10 +1089,12 @@ angular.module("live/patch-qsc-analysis/patch-qsc-analysis.tpl.html", []).run(["
     "            </li>\n" +
     "          </ul>\n" +
     "        </div>\n" +
-    "        <div class=\"error-msg\" ng-show=\"all_zeros\">\n" +
-    "          <span>\n" +
-    "            No Feedbacks\n" +
-    "          </span>\n" +
+    "        <div class=\"block-holder\" ng-show=\"all_zeros\">\n" +
+    "          <div class=\"c-holder\">\n" +
+    "            <div class=\"error-msg\">\n" +
+    "              <span>No Feedbacks</span>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
     "        </div>\n" +
     "        <div class=\"block-holder\" ng-hide=\"all_zeros\">\n" +
     "          <div class=\"c-holder\">\n" +
@@ -1160,7 +1162,7 @@ angular.module("live/strength/strength.tpl.html", []).run(["$templateCache", fun
     "        <div id=\"strengthPieChart\"></div>\n" +
     "      </div>\n" +
     "      <div ng-show=\"all_zero\" class=\"error-msg\">\n" +
-    "          <span>No Feedbacks</span>\n" +
+    "        <span>No Feedbacks</span>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
