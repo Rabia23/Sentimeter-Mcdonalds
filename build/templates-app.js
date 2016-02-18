@@ -412,7 +412,7 @@ angular.module("dashboard/overall-feedback/overall-feedback.tpl.html", []).run([
 
 angular.module("dashboard/overall-rating/overall-rating.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/overall-rating/overall-rating.tpl.html",
-    "<div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\">\n" +
+    "<div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\" resize>\n" +
     "  <div class=\"ibox-title\">\n" +
     "    <h5>Timeline</h5>\n" +
     "    <div class=\"ibox-tools\">\n" +
@@ -887,7 +887,7 @@ angular.module("live/benchmark-map/benchmark-map.tpl.html", []).run(["$templateC
     "  <div class=\"slide-holder\">\n" +
     "    <div class=\"holder\">\n" +
     "      <div ng-show=\"branches.length == 0\" class=\"error-msg\">\n" +
-    "        <span>No Feedback Received</span>\n" +
+    "        <span>No Feedbacks</span>\n" +
     "      </div>\n" +
     "      <div class=\"detail-holder\" ng-hide=\"branches.length == 0\">\n" +
     "        <div class=\"table-inner\">\n" +
@@ -1091,7 +1091,7 @@ angular.module("live/patch-qsc-analysis/patch-qsc-analysis.tpl.html", []).run(["
     "        </div>\n" +
     "        <div class=\"error-msg\" ng-show=\"all_zeros\">\n" +
     "          <span>\n" +
-    "            No data generated\n" +
+    "            No Feedbacks\n" +
     "          </span>\n" +
     "        </div>\n" +
     "        <div class=\"block-holder\" ng-hide=\"all_zeros\">\n" +
@@ -1158,9 +1158,9 @@ angular.module("live/strength/strength.tpl.html", []).run(["$templateCache", fun
     "    <div class=\"holder\">\n" +
     "      <div class=\"chart-outer\" strength data-data = \"strength_data\" ng-hide=\"all_zero\">\n" +
     "        <div id=\"strengthPieChart\"></div>\n" +
-    "        <div ng-show=\"all_zero\" class=\"error-msg\">\n" +
-    "          <span>No Data Generated</span>\n" +
-    "        </div>\n" +
+    "      </div>\n" +
+    "      <div ng-show=\"all_zero\" class=\"error-msg\">\n" +
+    "          <span>No Feedbacks</span>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
@@ -1174,9 +1174,9 @@ angular.module("live/top-concerns/top-concern.tpl.html", []).run(["$templateCach
     "    <div class=\"holder\">\n" +
     "      <div class=\"chart-outer\" top-concern data-data = \"top_concern_data\" ng-hide=\"all_zero\">\n" +
     "        <div id=\"container\"></div>\n" +
-    "        <div ng-show=\"all_zero\" class=\"error-msg\">\n" +
-    "          <span>No Data Generated</span>\n" +
-    "        </div>\n" +
+    "      </div>\n" +
+    "      <div ng-show=\"all_zero\" class=\"error-msg\">\n" +
+    "        <span>No Feedbacks</span>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
