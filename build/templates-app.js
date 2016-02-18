@@ -412,7 +412,7 @@ angular.module("dashboard/overall-feedback/overall-feedback.tpl.html", []).run([
 
 angular.module("dashboard/overall-rating/overall-rating.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/overall-rating/overall-rating.tpl.html",
-    "<div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\">\n" +
+    "<div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\" resize>\n" +
     "  <div class=\"ibox-title\">\n" +
     "    <h5>Timeline</h5>\n" +
     "    <div class=\"ibox-tools\">\n" +
