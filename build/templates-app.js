@@ -701,7 +701,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "<div id=\"wrapper\" class=\"add\">\n" +
     "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
     "    <header class=\"doc-header\">\n" +
-    "      <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary visible-xs menu-opener\">\n" +
+    "      <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary visible-xs menu-opener\" doc-nav>\n" +
     "        <i class=\"fa fa-bars\"></i>\n" +
     "      </a>\n" +
     "      <div class=\"logo-holder\">\n" +
