@@ -2,25 +2,8 @@
     angular.module('livefeed.dashboard.overall_rating')
 
     .controller( 'TimeLineCtrl', function DashboardController( $scope, overallRatingChartService, Graphs, Global, flashService ) {
-       var height = 0;
-       var width = 0;
-
-       // ToDo: create new directive
-
-       $(window).resize( function(){
-         height = $(window).height();
-         width = $(window).width();
-         if($scope.mainView === false && $scope.optionView === true){
-            $scope.labelClick($scope.option);
-         }
-         else if($scope.mainView === false && $scope.optionView === false){
-            $scope.optionClick($scope.option_object);
-         }
-         else {
-             mainRating();
-         }
-
-       }).resize();
+       $scope.height = 0;
+       $scope.width = 0;
 
        $scope.today = new Date();
 
@@ -39,7 +22,7 @@
             if($scope.mainView){
               $scope.start_date = ev.model.startDate._i;
               $scope.end_date = ev.model.endDate._i;
-              mainRating();
+              $scope.mainRating();
             }
 
           },
@@ -123,14 +106,14 @@
              return value.priority;
          });
        }
-       function mainRating() {
+       $scope.mainRating = function(){
 
            $scope.mainView = true;
            $scope.show_loading = true;
            $scope.optionView = false;
            Graphs.overall_rating(null, $scope.start_date, $scope.end_date).$promise.then(function (data) {
              if(data.success) {
-               if(width < height) {
+               if($scope.width < $scope.height) {
                   calculate_data_sets(data, 3);
                }
                else {
@@ -145,7 +128,7 @@
                flashService.createFlash(data.message, "danger");
              }
            });
-       }
+       };
 
        $scope.labelClick = function(option){
           $scope.option = option;
@@ -155,7 +138,7 @@
             Graphs.overall_rating(option.option_id, $scope.start_date, $scope.end_date).$promise.then(function(data) {
               if(data.success) {
                 $scope.mainView = false;
-                if(width < height)  {
+                if($scope.width < $scope.height)  {
                   calculate_data_sets(data, 3);
                 }
                 else {
@@ -211,7 +194,7 @@
                   $scope.page = 1;
                   $scope.max_page = 1;
                   qsc_suboptions_data = overallRatingChartService.getAreaSegmentChart(data.response.options);
-                  if(width < height) {
+                  if($scope.width < $scope.height) {
                     while (qsc_suboptions_data.length > 0) {
                       $scope.segments_data_array.push(qsc_suboptions_data.splice(0, 3));
                     }
@@ -233,7 +216,7 @@
 
        $scope.axisChanged = function(){
          $scope.show_loading = true;
-         mainRating();
+         $scope.mainRating();
        };
 
        $scope.Next = function(){
@@ -257,7 +240,7 @@
        };
 
        $scope.backToMain = function() {
-         mainRating();
+         $scope.mainRating();
        };
 
        $scope.Prev = function(){
@@ -281,6 +264,5 @@
        };
 
        resetDates();
-       //mainRating();
     });
 })();
