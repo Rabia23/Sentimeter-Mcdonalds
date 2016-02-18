@@ -2164,7 +2164,10 @@ li.active,
   color: #767676;
 }
 .doc-block .navbar-static-side ul.metismenu ul{height: 0 !important;}
-.doc-block .navbar-static-side ul.metismenu .active > ul{height: auto !important;}
+.doc-block .navbar-static-side ul.metismenu .active > ul{
+  height: auto !important;
+  display: block !important;
+}
 .doc-block .navbar-static-side ul{
   overflow: hidden;
   clear: both;
