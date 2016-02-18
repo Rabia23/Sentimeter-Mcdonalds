@@ -11,27 +11,32 @@
       </div>
     </header>
     <div class="doc-block">
-      <nav class="navbar-default navbar-static-side" role="navigation">
+      <nav class="navbar-default navbar-static-side" role="navigation" nav-focus>
         <div class="sidebar-collapse">
           <div id="side-menu" class="nav metismenu">
             <ul class="nav metismenu" id="side-menu">
               <li class="active">
-                <a href="#">Web Application</a>
+                <a>Web Application</a>
                 <ul class="nav nav-second-level collapse">
-                  <li class="active"><a href="#">Web Dashboard</a>
+                  <li class="active">
+                    <a>Web Dashboard</a>
                     <ul class="nav nav-third-level collapse">
                       <li class="active">
-                        <a href="/dashboard">Dashboard</a>
+                        <a ng-click = "gotoElement('dashboard')">Dashboard</a>
                         <ul class="nav nav-fourth-level collapse">
-                          <li class="active"><a href="#overallrating">Overall Rating</a></li>
-                          <li><a href="#businessSegment">Business Segment Breakdown</a></li>
-                          <li><a href="#qsc">QSC Analysis</a></li>
-                          <li><a href="#map">Benchmark Map</a></li>
-                          <li><a href="#timeline">Timeline</a></li>
+                          <li class="active">
+                            <a ng-click = "gotoElement('overallrating')">Overall Rating</a>
+                          </li>
+                          <li>
+                            <a ng-click = "gotoElement('businessSegment')">Business Segment Breakdown</a>
+                          </li>
+                          <li><a ng-click = "gotoElement('qsc')">QSC Analysis</a></li>
+                          <li><a ng-click = "gotoElement('map')">Benchmark Map</a></li>
+                          <li><a ng-click = "gotoElement('timeline')">Timeline</a></li>
                         </ul>
                       </li>
-                      <li><a href="#promotions">Promotions</a></li>
-                      <li><a href="#manageusers">Manage Users</a></li>
+                      <li><a ng-click = "gotoElement('promotions')">Promotions</a></li>
+                      <li><a ng-click = "gotoElement('manageusers')">Manage Users</a></li>
                     </ul>
                   </li>
                   <li><a href="#">Livefeed Dashboard</a>
