@@ -65,16 +65,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 #strengthPieChart{
 	.amcharts-chart-div{
 		&:after{
-			left: 11%;
+			left: 5%;
 			right: 0;
-			top: 30%;
-			bottom: 0;
+			top: 36%;
+			bottom: -5%;
+            max-width: 630px;
 			
 			@include media("≥widescreen"){
-				left: 16%;
-				right: 10%;
-				top: 36%;
-				bottom: -3%;
+				left: 5%;
+				right: 0%;
+				bottom: -50px;
+                max-width: 770px; 
+			}
+            @include media("≥widerScreen"){
+				left: 25%;
+				right: 3%;
 			}
 		}
 	}
@@ -83,15 +88,19 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', e
 #container{
 	.amcharts-chart-div{
 		&:after{
-			left: 30%;
+			left: 0;
 			right: 0;
 			top: 36%;
-			bottom: 10%;
+			bottom: -5%;
 			
 			@include media("≥widescreen"){
+				left: 12%;
+				right: 0;
+				bottom: -50px;
+			}
+            @include media("≥widerScreen"){
 				left: 28%;
 				right: 7%;
-				bottom: -50px;
 			}
 		}
 	}
