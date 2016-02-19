@@ -727,7 +727,14 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "                          <li id = \"timeline-li\"><a ng-click = \"gotoElement('timeline')\" class=\"menu-close\">Timeline</a></li>\n" +
     "                        </ul>\n" +
     "                      </li>\n" +
-    "                      <li id = \"promotions-li\"><a ng-click = \"gotoElement('promotions')\">Promotions</a></li>\n" +
+    "                      <li id = \"promotions-li\">\n" +
+    "                        <a ng-click = \"gotoElement('promotions')\">Promotions</a>\n" +
+    "                        <ul class=\"nav nav-fourth-level\">\n" +
+    "                          <li id = \"overallrating-li\">\n" +
+    "                            <a ng-click = \"gotoElement('promotionsdetail')\" class=\"menu-close\">Promotions Detail</a>\n" +
+    "                          </li>\n" +
+    "                        </ul>\n" +
+    "                      </li>\n" +
     "                      <li id = \"manageusers-li\"><a ng-click = \"gotoElement('manageusers')\">Manage Users</a></li>\n" +
     "                    </ul>\n" +
     "                  </li>\n" +
@@ -742,10 +749,14 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              </li>\n" +
     "              <li>\n" +
     "                <a href=\"#\">IOS Application</a>\n" +
-    "                <ul class=\"nav nav-third-level\">\n" +
-    "                  <li><a href=\"#\">Second Level Item</a></li>\n" +
-    "                  <li><a href=\"#\">Second Level Item</a></li>\n" +
-    "                  <li><a href=\"#\">Second Level Item</a></li>\n" +
+    "                <ul class=\"nav nav-second-level\">\n" +
+    "                  <li><a href=\"#\">Livefeed Dashboard</a>\n" +
+    "                    <ul class=\"nav nav-third-level\">\n" +
+    "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
+    "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
+    "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
+    "                    </ul>\n" +
+    "                  </li>\n" +
     "                </ul>\n" +
     "              </li>\n" +
     "            </ul>\n" +
@@ -763,11 +774,11 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              <div class=\"ibox-content float-chart-block\">\n" +
     "                <ol class=\"steps-list\">\n" +
     "                  <li>\n" +
-    "                    Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                    Click Calendar Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Select Start and End Dates From the Calender Popup\n" +
+    "                    Select Start and End Dates From the Calendar Popup\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
@@ -790,11 +801,11 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              <div class=\"ibox-content float-chart-block\">\n" +
     "                <ol class=\"steps-list\">\n" +
     "                  <li>\n" +
-    "                    Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                    Click Calendar Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Select Start and End Dates From the Calender Popup\n" +
+    "                    Select Start and End Dates From the Calendar Popup\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
@@ -817,11 +828,11 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              <div class=\"ibox-content float-chart-block\">\n" +
     "                <ol class=\"steps-list\">\n" +
     "                  <li>\n" +
-    "                    Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                    Click Calendar Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Select Start and End Dates From the Calender Popup\n" +
+    "                    Select Start and End Dates From the Calendar Popup\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
@@ -844,11 +855,11 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              <div class=\"ibox-content float-chart-block\">\n" +
     "                <ol class=\"steps-list\">\n" +
     "                  <li>\n" +
-    "                    Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                    Click Calendar Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Select Start and End Dates From the Calender Popup\n" +
+    "                    Select Start and End Dates From the Calendar Popup\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
@@ -871,11 +882,41 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              <div class=\"ibox-content float-chart-block\">\n" +
     "                <ol class=\"steps-list\">\n" +
     "                  <li>\n" +
-    "                    Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                    Click Calendar Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Select Start and End Dates From the Calender Popup\n" +
+    "                    Select Start and End Dates From the Calendar Popup\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                  </li>\n" +
+    "                </ol>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </section>\n" +
+    "        </section>\n" +
+    "        <section class=\"section\" id=\"promotions\">\n" +
+    "          <h1>Promotions</h1>\n" +
+    "          <section class=\"info-section\" id=\"promotionsdetail\">\n" +
+    "            <div class=\"ibox float-e-margins\">\n" +
+    "              <div class=\"ibox-title\">\n" +
+    "                <h2>Overall Rating Section</h2>\n" +
+    "              </div>\n" +
+    "              <div class=\"ibox-content float-chart-block\">\n" +
+    "                <ol class=\"steps-list\">\n" +
+    "                  <li>\n" +
+    "                    Click Calendar Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    Select Start and End Dates From the Calendar Popup\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
@@ -1351,7 +1392,7 @@ angular.module("manage-users/edit-user-modal.tpl.html", []).run(["$templateCache
 angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("manage-users/manage-users.tpl.html",
     "<div id=\"wrapper\">\n" +
-    "    <toaster-container toaster-options=\"{'close-button': true}\"></toaster-container>\n" +
+    "  <toaster-container toaster-options=\"{'close-button': true}\"></toaster-container>\n" +
     "  <ui-view name=\"sidebar\"></ui-view>\n" +
     "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
     "    <ui-view name=\"header\"></ui-view>\n" +
