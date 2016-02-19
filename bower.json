@@ -26,6 +26,7 @@
     "angular-daterangepicker": "~0.2.1",
     "Heyoffline": "~1.1.1",
     "angular-animate": "~1.4.7",
-    "AngularJS-Toaster": "angularjs-toaster#~1.2.0"
+    "AngularJS-Toaster": "angularjs-toaster#~1.2.0",
+    "ngSmoothScroll": "~2.0.0"
   }
 }

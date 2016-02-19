@@ -86,7 +86,8 @@ module.exports = {
       'vendor/metisMenu/dist/metisMenu.min.js',
       'vendor/hammerjs/hammer.min.js',
       'vendor/ngmap/build/scripts/ng-map.min.js',
-      'vendor/AngularJS-Toaster/toaster.min.js'
+      'vendor/AngularJS-Toaster/toaster.min.js',
+      'vendor/ngSmoothScroll/dist/angular-smooth-scroll.min.js'
     ],
     css: [
       'vendor/bootstrap/dist/css/bootstrap.min.css',
