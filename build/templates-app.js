@@ -24,16 +24,8 @@ angular.module("common/header.tpl.html", []).run(["$templateCache", function($te
     "      <a class=\"navbar-minimalize minimalize-styl-2 btn btn-primary\" toggle-menu>\n" +
     "        <i class=\"fa fa-bars\"></i>\n" +
     "      </a>\n" +
-    "      <!-- <form role=\"search\" class=\"navbar-form-custom\" action=\"search_results.html\">\n" +
-    "        <div class=\"form-group\">\n" +
-    "          <input type=\"text\" placeholder=\"Search for something...\" class=\"form-control\" name=\"top-search\" id=\"top-search\">\n" +
-    "        </div>\n" +
-    "      </form> -->\n" +
     "    </div>\n" +
     "    <ul class=\"nav navbar-top-links navbar-right\">\n" +
-    "      <!-- <li class=\"dashboard\">\n" +
-    "        <a style = \"cursor:pointer;\" ui-sref = \"live\">Live Dashboard</a>\n" +
-    "      </li> -->\n" +
     "      <li>\n" +
     "        <span class=\"m-r-sm text-muted welcome-message\">Welcome <span class=\"name text-capitalize\">{{fullname}}</span></span>\n" +
     "      </li>\n" +
@@ -155,7 +147,7 @@ angular.module("dashboard/dashboard.tpl.html", []).run(["$templateCache", functi
     "    <ui-view name = \"positive_negative_feedback\"></ui-view>\n" +
     "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
     "      <div class=\"row same-height-parent\">\n" +
-    "        <flash-message  show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show = \"show_alert\"></flash-message>\n" +
+    "        <toaster-container toaster-options=\"{'close-button': true}\"></toaster-container>\n" +
     "        <div class=\"col-lg-6 col-lg-push-6\">\n" +
     "          <div class=\"same-height-block blocks-holder\">\n" +
     "            <div class=\"row\">\n" +
@@ -1267,7 +1259,7 @@ angular.module("login/login.tpl.html", []).run(["$templateCache", function($temp
     "    <div class=\"login-block\">\n" +
     "      <div class=\"form-holder\" ng-class=\"{loading: show_loading}\">\n" +
     "        <div class=\"form-inner\">\n" +
-    "          <flash-message show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show=\"show_alert\"></flash-message>\n" +
+    "          <toaster-container toaster-options=\"{'close-button': true}\"></toaster-container>\n" +
     "          <div class=\"inner-holder\">\n" +
     "            <h3>Log In</h3>\n" +
     "            <form class=\"login-form\" name=\"LoginForm\" ng-submit=\"login(LoginForm.$valid)\" novalidate>\n" +
@@ -1400,6 +1392,7 @@ angular.module("manage-users/edit-user-modal.tpl.html", []).run(["$templateCache
 angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("manage-users/manage-users.tpl.html",
     "<div id=\"wrapper\">\n" +
+    "  <toaster-container toaster-options=\"{'close-button': true}\"></toaster-container>\n" +
     "  <ui-view name=\"sidebar\"></ui-view>\n" +
     "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
     "    <ui-view name=\"header\"></ui-view>\n" +
@@ -1414,7 +1407,6 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
     "              <h2>No User Added</h2>\n" +
     "              <h4>Click on Add button to Add New User</h4>\n" +
     "            </div>\n" +
-    "            <flash-message show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show=\"show_alert\"></flash-message>\n" +
     "            <ul class=\"users-list\" data-users=\"users\">\n" +
     "              <li ng-repeat=\"user in users track by $index\" ng-class=\"{'deactivate': user.is_active == false, 'inactive': user.is_active == false}\">\n" +
     "                <div class=\"ibox\">\n" +
@@ -1552,7 +1544,6 @@ angular.module("promotions/promotions.tpl.html", []).run(["$templateCache", func
     "        <div class=\"col-lg-12\">\n" +
     "          <div class=\"row\">\n" +
     "            <div class=\"col-xs-12\">\n" +
-    "              <flash-message show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\" ng-show=\"show_alert\"></flash-message>\n" +
     "              <ul class=\"btn-list\">\n" +
     "                <li ng-repeat=\"promotion in promotions\">\n" +
     "                  <a class=\"btn ibox dim btn-large-dim btn-outline\" ng-click=\"detail(promotion.id)\">\n" +

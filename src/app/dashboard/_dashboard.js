@@ -11,7 +11,6 @@
       'livefeed.dashboard.positive_negative_feedback',
       'livefeed.dashboard.top_concern',
       'livefeed.dashboard.opportunities',
-      'ngFlash',
       'livefeed.authService'
 
     ]);

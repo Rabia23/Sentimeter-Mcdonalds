@@ -19,12 +19,6 @@
 
     $scope.show_loading = false;
 
-    $scope.show_flash = false;
-
-    $timeout(function(){
-      $scope.show_flash = true;
-    }, 5000);
-
     Filters.allRegions().$promise.then(function(data){
       if(data.success){
         $scope.regions = data.response;
@@ -32,7 +26,7 @@
       }
       else{
         $scope.show_error_message = true;
-        flashService.createFlash(data.message, "danger");
+        flashService.createFlash(data.message, 'error');
       }
 
     });
@@ -44,7 +38,7 @@
       }
       else{
         $scope.show_error_message = true;
-        flashService.createFlash(data.message, "danger");
+        flashService.createFlash(data.message, 'error');
       }
 
     });
@@ -63,7 +57,7 @@
           }
           else{
             $scope.show_error_message = true;
-            flashService.createFlash(data.message, "danger");
+            flashService.createFlash(data.message,'error');
           }
 
         });
@@ -93,7 +87,6 @@
 
     $scope.show_error_message = false;
 
-    flashService.dismissFlash();
     if(branch_id){
       $scope.user.branch_id = branch_id;
     }
@@ -108,7 +101,7 @@
       }
       else{
         $scope.show_error_message = true;
-        flashService.createFlash(data.message, "danger");
+        flashService.createFlash(data.message, 'error');
       }
 
     });
@@ -120,7 +113,7 @@
       }
       else{
         $scope.show_error_message = true;
-        flashService.createFlash(data.message, "danger");
+        flashService.createFlash(data.message, 'error');
       }
 
     });

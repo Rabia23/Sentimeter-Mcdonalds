@@ -4,8 +4,7 @@
       'factories',
       'livefeed.map',
       'ui.bootstrap',
-      'daterangepicker',
-      'ngFlash'
+      'daterangepicker'
     ]);
 
 })();
