@@ -10,6 +10,8 @@
     'livefeed.promotions',
     'livefeed.authService',
     'ui.router',
-    'livefeed.offline'
+    'livefeed.offline',
+    'toaster', 
+    'ngAnimate'
   ]);
 })();

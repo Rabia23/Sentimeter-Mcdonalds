@@ -4,11 +4,11 @@
   .run( function run ($rootScope, Auth, $state, TokenHandler, flashService, $timeout) {
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
-      flashService.dismissFlash();
       $rootScope.show_alert = false;
       $timeout(function(){
         $rootScope.show_alert = true;
       }, 5000);
+      
       if (toState.authenticate && !Auth.is_logged_in()) {
         event.preventDefault();
         $state.go('login');
@@ -29,10 +29,6 @@
       Auth.is_logged_out();
       $rootScope.fullname = null;
       $state.go('login');
-    };
-
-    $rootScope.onAlertDismiss = function(flash){
-      flashService.dismissFlash();
     };
 
   });

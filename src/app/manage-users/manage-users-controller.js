@@ -114,7 +114,6 @@
 
 
     $scope.open = function (size) {
-      flashService.dismissFlash();
       var modalInstance = $uibModal.open({
         templateUrl: 'manage-users/edit-user-modal.tpl.html',
         controller: 'ModalAddInstanceCtrl',
@@ -135,7 +134,6 @@
         }
       });
       modalInstance.result.then(function (user) {
-        flashService.dismissFlash();
         ManageApi.manage_users().$promise.then(function(data){
           if(data.success){
             $scope.show_error_message = false;
@@ -164,7 +162,6 @@
 
 
     $scope.edit = function (user, index) {
-      flashService.dismissFlash();
       var editInstance = $uibModal.open({
         templateUrl: 'manage-users/edit-user-modal.tpl.html',
         controller: 'ModalEditInstanceCtrl',
@@ -202,7 +199,6 @@
       });
 
       editInstance.result.then(function (edited_user) {
-        //flashService.dismissFlash();
         $scope.users[index] = edited_user;
         $scope.users[index].user_role = Enum.get_user_label($scope.users[index].role);
         if($scope.users[index].is_active === true) {

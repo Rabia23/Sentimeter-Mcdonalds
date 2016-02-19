@@ -1,4 +1,5 @@
 <div id="wrapper">
+    <toaster-container toaster-options="{'close-button': true}"></toaster-container>
   <ui-view name="sidebar"></ui-view>
   <div id="page-wrapper" class="gray-bg">
     <ui-view name="header"></ui-view>
@@ -13,7 +14,6 @@
               <h2>No User Added</h2>
               <h4>Click on Add button to Add New User</h4>
             </div>
-            <flash-message show-close="true" on-dismiss="onAlertDismiss(flash)" ng-show="show_alert"></flash-message>
             <ul class="users-list" data-users="users">
               <li ng-repeat="user in users track by $index" ng-class="{'deactivate': user.is_active == false, 'inactive': user.is_active == false}">
                 <div class="ibox">

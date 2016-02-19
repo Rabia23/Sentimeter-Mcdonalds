@@ -40,7 +40,7 @@
               $state.go("dashboard");
             }
             else{
-              flashService.createFlash(data.message, "danger");
+              flashService.createFlash(data.message, "error");
             }
 
           });
