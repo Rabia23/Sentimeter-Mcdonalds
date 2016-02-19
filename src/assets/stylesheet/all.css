@@ -176,8 +176,7 @@ body.login{background: #eee !important;}
 	background: none;
 }
 #wrapper .sidebar-collapse .nav > li > a:hover:before,
-#wrapper .sidebar-collapse .nav > li > a:active:before,
-#wrapper .sidebar-collapse .nav > li > a:focus:before{
+#wrapper .sidebar-collapse .nav > li > a:active:before{
 	width: 100%;
 	-webkit-transition: all 0.4s linear;
 	transition: all 0.4s linear;
@@ -304,7 +303,7 @@ body.login{background: #eee !important;}
 #wrapper.add .minimalize-styl-2{
   position: relative;
   z-index: 99;
-  margin: 25px 5px;
+  margin: 25px 5px 10px;
   padding: 7px 10px;
   font-size: 16px;
   line-height: 16px;
@@ -2214,12 +2213,25 @@ li.active,
 }
 .doc-block .sidebar-collapse:before{display: none;}
 .doc-block .section{padding: 10px 0;}
-.doc-block h1{margin: 0 0 10px;}
-.doc-block h2{margin: 0 0 15px;}
+.doc-block h1{
+  margin: 0 0 10px;
+  font-weight: 400;
+}
+.doc-block .ibox h2{
+  margin: 0;
+  font-weight: 400;
+}
+.doc-block .ibox{margin-bottom: 0;}
+.doc-block .ibox-title{
+  padding: 10px;
+  min-height: inherit;
+}
+.doc-block .section{padding: 0 0 20px;}
 .info-section{
   overflow: hidden;
   padding: 10px 0;
 }
+.info-section .ibox-content{padding: 15px 5px;}
 #wrapper .doc-block .wrapper{
   overflow: hidden;
   padding: 0 10px 0 220px !important;
@@ -2780,15 +2792,17 @@ li.active,
       line-height: 18px;
       padding: 0 0 0 25px;
     }
-  .doc-header:after{height: 20px;}
+  #wrapper.add .minimalize-styl-2{margin: 20px 5px 10px;}
+  .doc-header{margin: 0 0 10px;}
+  .doc-header:after{height: 10px;}
   .doc-header:before{
-    height: 20px;
+    height: 10px;
     width: 200px;
     margin-left: -100px;
   }
     #wrapper .doc-block .wrapper{padding: 0 !important;}
     body.mini-navbar #wrapper.add #page-wrapper{margin-left: 0;}
-  .doc-header .logo-holder{max-width: 10px;}
+  .doc-header .logo-holder{max-width: 80px;}
   #wrapper.add .navbar-static-side{
     display: block !important;
     width: 170px !important;
@@ -2836,6 +2850,7 @@ li.active,
      -o-transition-timing-function: cubic-bezier(0.420, 0.000, 1.000, 1.000);
         transition-timing-function: cubic-bezier(0.420, 0.000, 1.000, 1.000);
   }
+  .doc-block .ibox h2{font-size: 18px;}
 }
 
 @media screen and (max-width: 768px) {

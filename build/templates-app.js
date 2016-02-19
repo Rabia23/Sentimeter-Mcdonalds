@@ -761,121 +761,141 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "        </div>\n" +
     "      </nav>\n" +
     "      <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
-    "        <section class=\"Section\" id=\"dashboard\">\n" +
+    "        <section class=\"section\" id=\"dashboard\">\n" +
     "          <h1>Dashboard</h1>\n" +
     "          <section class=\"info-section\" id=\"overallrating\">\n" +
-    "            <h2>Overall Rating Section</h2>\n" +
-    "            <div class=\"text-block\">\n" +
-    "              <ol class=\"steps-list\">\n" +
-    "                <li>\n" +
-    "                  Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  Select Start and End Dates From the Calender Popup\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
-    "                </li>\n" +
-    "              </ol>\n" +
+    "            <div class=\"ibox float-e-margins\">\n" +
+    "              <div class=\"ibox-title\">\n" +
+    "                <h2>Overall Rating Section</h2>\n" +
+    "              </div>\n" +
+    "              <div class=\"ibox-content float-chart-block\">\n" +
+    "                <ol class=\"steps-list\">\n" +
+    "                  <li>\n" +
+    "                    Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    Select Start and End Dates From the Calender Popup\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                  </li>\n" +
+    "                </ol>\n" +
+    "              </div>\n" +
     "            </div>\n" +
     "          </section>\n" +
     "          <section class=\"info-section\" id=\"businessSegment\">\n" +
-    "            <h2>Business Segment Breakdown Section</h2>\n" +
-    "            <div class=\"text-block\">\n" +
-    "              <ol class=\"steps-list\">\n" +
-    "                <li>\n" +
-    "                  Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  Select Start and End Dates From the Calender Popup\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
-    "                </li>\n" +
-    "              </ol>\n" +
+    "            <div class=\"ibox float-e-margins\">\n" +
+    "              <div class=\"ibox-title\">\n" +
+    "                <h2>Business Segment Breakdown Section</h2>\n" +
+    "              </div>\n" +
+    "              <div class=\"ibox-content float-chart-block\">\n" +
+    "                <ol class=\"steps-list\">\n" +
+    "                  <li>\n" +
+    "                    Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    Select Start and End Dates From the Calender Popup\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                  </li>\n" +
+    "                </ol>\n" +
+    "              </div>\n" +
     "            </div>\n" +
     "          </section>\n" +
     "          <section class=\"info-section\" id=\"qsc\">\n" +
-    "            <h2>QSC Analysis Section</h2>\n" +
-    "            <div class=\"text-block\">\n" +
-    "              <ol class=\"steps-list\">\n" +
-    "                <li>\n" +
-    "                  Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  Select Start and End Dates From the Calender Popup\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
-    "                </li>\n" +
-    "              </ol>\n" +
+    "            <div class=\"ibox float-e-margins\">\n" +
+    "              <div class=\"ibox-title\">\n" +
+    "                <h2>QSC Analysis Section</h2>\n" +
+    "              </div>\n" +
+    "              <div class=\"ibox-content float-chart-block\">\n" +
+    "                <ol class=\"steps-list\">\n" +
+    "                  <li>\n" +
+    "                    Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    Select Start and End Dates From the Calender Popup\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                  </li>\n" +
+    "                </ol>\n" +
+    "              </div>\n" +
     "            </div>\n" +
     "          </section>\n" +
     "          <section class=\"info-section\" id=\"map\">\n" +
-    "            <h2>Benchmark Map Section</h2>\n" +
-    "            <div class=\"text-block\">\n" +
-    "              <ol class=\"steps-list\">\n" +
-    "                <li>\n" +
-    "                  Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  Select Start and End Dates From the Calender Popup\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
-    "                </li>\n" +
-    "              </ol>\n" +
+    "            <div class=\"ibox float-e-margins\">\n" +
+    "              <div class=\"ibox-title\">\n" +
+    "                <h2>Benchmark Map Section</h2>\n" +
+    "              </div>\n" +
+    "              <div class=\"ibox-content float-chart-block\">\n" +
+    "                <ol class=\"steps-list\">\n" +
+    "                  <li>\n" +
+    "                    Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    Select Start and End Dates From the Calender Popup\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                  </li>\n" +
+    "                </ol>\n" +
+    "              </div>\n" +
     "            </div>\n" +
     "          </section>\n" +
     "          <section class=\"info-section\" id=\"timeline\">\n" +
-    "            <h2>Timeline Section</h2>\n" +
-    "            <div class=\"text-block\">\n" +
-    "              <ol class=\"steps-list\">\n" +
-    "                <li>\n" +
-    "                  Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  Select Start and End Dates From the Calender Popup\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
-    "                </li>\n" +
-    "                <li>\n" +
-    "                  The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                  <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
-    "                </li>\n" +
-    "              </ol>\n" +
+    "            <div class=\"ibox float-e-margins\">\n" +
+    "              <div class=\"ibox-title\">\n" +
+    "                <h2>Timeline Section</h2>\n" +
+    "              </div>\n" +
+    "              <div class=\"ibox-content float-chart-block\">\n" +
+    "                <ol class=\"steps-list\">\n" +
+    "                  <li>\n" +
+    "                    Click Calender Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    Select Start and End Dates From the Calender Popup\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                  </li>\n" +
+    "                  <li>\n" +
+    "                    The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                  </li>\n" +
+    "                </ol>\n" +
+    "              </div>\n" +
     "            </div>\n" +
     "          </section>\n" +
     "        </section>\n" +
