@@ -823,11 +823,11 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "                  </li>\n" +
     "                  <li>\n" +
     "                    Select Start and End dates from the Calendar Popup\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/SegmentBreakdown-2.png\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
     "                    Click Apply button to view the information of sepecific dates <small> (or click cancel to cancel operation)</small>\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/SegmentBreakdown-3.png\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
     "                    The Bar Chart graph will reload and show you data of specific dates\n" +
@@ -850,11 +850,11 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "                  </li>\n" +
     "                  <li>\n" +
     "                    Select Start and End dates from the Calendar Popup\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/QSCAnalysis-2.png\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
     "                    Click Apply button to view the information of sepecific dates <small> (or click cancel to cancel operation)</small>\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/QSCAnalysis-3.png\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
     "                    The Donut Chart graph will reload and show you data of specific dates\n" +
@@ -877,11 +877,11 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "                  </li>\n" +
     "                  <li>\n" +
     "                    Select Start and End dates from the Calendar Popup\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/BenchMarkMap-2.png\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
     "                    Click Apply button to view the information of sepecific dates <small> (or click cancel to cancel operation)</small>\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/BenchMarkMap-3.png\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
     "                    The Map will reload and show you data of specific dates\n" +
@@ -904,11 +904,11 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "                  </li>\n" +
     "                  <li>\n" +
     "                    Select Start and End dates from the Calendar Popup\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/LineChart-2.png\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
     "                    Click Apply button to view the information of sepecific dates <small> (or click cancel to cancel operation)</small>\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/LineChart-3.png\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
     "                    The Line Chart Graph will reload and show you data of specific dates\n" +
