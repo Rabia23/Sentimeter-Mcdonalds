@@ -15,7 +15,7 @@
 
     $scope.changeScrollTo = function(){
       $scope.scrollTo = true;
-    }
+    };
 
   });
 
