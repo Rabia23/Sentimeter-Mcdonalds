@@ -25,6 +25,11 @@
           var window_height = document.body.offsetHeight;
 
           $("section").each(function(index, value){
+            //console.log("scroll top");
+            //console.log($(window).scrollTop());
+            //console.log(value);
+            //console.log("value top");
+            //console.log($(value).offset().top); 
             if(( $(window).scrollTop() >= $(value).offset().top ) && ( $(window).scrollTop() < ($(value).offset().top + $(value).height()))){
               var id = $(value).attr("id");
               $("nav li").removeClass("active");
@@ -32,7 +37,6 @@
               console.log(newId);
               console.log($("nav li#"+ newId));
               $("nav li#"+ newId).addClass("active");
-              $("nav li#"+ newId).parents("li").removeClass("active");
               console.log($("nav li#"+ newId).parents("li").addClass("active"));
             }
           });
