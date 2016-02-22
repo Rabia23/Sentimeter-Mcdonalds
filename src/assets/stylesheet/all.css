@@ -947,6 +947,7 @@ body.login{background: #eee !important;}
 	background: none;
     word-wrap: break-word;
 }
+.modal-1200 .table tbody td .email-holder{display: block;}
 .modal-1200 .table tbody td:first-child{border-left: 0 !important;}
 .modal-1200 .table tbody td .text{overflow: hidden;}
 .modal-1200 .table tbody td .ico{
