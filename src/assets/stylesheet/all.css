@@ -961,7 +961,7 @@ body.login{background: #eee !important;}
 .modal-1200 .table tbody td a{color: #000;}
 .modal-1200 .table tbody td a:hover,
 .modal-1200 .table tbody td a:active,
-.modal-1200 .table tbody td a:focus{color: #929292;}
+.modal-1200 .table tbody td a:focus{color: #000;}
 .loading .loader {display: block;}
 .loader {
   display: none;
