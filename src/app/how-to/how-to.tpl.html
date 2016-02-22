@@ -22,40 +22,55 @@
                     <a>Web Dashboard</a>
                     <ul class="nav nav-third-level">
                       <li id = "dashboard-li">
-                        <a ng-click = "gotoElement('dashboard')">Dashboard</a>
+                        <a scroll-to='dashboard' ng-click = "changeScrollTo()">Dashboard</a>
                         <ul class="nav nav-fourth-level">
                           <li id = "overallrating-li">
-                            <a ng-click = "gotoElement('overallrating')" class="menu-close">Overall Rating</a>
+                            <a scroll-to='overallrating' class="menu-close" ng-click = "changeScrollTo()">
+                              Overall Rating
+                            </a>
                           </li>
                           <li id = "businessSegment-li">
-                            <a ng-click = "gotoElement('businessSegment')" class="menu-close">Business Segment Breakdown</a>
+                            <a scroll-to="businessSegment" class="menu-close" ng-click = "changeScrollTo()">  Business Segment Breakdown
+                            </a>
                           </li>
-                          <li id = "qsc-li"><a ng-click = "gotoElement('qsc')" class="menu-close">QSC Analysis</a></li>
-                          <li id = "map-li"><a ng-click = "gotoElement('map')" class="menu-close">Benchmark Map</a></li>
-                          <li id = "timeline-li"><a ng-click = "gotoElement('timeline')" class="menu-close">Timeline</a></li>
+                          <li id = "qsc-li">
+                            <a scroll-to='qsc' class="menu-close" ng-click = "changeScrollTo()">
+                              QSC Analysis
+                            </a>
+                          </li>
+                          <li id = "map-li">
+                            <a scroll-to = 'map' class="menu-close" ng-click = "changeScrollTo()">
+                              Benchmark Map
+                            </a>
+                          </li>
+                          <li id = "timeline-li">
+                            <a scroll-to='timeline' class="menu-close" ng-click = "changeScrollTo()">
+                              Timeline
+                            </a>
+                          </li>
                         </ul>
                       </li>
-                      <li id = "promotions-li">
-                        <a ng-click = "gotoElement('promotions')">Promotions</a>
+                      <!-- <li id = "promotions-li">
+                        <a scroll-to= 'promotions' ng-click = "scrollTo = 'promotions'">Promotions</a>
                         <ul class="nav nav-fourth-level">
-                          <li id = "overallrating-li">
-                            <a ng-click = "gotoElement('promotionsdetail')" class="menu-close">Promotions Detail</a>
+                          <li id = "promotion-detail-li">
+                            <a scroll-to= 'promotionsdetail' class="menu-close" ng-click = "scrollTo = 'promotionsdetail'">Promotions Detail</a>
                           </li>
                         </ul>
                       </li>
-                      <li id = "manageusers-li"><a ng-click = "gotoElement('manageusers')">Manage Users</a></li>
+                      <li id = "manageusers-li"><a ng-click = "gotoElement('manageusers')">Manage Users</a></li> -->
                     </ul>
                   </li>
-                  <li><a href="#">Livefeed Dashboard</a>
+                 <!--  <li><a href="#">Livefeed Dashboard</a>
                     <ul class="nav nav-third-level">
                       <li><a href="#">Second Level Item</a></li>
                       <li><a href="#">Second Level Item</a></li>
                       <li><a href="#">Second Level Item</a></li>
                     </ul>
-                  </li>
+                  </li> -->
                 </ul>
               </li>
-              <li>
+              <!-- <li>
                 <a href="#">IOS Application</a>
                 <ul class="nav nav-second-level">
                   <li><a href="#">Livefeed Dashboard</a>
@@ -66,15 +81,15 @@
                     </ul>
                   </li>
                 </ul>
-              </li>
+              </li> -->
             </ul>
           </div>
         </div>
       </nav>
       <div class="wrapper wrapper-content animated fadeInRight">
-        <section class="section" id="dashboard">
+        <section class="section" id="dashboard" smooth-scroll scroll-if = "scrollTo">
           <h1>Dashboard</h1>
-          <section class="info-section" id="overallrating">
+          <section class="info-section" id="overallrating" smooth-scroll scroll-if = "scrollTo">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
                 <h2>Overall Rating Section</h2>
@@ -101,7 +116,7 @@
               </div>
             </div>
           </section>
-          <section class="info-section" id="businessSegment">
+          <section class="info-section" id="businessSegment" smooth-scroll scroll-if = "scrollTo">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
                 <h2>Business Segment Breakdown Section</h2>
@@ -128,7 +143,7 @@
               </div>
             </div>
           </section>
-          <section class="info-section" id="qsc">
+          <section class="info-section" id="qsc" smooth-scroll scroll-if = "scrollTo">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
                 <h2>QSC Analysis Section</h2>
@@ -155,7 +170,7 @@
               </div>
             </div>
           </section>
-          <section class="info-section" id="map">
+          <section class="info-section" id="map" smooth-scroll scroll-if = "scrollTo">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
                 <h2>Benchmark Map Section</h2>
@@ -182,7 +197,7 @@
               </div>
             </div>
           </section>
-          <section class="info-section" id="timeline">
+          <section class="info-section" id="timeline" smooth-scroll scroll-if = "scrollTo">
             <div class="ibox float-e-margins">
               <div class="ibox-title">
                 <h2>Timeline Section</h2>
@@ -210,7 +225,7 @@
             </div>
           </section>
         </section>
-        <section class="section" id="promotions">
+        <!-- <section class="section" id="promotions" >
           <h1>Promotions</h1>
           <section class="info-section" id="promotionsdetail">
             <div class="ibox float-e-margins">
@@ -239,7 +254,7 @@
               </div>
             </div>
           </section>
-        </section>
+        </section> -->
       </div>
     </div>
   </div>

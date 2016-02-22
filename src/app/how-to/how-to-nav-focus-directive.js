@@ -32,7 +32,8 @@
               console.log(newId);
               console.log($("nav li#"+ newId));
               $("nav li#"+ newId).addClass("active");
-              $("nav li#"+ newId).parents("li").addClass("active");
+              $("nav li#"+ newId).parents("li").removeClass("active");
+              console.log($("nav li#"+ newId).parents("li").addClass("active"));
             }
           });
         }

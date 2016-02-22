@@ -714,40 +714,55 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "                    <a>Web Dashboard</a>\n" +
     "                    <ul class=\"nav nav-third-level\">\n" +
     "                      <li id = \"dashboard-li\">\n" +
-    "                        <a ng-click = \"gotoElement('dashboard')\">Dashboard</a>\n" +
+    "                        <a scroll-to='dashboard' ng-click = \"changeScrollTo()\">Dashboard</a>\n" +
     "                        <ul class=\"nav nav-fourth-level\">\n" +
     "                          <li id = \"overallrating-li\">\n" +
-    "                            <a ng-click = \"gotoElement('overallrating')\" class=\"menu-close\">Overall Rating</a>\n" +
+    "                            <a scroll-to='overallrating' class=\"menu-close\" ng-click = \"changeScrollTo()\">\n" +
+    "                              Overall Rating\n" +
+    "                            </a>\n" +
     "                          </li>\n" +
     "                          <li id = \"businessSegment-li\">\n" +
-    "                            <a ng-click = \"gotoElement('businessSegment')\" class=\"menu-close\">Business Segment Breakdown</a>\n" +
+    "                            <a scroll-to=\"businessSegment\" class=\"menu-close\" ng-click = \"changeScrollTo()\">  Business Segment Breakdown\n" +
+    "                            </a>\n" +
     "                          </li>\n" +
-    "                          <li id = \"qsc-li\"><a ng-click = \"gotoElement('qsc')\" class=\"menu-close\">QSC Analysis</a></li>\n" +
-    "                          <li id = \"map-li\"><a ng-click = \"gotoElement('map')\" class=\"menu-close\">Benchmark Map</a></li>\n" +
-    "                          <li id = \"timeline-li\"><a ng-click = \"gotoElement('timeline')\" class=\"menu-close\">Timeline</a></li>\n" +
+    "                          <li id = \"qsc-li\">\n" +
+    "                            <a scroll-to='qsc' class=\"menu-close\" ng-click = \"changeScrollTo()\">\n" +
+    "                              QSC Analysis\n" +
+    "                            </a>\n" +
+    "                          </li>\n" +
+    "                          <li id = \"map-li\">\n" +
+    "                            <a scroll-to = 'map' class=\"menu-close\" ng-click = \"changeScrollTo()\">\n" +
+    "                              Benchmark Map\n" +
+    "                            </a>\n" +
+    "                          </li>\n" +
+    "                          <li id = \"timeline-li\">\n" +
+    "                            <a scroll-to='timeline' class=\"menu-close\" ng-click = \"changeScrollTo()\">\n" +
+    "                              Timeline\n" +
+    "                            </a>\n" +
+    "                          </li>\n" +
     "                        </ul>\n" +
     "                      </li>\n" +
-    "                      <li id = \"promotions-li\">\n" +
-    "                        <a ng-click = \"gotoElement('promotions')\">Promotions</a>\n" +
+    "                      <!-- <li id = \"promotions-li\">\n" +
+    "                        <a scroll-to= 'promotions' ng-click = \"scrollTo = 'promotions'\">Promotions</a>\n" +
     "                        <ul class=\"nav nav-fourth-level\">\n" +
-    "                          <li id = \"overallrating-li\">\n" +
-    "                            <a ng-click = \"gotoElement('promotionsdetail')\" class=\"menu-close\">Promotions Detail</a>\n" +
+    "                          <li id = \"promotion-detail-li\">\n" +
+    "                            <a scroll-to= 'promotionsdetail' class=\"menu-close\" ng-click = \"scrollTo = 'promotionsdetail'\">Promotions Detail</a>\n" +
     "                          </li>\n" +
     "                        </ul>\n" +
     "                      </li>\n" +
-    "                      <li id = \"manageusers-li\"><a ng-click = \"gotoElement('manageusers')\">Manage Users</a></li>\n" +
+    "                      <li id = \"manageusers-li\"><a ng-click = \"gotoElement('manageusers')\">Manage Users</a></li> -->\n" +
     "                    </ul>\n" +
     "                  </li>\n" +
-    "                  <li><a href=\"#\">Livefeed Dashboard</a>\n" +
+    "                 <!--  <li><a href=\"#\">Livefeed Dashboard</a>\n" +
     "                    <ul class=\"nav nav-third-level\">\n" +
     "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
     "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
     "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
     "                    </ul>\n" +
-    "                  </li>\n" +
+    "                  </li> -->\n" +
     "                </ul>\n" +
     "              </li>\n" +
-    "              <li>\n" +
+    "              <!-- <li>\n" +
     "                <a href=\"#\">IOS Application</a>\n" +
     "                <ul class=\"nav nav-second-level\">\n" +
     "                  <li><a href=\"#\">Livefeed Dashboard</a>\n" +
@@ -758,15 +773,15 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "                    </ul>\n" +
     "                  </li>\n" +
     "                </ul>\n" +
-    "              </li>\n" +
+    "              </li> -->\n" +
     "            </ul>\n" +
     "          </div>\n" +
     "        </div>\n" +
     "      </nav>\n" +
     "      <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
-    "        <section class=\"section\" id=\"dashboard\">\n" +
+    "        <section class=\"section\" id=\"dashboard\" smooth-scroll scroll-if = \"scrollTo\">\n" +
     "          <h1>Dashboard</h1>\n" +
-    "          <section class=\"info-section\" id=\"overallrating\">\n" +
+    "          <section class=\"info-section\" id=\"overallrating\" smooth-scroll scroll-if = \"scrollTo\">\n" +
     "            <div class=\"ibox float-e-margins\">\n" +
     "              <div class=\"ibox-title\">\n" +
     "                <h2>Overall Rating Section</h2>\n" +
@@ -793,7 +808,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              </div>\n" +
     "            </div>\n" +
     "          </section>\n" +
-    "          <section class=\"info-section\" id=\"businessSegment\">\n" +
+    "          <section class=\"info-section\" id=\"businessSegment\" smooth-scroll scroll-if = \"scrollTo\">\n" +
     "            <div class=\"ibox float-e-margins\">\n" +
     "              <div class=\"ibox-title\">\n" +
     "                <h2>Business Segment Breakdown Section</h2>\n" +
@@ -820,7 +835,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              </div>\n" +
     "            </div>\n" +
     "          </section>\n" +
-    "          <section class=\"info-section\" id=\"qsc\">\n" +
+    "          <section class=\"info-section\" id=\"qsc\" smooth-scroll scroll-if = \"scrollTo\">\n" +
     "            <div class=\"ibox float-e-margins\">\n" +
     "              <div class=\"ibox-title\">\n" +
     "                <h2>QSC Analysis Section</h2>\n" +
@@ -847,7 +862,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              </div>\n" +
     "            </div>\n" +
     "          </section>\n" +
-    "          <section class=\"info-section\" id=\"map\">\n" +
+    "          <section class=\"info-section\" id=\"map\" smooth-scroll scroll-if = \"scrollTo\">\n" +
     "            <div class=\"ibox float-e-margins\">\n" +
     "              <div class=\"ibox-title\">\n" +
     "                <h2>Benchmark Map Section</h2>\n" +
@@ -874,7 +889,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              </div>\n" +
     "            </div>\n" +
     "          </section>\n" +
-    "          <section class=\"info-section\" id=\"timeline\">\n" +
+    "          <section class=\"info-section\" id=\"timeline\" smooth-scroll scroll-if = \"scrollTo\">\n" +
     "            <div class=\"ibox float-e-margins\">\n" +
     "              <div class=\"ibox-title\">\n" +
     "                <h2>Timeline Section</h2>\n" +
@@ -902,7 +917,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "            </div>\n" +
     "          </section>\n" +
     "        </section>\n" +
-    "        <section class=\"section\" id=\"promotions\">\n" +
+    "        <!-- <section class=\"section\" id=\"promotions\" >\n" +
     "          <h1>Promotions</h1>\n" +
     "          <section class=\"info-section\" id=\"promotionsdetail\">\n" +
     "            <div class=\"ibox float-e-margins\">\n" +
@@ -931,7 +946,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              </div>\n" +
     "            </div>\n" +
     "          </section>\n" +
-    "        </section>\n" +
+    "        </section> -->\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +

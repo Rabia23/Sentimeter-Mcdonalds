@@ -1,7 +1,7 @@
 (function() {
   angular.module( 'livefeed.how_to')
 
-  .controller( 'HowToCtrl', function CouponController( $scope,  _ , $rootScope, $location, anchorSmoothScroll) {
+  .controller( 'HowToCtrl', function CouponController( $scope,  _ , $rootScope, $location) {
 
     $rootScope.$on('app-online', function(event, args) {
       console.log("online in login");
@@ -11,11 +11,11 @@
       console.log("offline in login");
     });
 
-    $scope.gotoElement = function (eID){
-      //$location.hash(eID);
-      anchorSmoothScroll.scrollTo(eID);
-      
-    };
+    $scope.scrollTo = false;
+
+    $scope.changeScrollTo = function(){
+      $scope.scrollTo = true;
+    }
 
   });
 

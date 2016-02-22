@@ -87,7 +87,7 @@ module.exports = {
       'vendor/hammerjs/hammer.min.js',
       'vendor/ngmap/build/scripts/ng-map.min.js',
       'vendor/AngularJS-Toaster/toaster.min.js',
-      'vendor/ngSmoothScroll/dist/angular-smooth-scroll.min.js'
+      'vendor/ngSmoothScroll/lib/angular-smooth-scroll.js'
     ],
     css: [
       'vendor/bootstrap/dist/css/bootstrap.min.css',
