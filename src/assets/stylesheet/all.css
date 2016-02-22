@@ -189,7 +189,7 @@ body.login{background: #eee !important;}
 	border-left: 0;
 	background: none;
 }
-#wrapper .sidebar-collapse .metismenu > li > a{font-size: 17px;}
+#wrapper .doc-block .sidebar-collapse .metismenu > li > a{font-size: 17px;}
 #wrapper .sidebar-collapse .nav > li.active > a{color: #000;}
 #wrapper .sidebar-collapse .nav > li.active > a:before{
 	width: 100%;
