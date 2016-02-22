@@ -19,92 +19,92 @@
 	}
 }
 
-#piechart,
-#container,
-#strengthPieChart{
-	width: 100% !important;
-	height: 100% !important;
-	
-	.amcharts-chart-div{
-		z-index: 1;
-		position: relative;
-		
-		&:after{
-			position: absolute;
-			bottom: 0;
-			content: '';
-			pointer-events: none;
-			z-index: -1;
-			background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 70%);
-background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 70%);
-background: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 70%);
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#00000000',GradientType=1 );
-			max-width: 770px;
-			margin: 0 auto;
-		}
-	}
-}
-
-#piechart{
-	.amcharts-chart-div{
-		&:after{
-			left: 19%;
-			right: 19%;
-			top: 30%;
-			bottom: 5%;
-			
-			@include media("≥widescreen"){
-				left: 21%;
-				right: 21%;
-				bottom: 0;
-			}			
-		}
-	}
-}
-
-#strengthPieChart{
-	.amcharts-chart-div{
-		&:after{
-			left: 5%;
-			right: 0;
-			top: 36%;
-			bottom: -5%;
-            max-width: 630px;
-			
-			@include media("≥widescreen"){
-				left: 5%;
-				right: 0%;
-				bottom: -50px;
-                max-width: 770px; 
-			}
-            @include media("≥widerScreen"){
-				left: 25%;
-				right: 3%;
-			}
-		}
-	}
-}
-
-#container{
-	.amcharts-chart-div{
-		&:after{
-			left: 0;
-			right: 0;
-			top: 36%;
-			bottom: -5%;
-			
-			@include media("≥widescreen"){
-				left: 12%;
-				right: 0;
-				bottom: -50px;
-			}
-            @include media("≥widerScreen"){
-				left: 28%;
-				right: 7%;
-			}
-		}
-	}
-}
+//#piechart,
+//#container,
+//#strengthPieChart{
+//	width: 100% !important;
+//	height: 100% !important;
+//	
+//	.amcharts-chart-div{
+//		z-index: 1;
+//		position: relative;
+//		
+//		&:after{
+//			position: absolute;
+//			bottom: 0;
+//			content: '';
+//			pointer-events: none;
+//			z-index: -1;
+//			background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 70%);
+//background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 70%);
+//background: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 70%);
+//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#00000000',GradientType=1 );
+//			max-width: 770px;
+//			margin: 0 auto;
+//		}
+//	}
+//}
+//
+//#piechart{
+//	.amcharts-chart-div{
+//		&:after{
+//			left: 19%;
+//			right: 19%;
+//			top: 30%;
+//			bottom: 5%;
+//			
+//			@include media("≥widescreen"){
+//				left: 21%;
+//				right: 21%;
+//				bottom: 0;
+//			}			
+//		}
+//	}
+//}
+//
+//#strengthPieChart{
+//	.amcharts-chart-div{
+//		&:after{
+//			left: 5%;
+//			right: 0;
+//			top: 36%;
+//			bottom: -5%;
+//            max-width: 630px;
+//			
+//			@include media("≥widescreen"){
+//				left: 5%;
+//				right: 0%;
+//				bottom: -50px;
+//                max-width: 770px; 
+//			}
+//            @include media("≥widerScreen"){
+//				left: 25%;
+//				right: 3%;
+//			}
+//		}
+//	}
+//}
+//
+//#container{
+//	.amcharts-chart-div{
+//		&:after{
+//			left: 0;
+//			right: 0;
+//			top: 36%;
+//			bottom: -5%;
+//			
+//			@include media("≥widescreen"){
+//				left: 12%;
+//				right: 0;
+//				bottom: -50px;
+//			}
+//            @include media("≥widerScreen"){
+//				left: 28%;
+//				right: 7%;
+//			}
+//		}
+//	}
+//}
 
 #area-chart{
 	overflow: visible !important;

@@ -468,8 +468,10 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "          <tbody>\n" +
     "            <tr ng-repeat=\"comment in comments\" ng-class=\"{negative: comment.data.is_negative, success: comment.data.action_taken === 2, defer: comment.data.action_taken === 3}\">\n" +
     "              <td class=\"item1\">{{comment.data.user_name}}</td>\n" +
-    "              <td class=\"item2\"><a href=\"tel:{{comment.phone_no}}\" class=\"tel\">{{comment.phone_no}}</a>\n" +
-    "                <br>{{comment.email}}</td>\n" +
+    "              <td class=\"item2\">\n" +
+    "                <a href=\"tel:{{comment.phone_no}}\" class=\"tel\">{{comment.phone_no}}</a>\n" +
+    "                <span class=\"email-holder\">{{comment.email}}</span>\n" +
+    "              </td>\n" +
     "              <td class=\"item3\">{{comment.data.branch}}</td>\n" +
     "              <td class=\"item4\">{{comment.data.segment}}</td>\n" +
     "              <td class=\"item5\">\n" +
@@ -789,19 +791,19 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              <div class=\"ibox-content float-chart-block\">\n" +
     "                <ol class=\"steps-list\">\n" +
     "                  <li>\n" +
-    "                    Click Calendar Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
+    "                    Click calendar icon to select a date range <small> (from the respective Popup)</small>\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Select Start and End Dates From the Calendar Popup\n" +
+    "                    Select Start and End dates from the Calendar Popup\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                    Click Apply button to view the information of sepecific dates <small> (or click cancel to cancel operation)</small>\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
+    "                    The Bar Chart graph will reload and show you data of specific dates\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
     "                  </li>\n" +
     "                </ol>\n" +
@@ -816,20 +818,20 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              <div class=\"ibox-content float-chart-block\">\n" +
     "                <ol class=\"steps-list\">\n" +
     "                  <li>\n" +
-    "                    Click Calendar Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                    Click calendar icon to select a date range <small> (from the respective Popup)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/SegmentBreakdown.png\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Select Start and End Dates From the Calendar Popup\n" +
+    "                    Select Start and End dates from the Calendar Popup\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                    Click Apply button to view the information of sepecific dates <small> (or click cancel to cancel operation)</small>\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                    The Bar Chart graph will reload and show you data of specific dates\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/SegmentBreakdown.png\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
     "                  </li>\n" +
     "                </ol>\n" +
     "              </div>\n" +
@@ -843,20 +845,20 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              <div class=\"ibox-content float-chart-block\">\n" +
     "                <ol class=\"steps-list\">\n" +
     "                  <li>\n" +
-    "                    Click Calendar Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                    Click calendar icon to select a date range <small> (from the respective Popup)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/QSCAnalysis.png\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Select Start and End Dates From the Calendar Popup\n" +
+    "                    Select Start and End dates from the Calendar Popup\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                    Click Apply button to view the information of sepecific dates <small> (or click cancel to cancel operation)</small>\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                    The Donut Chart graph will reload and show you data of specific dates\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/QSCAnalysis.png\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
     "                  </li>\n" +
     "                </ol>\n" +
     "              </div>\n" +
@@ -870,20 +872,20 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              <div class=\"ibox-content float-chart-block\">\n" +
     "                <ol class=\"steps-list\">\n" +
     "                  <li>\n" +
-    "                    Click Calendar Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                    Click calendar icon to select a date range <small> (from the respective Popup)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/BenchMarkMap.png\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Select Start and End Dates From the Calendar Popup\n" +
+    "                    Select Start and End dates from the Calendar Popup\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                    Click Apply button to view the information of sepecific dates <small> (or click cancel to cancel operation)</small>\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                    The Map will reload and show you data of specific dates\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/BenchMarkMap.png\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
     "                  </li>\n" +
     "                </ol>\n" +
     "              </div>\n" +
@@ -897,20 +899,20 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "              <div class=\"ibox-content float-chart-block\">\n" +
     "                <ol class=\"steps-list\">\n" +
     "                  <li>\n" +
-    "                    Click Calendar Icon to Select a Date Range <small> (that open a Popup)</small>\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step1.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
+    "                    Click calendar icon to select a date range <small> (from the respective Popup)</small>\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/LineChart.png\" class=\"img-responsive\" alt=\"overall Rating Step 1\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Select Start and End Dates From the Calendar Popup\n" +
+    "                    Select Start and End dates from the Calendar Popup\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step2.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 2\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    Click Apply Button to View the Information of Sepecific Dates <small> (or Click Cancel to Cancel Operation)</small>\n" +
+    "                    Click Apply button to view the information of sepecific dates <small> (or click cancel to cancel operation)</small>\n" +
     "                    <div class=\"step-holder\"><img src=\"assets/images/step3.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 3\"></div>\n" +
     "                  </li>\n" +
     "                  <li>\n" +
-    "                    The Line Chart Graph Rerender and show you Data of Specific Dates\n" +
-    "                    <div class=\"step-holder\"><img src=\"assets/images/step4.jpg\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
+    "                    The Line Chart Graph will reload and show you data of specific dates\n" +
+    "                    <div class=\"step-holder\"><img src=\"assets/images/LineChart.png\" class=\"img-responsive\" alt=\"overall Rating Step 4\"></div>\n" +
     "                  </li>\n" +
     "                </ol>\n" +
     "              </div>\n" +
