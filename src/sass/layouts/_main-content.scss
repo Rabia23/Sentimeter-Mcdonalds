@@ -19,16 +19,16 @@
 	}
 }
 
-//#piechart,
-//#container,
-//#strengthPieChart{
-//	width: 100% !important;
-//	height: 100% !important;
-//	
-//	.amcharts-chart-div{
-//		z-index: 1;
-//		position: relative;
-//		
+#piechart,
+#container,
+#strengthPieChart{
+	width: 100% !important;
+	height: 100% !important;
+
+	.amcharts-chart-div{
+		z-index: 1;
+		position: relative;
+
 //		&:after{
 //			position: absolute;
 //			bottom: 0;
@@ -42,9 +42,9 @@
 //			max-width: 770px;
 //			margin: 0 auto;
 //		}
-//	}
-//}
-//
+	}
+}
+
 //#piechart{
 //	.amcharts-chart-div{
 //		&:after{
@@ -61,7 +61,7 @@
 //		}
 //	}
 //}
-//
+
 //#strengthPieChart{
 //	.amcharts-chart-div{
 //		&:after{
