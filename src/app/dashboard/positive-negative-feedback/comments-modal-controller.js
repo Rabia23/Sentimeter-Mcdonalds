@@ -1,7 +1,7 @@
 (function() {
     angular.module('livefeed.dashboard.positive_negative_feedback')
 
-    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items, Graphs, commentService, Flash) {
+    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items, Graphs, commentService) {
 
       $scope.comments = [];
       $scope.page = 1;
