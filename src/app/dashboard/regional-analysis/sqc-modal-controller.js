@@ -1,7 +1,7 @@
 (function() {
     angular.module('livefeed.dashboard.regional_analysis')
 
-    .controller('SQCModalCtrl', function ($scope, Graphs, regionalAnalysisChartService, $uibModalInstance, area, region, city, branch, option, start_date, end_date, TokenHandler, Flash){
+    .controller('SQCModalCtrl', function ($scope, Graphs, regionalAnalysisChartService, $uibModalInstance, area, region, city, branch, option, start_date, end_date, TokenHandler, flashService){
       var user_role = TokenHandler.get_user_role();
       var type_id;
 

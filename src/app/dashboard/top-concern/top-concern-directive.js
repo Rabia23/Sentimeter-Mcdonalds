@@ -21,7 +21,7 @@
                 "innerRadius": "40%",
                 "startDuration": 0,
                 "color": "#FFF",
-                "marginTop": 30,
+                "marginLeft": 12,
                 "autoMargins": false,
                 "labelText": "[[title]] : [[value]]",
                 "labelTickColor" : "#FFF",
@@ -33,7 +33,7 @@
                 "fontFamily": "'Open Sans', sans-serif;",
                 "fontSize": 15,
                 "allLabels": [],
-                "balloon": { "fixedPosition": true },
+                "balloon": {},
                 "legend": {},
                 "titles": [],
                "dataProvider": data

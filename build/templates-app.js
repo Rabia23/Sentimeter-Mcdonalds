@@ -753,7 +753,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "                      <li id = \"manageusers-li\"><a ng-click = \"gotoElement('manageusers')\">Manage Users</a></li> -->\n" +
     "                    </ul>\n" +
     "                  </li>\n" +
-    "                 <!--  <li><a href=\"#\">Livefeed Dashboard</a>\n" +
+    "                  <!--  <li><a href=\"#\">Livefeed Dashboard</a>\n" +
     "                    <ul class=\"nav nav-third-level\">\n" +
     "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
     "                      <li><a href=\"#\">Second Level Item</a></li>\n" +
