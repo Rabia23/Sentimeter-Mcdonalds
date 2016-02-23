@@ -29,8 +29,11 @@
             //console.log($(window).scrollTop());
             //console.log(value);
             //console.log("value top");
-            //console.log($(value).offset().top); 
-            if(( $(window).scrollTop() >= $(value).offset().top ) && ( $(window).scrollTop() < ($(value).offset().top + $(value).height()))){
+            //console.log($(value).offset().top);
+            var scrollTop     = $(window).scrollTop(),
+                elementOffset = $(value).offset().top,
+                distance      = (elementOffset - scrollTop);
+            if(distance < 1){
               var id = $(value).attr("id");
               $("nav li").removeClass("active");
               var newId = id + "-li";

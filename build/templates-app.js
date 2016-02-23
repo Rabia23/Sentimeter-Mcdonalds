@@ -69,7 +69,7 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "        <li ng-class=\"{'active': currentState == 'how_to'}\">\n" +
     "          <a ui-sref=\"how_to\" target=\"_blank\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
     "        </li>\n" +
-    "        <li ng-class=\"{'active': currentState == 'questionnaire'}\">\n" +
+    "        <li ng-class=\"{'active': (currentState == 'questionnaire' || currentState == 'questionnaire_detail' )}\">\n" +
     "          <a ui-sref=\"questionnaire\"><i class=\"fa fa-question-circle\"></i> <span class=\"nav-label\">Questionnaire</span></a>\n" +
     "        </li>\n" +
     "      </ul>\n" +
@@ -1549,38 +1549,42 @@ angular.module("promotions/promotions-detail.tpl.html", []).run(["$templateCache
     "        <div class=\"col-lg-12\">\n" +
     "          <h1>{{promotion.title}} Promotion</h1>\n" +
     "          <div class=\"row grid-container\">\n" +
-    "            <div class=\"col-sm-6 col-lg-4 grid-item\" ng-repeat=\"question in questions track by $index\">\n" +
-    "              <div class=\"ibox float-e-margins\">\n" +
-    "                <div class=\"ibox-title\">\n" +
-    "                  <h3>{{question.question}}</h3>\n" +
-    "                </div>\n" +
-    "                <div class=\"ibox-content\" ng-if=\"question.type == 5\">\n" +
-    "                  <div class=\"data-container\">\n" +
-    "                    <div id=\"graph_{{$index}}\">\n" +
-    "                      <div class=\"progres-container\">\n" +
-    "                        <div class=\"progress-area\">\n" +
-    "                          <div class=\"progress-holder\" ng-repeat=\"dat in question.question_bar_chart\" data-color=\"dat.colour\" data-data=\"question.question_bar_chart\" question-bar-background>\n" +
-    "                            <div class=\"progress-inner\">\n" +
-    "                              <small><em>{{dat.name}} <b>{{dat.count}} Views</b></em></small>\n" +
-    "                              <div class=\"progress-block\">\n" +
-    "                                <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
+    "            <div class=\"col-xs-12\">\n" +
+    "              <ul class=\"grids-holder\">\n" +
+    "                <li class=\"grid-item\" ng-repeat=\"question in questions track by $index\">\n" +
+    "                  <div class=\"ibox float-e-margins\">\n" +
+    "                    <div class=\"ibox-title\">\n" +
+    "                      <h3>{{question.question}}</h3>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"ibox-content\" ng-if=\"question.type == 5\">\n" +
+    "                      <div class=\"data-container\">\n" +
+    "                        <div id=\"graph_{{$index}}\">\n" +
+    "                          <div class=\"progres-container\">\n" +
+    "                            <div class=\"progress-area\">\n" +
+    "                              <div class=\"progress-holder\" ng-repeat=\"dat in question.question_bar_chart\" data-color=\"dat.colour\" data-data=\"question.question_bar_chart\" question-bar-background>\n" +
+    "                                <div class=\"progress-inner\">\n" +
+    "                                  <small><em>{{dat.name}} <b>{{dat.count}} Views</b></em></small>\n" +
+    "                                  <div class=\"progress-block\">\n" +
+    "                                    <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
+    "                                  </div>\n" +
+    "                                </div>\n" +
     "                              </div>\n" +
     "                            </div>\n" +
     "                          </div>\n" +
     "                        </div>\n" +
     "                      </div>\n" +
     "                    </div>\n" +
-    "                  </div>\n" +
-    "                </div>\n" +
-    "                <div class=\"ibox-content\" ng-if=\"question.type == 4\" question-pie-chart data-data=\"question.question_pie_chart\">\n" +
-    "                  <div class=\"data-container\">\n" +
-    "                    <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
-    "                    <div ng-show=\"all_zero\" class=\"message-holder\">\n" +
-    "                      <h2>No Data Available</h2>\n" +
+    "                    <div class=\"ibox-content\" ng-if=\"question.type == 4\" question-pie-chart data-data=\"question.question_pie_chart\">\n" +
+    "                      <div class=\"data-container\">\n" +
+    "                        <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
+    "                        <div ng-show=\"all_zero\" class=\"message-holder\">\n" +
+    "                          <h2>No Data Available</h2>\n" +
+    "                        </div>\n" +
+    "                      </div>\n" +
     "                    </div>\n" +
     "                  </div>\n" +
-    "                </div>\n" +
-    "              </div>\n" +
+    "                </li>\n" +
+    "              </ul>\n" +
     "            </div>\n" +
     "          </div>\n" +
     "        </div>\n" +
@@ -1632,21 +1636,23 @@ angular.module("questionnaire/questionnaire-detail.tpl.html", []).run(["$templat
     "        <div class=\"col-lg-12\">\n" +
     "          <h1>{{questionnaire.title}}</h1>\n" +
     "          <div class=\"row grid-container\">\n" +
-    "            <div class=\"col-sm-6 col-lg-4 grid-item\" ng-repeat=\"question in questions track by $index\">\n" +
-    "              <div class=\"ibox float-e-margins\">\n" +
-    "                <div class=\"ibox-title\">\n" +
-    "                  <h3>{{question.question}}</h3>\n" +
-    "                </div>\n" +
-    "                <div class=\"ibox-content\" ng-if=\"question.type == 11\">\n" +
-    "                  <div class=\"data-container\">\n" +
-    "                    <div id=\"graph_{{$index}}\">\n" +
-    "                      <div class=\"progres-container\">\n" +
-    "                        <div class=\"progress-area\">\n" +
-    "                          <div class=\"progress-holder\" ng-repeat=\"dat in question.question_bar_chart\" data-color=\"dat.colour\" data-data=\"question.question_bar_chart\" question-bar-background>\n" +
-    "                            <div class=\"progress-inner\">\n" +
-    "                              <small><em>{{dat.name}} <b>{{dat.count}} Views</b></em></small>\n" +
-    "                              <div class=\"progress-block\">\n" +
-    "                                <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
+    "            <ul class=\"grids-holder\">\n" +
+    "              <li class=\"grid-item\" ng-repeat=\"question in questions track by $index\">\n" +
+    "                <div class=\"ibox float-e-margins\">\n" +
+    "                  <div class=\"ibox-title\">\n" +
+    "                    <h3>{{question.question}}</h3>\n" +
+    "                  </div>\n" +
+    "                  <div class=\"ibox-content\" ng-if=\"question.type == 11\">\n" +
+    "                    <div class=\"data-container\">\n" +
+    "                      <div id=\"graph_{{$index}}\">\n" +
+    "                        <div class=\"progres-container\">\n" +
+    "                          <div class=\"progress-area\">\n" +
+    "                            <div class=\"progress-holder\" ng-repeat=\"dat in question.question_bar_chart\" data-color=\"dat.colour\" data-data=\"question.question_bar_chart\" question-bar-background>\n" +
+    "                              <div class=\"progress-inner\">\n" +
+    "                                <small><em>{{dat.name}} <b>{{dat.count}} Views</b></em></small>\n" +
+    "                                <div class=\"progress-block\">\n" +
+    "                                  <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
+    "                                </div>\n" +
     "                              </div>\n" +
     "                            </div>\n" +
     "                          </div>\n" +
@@ -1654,17 +1660,17 @@ angular.module("questionnaire/questionnaire-detail.tpl.html", []).run(["$templat
     "                      </div>\n" +
     "                    </div>\n" +
     "                  </div>\n" +
-    "                </div>\n" +
-    "                <div class=\"ibox-content\" ng-if=\"question.type == 10\" questionnaire-pie-chart data-data=\"question.question_pie_chart\">\n" +
-    "                  <div class=\"data-container\">\n" +
-    "                    <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
-    "                    <div ng-show=\"all_zero\" class=\"message-holder\">\n" +
-    "                      <h2>No Data Available</h2>\n" +
+    "                  <div class=\"ibox-content\" ng-if=\"question.type == 10\" questionnaire-pie-chart data-data=\"question.question_pie_chart\">\n" +
+    "                    <div class=\"data-container\">\n" +
+    "                      <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
+    "                      <div ng-show=\"all_zero\" class=\"message-holder\">\n" +
+    "                        <h2>No Data Available</h2>\n" +
+    "                      </div>\n" +
     "                    </div>\n" +
     "                  </div>\n" +
     "                </div>\n" +
-    "              </div>\n" +
-    "            </div>\n" +
+    "              </li>\n" +
+    "            </ul>\n" +
     "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +

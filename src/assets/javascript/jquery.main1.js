@@ -575,15 +575,13 @@ function initSameHeight() {
     elements: '.grid-item .data-container',
     flexible: true,
     multiLine: true,
-	useMinHeight: true,
-    biggestHeight: true
+	useMinHeight: true
   });
-  jQuery('.promotions').sameHeight({
+  jQuery('.grids-holder').sameHeight({
     elements: '.grid-item .ibox-title',
     flexible: true,
     multiLine: true,
-	useMinHeight: true,
-    biggestHeight: true
+	useMinHeight: true
   });
   jQuery('.btn-list').sameHeight({
     elements: '.title',
