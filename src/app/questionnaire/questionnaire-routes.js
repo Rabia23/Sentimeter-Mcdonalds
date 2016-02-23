@@ -24,6 +24,29 @@
 
       },
       authenticate: true
+    })
+
+    .state( 'questionnaire_detail', {
+      url: '/questionnaire_detail/:questionnaireId',
+      views: {
+        "": {
+          controller: 'QuestionnaireDetailCtrl',
+          templateUrl: 'questionnaire/questionnaire-detail.tpl.html'
+        },
+        "sidebar@promotions_detail":{
+          templateUrl: 'common/sidebar.tpl.html'
+        },
+
+        "header@promotions_detail":{
+          templateUrl: 'common/header.tpl.html'
+        },
+
+        "footer@promotions_detail":{
+          templateUrl: 'common/footer.tpl.html'
+        }
+
+      },
+      authenticate: true
     });
 
   });
