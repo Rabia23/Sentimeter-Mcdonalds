@@ -33,15 +33,15 @@
           controller: 'QuestionnaireDetailCtrl',
           templateUrl: 'questionnaire/questionnaire-detail.tpl.html'
         },
-        "sidebar@promotions_detail":{
+        "sidebar@questionnaire_detail":{
           templateUrl: 'common/sidebar.tpl.html'
         },
 
-        "header@promotions_detail":{
+        "header@questionnaire_detail":{
           templateUrl: 'common/header.tpl.html'
         },
 
-        "footer@promotions_detail":{
+        "footer@questionnaire_detail":{
           templateUrl: 'common/footer.tpl.html'
         }
 
