@@ -590,6 +590,12 @@ function initSameHeight() {
     flexible: true,
     multiLine: true
   });
+  jQuery('.questionnaire').sameHeight({
+    elements: '.ibox',
+    flexible: true,
+    multiLine: true,
+    biggestHeight: true
+  });
 }
 
 function initEqualHeight(){

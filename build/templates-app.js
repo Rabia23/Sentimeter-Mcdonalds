@@ -1,4 +1,4 @@
-angular.module('templates-app', ['common/footer.tpl.html', 'common/header.tpl.html', 'common/sidebar.tpl.html', 'dashboard/category-performance-analysis/category-performance-analysis.tpl.html', 'dashboard/dashboard.tpl.html', 'dashboard/feedback-map/feedback-map.tpl.html', 'dashboard/opportunities/opportunities.tpl.html', 'dashboard/overall-feedback/overall-feedback.tpl.html', 'dashboard/overall-rating/overall-rating.tpl.html', 'dashboard/positive-negative-feedback/comments-modal.tpl.html', 'dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html', 'dashboard/regional-analysis/regional-analysis.tpl.html', 'dashboard/regional-analysis/sqc-modal.tpl.html', 'dashboard/statistics/statistics.tpl.html', 'dashboard/top-concern/top-concern.tpl.html', 'how-to/how-to.tpl.html', 'live/benchmark-map/benchmark-map.tpl.html', 'live/business-segments/business-segment.tpl.html', 'live/live.tpl.html', 'live/overall-ratings/overall-rating.tpl.html', 'live/patch-qsc-analysis/patch-qsc-analysis.tpl.html', 'live/qsc/qsc.tpl.html', 'live/strength/strength.tpl.html', 'live/top-concerns/top-concern.tpl.html', 'login/login.tpl.html', 'manage-users/edit-user-modal.tpl.html', 'manage-users/manage-users.tpl.html', 'promotions/promotions-detail.tpl.html', 'promotions/promotions.tpl.html', 'questionnaire/questionnaire.tpl.html']);
+angular.module('templates-app', ['common/footer.tpl.html', 'common/header.tpl.html', 'common/sidebar.tpl.html', 'dashboard/category-performance-analysis/category-performance-analysis.tpl.html', 'dashboard/dashboard.tpl.html', 'dashboard/feedback-map/feedback-map.tpl.html', 'dashboard/opportunities/opportunities.tpl.html', 'dashboard/overall-feedback/overall-feedback.tpl.html', 'dashboard/overall-rating/overall-rating.tpl.html', 'dashboard/positive-negative-feedback/comments-modal.tpl.html', 'dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html', 'dashboard/regional-analysis/regional-analysis.tpl.html', 'dashboard/regional-analysis/sqc-modal.tpl.html', 'dashboard/statistics/statistics.tpl.html', 'dashboard/top-concern/top-concern.tpl.html', 'how-to/how-to.tpl.html', 'live/benchmark-map/benchmark-map.tpl.html', 'live/business-segments/business-segment.tpl.html', 'live/live.tpl.html', 'live/overall-ratings/overall-rating.tpl.html', 'live/patch-qsc-analysis/patch-qsc-analysis.tpl.html', 'live/qsc/qsc.tpl.html', 'live/strength/strength.tpl.html', 'live/top-concerns/top-concern.tpl.html', 'login/login.tpl.html', 'manage-users/edit-user-modal.tpl.html', 'manage-users/manage-users.tpl.html', 'promotions/promotions-detail.tpl.html', 'promotions/promotions.tpl.html', 'questionnaire/questionnaire-detail.tpl.html', 'questionnaire/questionnaire.tpl.html']);
 
 angular.module("common/footer.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("common/footer.tpl.html",
@@ -70,7 +70,7 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "          <a ui-sref=\"how_to\" target=\"_blank\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
     "        </li>\n" +
     "        <li ng-class=\"{'active': currentState == 'questionnaire'}\">\n" +
-    "          <a ui-sref=\"questionnaire\"><i class=\"fa fa-user\"></i> <span class=\"nav-label\">Questionnaire</span></a>\n" +
+    "          <a ui-sref=\"questionnaire\"><i class=\"fa fa-question-circle\"></i> <span class=\"nav-label\">Questionnaire</span></a>\n" +
     "        </li>\n" +
     "      </ul>\n" +
     "    </div>\n" +
@@ -477,6 +477,19 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "  <h2>Positive Negative Feedback</h2>\n" +
     "</div>\n" +
     "<div class=\"modal-body\">\n" +
+    "  <div class=\"btn-group\" uib-dropdown is-open=\"status.isopen\">\n" +
+    "    <button id=\"single-button\" type=\"button\" class=\"btn btn-primary\" uib-dropdown-toggle>\n" +
+    "      Complaint Status <span class=\"caret\"></span>\n" +
+    "    </button>\n" +
+    "    <ul uib-dropdown-menu role=\"menu\" aria-labelledby=\"single-button\">\n" +
+    "      <li role=\"menuitem\"><a style=\"cursor:pointer;\">All</a></li>\n" +
+    "      <li role=\"menuitem\"><a style=\"cursor:pointer;\">Unprocessed</a></li>\n" +
+    "      <li role=\"menuitem\"><a style=\"cursor:pointer;\">Unrecoverable</a></li>\n" +
+    "      <li role=\"menuitem\"><a style=\"cursor:pointer;\">Recovered</a></li>\n" +
+    "      <li role=\"menuitem\"><a style=\"cursor:pointer;\">No Action Needed (NaN)</a></li>\n" +
+    "    </ul>\n" +
+    "  </div>\n" +
+    "  </br></br>\n" +
     "  <div class=\"table-holder\">\n" +
     "    <div class=\"table-block jcf-scrollable\" custom-form>\n" +
     "      <table class=\"table\">\n" +
@@ -1607,16 +1620,105 @@ angular.module("promotions/promotions.tpl.html", []).run(["$templateCache", func
     "</div>");
 }]);
 
+angular.module("questionnaire/questionnaire-detail.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("questionnaire/questionnaire-detail.tpl.html",
+    "<div id=\"wrapper\">\n" +
+    "  <ui-view name=\"sidebar\"></ui-view>\n" +
+    "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
+    "    <ui-view name=\"header\"></ui-view>\n" +
+    "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
+    "      <div class=\"row promotions\" ng-class=\"{loading: show_loading}\">\n" +
+    "        <flash-message show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message>\n" +
+    "        <div class=\"col-lg-12\">\n" +
+    "          <h1>{{promotion.title}} Promotion</h1>\n" +
+    "          <div class=\"row grid-container\">\n" +
+    "            <div class=\"col-sm-6 col-lg-4 grid-item\" ng-repeat=\"question in questions track by $index\">\n" +
+    "              <div class=\"ibox float-e-margins\">\n" +
+    "                <div class=\"ibox-title\">\n" +
+    "                  <h3>{{question.question}}</h3>\n" +
+    "                </div>\n" +
+    "                <div class=\"ibox-content\" ng-if=\"question.type == 5\">\n" +
+    "                  <div class=\"data-container\">\n" +
+    "                    <div id=\"graph_{{$index}}\">\n" +
+    "                      <div class=\"progres-container\">\n" +
+    "                        <div class=\"progress-area\">\n" +
+    "                          <div class=\"progress-holder\" ng-repeat=\"dat in question.question_bar_chart\" data-color=\"dat.colour\" data-data=\"question.question_bar_chart\" question-bar-background>\n" +
+    "                            <div class=\"progress-inner\">\n" +
+    "                              <small><em>{{dat.name}} <b>{{dat.count}} Views</b></em></small>\n" +
+    "                              <div class=\"progress-block\">\n" +
+    "                                <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
+    "                              </div>\n" +
+    "                            </div>\n" +
+    "                          </div>\n" +
+    "                        </div>\n" +
+    "                      </div>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "                <div class=\"ibox-content\" ng-if=\"question.type == 4\" question-pie-chart data-data=\"question.question_pie_chart\">\n" +
+    "                  <div class=\"data-container\">\n" +
+    "                    <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
+    "                    <div ng-show=\"all_zero\" class=\"message-holder\">\n" +
+    "                      <h2>No Data Available</h2>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "  <ui-view name=\"footer\"></ui-view>\n" +
+    "</div>");
+}]);
+
 angular.module("questionnaire/questionnaire.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("questionnaire/questionnaire.tpl.html",
-    "<!DOCTYPE html>\n" +
-    "<html>\n" +
-    "<head lang=\"en\">\n" +
-    "    <meta charset=\"UTF-8\">\n" +
-    "    <title>Questionnaire</title>\n" +
-    "</head>\n" +
-    "<body>\n" +
-    "\n" +
-    "</body>\n" +
-    "</html>");
+    "<div id=\"wrapper\">\n" +
+    "  <toaster-container toaster-options=\"{'close-button': true}\"></toaster-container>\n" +
+    "  <ui-view name=\"sidebar\"></ui-view>\n" +
+    "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
+    "    <ui-view name=\"header\"></ui-view>\n" +
+    "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
+    "      <div class=\"row questionnaire\" ng-class=\"{'loading': show_loading}\">\n" +
+    "        <div class=\"col-lg-12\">\n" +
+    "          <h1>Questions List</h1>\n" +
+    "          <div class=\"users-area\">\n" +
+    "            <ul class=\"question-list\">\n" +
+    "              <li>\n" +
+    "                <a class=\"ibox\" question-same-height>\n" +
+    "                  <span class=\"question-holder\">Q <i class=\"fa fa-angle-right\"></i> </span>\n" +
+    "                  <div class=\"text\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>\n" +
+    "                </a>\n" +
+    "              </li>\n" +
+    "              <li>\n" +
+    "                <a class=\"ibox\" question-same-height>\n" +
+    "                  <span class=\"question-holder\">Q <i class=\"fa fa-angle-right\"></i> </span>\n" +
+    "                  <div class=\"text\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n" +
+    "                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>\n" +
+    "                </a>\n" +
+    "              </li>\n" +
+    "              <li>\n" +
+    "                <a class=\"ibox\" question-same-height>\n" +
+    "                  <span class=\"question-holder\">Q <i class=\"fa fa-angle-right\"></i> </span>\n" +
+    "                  <div class=\"text\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>\n" +
+    "                </a>\n" +
+    "              </li>\n" +
+    "              <li>\n" +
+    "                <a class=\"ibox\" question-same-height>\n" +
+    "                  <span class=\"question-holder\">Q <i class=\"fa fa-angle-right\"></i> </span>\n" +
+    "                  <div class=\"text\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n" +
+    "                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>\n" +
+    "                </a>\n" +
+    "              </li>\n" +
+    "            </ul>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "  <ui-view name=\"footer\"></ui-view>\n" +
+    "</div>");
 }]);
