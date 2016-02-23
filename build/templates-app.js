@@ -1,4 +1,4 @@
-angular.module('templates-app', ['common/footer.tpl.html', 'common/header.tpl.html', 'common/sidebar.tpl.html', 'dashboard/category-performance-analysis/category-performance-analysis.tpl.html', 'dashboard/dashboard.tpl.html', 'dashboard/feedback-map/feedback-map.tpl.html', 'dashboard/opportunities/opportunities.tpl.html', 'dashboard/overall-feedback/overall-feedback.tpl.html', 'dashboard/overall-rating/overall-rating.tpl.html', 'dashboard/positive-negative-feedback/comments-modal.tpl.html', 'dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html', 'dashboard/regional-analysis/regional-analysis.tpl.html', 'dashboard/regional-analysis/sqc-modal.tpl.html', 'dashboard/statistics/statistics.tpl.html', 'dashboard/top-concern/top-concern.tpl.html', 'how-to/how-to.tpl.html', 'live/benchmark-map/benchmark-map.tpl.html', 'live/business-segments/business-segment.tpl.html', 'live/live.tpl.html', 'live/overall-ratings/overall-rating.tpl.html', 'live/patch-qsc-analysis/patch-qsc-analysis.tpl.html', 'live/qsc/qsc.tpl.html', 'live/strength/strength.tpl.html', 'live/top-concerns/top-concern.tpl.html', 'login/login.tpl.html', 'manage-users/edit-user-modal.tpl.html', 'manage-users/manage-users.tpl.html', 'promotions/promotions-detail.tpl.html', 'promotions/promotions.tpl.html']);
+angular.module('templates-app', ['common/footer.tpl.html', 'common/header.tpl.html', 'common/sidebar.tpl.html', 'dashboard/category-performance-analysis/category-performance-analysis.tpl.html', 'dashboard/dashboard.tpl.html', 'dashboard/feedback-map/feedback-map.tpl.html', 'dashboard/opportunities/opportunities.tpl.html', 'dashboard/overall-feedback/overall-feedback.tpl.html', 'dashboard/overall-rating/overall-rating.tpl.html', 'dashboard/positive-negative-feedback/comments-modal.tpl.html', 'dashboard/positive-negative-feedback/positive-negative-feedback.tpl.html', 'dashboard/regional-analysis/regional-analysis.tpl.html', 'dashboard/regional-analysis/sqc-modal.tpl.html', 'dashboard/statistics/statistics.tpl.html', 'dashboard/top-concern/top-concern.tpl.html', 'how-to/how-to.tpl.html', 'live/benchmark-map/benchmark-map.tpl.html', 'live/business-segments/business-segment.tpl.html', 'live/live.tpl.html', 'live/overall-ratings/overall-rating.tpl.html', 'live/patch-qsc-analysis/patch-qsc-analysis.tpl.html', 'live/qsc/qsc.tpl.html', 'live/strength/strength.tpl.html', 'live/top-concerns/top-concern.tpl.html', 'login/login.tpl.html', 'manage-users/edit-user-modal.tpl.html', 'manage-users/manage-users.tpl.html', 'promotions/promotions-detail.tpl.html', 'promotions/promotions.tpl.html', 'questionnaire/questionnaire.tpl.html']);
 
 angular.module("common/footer.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("common/footer.tpl.html",
@@ -68,6 +68,9 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "        </li>\n" +
     "        <li ng-class=\"{'active': currentState == 'how_to'}\">\n" +
     "          <a ui-sref=\"how_to\" target=\"_blank\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
+    "        </li>\n" +
+    "        <li ng-class=\"{'active': currentState == 'questionnaire'}\">\n" +
+    "          <a ui-sref=\"questionnaire\"><i class=\"fa fa-question-circle\"></i> <span class=\"nav-label\">Questionnaire</span></a>\n" +
     "        </li>\n" +
     "      </ul>\n" +
     "    </div>\n" +
@@ -1570,6 +1573,55 @@ angular.module("promotions/promotions.tpl.html", []).run(["$templateCache", func
     "                </li>\n" +
     "              </ul>\n" +
     "            </div>\n" +
+    "          </div>\n" +
+    "        </div>\n" +
+    "      </div>\n" +
+    "    </div>\n" +
+    "  </div>\n" +
+    "  <ui-view name=\"footer\"></ui-view>\n" +
+    "</div>");
+}]);
+
+angular.module("questionnaire/questionnaire.tpl.html", []).run(["$templateCache", function($templateCache) {
+  $templateCache.put("questionnaire/questionnaire.tpl.html",
+    "<div id=\"wrapper\">\n" +
+    "  <toaster-container toaster-options=\"{'close-button': true}\"></toaster-container>\n" +
+    "  <ui-view name=\"sidebar\"></ui-view>\n" +
+    "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
+    "    <ui-view name=\"header\"></ui-view>\n" +
+    "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
+    "      <div class=\"row questionnaire\" ng-class=\"{'loading': show_loading}\">\n" +
+    "        <div class=\"col-lg-12\">\n" +
+    "          <h1>Questions List</h1>\n" +
+    "          <div class=\"users-area\">\n" +
+    "            <ul class=\"question-list\">\n" +
+    "              <li>\n" +
+    "                <a class=\"ibox\">\n" +
+    "                  <span class=\"question-holder\">Q <i class=\"fa fa-angle-right\"></i> </span>\n" +
+    "                  <div class=\"text\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>\n" +
+    "                </a>\n" +
+    "              </li>\n" +
+    "              <li>\n" +
+    "                <a class=\"ibox\">\n" +
+    "                  <span class=\"question-holder\">Q <i class=\"fa fa-angle-right\"></i> </span>\n" +
+    "                  <div class=\"text\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n" +
+    "                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>\n" +
+    "                </a>\n" +
+    "              </li>\n" +
+    "              <li>\n" +
+    "                <a class=\"ibox\">\n" +
+    "                  <span class=\"question-holder\">Q <i class=\"fa fa-angle-right\"></i> </span>\n" +
+    "                  <div class=\"text\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>\n" +
+    "                </a>\n" +
+    "              </li>\n" +
+    "              <li>\n" +
+    "                <a class=\"ibox\">\n" +
+    "                  <span class=\"question-holder\">Q <i class=\"fa fa-angle-right\"></i> </span>\n" +
+    "                  <div class=\"text\">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.\n" +
+    "                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>\n" +
+    "                </a>\n" +
+    "              </li>\n" +
+    "            </ul>\n" +
     "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +

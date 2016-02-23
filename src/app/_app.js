@@ -8,6 +8,7 @@
     'livefeed.live',
     'livefeed.manage_users',
     'livefeed.promotions',
+    'livefeed.questionnaire',
     'livefeed.authService',
     'ui.router',
     'livefeed.offline',
