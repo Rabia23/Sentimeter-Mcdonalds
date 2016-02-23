@@ -84,10 +84,26 @@ angular.module("dashboard/category-performance-analysis/category-performance-ana
     "      <h5>Business Segment Breakdown</h5>\n" +
     "      <div class=\"ibox-tools\">\n" +
     "        <ul class=\"tab-links\">\n" +
-    "          <li ng-class=\"{active: class == ''}\"><a ng-click=\"onClick(null, 'All')\">All</a></li>\n" +
-    "          <li class=\"item2\" ng-class=\"{active: class == 'Quality'}\"><a ng-click=\"onClick(QualityID, 'Quality')\">Quality</a></li>\n" +
-    "          <li class=\"item3\" ng-class=\"{active: class == 'Service'}\"><a ng-click=\"onClick(ServiceID, 'Service')\">Service</a></li>\n" +
-    "          <li class=\"item4\" ng-class=\"{active: class == 'Cleanliness'}\"><a ng-click=\"onClick(CleanlinessID, 'Cleanliness')\">Cleanliness</a></li>\n" +
+    "          <li ng-class=\"{active: class == ''}\">\n" +
+    "            <a ng-click=\"onClick(null, 'All')\">\n" +
+    "              All\n" +
+    "            </a>\n" +
+    "          </li>\n" +
+    "          <li class=\"item2\" ng-class=\"{active: class == 'Quality'}\">\n" +
+    "            <a ng-click=\"onClick(QualityID, 'Quality')\" id = \"quality-item\">\n" +
+    "              Quality\n" +
+    "            </a>\n" +
+    "          </li>\n" +
+    "          <li class=\"item3\" ng-class=\"{active: class == 'Service'}\">\n" +
+    "            <a ng-click=\"onClick(ServiceID, 'Service')\" id = \"service-item\">\n" +
+    "              Service\n" +
+    "            </a>\n" +
+    "          </li>\n" +
+    "          <li class=\"item4\" ng-class=\"{active: class == 'Cleanliness'}\">\n" +
+    "            <a ng-click=\"onClick(CleanlinessID, 'Cleanliness')\" id = \"cleanliness-item\">\n" +
+    "              Cleanliness\n" +
+    "            </a>\n" +
+    "          </li>\n" +
     "          <li class=\"item5\">\n" +
     "            <div class=\"calender-outer\">\n" +
     "              <span class=\"calendar-holder\">\n" +
@@ -107,8 +123,17 @@ angular.module("dashboard/category-performance-analysis/category-performance-ana
     "          <div class=\"progress-area\" progress-bar-spacing data-data=\"category_data\">\n" +
     "            <div class=\"progress-holder\" ng-repeat=\"dat in category_data\" data-color=\"dat.colour\" data-data=\"category_data\" progress-bar-background>\n" +
     "              <div class=\"progress-inner\">\n" +
-    "                <small><em>{{dat.name}} <b>{{dat.complaints}} complaints</b></em></small>\n" +
-    "                <div class=\"progress-block\">\n" +
+    "                <small>\n" +
+    "                  <em>\n" +
+    "                    <a bar-click data-name = \"dat.name\">\n" +
+    "                      {{dat.name}}\n" +
+    "                    </a>\n" +
+    "                    <b>\n" +
+    "                      {{dat.complaints}} complaints\n" +
+    "                    </b>\n" +
+    "                  </em>\n" +
+    "                </small>\n" +
+    "                <div class=\"progress-block\" bar-click data-name = \"dat.name\">\n" +
     "                  <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
     "                </div>\n" +
     "              </div>\n" +
