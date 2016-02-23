@@ -29,6 +29,13 @@ angular.module( 'helper_factories', ['ngResource'])
       "Special Promotions": 5
     },
 
+    questionnaireBarChartClass: {
+      "Weekly": [3, "#4CCC72"],
+      "Very Rare": [1, "#3598DC"],
+      "Daily": [2, "#9C59B8"],
+      "Monthly": [4, "#34495E"]
+    },
+
     promotionBarChartClass: {
       "Fliers": [1, "#4CCC72"],
       "Restaurants": [2, "#3598DC"],
