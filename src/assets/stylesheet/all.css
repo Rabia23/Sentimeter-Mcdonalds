@@ -1284,6 +1284,9 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 	line-height: 1.1;
 	text-transform: uppercase;
 }
+.progress-area small a{color: #12122e;}
+.progress-area small a:hover,
+.progress-area small a:active{color: #999;}
 .progress-area small b{
 	font-weight: 400;
 	color: #6e6e75;
@@ -2938,7 +2941,7 @@ li.active,
       line-height: 19px;
       height: auto !important;
   }
-  .grid-container .grid-item{width: 100%;}
+  .grid-container .grid-item{width: 100%;} 
 }
 
 @media screen and (max-width: 768px) {
