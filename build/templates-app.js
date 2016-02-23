@@ -69,7 +69,7 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "        <li ng-class=\"{'active': currentState == 'how_to'}\">\n" +
     "          <a ui-sref=\"how_to\" target=\"_blank\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
     "        </li>\n" +
-    "        <li ng-class=\"{'active': currentState == 'questionnaire'}\">\n" +
+    "        <li ng-class=\"{'active': (currentState == 'questionnaire' || currentState == 'questionnaire_detail' )}\">\n" +
     "          <a ui-sref=\"questionnaire\"><i class=\"fa fa-question-circle\"></i> <span class=\"nav-label\">Questionnaire</span></a>\n" +
     "        </li>\n" +
     "      </ul>\n" +

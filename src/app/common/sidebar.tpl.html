@@ -19,7 +19,7 @@
         <li ng-class="{'active': currentState == 'how_to'}">
           <a ui-sref="how_to" target="_blank"><i class="fa fa-info-circle"></i> <span class="nav-label">How To Guide</span></a>
         </li>
-        <li ng-class="{'active': currentState == 'questionnaire'}">
+        <li ng-class="{'active': (currentState == 'questionnaire' || currentState == 'questionnaire_detail' )}">
           <a ui-sref="questionnaire"><i class="fa fa-question-circle"></i> <span class="nav-label">Questionnaire</span></a>
         </li>
       </ul>
