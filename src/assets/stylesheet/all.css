@@ -849,7 +849,11 @@ body.login{background: #eee !important;}
 	text-align: left;
 }
 .modal-1200 .table th.item2,
-.modal-1200 .table td.item2{width: 14.1%;}
+.modal-1200 .table td.item2{
+  width: 14.1%;
+  padding-left: 5px;
+  padding-right: 5px;
+}
 .modal-1200 .table th.item3,
 .modal-1200 .table th.item4,
 .modal-1200 .table td.item3,
@@ -857,13 +861,13 @@ body.login{background: #eee !important;}
 	width: 9.7%;
 	word-break: normal;
 	word-wrap: break-word;
+    padding-left: 5px;
+    padding-right: 5px;
 }
 .modal-1200 .table th.item5,
 .modal-1200 .table td.item5{
 	width: 39%;
 	text-align: left;
-	padding-left: 20px;
-	padding-right: 10px;
 	overflow: hidden;
 }
 .modal-1200 .table th.item6,
@@ -2677,7 +2681,7 @@ li.active,
 	.modal-1200 .table thead,
 	.modal-1200 .table{
 		min-width: 730px;
-		width: auto !important;
+		width: inherit !important;
 		max-width: inherit !important;
 	}
 	.modal-1200{width: auto;}
