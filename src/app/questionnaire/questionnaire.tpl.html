@@ -9,30 +9,10 @@
           <h1>Questions List</h1>
           <div class="users-area">
             <ul class="question-list">
-              <li>
-                <a class="ibox" question-same-height>
+              <li ng-repeat="question in questions">
+                <a class="ibox" question-same-height data-questionnaire ="question" ng-click="detail(question.id)">
                   <span class="question-holder">Q <i class="fa fa-angle-right"></i> </span>
-                  <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                </a>
-              </li>
-              <li>
-                <a class="ibox" question-same-height>
-                  <span class="question-holder">Q <i class="fa fa-angle-right"></i> </span>
-                  <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
-                </a>
-              </li>
-              <li>
-                <a class="ibox" question-same-height>
-                  <span class="question-holder">Q <i class="fa fa-angle-right"></i> </span>
-                  <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div>
-                </a>
-              </li>
-              <li>
-                <a class="ibox" question-same-height>
-                  <span class="question-holder">Q <i class="fa fa-angle-right"></i> </span>
-                  <div class="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+                  <div class="text">{{question.title}}</div>
                 </a>
               </li>
             </ul>

@@ -2115,8 +2115,16 @@ li.active,
 .amcharts-chart-div > a{display: none !important;}
 
 .grid-container{letter-spacing: -6px;}
+.grids-holder{
+  overflow: hidden;
+  padding: 0;
+  margin: 0 -15px 20px;
+  letter-spacing: -6px;
+}
 .grid-container .grid-item{
 	float: none;
+    width: 33.33%;
+    padding: 0 15px;
 	display: inline-block;
 	vertical-align: top;
 	letter-spacing: 0;
@@ -2556,6 +2564,9 @@ li.active,
 	}
     .question-list{margin: 0 -5px 10px;}
     .question-list > li{padding: 0 5px 10px;}
+  
+    .grids-holder{margin: 0 -5px 10px;}
+    .grid-container .grid-item{padding: 0 5px;}
 }
 
 @media screen and (max-width: 1279px) {
@@ -2633,6 +2644,7 @@ li.active,
 		line-height: 24px;
 	}
   #wrapper .doc-block .wrapper{padding: 0 10px 0 200px !important;}
+  .grid-container .grid-item{width: 50%;}
 }
 
 @media screen and (max-width: 991px) {
@@ -2926,6 +2938,7 @@ li.active,
       line-height: 19px;
       height: auto !important;
   }
+  .grid-container .grid-item{width: 100%;}
 }
 
 @media screen and (max-width: 768px) {
