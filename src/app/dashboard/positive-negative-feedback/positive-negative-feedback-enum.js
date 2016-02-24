@@ -3,25 +3,25 @@
 
   .factory('StatusEnum', [function() {
 
-    var labels = ["Unprocessed", "Unrecoverable", "Recovered", "NAN"];
+    var StatusObject = {
+      labels: ["Unprocessed", "Unrecoverable", "Recovered", "NAN"],
+      positiveDefault: "NAN",
+      negativeDefault: "Unprocessed"
+    };
 
-    var negativeOptions = ["Unprocessed", "Unrecoverable", "Recovered"];
-    var positiveOptions = ["Recovered", "NAN"];
 
     return {
       get_labels: function(index){
-        return labels[index - 1];
+        return StatusObject.labels[index - 1];
       },
-      get_negativeOptions: function(index){
-        return negativeOptions;
-      },
-
-      get_positiveOptions: function(index){
-        return positiveOptions;
-      },
-
       get_index: function(value){
-        return labels.indexOf(value) + 1;
+        return StatusObject.labels.indexOf(value) + 1;
+      },
+      get_positive_default: function(){
+        return StatusObject.positiveDefault;
+      },
+      get_negative_default: function(){
+        return StatusObject.negativeDefault;
       }
     };
 

@@ -12,15 +12,10 @@
 
       $scope.is_last_page = false;
 
-      $scope.negativeOptions = StatusEnum.get_negativeOptions();
-      $scope.positiveOptions = StatusEnum.get_positiveOptions();
-
-
       $scope.selectedValue = function(value, comment){
         comment.show_dropdown = false;
         comment.action_string = value;
         var action_id = StatusEnum.get_index(value);
-        console.log(action_id);
         Graphs.action_taken(comment.data.id,action_id).$promise.then(function(data){
           if(data.success) {
             $scope.show_error_message = false;

@@ -58,8 +58,6 @@
             templateUrl: 'dashboard/opportunities/opportunities.tpl.html'
           }
 
-
-
         },
         authenticate: true
       });
