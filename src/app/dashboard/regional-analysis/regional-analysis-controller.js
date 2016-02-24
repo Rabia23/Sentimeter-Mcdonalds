@@ -307,10 +307,15 @@
     };
 
     $scope.showTitle = function(radioModel){
-      // TODO always use newline
-      if(radioModel === 'Rating'){$scope.title = 'Feedback Analysis';}
-      else if(radioModel === 'QSC'){$scope.title = 'QSC Analysis';}
-      else if(radioModel === 'Complaints'){$scope.title = 'Complaint Analysis';}
+      if(radioModel === 'Rating'){
+        $scope.title = 'Feedback Analysis';
+      }
+      else if(radioModel === 'QSC'){
+        $scope.title = 'QSC Analysis';
+      }
+      else if(radioModel === 'Complaints'){
+        $scope.title = 'Complaint Analysis';
+      }
     };
 
     $scope.showChart = function(object_id, string){
@@ -319,14 +324,13 @@
         $scope.string = string;
 
         if(string === 'areas'){
-          // TODO use if($scope.area_view)
-          if($scope.area_view === true) {
+          if($scope.area_view) {
             $scope.getAreas();
           }
-          else if($scope.regional_view === true){
+          else if($scope.regional_view){
             $scope.getAreaRegions($scope.selected_area);
           }
-          else if($scope.city_view === true){
+          else if($scope.city_view){
             $scope.getRegionCities($scope.selected_region);
           }
           else{
@@ -357,10 +361,9 @@
     }
 
     $scope.open = function(option, area, region, city, branch){
-      //TODO Use if(!region)
-      if (region === undefined){ region = null;}
-      if (city === undefined){ city = null;}
-      if (branch === undefined){ branch = null;}
+      if (!region){ region = null;}
+      if (!city){ city = null;}
+      if (!branch){ branch = null;}
       if($scope.radioModel === 'QSC'){
         var modalInstance = $uibModal.open({
           templateUrl: 'dashboard/regional-analysis/sqc-modal.tpl.html',

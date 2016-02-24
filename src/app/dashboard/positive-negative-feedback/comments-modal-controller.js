@@ -37,7 +37,6 @@
 
 
       Graphs.comments($scope.page).$promise.then(function(data){
-        console.log(data);
         $scope.lock = false;
         $scope.is_last_page = data.response.is_last_page;
         if(data.success) {

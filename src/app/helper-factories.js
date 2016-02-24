@@ -52,14 +52,15 @@ angular.module( 'helper_factories', ['ngResource'])
 
     complaintAnalysisAction: {
       1: ["Unprocessed", "#cb1e24"],
-      2: ["Processed", "#01c211"],
-      3: ["Deferred", "#ffd200"]
+      2: ["Unrecoverable", "#ffd200"],
+      3: ["Recovered", "#01c211"],
+      4: ["No Action Needed", "#01c211"]
     },
 
     complaintAnalysisActionPriority: {
       "Unprocessed": 1,
-      "Processed": 2,
-      "Deferred": 3
+      "Recovered": 2,
+      "Unrecoverable": 3
     },
 
     qscClass: {
@@ -70,8 +71,8 @@ angular.module( 'helper_factories', ['ngResource'])
 
     complaintAnalysisActionClass: {
       1: "",
-      2: "processed",
-      3: "item2"
+      2: "item2",
+      3: "processed"
     },
 
     mainRatingColorScheme: {

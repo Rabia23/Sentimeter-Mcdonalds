@@ -25,21 +25,6 @@ angular.module( 'factories', [
   return new Filters();
 }])
 
-.factory('Authentication', ['$resource','apiLinks', function($resource, apiLinks) {
- function Authentication() {
-     this.service = $resource(apiLinks.staging,{},
-         {
-             login: {method: "POST",isArray: false, params: {endpoint: "login/"}}
-         });
-   }
-
-  Authentication.prototype.login = function(authentication){
-    return this.service.login({username: authentication.username, password: authentication.password});
-  };
-  return new Authentication();
-}])
-
-
 .factory('Graphs', ['$resource','apiLinks','_','TokenHandler','$http','$rootScope',  function($resource, apiLinks, _, TokenHandler, $http, $rootScope) {
 
 

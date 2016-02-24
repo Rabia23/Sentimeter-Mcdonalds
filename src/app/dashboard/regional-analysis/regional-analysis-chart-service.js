@@ -1,7 +1,7 @@
 angular.module('livefeed.regional_analysis.chart', [
   'helper_factories'
 ])
-.service('regionalAnalysisChartService', function(Global){
+.service('regionalAnalysisChartService', function(Global, PatchComplaintStatusEnum){
   return {
 
       getDonutChartData: function(graph_data, question_type){
@@ -37,6 +37,18 @@ angular.module('livefeed.regional_analysis.chart', [
     },
 
     getComplaintsDonutChartData: function(graph_data){
+      _.each(graph_data.analysis, function(data){
+        var count = 0;
+        _.each(data.data.action_analysis,  function(dat) {
+          if( dat.action_taken === PatchComplaintStatusEnum.get_skip_label_index() ){
+            count = count + dat.count;
+          }
+        });
+        data.data.feedback_count = data.data.feedback_count - count;
+      });
+      _.map(graph_data.analysis, function(data){
+         data.data.action_analysis = _.filter(data.data.action_analysis,  function(dat) { return dat.action_taken !== PatchComplaintStatusEnum.get_skip_label_index(); });
+      });
       return {
         objects: _.map(graph_data.analysis,  function(data){
           return {
@@ -44,7 +56,9 @@ angular.module('livefeed.regional_analysis.chart', [
           };
         }),
         donutData: _.map(graph_data.analysis,  function(data){
-          return   _.map(data.data.action_analysis,  function(dat){ return {label: dat.action_taken === 1 ? "Unprocessed" : dat.action_taken === 2 ? "Processed" : "Deferred", value: dat.count, action_taken: dat.action_taken};});
+          return   _.map(data.data.action_analysis,  function(dat){
+            return {label: Global.complaintAnalysisAction[dat.action_taken][0], value: dat.count, action_taken: dat.action_taken};
+          });
         }),
         donutOptions: _.map(graph_data.analysis,  function(data){
           return   {

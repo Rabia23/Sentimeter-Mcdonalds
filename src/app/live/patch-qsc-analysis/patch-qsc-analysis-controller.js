@@ -2,19 +2,19 @@
 
   angular.module( 'livefeed.live.patch_qsc_analysis')
 
-  .controller( 'PatchQscAnalysisCtrl', function PatchQscAnalysisController( $scope, Global, $rootScope ) {
+  .controller( 'PatchQscAnalysisCtrl', function PatchQscAnalysisController( $scope, Global, $rootScope, ComplaintStatusEnum ) {
 
     function region_data(action_analysis_data){
-      var complaints = {unprocessed: [], processed: [], deferred: []};
+      var complaints = {unprocessed: [], unrecoverable: [], recovered: []};
        _.each(action_analysis_data, function(action){
-          if (action.action_taken == 1) {
+          if (action.action_taken == ComplaintStatusEnum.get_index("Unprocessed")) {
             complaints.unprocessed.push(action.count);
           }
-          if (action.action_taken == 2) {
-            complaints.processed.push(action.count);
+          if (action.action_taken == ComplaintStatusEnum.get_index("Unrecoverable")) {
+            complaints.unrecoverable.push(action.count);
           }
-          if (action.action_taken == 3) {
-            complaints.deferred.push(action.count);
+          if (action.action_taken == ComplaintStatusEnum.get_index("Recovered")) {
+            complaints.recovered.push(action.count);
           }
        });
       return complaints;
@@ -30,6 +30,19 @@
       $scope.patch_qsc_labels = [];
 
       $scope.all_zeros = false;
+
+      _.each($scope.complaint_view, function(data){
+        var count = 0;
+        _.each(data.data.action_analysis,  function(dat) {
+          if( dat.action_taken === ComplaintStatusEnum.get_skip_label_index() ){
+            count = count + dat.count;
+          }
+        });
+        data.data.feedback_count = data.data.feedback_count - count;
+      });
+      _.map($scope.complaint_view, function(data){
+         data.data.action_analysis = _.filter(data.data.action_analysis,  function(dat) { return dat.action_taken !== ComplaintStatusEnum.get_skip_label_index(); });
+      });
 
       _.each($scope.complaint_view[0].data.action_analysis, function (value) {
          $scope.patch_qsc_labels.push({action_name: Global.complaintAnalysisAction[value.action_taken][0], action_class: Global.complaintAnalysisActionClass[value.action_taken]});
@@ -50,12 +63,12 @@
          }
          else if(region_name === "South") {
           complaints = region_data(value.data.action_analysis);
-          $scope.south_analysis.push({ "category": region_name.toUpperCase(), "column-1": complaints.unprocessed[0], "column-2": complaints.processed[0], "column-3": complaints.deferred[0] });
+          $scope.south_analysis.push({ "category": region_name.toUpperCase(), "column-1": complaints.unprocessed[0], "column-2": complaints.unrecoverable[0], "column-3": complaints.recovered[0] });
           $scope.north_south_percentage.push({ "category": region_name.toUpperCase(), "column-1": Math.round((value.data.feedback_count / pakistan_feedback_count) * 100), "color": "#ff0f00" });
          }
          else if(region_name === "North") {
           complaints = region_data(value.data.action_analysis);
-          $scope.north_analysis.push({ "category": region_name.toUpperCase(), "column-1": complaints.unprocessed[0], "column-2": complaints.processed[0], "column-3": complaints.deferred[0] });
+          $scope.north_analysis.push({ "category": region_name.toUpperCase(), "column-1": complaints.unprocessed[0], "column-2": complaints.unrecoverable[0], "column-3": complaints.recovered[0] });
           $scope.north_south_percentage.push({ "category": region_name.toUpperCase(), "column-1": Math.round((value.data.feedback_count / pakistan_feedback_count) * 100), "color":"#ff6600" });
          }
       });
