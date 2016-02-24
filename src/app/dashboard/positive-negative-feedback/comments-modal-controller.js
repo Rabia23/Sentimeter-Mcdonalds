@@ -1,7 +1,7 @@
 (function() {
     angular.module('livefeed.dashboard.positive_negative_feedback')
 
-    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items, Graphs, commentService) {
+    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items, Graphs, commentService, StatusEnum, flashService) {
 
       $scope.comments = [];
       $scope.page = 1;
@@ -12,10 +12,15 @@
 
       $scope.is_last_page = false;
 
+      $scope.negativeOptions = StatusEnum.get_negativeOptions();
+      $scope.positiveOptions = StatusEnum.get_positiveOptions();
+
+
       $scope.selectedValue = function(value, comment){
         comment.show_dropdown = false;
-        comment.action_string = value == "Process" ? "Processed" : "Deferred";
-        var action_id = value == "Process" ? 2 : 3;
+        comment.action_string = value;
+        var action_id = StatusEnum.get_index(value);
+        console.log(action_id);
         Graphs.action_taken(comment.data.id,action_id).$promise.then(function(data){
           if(data.success) {
             $scope.show_error_message = false;

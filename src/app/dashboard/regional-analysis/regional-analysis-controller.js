@@ -307,6 +307,7 @@
     };
 
     $scope.showTitle = function(radioModel){
+      // TODO always use newline
       if(radioModel === 'Rating'){$scope.title = 'Feedback Analysis';}
       else if(radioModel === 'QSC'){$scope.title = 'QSC Analysis';}
       else if(radioModel === 'Complaints'){$scope.title = 'Complaint Analysis';}
@@ -318,6 +319,7 @@
         $scope.string = string;
 
         if(string === 'areas'){
+          // TODO use if($scope.area_view)
           if($scope.area_view === true) {
             $scope.getAreas();
           }
@@ -355,6 +357,7 @@
     }
 
     $scope.open = function(option, area, region, city, branch){
+      //TODO Use if(!region)
       if (region === undefined){ region = null;}
       if (city === undefined){ city = null;}
       if (branch === undefined){ branch = null;}

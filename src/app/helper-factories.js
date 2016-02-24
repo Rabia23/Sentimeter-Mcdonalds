@@ -191,11 +191,6 @@ angular.module( 'helper_factories', ['ngResource'])
 
     childColor: function(index, parent_color, parent){
       return this.childCholorScheme[parent][index];
-    },
-
-    bubbleColor: function(index){
-      var colors = ["#BFA66E", "#6881C4", "#C66868", "#AF68C6", "#ECDA32", "#62A1CE", "#6FBD6F", "#EC9B9A", '#6458D4', '#A4D558'];
-      return colors[index];
     }
 
   };

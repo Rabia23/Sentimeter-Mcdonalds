@@ -481,13 +481,6 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "    <button id=\"single-button\" type=\"button\" class=\"btn btn-primary\" uib-dropdown-toggle>\n" +
     "      Complaint Status <span class=\"caret\"></span>\n" +
     "    </button>\n" +
-    "    <ul uib-dropdown-menu role=\"menu\" aria-labelledby=\"single-button\">\n" +
-    "      <li role=\"menuitem\"><a style=\"cursor:pointer;\">All</a></li>\n" +
-    "      <li role=\"menuitem\"><a style=\"cursor:pointer;\">Unprocessed</a></li>\n" +
-    "      <li role=\"menuitem\"><a style=\"cursor:pointer;\">Unrecoverable</a></li>\n" +
-    "      <li role=\"menuitem\"><a style=\"cursor:pointer;\">Recovered</a></li>\n" +
-    "      <li role=\"menuitem\"><a style=\"cursor:pointer;\">No Action Needed (NaN)</a></li>\n" +
-    "    </ul>\n" +
     "  </div>\n" +
     "  </br></br>\n" +
     "  <div class=\"table-holder\">\n" +
@@ -519,19 +512,33 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "                <div class=\"text\">{{comment.data.comment}}</div>\n" +
     "              </td>\n" +
     "              <td class=\"item6\">\n" +
-    "                <div class=\"btn-group\" uib-dropdown dropdown-append-to-body ng-show=\"comment.show_dropdown\">\n" +
-    "                  <button type=\"button\" class=\"btn btn-info\" ng-click=\"selectedValue('Process',comment)\">Process</button>\n" +
+    "                <div class=\"btn-group\" uib-dropdown dropdown-append-to-body ng-show = \"comment.is_negative\">\n" +
+    "                  <button type=\"button\" class=\"btn btn-info\" ng-click=\"selectedValue('Recovered',comment)\">Recovered</button>\n" +
     "                  <button id=\"btn-append-to-body\" type=\"button\" class=\"btn btn-info\" uib-dropdown-toggle>\n" +
     "                    <span class=\"caret\"></span>\n" +
     "                    <span class=\"sr-only\">Split button!</span>\n" +
     "                  </button>\n" +
     "                  <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"btn-append-to-body\">\n" +
     "                    <li role=\"menuitem\">\n" +
-    "                      <a style=\"cursor:pointer;\" ng-click=\"selectedValue('Defer',comment)\">Defer</a>\n" +
+    "                      <a style=\"cursor:pointer;\" ng-click=\"selectedValue('Unprocessed',comment)\">Unprocessed</a>\n" +
+    "                    </li>\n" +
+    "                    <li role=\"menuitem\">\n" +
+    "                      <a style=\"cursor:pointer;\" ng-click=\"selectedValue('Unrecoverable',comment)\">Unrecoverable</a>\n" +
     "                    </li>\n" +
     "                  </ul>\n" +
     "                </div>\n" +
-    "                <span ng-hide=\"comment.show_dropdown\">{{comment.action_string}}</span>\n" +
+    "                <div class=\"btn-group\" uib-dropdown dropdown-append-to-body ng-hide = \"comment.is_negative\">\n" +
+    "                  <button type=\"button\" class=\"btn btn-info\" ng-click=\"selectedValue('NAN',comment)\">NAN</button>\n" +
+    "                  <button id=\"btn-append-to-body\" type=\"button\" class=\"btn btn-info\" uib-dropdown-toggle>\n" +
+    "                    <span class=\"caret\"></span>\n" +
+    "                    <span class=\"sr-only\">Split button!</span>\n" +
+    "                  </button>\n" +
+    "                  <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"btn-append-to-body\">\n" +
+    "                    <li role=\"menuitem\">\n" +
+    "                      <a style=\"cursor:pointer;\" ng-click=\"selectedValue('Recovered',comment)\">Recovered</a>\n" +
+    "                    </li>\n" +
+    "                  </ul>\n" +
+    "                </div>\n" +
     "              </td>\n" +
     "            </tr>\n" +
     "          </tbody>\n" +
