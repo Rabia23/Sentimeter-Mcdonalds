@@ -22,6 +22,26 @@ To compile scss you need to install ruby latest version and then install gem com
 7. grunt watch
 8. Open new terminal tab and run grunt server
 
+App Structure
+
+Each functionality is a module which may or may not be sub divided in modules. Following are the conventitons we follow while writing modules
+
+1. Each module is placed in its own folder and each file starts with same name as module
+2. Long names are separated with hyphens.
+3. Module is palced in the file starting with underscore.
+4. All the dependencies of modules e.g controllers, services, routes, configurations and directives must be included in the module folder unless it is using common code.
+
+
+Html Coding Conventions
+
+1. We use 2 space indentation for coding html.
+2. Dont use tabs
+3. No trailing spaces
+
+Javascript Coding Conventions
+
+1. We are following John Papa angular style guide to make the code more readable.
+
 
 Grunt Commands
 
