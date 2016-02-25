@@ -59,8 +59,8 @@ angular.module( 'helper_factories', ['ngResource'])
 
     complaintAnalysisActionPriority: {
       "Unprocessed": 1,
-      "Recovered": 2,
-      "Unrecoverable": 3
+      "Recovered": 3,
+      "Unrecoverable": 2
     },
 
     qscClass: {

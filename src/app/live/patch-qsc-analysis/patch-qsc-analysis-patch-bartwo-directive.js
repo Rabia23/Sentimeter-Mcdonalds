@@ -52,7 +52,7 @@
                             {
                                 "color": "#FFFFFF",
                                 "fillAlphas": 1,
-                                "fillColors": "#01C211",
+                                "fillColors": "#FFEE00",
                                 "id": "AmGraph-5",
                                 "labelText": "[[value]]",
                                 "lineThickness": 0,
@@ -64,7 +64,7 @@
                             {
                                 "color": "#FFFFFF",
                                 "fillAlphas": 1,
-                                "fillColors": "#FFEE00",
+                                "fillColors": "#01C211",
                                 "id": "AmGraph-6",
                                 "labelText": "[[value]]",
                                 "lineThickness": 0,
