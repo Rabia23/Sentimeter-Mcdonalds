@@ -1,69 +1,75 @@
-<div class="modal-header">
-  <a ng-click="cancel()" class="pull-right close-btn-font"><i class="fa fa-times"></i></a>
-  <h2>Positive Negative Feedback</h2>
+<div class="header-holder">
+  <div class="modal-header">
+    <a ng-click="cancel()" class="pull-right close-btn-font"><i class="fa fa-times"></i></a>
+    <h2>Positive Negative Feedback</h2>
+  </div>
 </div>
-<div class="modal-body">
-  <div class="table-holder">
-    <div class="table-block jcf-scrollable" custom-form>
-      <table class="table">
-        <thead>
-          <tr>
-            <th class="item1">Name</th>
-            <th class="item2">Phone / Email</th>
-            <th class="item3">Branch</th>
-            <th class="item4">Segment</th>
-            <th class="item5">Comments</th>
-            <th class="item6">
-              <div class="btn-group" uib-dropdown is-open="status.isopen">
-                <button id="single-button" type="button" class="btn btn-info" uib-dropdown-toggle>
-                  Status &nbsp;<span class="caret"></span>
-                </button>
-                <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                  <li role="menuitem" ng-repeat="option in status_options">
-                    <a style="cursor: pointer" ng-click="showComments(option)">{{option}}</a>
-                  </li>
-                </ul>
-              </div>
-            </th>
-          </tr>
-        </thead>
-      </table>
-      <div class="table-container jcf-scrollable" data-comments="comments" ng-class="{loading: lock}" when-scrolled="getMoreComments(statusOption)" custom-form>
-        <table class="table">
-          <tbody>
-            <tr ng-repeat="comment in comments" ng-class="{negative: comment.data.is_negative, recovered: comment.action_string === 'Recovered', NaN: comment.action_string === 'NAN', unprocessed: comment.action_string === 'Unprocessed', unrecoverable: comment.action_string === 'Unrecoverable'}">
-              <td class="item1">{{comment.data.user_name}}</td>
-              <td class="item2">
-                <a href="tel:{{comment.phone_no}}" class="tel">{{comment.phone_no}}</a>
-                <span class="email-holder">{{comment.email}}</span>
-              </td>
-              <td class="item3">{{comment.data.branch}}</td>
-              <td class="item4">{{comment.data.segment}} {{comment.show_dropdown}}</td>
-              <td class="item5">
-                <div class="text">{{comment.data.comment}}</div>
-              </td>
-              <td class="item6">
-                <div class="btn-group" uib-dropdown dropdown-append-to-body ng-show = "comment.data.is_negative && comment.show_dropdown">
-                  <button type="button" class="btn btn-info" ng-click="selectedValue('Recovered',comment)">Recover</button>
-                  <button id="btn-append-to-body" type="button" class="btn btn-info" uib-dropdown-toggle>
-                    <span class="caret"></span>
-                    <span class="sr-only">Split button!</span>
+<div class="modal-detail">
+  <div class="modal-body">
+    <div class="table-holder">
+      <div class="table-block jcf-scrollable" custom-form>
+        <table class="table table-header">
+          <thead>
+            <tr>
+              <th class="item1">Name</th>
+              <th class="item2">Phone / Email</th>
+              <th class="item3">Branch</th>
+              <th class="item4">Segment</th>
+              <th class="item5">Comments</th>
+              <th class="item6">
+                <div class="btn-group" uib-dropdown is-open="status.isopen">
+                  <button id="single-button" type="button" class="btn btn-info" uib-dropdown-toggle>
+                    Status &nbsp;<span class="caret"></span>
                   </button>
-                  <ul class="dropdown-menu" role="menu" aria-labelledby="btn-append-to-body">
-                    <li role="menuitem">
-                      <a style="cursor:pointer;" ng-click="selectedValue('Unrecoverable',comment)">Unrecoverable</a>
+                  <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                    <li role="menuitem" ng-repeat="option in status_options">
+                      <a style="cursor: pointer" ng-click="showComments(option)">{{option}}</a>
                     </li>
                   </ul>
                 </div>
-                <div class="btn-group" uib-dropdown dropdown-append-to-body ng-show = "!comment.data.is_negative && comment.show_dropdown">
-                  <button type="button" class="btn btn-info" ng-click="selectedValue('Recovered',comment)">Recover</button>
-                </div>
-                <span ng-hide="comment.show_dropdown">{{comment.action_string}}</span>
-              </td>
+              </th>
             </tr>
-          </tbody>
+          </thead>
         </table>
-        <span class="loader"></span>
+        <div class="content">
+          <div class="table-container jcf-scrollable" data-comments="comments" ng-class="{loading: lock}" when-scrolled="getMoreComments(statusOption)" custom-form>
+            <table class="table">
+              <tbody>
+                <tr ng-repeat="comment in comments" ng-class="{negative: comment.data.is_negative, recovered: comment.action_string === 'Recovered', NaN: comment.action_string === 'NAN', unprocessed: comment.action_string === 'Unprocessed', unrecoverable: comment.action_string === 'Unrecoverable'}">
+                  <td class="item1">{{comment.data.user_name}}</td>
+                  <td class="item2">
+                    <a href="tel:{{comment.phone_no}}" class="tel">{{comment.phone_no}}</a>
+                    <span class="email-holder">{{comment.email}}</span>
+                  </td>
+                  <td class="item3">{{comment.data.branch}}</td>
+                  <td class="item4">{{comment.data.segment}} {{comment.show_dropdown}}</td>
+                  <td class="item5">
+                    <div class="text">{{comment.data.comment}}</div>
+                  </td>
+                  <td class="item6">
+                    <div class="btn-group" uib-dropdown dropdown-append-to-body ng-show = "comment.data.is_negative && comment.show_dropdown">
+                      <button type="button" class="btn btn-info" ng-click="selectedValue('Recovered',comment)">Recover</button>
+                      <button id="btn-append-to-body" type="button" class="btn btn-info" uib-dropdown-toggle>
+                        <span class="caret"></span>
+                        <span class="sr-only">Split button!</span>
+                      </button>
+                      <ul class="dropdown-menu" role="menu" aria-labelledby="btn-append-to-body">
+                        <li role="menuitem">
+                          <a style="cursor:pointer;" ng-click="selectedValue('Unrecoverable',comment)">Unrecoverable</a>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="btn-group" uib-dropdown dropdown-append-to-body ng-show = "!comment.data.is_negative && comment.show_dropdown">
+                      <button type="button" class="btn btn-info" ng-click="selectedValue('Recovered',comment)">Recover</button>
+                    </div>
+                    <span ng-hide="comment.show_dropdown">{{comment.action_string}}</span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <span class="loader"></span>
+          </div>
+        </div>
       </div>
     </div>
   </div>

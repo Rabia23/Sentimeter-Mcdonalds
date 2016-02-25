@@ -528,11 +528,11 @@ body.login{background: #eee !important;}
 .comments-list li p{margin: 0 0 5px;}
 .comments-list li:hover{background: #f6f6f6;}
 
-.comments-list li.negative{
+.comments-list li.unprocessed{
 	background: #fedfda;
 	font-weight: 600;
 }
-.comments-list li.negative:hover{background: #ffd9d3;}
+.comments-list li.unprocessed:hover{background: #ffd9d3;}
 .comments-list li.negative.unrecoverable{
 	background: #ffffe5;
 	font-weight: 400;
@@ -763,8 +763,8 @@ body.login{background: #eee !important;}
 	min-height: 200px !important;
 	height: auto !important;
 }
-.comments-holder .jcf-scrollbar-dec,
-.comments-holder .jcf-scrollbar-inc{
+.jcf-scrollbar-dec,
+.jcf-scrollbar-inc{
 	width: 5px !important;
 	height: 5px !important;
 }
@@ -773,27 +773,27 @@ body.login{background: #eee !important;}
 	width: 0 !important;
 	height: 0 !important;
 }
-.comments-holder .jcf-scrollbar-inc,
+.jcf-scrollbar-inc,
 .modal-1200 .modal-body .table-container .jcf-scrollbar-inc{height: 8px !important;}
 .modal-1200 .modal-body .jcf-scrollbar-horizontal,
 .modal-1200 .modal-body .jcf-scrollbar-vertical{
 	background: none !important;
 	height: 7px;
 }
-.jcf-scrollbar-vertical .jcf-scrollbar-handle{min-height: 30px !important;}
+.jcf-scrollbar-vertical .jcf-scrollbar-handle{min-height: 50px !important;}
 .table-block .jcf-scrollbar.jcf-scrollbar-horizontal{display: none !important;}
-.comments-holder .jcf-scrollbar-vertical,
+.jcf-scrollbar-vertical,
 .modal-1200 .modal-body .jcf-scrollbar-vertical{width: 7px;}
-.comments-holder .jcf-scrollbar-vertical .jcf-scrollbar-handle,
-.comments-holder .jcf-scrollbar-horizontal .jcf-scrollbar-handle,
+.jcf-scrollbar-vertical .jcf-scrollbar-handle,
+.jcf-scrollbar-horizontal .jcf-scrollbar-handle,
 .modal-1200 .modal-body .jcf-scrollbar-vertical .jcf-scrollbar-handle,
 .modal-1200 .modal-body .jcf-scrollbar-horizontal .jcf-scrollbar-handle{
-	background: rgba(146,146,146,0.2);
+	background: rgba(0,0,0,0.2);
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
 	height: 7px;
 }
-.comments-holder .jcf-scrollbar-vertical .jcf-scrollbar-handle,
+.jcf-scrollbar-vertical .jcf-scrollbar-handle,
 .modal-1200 .modal-body .jcf-scrollbar-vertical .jcf-scrollbar-handle{width: 7px;}
 .modal-1200 .modal-body .table-container{
 	position: relative;
@@ -807,7 +807,7 @@ body.login{background: #eee !important;}
 	content: "";
 	clear: both;
 }
-.comments-holder .jcf-scrollable-wrapper .jcf-scrollbar.jcf-scrollbar-vertical,
+.jcf-scrollable-wrapper .jcf-scrollbar.jcf-scrollbar-vertical,
 .modal-1200 .modal-body .table-block > .jcf-scrollable-wrapper > .jcf-scrollbar.jcf-scrollbar-vertical{
 	position: absolute;
 	right: 3px;
@@ -908,6 +908,7 @@ body.login{background: #eee !important;}
   background: none;
   border: 0;
   box-shadow: none;
+  font-weight: 600;
 }
 .modal-1200 .table th.item6 .btn.btn-info:hover,
 .modal-1200 .table th.item6 .btn.btn-info:active,
@@ -920,12 +921,13 @@ body.login{background: #eee !important;}
 	left: auto;
 	right: 0;
 	width: 100%;
-	min-width: 100px;
+	min-width: 60px;
 	padding: 0;
 	border: 0 !important;
 	border-radius: 0 !important;
 	z-index: 999;
 }
+.modal-1200 .table th .dropdown-menu{min-width: 100px;}
 .modal-1200 .table .dropdown-menu > li > a{
 	padding: 5px;
 	margin: 0 !important;
@@ -941,18 +943,18 @@ body.login{background: #eee !important;}
 .modal-1200 .modal-body .table tbody tr {background: #fff;}
 .modal-1200 .modal-body .table tbody tr:hover {background: #f7f7f7;}
 
-.modal-1200 .modal-body .table tbody tr.negative {background: #fedfda;}
-.modal-1200 .modal-body .table tbody tr.negative:hover {background: #ffd9d3;}
+.modal-1200 .modal-body .table tbody tr.unprocessed {background: #fedfda;}
+.modal-1200 .modal-body .table tbody tr.unprocessed:hover {background: #ffd9d3;}
 
-.modal-1200 .modal-body .table tbody tr.negative.unrecoverable,
-.modal-1200 .modal-body .table tbody tr.negative.unrecoverable td{background: #ffffe5;}
-.modal-1200 .modal-body .table tbody tr.negative.unrecoverable:hover,
-.modal-1200 .modal-body .table tbody tr.negative.unrecoverable:hover td{background: #fefed8;}
+.modal-1200 .modal-body .table tbody tr.unprocessed.unrecoverable,
+.modal-1200 .modal-body .table tbody tr.unprocessed.unrecoverable td{background: #ffffe5;}
+.modal-1200 .modal-body .table tbody tr.unprocessed.unrecoverable:hover,
+.modal-1200 .modal-body .table tbody tr.unprocessed.unrecoverable:hover td{background: #fefed8;}
 
-.modal-1200 .modal-body .table tbody tr.negative.recovered,
-.modal-1200 .modal-body .table tbody tr.negative.recovered td{background: #dff0d8;}
-.modal-1200 .modal-body .table tbody tr.negative.recovered:hover,
-.modal-1200 .modal-body .table tbody tr.negative.recovered:hover td{background: #d8f5cc;}
+.modal-1200 .modal-body .table tbody tr.unprocessed.recovered,
+.modal-1200 .modal-body .table tbody tr.unprocessed.recovered td{background: #dff0d8;}
+.modal-1200 .modal-body .table tbody tr.unprocessed.recovered:hover,
+.modal-1200 .modal-body .table tbody tr.unprocessed.recovered:hover td{background: #d8f5cc;}
 
 .modal-1200 .modal-body .table tbody tr.positive td.item6 .btn-group,
 .modal-1200 .modal-body .table tbody tr.positive td.item6 span{display: none !important;}
@@ -992,6 +994,36 @@ body.login{background: #eee !important;}
 .modal-1200 .table tbody td a:hover,
 .modal-1200 .table tbody td a:active,
 .modal-1200 .table tbody td a:focus{color: #000;}
+
+.comments-modal{
+  margin: 0 auto;
+  padding: 30px 0;
+  height: 100%;
+}
+.comments-modal .modal-content{height: 100%;}
+.comments-modal .content{
+  position: relative;
+  width: 100%;
+}
+.comments-modal .content > .jcf-scrollable-wrapper{width: 100%;}
+.comments-modal .content .jcf-scrollable-wrapper,
+.comments-modal .content .table-container{
+  height: 100% !important;
+  min-height: 100% !important;
+}
+.modal-1200.comments-modal .modal-body,
+.modal-1200.comments-modal .modal-body .table-holder{height: 100%;}
+.modal-1200.comments-modal .modal-body .table-holder > .jcf-scrollable-wrapper{height: 100% !important;}
+.modal-1200.comments-modal .modal-body .table-block{
+  min-height: inherit !important;
+  height: 100% !important;
+}
+.modal-1200.comments-modal .modal-body .table-block > .jcf-scrollable-wrapper{height: 100% !important;}
+.modal-1200.comments-modal .modal-body .table-container{height: 100% !important;}
+.modal-1200 .content .jcf-scrollbar.jcf-scrollbar-vertical{
+  right: 0;
+  top: 0;
+}
 .loading .loader {display: block;}
 .loader {
   display: none;
