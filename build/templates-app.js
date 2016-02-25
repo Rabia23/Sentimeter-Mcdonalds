@@ -128,9 +128,12 @@ angular.module("dashboard/category-performance-analysis/category-performance-ana
     "              <div class=\"progress-inner\">\n" +
     "                <small>\n" +
     "                  <em>\n" +
-    "                    <a bar-click data-name = \"dat.name\">\n" +
+    "                    <a bar-click data-name = \"dat.name\" ng-if = \"mainView\">\n" +
     "                      {{dat.name}}\n" +
     "                    </a>\n" +
+    "                    <span ng-if = \"!mainView\">\n" +
+    "                      {{dat.name}}\n" +
+    "                    </span>\n" +
     "                    <b>\n" +
     "                      {{dat.complaints}} complaints\n" +
     "                    </b>\n" +
