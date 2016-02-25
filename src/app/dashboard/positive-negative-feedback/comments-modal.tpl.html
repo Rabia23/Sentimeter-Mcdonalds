@@ -26,7 +26,7 @@
       <div class="table-container jcf-scrollable" data-comments="comments" ng-class="{loading: lock}" when-scrolled="getMoreComments()" custom-form>
         <table class="table">
           <tbody>
-            <tr ng-repeat="comment in comments" ng-class="{negative: comment.data.is_negative, success: comment.data.action_taken === 2, defer: comment.data.action_taken === 3}">
+            <tr ng-repeat="comment in comments" ng-class="{negative: comment.data.is_negative, recovered: comment.action_string === 'Recovered', NaN: comment.action_string === 'NAN', unprocessed: comment.action_string === 'Unprocessed', unrecoverable: comment.action_string === 'Unrecoverable'}">
               <td class="item1">{{comment.data.user_name}}</td>
               <td class="item2">
                 <a href="tel:{{comment.phone_no}}" class="tel">{{comment.phone_no}}</a>

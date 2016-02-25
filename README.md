@@ -29,7 +29,7 @@ Each functionality is a module which may or may not be sub divided in modules. F
 1. Each module is placed in its own folder and each file starts with same name as module
 2. Long names are separated with hyphens.
 3. Module is palced in the file starting with underscore.
-4. All the dependencies of modules e.g controllers, services, routes, configurations and directives must be included in the module folder unless it is using common code.
+4. All parts of modules e.g controllers, services, routes, configurations and directives must be included in the module folder unless it is using common code.
 
 
 Html Coding Conventions

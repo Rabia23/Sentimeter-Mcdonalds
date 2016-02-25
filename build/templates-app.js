@@ -500,7 +500,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "      <div class=\"table-container jcf-scrollable\" data-comments=\"comments\" ng-class=\"{loading: lock}\" when-scrolled=\"getMoreComments()\" custom-form>\n" +
     "        <table class=\"table\">\n" +
     "          <tbody>\n" +
-    "            <tr ng-repeat=\"comment in comments\" ng-class=\"{negative: comment.data.is_negative, success: comment.data.action_taken === 2, defer: comment.data.action_taken === 3}\">\n" +
+    "            <tr ng-repeat=\"comment in comments\" ng-class=\"{negative: comment.data.is_negative, recovered: comment.action_string === 'Recovered', NaN: comment.action_string === 'NAN', unprocessed: comment.action_string === 'Unprocessed', unrecoverable: comment.action_string === 'Unrecoverable'}\">\n" +
     "              <td class=\"item1\">{{comment.data.user_name}}</td>\n" +
     "              <td class=\"item2\">\n" +
     "                <a href=\"tel:{{comment.phone_no}}\" class=\"tel\">{{comment.phone_no}}</a>\n" +
@@ -561,7 +561,7 @@ angular.module("dashboard/positive-negative-feedback/positive-negative-feedback.
     "      </div>\n" +
     "      <div class=\"comments-holder\">\n" +
     "        <ul class=\"comments-list list-unstyled jcf-scrollable\" custom-form data-comments=\"comments\">\n" +
-    "          <li ng-if=\"feedback_count != 0\" ng-repeat=\"comment in comments\" ng-class=\"{negative: comment.data.is_negative, positive: !comment.data.is_negative, processed: comment.action_string == 'Processed', deferred: comment.action_string == 'Deferred'}\">\n" +
+    "          <li ng-if=\"feedback_count != 0\" ng-repeat=\"comment in comments\" ng-class=\"{negative: comment.data.is_negative, positive: !comment.data.is_negative, recovered: comment.action_string == 'Recovered', NaN: comment.action_string == 'NAN', unrecoverable: comment.action_string == 'Unrecoverable', unprocessed: comment.action_string == 'Unprocessed'}\">\n" +
     "            <p>{{comment.data.comment}}</p>\n" +
     "            <time datetime=\"{{comment.date_time}}\">{{comment.date_time}}</time>\n" +
     "          </li>\n" +
