@@ -1703,6 +1703,7 @@ angular.module("questionnaire/questionnaire.tpl.html", []).run(["$templateCache"
     "            </ul>\n" +
     "          </div>\n" +
     "        </div>\n" +
+    "        <div ng-show=\"questions.length === 0\">No Data available</div>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
