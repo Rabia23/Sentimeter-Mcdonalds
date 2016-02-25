@@ -2,15 +2,15 @@
     angular.module('livefeed.dashboard.overall_rating')
 
     .controller( 'TimeLineCtrl', function DashboardController( $scope, overallRatingChartService, Graphs, Global, flashService ) {
-       $scope.height = 0;
-       $scope.width = 0;
+      $scope.height = 0;
+      $scope.width = 0;
 
-       $scope.today = new Date();
+      $scope.today = new Date();
 
-       function resetDates(){
+      function resetDates(){
         $scope.date = {
-            startDate: moment().subtract(6, "days"),
-            endDate: moment()
+          startDate: moment().subtract(6, "days"),
+          endDate: moment()
         };
       }
 
@@ -33,35 +33,35 @@
         opens: "left"
       };
 
-       $scope.start_date = null;
-       $scope.end_date = null;
+      $scope.start_date = null;
+      $scope.end_date = null;
 
-       $scope.type = "1";
-       $scope.mainView = true;
-       $scope.optionView = false;
+      $scope.type = "1";
+      $scope.mainView = true;
+      $scope.optionView = false;
 
-       $scope.page = 1;
-       $scope.max_page = 1;
+      $scope.page = 1;
+      $scope.max_page = 1;
 
-       function calculate_data_sets(data, value){
-         $scope.data_array = [];
-         if (data.response.length > value) {
-           var sets = data.response.length / value;
-           while (data.response.length > 0) {
-             $scope.data_array.push(data.response.splice(0, value));
-           }
-         }
+      function calculate_data_sets(data, value){
+        $scope.data_array = [];
+        if (data.response.length > value) {
+          var sets = data.response.length / value;
+          while (data.response.length > 0) {
+            $scope.data_array.push(data.response.splice(0, value));
+          }
+        }
          else {
-           $scope.data_array[0] = data.response;
-         }
-         $scope.max_page = $scope.data_array.length;
-       }
+          $scope.data_array[0] = data.response;
+        }
+        $scope.max_page = $scope.data_array.length;
+      }
 
-       function drawGraph(data){
-         $scope.overall_rating_data = [];
-         var timeline_data = overallRatingChartService.getAreaChart(data);
-         $scope.overall_rating_data = [$scope.labels, timeline_data];
-       }
+      function drawGraph(data){
+        $scope.overall_rating_data = [];
+        var timeline_data = overallRatingChartService.getAreaChart(data);
+        $scope.overall_rating_data = [$scope.labels, timeline_data];
+      }
 
        function calculate_labels(feedbacks){
          $scope.labels = _.map(feedbacks, function (value, index) {
