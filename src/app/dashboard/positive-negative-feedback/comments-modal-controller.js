@@ -12,6 +12,9 @@
 
       $scope.is_last_page = false;
 
+      $scope.statusOption = "All";
+      $scope.status_options = StatusEnum.get_status_options();
+
       $scope.selectedValue = function(value, comment){
         comment.show_dropdown = false;
         comment.action_string = value;
@@ -30,30 +33,34 @@
       };
 
 
+      $scope.showComments = function(option){
+        $scope.statusOption = option;
+        $scope.page = 1;
+        var status_id = StatusEnum.get_index(option);
+        Graphs.comments($scope.page, status_id).$promise.then(function(data){
+          $scope.lock = false;
+          $scope.is_last_page = data.response.is_last_page;
+          if(data.success) {
+            $scope.show_error_message = false;
+            $scope.comments = _.map(data.response.feedbacks, function (data) {
+              return commentService.getComment(data);
+            });
+          }
+          else {
+           $scope.show_error_message = true;
+           $scope.error_message = data.message;
+           flashService.createFlash($scope.error_message, "danger");
+          }
+        });
+      };
 
-      Graphs.comments($scope.page).$promise.then(function(data){
-        $scope.lock = false;
-        $scope.is_last_page = data.response.is_last_page;
-        if(data.success) {
-          $scope.show_error_message = false;
-          $scope.comments = _.map(data.response.feedbacks, function (data) {
-            return commentService.getComment(data);
-          });
-        }
-        else {
-         $scope.show_error_message = true;
-         $scope.error_message = data.message;
-         flashService.createFlash($scope.error_message, "danger");
-        }
-      });
-
-      $scope.getMoreComments = function(){
+      $scope.getMoreComments = function(option){
+        var status_id = StatusEnum.get_index(option);
         var show_dropdown, action_string;
         if(!$scope.is_last_page){
           $scope.page = $scope.page + 1;
           $scope.lock = true;
-          Graphs.comments($scope.page).$promise.then(function(data){
-            console.log(data);
+          Graphs.comments($scope.page,status_id).$promise.then(function(data){
             $scope.is_last_page = data.response.is_last_page;
             if(data.success) {
               $scope.show_error_message = false;
@@ -79,6 +86,8 @@
       $scope.cancel = function () {
         $uibModalInstance.dismiss('cancel');
       };
+
+      $scope.showComments($scope.statusOption);
     });
 
 })();

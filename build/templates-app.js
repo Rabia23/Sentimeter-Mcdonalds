@@ -139,7 +139,7 @@ angular.module("dashboard/category-performance-analysis/category-performance-ana
     "                    </b>\n" +
     "                  </em>\n" +
     "                </small>\n" +
-    "                <div class=\"progress-block\" bar-click data-name = \"dat.name\">\n" +
+    "                <div style=\"cursor: pointer\" class=\"progress-block\" bar-click data-name = \"dat.name\">\n" +
     "                  <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
     "                </div>\n" +
     "              </div>\n" +
@@ -484,6 +484,11 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "    <button id=\"single-button\" type=\"button\" class=\"btn btn-primary\" uib-dropdown-toggle>\n" +
     "      Complaint Status <span class=\"caret\"></span>\n" +
     "    </button>\n" +
+    "    <ul uib-dropdown-menu role=\"menu\" aria-labelledby=\"single-button\">\n" +
+    "      <li role=\"menuitem\" ng-repeat=\"option in status_options\">\n" +
+    "        <a style=\"cursor: pointer\" ng-click=\"showComments(option)\">{{option}}</a>\n" +
+    "      </li>\n" +
+    "    </ul>\n" +
     "  </div>\n" +
     "  </br></br>\n" +
     "  <div class=\"table-holder\">\n" +
@@ -500,7 +505,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "          </tr>\n" +
     "        </thead>\n" +
     "      </table>\n" +
-    "      <div class=\"table-container jcf-scrollable\" data-comments=\"comments\" ng-class=\"{loading: lock}\" when-scrolled=\"getMoreComments()\" custom-form>\n" +
+    "      <div class=\"table-container jcf-scrollable\" data-comments=\"comments\" ng-class=\"{loading: lock}\" when-scrolled=\"getMoreComments(statusOption)\" custom-form>\n" +
     "        <table class=\"table\">\n" +
     "          <tbody>\n" +
     "            <tr ng-repeat=\"comment in comments\" ng-class=\"{negative: comment.data.is_negative, recovered: comment.action_string === 'Recovered', NaN: comment.action_string === 'NAN', unprocessed: comment.action_string === 'Unprocessed', unrecoverable: comment.action_string === 'Unrecoverable'}\">\n" +
@@ -1701,6 +1706,7 @@ angular.module("questionnaire/questionnaire.tpl.html", []).run(["$templateCache"
     "            </ul>\n" +
     "          </div>\n" +
     "        </div>\n" +
+    "        <div ng-show=\"questions.length === 0\">No Data available</div>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +

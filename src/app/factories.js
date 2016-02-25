@@ -150,10 +150,11 @@ angular.module( 'factories', [
     return this.service.category_performance({token:  token,region: region_id, city: city_id, branch: branch_id, option: option_id, date_from: start_date, date_to: end_date});
   };
 
-  Graphs.prototype.comments = function(page){
+  Graphs.prototype.comments = function(page, status_id){
     var token = $rootScope.token || TokenHandler.get_token();
     page = page || 1;
-    return this.service.comments({token:  token,page: page});
+    status_id = status_id || "";
+    return this.service.comments({token:  token,page: page, status_id: status_id});
   };
 
   Graphs.prototype.feedback_analysis_breakdown = function(area_id, region_id, city_id, branch_id, option_id, start_date, end_date){
