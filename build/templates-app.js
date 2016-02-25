@@ -139,7 +139,10 @@ angular.module("dashboard/category-performance-analysis/category-performance-ana
     "                    </b>\n" +
     "                  </em>\n" +
     "                </small>\n" +
-    "                <div style=\"cursor: pointer\" class=\"progress-block\" bar-click data-name = \"dat.name\">\n" +
+    "                <div style=\"cursor: pointer\" class=\"progress-block\" bar-click data-name = \"dat.name\" ng-if = \"mainView\">\n" +
+    "                  <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
+    "                </div>\n" +
+    "                <div class=\"progress-block\" ng-if = \"!mainView\">\n" +
     "                  <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
     "                </div>\n" +
     "              </div>\n" +
