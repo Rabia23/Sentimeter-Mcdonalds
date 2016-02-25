@@ -527,17 +527,21 @@ body.login{background: #eee !important;}
 }
 .comments-list li p{margin: 0 0 5px;}
 .comments-list li:hover{background: #f6f6f6;}
+
 .comments-list li.negative{
 	background: #fedfda;
 	font-weight: 600;
 }
 .comments-list li.negative:hover{background: #ffd9d3;}
-.comments-list li.negative.deferred{
+.comments-list li.negative.unrecoverable{
 	background: #ffffe5;
 	font-weight: 400;
 }
-.comments-list li.negative.processed{background: #dff0d8;}
-.comments-list li.negative.deferred:hover{background: #fefed8;}
+.comments-list li.negative.unrecoverable:hover{background: #fefed8;}
+
+.comments-list li.negative.recovered{background: #dff0d8;}
+.comments-list li.negative.recovered:hover{background: #d8f5cc;}
+
 .comments-list li time{
 	font-size: 10px;
 	line-height: 13px;
@@ -545,7 +549,6 @@ body.login{background: #eee !important;}
 	color: #8b8b8b;
 	font-weight: 400;
 }
-.comments-list li.negative.processed:hover{background: #d8f5cc;}
 .detail-block h1{font-size: 30px;}
 .tab-links{
 	padding: 0;
@@ -1757,18 +1760,15 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 	display: inline-block;
 	vertical-align: middle;
 }
-
 .promotions .grid-item .data-container > *{
 	display: inline-block;
 	vertical-align: middle;
 	white-space: normal;
 	width: 100%;
 }
-
+.promotions .grid-item .data-container > .bar-holder{vertical-align: top;}
 .promotions .grid-item .progress-holder{padding: 10px 0;}
-
 .promotions .progress-area .progress-holder .progress-block{height: 20px;}
-
 .promotions .btn.dim{
 	display: block;
 	width: 100%;

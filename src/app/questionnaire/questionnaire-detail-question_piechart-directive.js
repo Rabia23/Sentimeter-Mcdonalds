@@ -28,7 +28,7 @@
                 "autoMargins": false,
                 "labelText": "[[title]] : [[value]]",
                 "labelTickColor" : "#FFF",
-                "labelRadius" : -70,
+                "labelRadius" : -90,
                 "labelColorField": "#FFF",
                 "titleField": "category",
                 "valueField": "column-1",

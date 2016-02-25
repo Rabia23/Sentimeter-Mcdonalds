@@ -139,7 +139,10 @@ angular.module("dashboard/category-performance-analysis/category-performance-ana
     "                    </b>\n" +
     "                  </em>\n" +
     "                </small>\n" +
-    "                <div style=\"cursor: pointer\" class=\"progress-block\" bar-click data-name = \"dat.name\">\n" +
+    "                <div style=\"cursor: pointer\" class=\"progress-block\" bar-click data-name = \"dat.name\" ng-if = \"mainView\">\n" +
+    "                  <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
+    "                </div>\n" +
+    "                <div class=\"progress-block\" ng-if = \"!mainView\">\n" +
     "                  <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
     "                </div>\n" +
     "              </div>\n" +
@@ -1706,7 +1709,10 @@ angular.module("questionnaire/questionnaire.tpl.html", []).run(["$templateCache"
     "            </ul>\n" +
     "          </div>\n" +
     "        </div>\n" +
-    "        <div ng-show=\"questions.length === 0\">No Data available</div>\n" +
+    "        <div ng-show=\"questions.length === 0\" class=\"message-block\">\n" +
+    "          <i class=\"fa fa-info-circle\"></i>\n" +
+    "          <h2>No Data Available</h2>\n" +
+    "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
