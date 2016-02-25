@@ -2,7 +2,7 @@
   angular.module( 'livefeed.dashboard.positive_negative_feedback')
 
   .factory('StatusEnum', [function() {
-
+    var statusOptions = ["All", "Unprocessed", "Unrecoverable", "Recovered", "NAN"];
     var StatusObject = {
       labels: ["Unprocessed", "Unrecoverable", "Recovered", "NAN"],
       positiveDefault: "NAN",
@@ -22,6 +22,9 @@
       },
       get_negative_default: function(){
         return StatusObject.negativeDefault;
+      },
+      get_status_options: function(){
+        return statusOptions;
       }
     };
 

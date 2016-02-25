@@ -5,19 +5,12 @@
   .controller( 'PatchQscAnalysisCtrl', function PatchQscAnalysisController( $scope, Global, $rootScope, ComplaintStatusEnum ) {
 
     function region_data(action_analysis_data){
-      var complaints = {unprocessed: [], unrecoverable: [], recovered: []};
+      var complaints = {};
        _.each(action_analysis_data, function(action){
-          if (action.action_taken == ComplaintStatusEnum.get_index("Unprocessed")) {
-            complaints.unprocessed.push(action.count);
-          }
-          if (action.action_taken == ComplaintStatusEnum.get_index("Unrecoverable")) {
-            complaints.unrecoverable.push(action.count);
-          }
-          if (action.action_taken == ComplaintStatusEnum.get_index("Recovered")) {
-            complaints.recovered.push(action.count);
-          }
+
+           complaints[Global.complaintAnalysisAction[action.action_taken][0]] = action.count;
        });
-      return complaints;
+       return complaints;
     }
 
     function patch_qsc_analysis() {
@@ -63,12 +56,12 @@
          }
          else if(region_name === "South") {
           complaints = region_data(value.data.action_analysis);
-          $scope.south_analysis.push({ "category": region_name.toUpperCase(), "column-1": complaints.unprocessed[0], "column-2": complaints.unrecoverable[0], "column-3": complaints.recovered[0] });
+          $scope.south_analysis.push({ "category": region_name.toUpperCase(), "column-1": complaints.Unprocessed, "column-2": complaints.Unrecoverable, "column-3": complaints.Recovered });
           $scope.north_south_percentage.push({ "category": region_name.toUpperCase(), "column-1": Math.round((value.data.feedback_count / pakistan_feedback_count) * 100), "color": "#ff0f00" });
          }
          else if(region_name === "North") {
           complaints = region_data(value.data.action_analysis);
-          $scope.north_analysis.push({ "category": region_name.toUpperCase(), "column-1": complaints.unprocessed[0], "column-2": complaints.unrecoverable[0], "column-3": complaints.recovered[0] });
+          $scope.north_analysis.push({ "category": region_name.toUpperCase(), "column-1": complaints.Unprocessed, "column-2": complaints.Unrecoverable, "column-3": complaints.Recovered });
           $scope.north_south_percentage.push({ "category": region_name.toUpperCase(), "column-1": Math.round((value.data.feedback_count / pakistan_feedback_count) * 100), "color":"#ff6600" });
          }
       });
