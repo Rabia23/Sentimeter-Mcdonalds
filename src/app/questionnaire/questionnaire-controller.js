@@ -3,7 +3,9 @@
 
   .controller( 'QuestionnaireCtrl', function QuestionnaireCtrl( $scope, $state, TokenHandler, Auth, QuestionnaireApi, flashService) {
 
+    $scope.show_loading = true;
     QuestionnaireApi.questionnaire_list().$promise.then(function(data){
+      $scope.show_loading = false;
       if(data.success){
         $scope.questions = data.response;
       }

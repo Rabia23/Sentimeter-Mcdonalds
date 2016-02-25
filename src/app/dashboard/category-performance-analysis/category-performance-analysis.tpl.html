@@ -46,9 +46,12 @@
               <div class="progress-inner">
                 <small>
                   <em>
-                    <a bar-click data-name = "dat.name">
+                    <a bar-click data-name = "dat.name" ng-if = "mainView">
                       {{dat.name}}
                     </a>
+                    <span ng-if = "!mainView">
+                      {{dat.name}}
+                    </span>
                     <b>
                       {{dat.complaints}} complaints
                     </b>
