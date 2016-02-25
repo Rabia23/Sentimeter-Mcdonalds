@@ -1001,11 +1001,11 @@ body.login{background: #eee !important;}
   height: 100%;
 }
 .comments-modal .modal-content{height: 100%;}
-.comments-modal .content{
+.modal-1200 .content{
   position: relative;
   width: 100%;
 }
-.comments-modal .content > .jcf-scrollable-wrapper{width: 100%;}
+.modal-1200 .content > .jcf-scrollable-wrapper{width: 100% !important;}
 .comments-modal .content .jcf-scrollable-wrapper,
 .comments-modal .content .table-container{
   height: 100% !important;
