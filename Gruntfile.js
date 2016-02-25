@@ -314,6 +314,18 @@ module.exports = function ( grunt ) {
           indentationGuess: true
         }
       }
+      // javascript: {
+      //   src: [
+      //       'src/**/*.js'
+      //   ],
+      //   options: {
+      //       // newline: true,
+      //       //trailingspaces: true,
+      //       indentation: 'spaces',
+      //       spaces: 2,
+      //       ignores: ['js-comments']
+      //   }
+      // }
     },
 
      /**

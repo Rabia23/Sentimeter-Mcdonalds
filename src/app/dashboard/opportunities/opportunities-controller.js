@@ -23,7 +23,7 @@
           };
         });
         $scope.opportunity_data = _.sortBy($scope.opportunity_data, function (value) {
-           return value.priority;
+          return value.priority;
         });
       }
       else{

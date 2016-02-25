@@ -60,6 +60,9 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "        <li ng-class=\"{'active': currentState == 'dashboard'}\">\n" +
     "          <a ui-sref=\"dashboard\"><i class=\"fa fa-home\"></i> <span class=\"nav-label\">Dashboard</span></a>\n" +
     "        </li>\n" +
+    "        <li ng-class=\"{'active': (currentState == 'questionnaire' || currentState == 'questionnaire_detail' )}\">\n" +
+    "          <a ui-sref=\"questionnaire\"><i class=\"fa fa-question-circle\"></i> <span class=\"nav-label\">Questionnaire</span></a>\n" +
+    "        </li>\n" +
     "        <li ng-class=\"{'active': (currentState == 'promotions' || currentState == 'promotions_detail' ) }\">\n" +
     "          <a ui-sref=\"promotions\"><i class=\"fa fa-bullhorn\"></i> <span class=\"nav-label\">Promotions</span></a>\n" +
     "        </li>\n" +
@@ -68,9 +71,6 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "        </li>\n" +
     "        <li ng-class=\"{'active': currentState == 'how_to'}\">\n" +
     "          <a ui-sref=\"how_to\" target=\"_blank\"><i class=\"fa fa-info-circle\"></i> <span class=\"nav-label\">How To Guide</span></a>\n" +
-    "        </li>\n" +
-    "        <li ng-class=\"{'active': (currentState == 'questionnaire' || currentState == 'questionnaire_detail' )}\">\n" +
-    "          <a ui-sref=\"questionnaire\"><i class=\"fa fa-question-circle\"></i> <span class=\"nav-label\">Questionnaire</span></a>\n" +
     "        </li>\n" +
     "      </ul>\n" +
     "    </div>\n" +
