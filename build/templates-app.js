@@ -1694,7 +1694,7 @@ angular.module("questionnaire/questionnaire.tpl.html", []).run(["$templateCache"
     "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
     "      <div class=\"row questionnaire\" ng-class=\"{'loading': show_loading}\">\n" +
     "        <div class=\"col-lg-12\">\n" +
-    "          <h1>Questions List</h1>\n" +
+    "          <h1>Questionnaires List</h1>\n" +
     "          <div class=\"users-area\">\n" +
     "            <ul class=\"question-list\">\n" +
     "              <li ng-repeat=\"question in questions\">\n" +
