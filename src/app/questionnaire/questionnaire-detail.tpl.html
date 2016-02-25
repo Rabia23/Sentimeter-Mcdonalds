@@ -16,7 +16,7 @@
                   </div>
                   <div class="ibox-content" ng-if="question.type == 11">
                     <div class="data-container">
-                      <div id="graph_{{$index}}">
+                      <div id="graph_{{$index}}" class="bar-holder">
                         <div class="progres-container">
                           <div class="progress-area">
                             <div class="progress-holder" ng-repeat="dat in question.question_bar_chart" data-color="dat.colour" data-data="question.question_bar_chart" question-bar-background>
