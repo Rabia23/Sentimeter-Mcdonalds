@@ -1,7 +1,7 @@
 (function() {
   angular.module( 'livefeed.dashboard.category_performance_analysis')
 
-  .controller('CategoryPerformanceAnalysisCtrl', function DashboardController($scope, Graphs, Global, $timeout, flashService) {
+  .controller('CategoryPerformanceAnalysisCtrl', function DashboardController($scope, CategoryPerformanceApi, Global, $timeout, flashService) {
 
     $scope.show_loading = false;
     $scope.class = '';
@@ -41,7 +41,7 @@
 
     $scope.showCategoryData = function(region_id,city_id,branch_id,option_id,string){
       $scope.show_loading = true;
-      Graphs.category_performance(region_id,city_id,branch_id,option_id, $scope.start_date, $scope.end_date).$promise.then(function(performance_data){
+      CategoryPerformanceApi.category_performance(region_id,city_id,branch_id,option_id, $scope.start_date, $scope.end_date).$promise.then(function(performance_data){
         if(performance_data.success) {
           $scope.show_error_message = false;
           $scope.category_data = _.map(performance_data.response.feedbacks, function (data, index) {
@@ -73,7 +73,7 @@
     };
 
     $scope.showSegmentData = function(region_id,city_id,branch_id,option_id,string) {
-      Graphs.segmentation_rating(region_id, city_id, branch_id, option_id, $scope.start_date, $scope.end_date).$promise.then(function (segment_data) {
+      CategoryPerformanceApi.segmentation_rating(region_id, city_id, branch_id, option_id, $scope.start_date, $scope.end_date).$promise.then(function (segment_data) {
         if(segment_data.success) {
           $scope.show_error_message = false;
           $timeout(function () {
