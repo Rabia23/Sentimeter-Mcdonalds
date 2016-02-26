@@ -12,7 +12,6 @@
     'livefeed.authService',
     'ui.router',
     'livefeed.offline',
-    'toaster', 
-    'ngAnimate'
+    'toaster'
   ]);
 })();
