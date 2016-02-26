@@ -595,7 +595,7 @@ angular.module("dashboard/positive-negative-feedback/positive-negative-feedback.
 
 angular.module("dashboard/regional-analysis/regional-analysis.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("dashboard/regional-analysis/regional-analysis.tpl.html",
-    "<div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\">\n" +
+    "<div class=\"ibox regional float-e-margins\" ng-class=\"{loading: show_loading}\">\n" +
     "\n" +
     "  <div class=\"ibox-title\">\n" +
     "    <h5>{{title}}</h5>\n" +

@@ -1023,6 +1023,7 @@ body.login{background: #eee !important;}
 .modal-1200 .content .jcf-scrollbar.jcf-scrollbar-vertical{
   right: 0;
   top: 0;
+  bottom: 0;
 }
 .loading .loader {display: block;}
 .loader {
@@ -3043,4 +3044,15 @@ li.active,
 	.loader{margin: 11% 16%;}
 	.morris-block-holder .morris-graph-holder .morris-holder .chart-container{max-width: 70%;}
 	.morris-block-holder .morris-content-holder{width: 50%;}
+}
+
+.ibox.regional.loading .tab-links li a,
+.ibox.regional.loading .tab-links li{
+  pointer-events: none;
+  cursor: default;
+}
+.ibox.regional.loading .tab-links li.active,
+.ibox.regional.loading .tab-links li.active a{
+  pointer-events: auto;
+  cursor: pointer;
 }
