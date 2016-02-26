@@ -571,7 +571,7 @@ function initSameHeight() {
     biggestHeight: true,
     useMinHeight: false
   });
-  jQuery('.promotions').sameHeight({
+  jQuery('.grids-holder').sameHeight({
     elements: '.grid-item .data-container',
     flexible: true,
     multiLine: true,

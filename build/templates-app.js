@@ -1649,22 +1649,24 @@ angular.module("questionnaire/questionnaire-detail.tpl.html", []).run(["$templat
     "        <div class=\"col-lg-12\">\n" +
     "          <h1>{{questionnaire.title}}</h1>\n" +
     "          <div class=\"row grid-container\">\n" +
-    "            <ul class=\"grids-holder\">\n" +
-    "              <li class=\"grid-item\" ng-repeat=\"question in questions track by $index\">\n" +
-    "                <div class=\"ibox float-e-margins\">\n" +
-    "                  <div class=\"ibox-title\">\n" +
-    "                    <h3>{{question.question}}</h3>\n" +
-    "                  </div>\n" +
-    "                  <div class=\"ibox-content\" ng-if=\"question.type == 11\">\n" +
-    "                    <div class=\"data-container\">\n" +
-    "                      <div id=\"graph_{{$index}}\" class=\"bar-holder\">\n" +
-    "                        <div class=\"progres-container\">\n" +
-    "                          <div class=\"progress-area\">\n" +
-    "                            <div class=\"progress-holder\" ng-repeat=\"dat in question.question_bar_chart\" data-color=\"dat.colour\" data-data=\"question.question_bar_chart\" question-bar-background>\n" +
-    "                              <div class=\"progress-inner\">\n" +
-    "                                <small><em>{{dat.name}} <b>{{dat.count}} Views</b></em></small>\n" +
-    "                                <div class=\"progress-block\">\n" +
-    "                                  <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
+    "            <div class=\"col-xs-12\">\n" +
+    "              <ul class=\"grids-holder\">\n" +
+    "                <li class=\"grid-item\" ng-repeat=\"question in questions track by $index\">\n" +
+    "                  <div class=\"ibox float-e-margins\">\n" +
+    "                    <div class=\"ibox-title\">\n" +
+    "                      <h3>{{question.question}}</h3>\n" +
+    "                    </div>\n" +
+    "                    <div class=\"ibox-content\" ng-if=\"question.type == 11\">\n" +
+    "                      <div class=\"data-container\">\n" +
+    "                        <div id=\"graph_{{$index}}\" class=\"bar-holder\">\n" +
+    "                          <div class=\"progres-container\">\n" +
+    "                            <div class=\"progress-area\">\n" +
+    "                              <div class=\"progress-holder\" ng-repeat=\"dat in question.question_bar_chart\" data-color=\"dat.colour\" data-data=\"question.question_bar_chart\" question-bar-background>\n" +
+    "                                <div class=\"progress-inner\">\n" +
+    "                                  <small><em>{{dat.name}} <b>{{dat.count}} Views</b></em></small>\n" +
+    "                                  <div class=\"progress-block\">\n" +
+    "                                    <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
+    "                                  </div>\n" +
     "                                </div>\n" +
     "                              </div>\n" +
     "                            </div>\n" +
@@ -1672,18 +1674,29 @@ angular.module("questionnaire/questionnaire-detail.tpl.html", []).run(["$templat
     "                        </div>\n" +
     "                      </div>\n" +
     "                    </div>\n" +
-    "                  </div>\n" +
-    "                  <div class=\"ibox-content\" ng-if=\"question.type == 10\" questionnaire-pie-chart data-data=\"question.question_pie_chart\">\n" +
-    "                    <div class=\"data-container\">\n" +
-    "                      <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
-    "                      <div ng-show=\"all_zero\" class=\"message-holder\">\n" +
-    "                        <h2>No Data Available</h2>\n" +
+    "                    <div class=\"ibox-content\" ng-if=\"question.type == 10\" questionnaire-pie-chart data-data=\"question.question_pie_chart\">\n" +
+    "                      <div class=\"data-container\">\n" +
+    "                        <div class=\"inner-holder\">\n" +
+    "                          <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
+    "                          <ul class=\"legend-items\">\n" +
+    "                            <li>\n" +
+    "                              <strong class=\"count\">1</strong>\n" +
+    "                              <div class=\"text-holder\">\n" +
+    "                                <span class=\"bullet\"></span>\n" +
+    "                                Rwp/Isb to Lhr\n" +
+    "                              </div>\n" +
+    "                            </li>\n" +
+    "                          </ul>\n" +
+    "                        </div>\n" +
+    "                        <div ng-show=\"all_zero\" class=\"message-holder\">\n" +
+    "                          <h2>No Data Available</h2>\n" +
+    "                        </div>\n" +
     "                      </div>\n" +
     "                    </div>\n" +
     "                  </div>\n" +
-    "                </div>\n" +
-    "              </li>\n" +
-    "            </ul>\n" +
+    "                </li>\n" +
+    "              </ul>\n" +
+    "            </div>\n" +
     "          </div>\n" +
     "        </div>\n" +
     "      </div>\n" +
