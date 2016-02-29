@@ -11,7 +11,6 @@
           scope.$watch('data', function(watchedData) {
             if(watchedData !== undefined){
               var data = scope.data;
-              console.log(data);
               chart = AmCharts.makeChart(data[0],
               {
                 "type": "pie",
