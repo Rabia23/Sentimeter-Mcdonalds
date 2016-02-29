@@ -733,11 +733,6 @@ angular.module("dashboard/top-concern/top-concern.tpl.html", []).run(["$template
     "            <h2>No Data Available</h2>\n" +
     "          </div>\n" +
     "        </div>\n" +
-    "        <!--<div class=\"ibox-content\">-->\n" +
-    "        <!--<div class=\"graph-block\">-->\n" +
-    "        <!--&lt;!&ndash;<canvas id=\"doughnut\" class=\"chart chart-doughnut\" chart-data=\"data\" chart-labels=\"labels\"></canvas> &ndash;&gt;-->\n" +
-    "        <!--</div>-->\n" +
-    "        <!--</div>-->\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +
@@ -1679,11 +1674,11 @@ angular.module("questionnaire/questionnaire-detail.tpl.html", []).run(["$templat
     "                        <div class=\"inner-holder\">\n" +
     "                          <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
     "                          <ul class=\"legend-items\">\n" +
-    "                            <li>\n" +
-    "                              <strong class=\"count\">1</strong>\n" +
+    "                            <li ng-repeat = \"label in question.question_pie_chart[1]\">\n" +
+    "                              <strong class=\"count\">{{label['column-1']}}</strong>\n" +
     "                              <div class=\"text-holder\">\n" +
     "                                <span class=\"bullet\"></span>\n" +
-    "                                Rwp/Isb to Lhr\n" +
+    "                                {{label.category}}\n" +
     "                              </div>\n" +
     "                            </li>\n" +
     "                          </ul>\n" +

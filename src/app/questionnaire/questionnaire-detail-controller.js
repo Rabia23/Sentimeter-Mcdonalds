@@ -3,6 +3,7 @@
 
   .controller( 'QuestionnaireDetailCtrl', function QuestionnaireDetailCtrl( $scope, $rootScope, Global, TokenHandler, Auth, flashService, $stateParams, QuestionnaireApi) {
 
+    // TODO Identaation is not right
      var inc = 1;
      $scope.all_zero = true;
      var questionnaireId = $stateParams.questionnaireId;
@@ -15,6 +16,7 @@
           if (question.total_count > 0) {
               $scope.all_zero = false;
           }
+          //TODO take 11 and 10 to an enum
           if(question.type == 11){
             var question_bar_chart = getBarChartData(question.feedbacks, question.total_count);
              question["question_bar_chart"] = question_bar_chart;
@@ -32,6 +34,8 @@
 
      });
 
+     // TODO identation is not correct
+     // TODO I can not see the Global service in the folder
      function getBarChartData(feedbacks, feedback_count){
        var question_analysis = _.map(feedbacks,  function(data, index){
         return {
@@ -46,6 +50,8 @@
       //question_analysis = _.sortBy(question_analysis, function (value) { return value.priority;  });
       return question_analysis;
     }
+
+    // Identation not correct
 
     function getPieChartData(feedbacks){
        var pie_chart_data = [];

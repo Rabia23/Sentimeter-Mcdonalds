@@ -36,15 +36,8 @@
                 "balloon": {},
                 "legend": {},
                 "titles": [],
-               "dataProvider": data
+                "dataProvider": data
               });
-
-              // var width = $("#piechart").find("svg").width();
-              // //width = width + 500;
-              // //$("#piechart").find("svg").css("width", width);
-              // console.log("svg width");
-              // console.log(width);
-
 
               $timeout(function () {
                 jQuery('.same-height-parent').sameHeight({

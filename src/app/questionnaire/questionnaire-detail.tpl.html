@@ -38,11 +38,11 @@
                         <div class="inner-holder">
                           <div id={{question.question_pie_chart[0]}} style="width:100%; height:300px;" ng-hide="all_zero"></div>
                           <ul class="legend-items">
-                            <li>
-                              <strong class="count">1</strong>
+                            <li ng-repeat = "label in question.question_pie_chart[1]">
+                              <strong class="count">{{label['column-1']}}</strong>
                               <div class="text-holder">
                                 <span class="bullet"></span>
-                                Rwp/Isb to Lhr
+                                {{label.category}}
                               </div>
                             </li>
                           </ul>

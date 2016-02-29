@@ -3,7 +3,7 @@ angular.module( 'factories', [
   'livefeed.api_links',
   'livefeed.authService'
 ])
-
+//TODO never push commented code
 .factory('Filters', ['$resource','apiLinks', function($resource, apiLinks) {
   function Filters() {
     this.service = $resource(apiLinks.staging, {},

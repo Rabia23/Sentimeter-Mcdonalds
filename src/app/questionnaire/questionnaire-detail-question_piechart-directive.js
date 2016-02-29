@@ -11,13 +11,14 @@
           scope.$watch('data', function(watchedData) {
             if(watchedData !== undefined){
               var data = scope.data;
+              console.log(data);
               chart = AmCharts.makeChart(data[0],
               {
                 "type": "pie",
                 "pullOutDuration": 0,
                 "pullOutRadius": 0,
                 "balloonText": "[[title]]<br><span style='font-size:14px'><b>[[value]]</b></span>",
-                "innerRadius": 0,
+                "innerRadius": "40%",
                 "startDuration": 0,
                 "color": "#FFF",
                 "colors": [
@@ -30,6 +31,7 @@
                 "labelTickColor" : "#FFF",
                 "labelRadius" : -90,
                 "labelColorField": "#FFF",
+                "labelsEnabled": false,
                 "titleField": "category",
                 "valueField": "column-1",
                 //"colorField": "color",
