@@ -9,7 +9,10 @@ angular.module("common/footer.tpl.html", []).run(["$templateCache", function($te
     "        <p>Admin Panel Feedback Survey</p>\n" +
     "      </div>\n" +
     "      <div class=\"footer-container\">\n" +
-    "        <a href=\"http:\\\\mcdonalds.com.pk\" target=\"_blank\" class=\"footer-link\">www.mcdonalds.com.pk</a>\n" +
+    "        Powered By\n" +
+    "        <div class=\"img-holder\">\n" +
+    "          <a href=\"http://sentimeter.io/\" target=\"_blank\"><img src=\"assets/images/sentimeter-icon.svg\" alt=\"image description\" onerror=\"this.onerror=null; this.src='assets/images/sentimeter-icon.png'\"></a>\n" +
+    "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
     "  </div>\n" +

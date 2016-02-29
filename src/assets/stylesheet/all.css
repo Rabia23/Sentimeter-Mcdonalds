@@ -689,10 +689,21 @@ body.login{background: #eee !important;}
   -o-transition: all 0.5s;
   transition: all 0.5s;
 }
+#footer .img-holder{
+  width: 100px;
+  margin: 0 0 0 5px;
+  display: inline-block;
+  vertical-align: middle;
+}
+#footer .img-holder img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
 .mini-navbar #footer{left: 70px;}
 #page-wrapper{
 	min-height: inherit !important;
-	padding-bottom: 50px !important;
+	padding-bottom: 60px !important;
 }
 #page-wrapper:before{
 	position: absolute;
@@ -718,10 +729,13 @@ body.login{background: #eee !important;}
 	overflow: hidden;
 	padding-left: 15px;
 	padding-right: 15px;
+    letter-spacing: -6px;
 }
 .footer-holder .footer-text,
 .footer-holder .footer-container{
-	float: left;
+	display: inline-block;
+    vertical-align: middle;
+    letter-spacing: 0;
 	width: 50%;
 	padding: 0 15px;
 }
@@ -3048,6 +3062,7 @@ li.active,
 		padding-bottom: 75px !important;
 		margin: 0;
 	}
+  #footer .footer-inner{padding-bottom: 5px;}
 	#footer{left: 0;}
 	#wrapper .navbar-static-side{
 		position: absolute;
