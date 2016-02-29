@@ -22,8 +22,8 @@
                 "startDuration": 0,
                 "color": "#FFF",
                 "colors": [
-                  "#4CCC72",
-                  "#E74D3D"
+                  "#f7ca17",
+                  "#e84c3d "
                 ],
                 "marginTop": 30,
                 "autoMargins": false,

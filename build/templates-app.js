@@ -1584,7 +1584,18 @@ angular.module("promotions/promotions-detail.tpl.html", []).run(["$templateCache
     "                    </div>\n" +
     "                    <div class=\"ibox-content\" ng-if=\"question.type == 4\" question-pie-chart data-data=\"question.question_pie_chart\">\n" +
     "                      <div class=\"data-container\">\n" +
-    "                        <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
+    "                        <div class=\"inner-holder\" ng-hide=\"all_zero\">\n" +
+    "                          <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px\"></div>\n" +
+    "                          <ul class=\"legend-items\">\n" +
+    "                            <li ng-repeat = \"label in question.question_pie_chart[1]\">\n" +
+    "                              <strong class=\"count\">{{label['column-1']}}</strong>\n" +
+    "                              <div class=\"text-holder\">\n" +
+    "                                <span class=\"bullet\" back-ground data-color=\"label.color\"></span>\n" +
+    "                                {{label.category}}\n" +
+    "                              </div>\n" +
+    "                            </li>\n" +
+    "                          </ul>\n" +
+    "                        </div>\n" +
     "                        <div ng-show=\"all_zero\" class=\"message-holder\">\n" +
     "                          <h2>No Data Available</h2>\n" +
     "                        </div>\n" +
@@ -1671,13 +1682,13 @@ angular.module("questionnaire/questionnaire-detail.tpl.html", []).run(["$templat
     "                    </div>\n" +
     "                    <div class=\"ibox-content\" ng-if=\"question.type == 10\" questionnaire-pie-chart data-data=\"question.question_pie_chart\">\n" +
     "                      <div class=\"data-container\">\n" +
-    "                        <div class=\"inner-holder\">\n" +
-    "                          <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
+    "                        <div class=\"inner-holder\" ng-hide=\"all_zero\">\n" +
+    "                          <div id={{question.question_pie_chart[0]}} style=\"width:100%; height:300px;\"></div>\n" +
     "                          <ul class=\"legend-items\">\n" +
     "                            <li ng-repeat = \"label in question.question_pie_chart[1]\">\n" +
     "                              <strong class=\"count\">{{label['column-1']}}</strong>\n" +
     "                              <div class=\"text-holder\">\n" +
-    "                                <span class=\"bullet\"></span>\n" +
+    "                                <span class=\"bullet\" back-ground data-color=\"label.color\"></span>\n" +
     "                                {{label.category}}\n" +
     "                              </div>\n" +
     "                            </li>\n" +
