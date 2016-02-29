@@ -11,7 +11,6 @@
           scope.$watch('data', function(watchedData) {
             if(watchedData !== undefined){
               var data = scope.data;
-              console.log(data);
               chart = AmCharts.makeChart(data[0],
               {
                 "type": "pie",
@@ -25,7 +24,8 @@
                   "#f7ca17",
                   "#e84c3d "
                 ],
-                "marginTop": 30,
+                "marginTop": 10,
+                "marginBottom": 25,
                 "autoMargins": false,
                 "labelText": "[[title]] : [[value]]",
                 "labelTickColor" : "#FFF",
@@ -34,7 +34,6 @@
                 "labelsEnabled": false,
                 "titleField": "category",
                 "valueField": "column-1",
-                //"colorField": "color",
                 "fontFamily": "'open Sans', open Sans",
                 "fontSize": 17,
                 "allLabels": [],
