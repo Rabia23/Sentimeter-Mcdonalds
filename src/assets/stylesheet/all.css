@@ -1799,6 +1799,7 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 	white-space: normal;
 	width: 100%;
 }
+.promotions .grid-item .data-container > .inner-holder,
 .promotions .grid-item .data-container > .bar-holder{vertical-align: top;}
 .promotions .grid-item .progress-holder{padding: 10px 0;}
 .promotions .progress-area .progress-holder .progress-block{height: 20px;}
@@ -2151,9 +2152,9 @@ li.active,
 	position: absolute;
 	left: 5px;
 	top: 50%;
-	font-size: 24px;
-	line-height: 24px;
-	margin-top: -12px;
+	font-size: 28px;
+	line-height: 28px;
+	margin-top: -14px;
 	color: #999;
 }
 .timeline-section .btn-prev.disabled,
@@ -2399,13 +2400,10 @@ li.active,
     pointer-events: auto;
     cursor: pointer;
 }
-
-.grid-container .grid-item .ibox-content{padding-bottom: 0;}
-
 .legend-items{
   overflow: hidden;
   padding: 0;
-  margin: 0 -20px;
+  margin: 0 -20px -20px;
   list-style: none;
 }
 
@@ -3042,6 +3040,7 @@ li.active,
     }
     .grid-container .grid-item{width: 50%;}
     .grid-container .grid-item .progress-holder{padding: 7px 0;}
+    .legend-items{margin: 0 -10px -10px;}
 }
 
 @media screen and (max-width: 768px) {

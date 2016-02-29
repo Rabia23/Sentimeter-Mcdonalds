@@ -1530,7 +1530,7 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
     "                      <a ng-click = \"deactivate(user, $index)\" title = \"Activate/Deactivate User\" ng-class=\"{'fa fa-user btn-active': (user.is_active == false), 'fa fa-user-times btn-deactive': (user.is_active == true)}\"></a>\n" +
     "                    </span>\n" +
     "                    <span class=\"btn-holder\">\n" +
-    "                      <a ng-click = \"disassociate(user, $index)\" title = \"Disassociate User\" class=\"fa fa-remove\" ng-if = \"(child_role == 4 && user.region) || ((child_role == 2 || child_role == 3) && (user.branch))\"></a>\n" +
+    "                      <a ng-click = \"disassociate(user, $index)\" title = \"Disassociate User\" class=\"fa fa-remove\" ng-if = \"(child_role == 4 && user.region) || (( child_role == 3) && (user.branch))\"></a>\n" +
     "                    </span>\n" +
     "                  </div>\n" +
     "                </div>\n" +
@@ -1651,7 +1651,6 @@ angular.module("questionnaire/questionnaire-detail.tpl.html", []).run(["$templat
     "    <ui-view name=\"header\"></ui-view>\n" +
     "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
     "      <div class=\"row promotions\" ng-class=\"{loading: show_loading}\">\n" +
-    "        <flash-message show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message>\n" +
     "        <div class=\"col-lg-12\">\n" +
     "          <h1>{{questionnaire.title}}</h1>\n" +
     "          <div class=\"row grid-container\">\n" +
