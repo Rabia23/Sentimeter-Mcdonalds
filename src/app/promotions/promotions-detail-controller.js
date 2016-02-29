@@ -52,9 +52,14 @@
     function getPieChartData(feedbacks){
        var pie_chart_data = [];
        _.each(feedbacks,  function(value){
-          pie_chart_data.push({"category": value.option__text, "column-1": value.count, "color": Global.promotionPieChartColorScheme[value.option__text]});
+          pie_chart_data.push({
+            "category": value.option__text,
+            "column-1": value.count,
+            "priority": Global.promotionPieChartPriority[value.option__text],
+            "color": Global.promotionPieChartColorScheme[value.option__text]});
        });
-      return pie_chart_data;
+       pie_chart_data = _.sortBy(pie_chart_data, function(value){ return value.priority; });
+       return pie_chart_data;
     }
   });
 

@@ -55,6 +55,11 @@ angular.module( 'helper_factories', ['ngResource'])
       "No": "#e84c3d"
     },
 
+    promotionPieChartPriority: {
+      "Yes": 1,
+      "No": 2
+    },
+
     complaintAnalysisAction: {
       1: ["Unprocessed", "#cb1e24"],
       2: ["Unrecoverable", "#ffd200"],
