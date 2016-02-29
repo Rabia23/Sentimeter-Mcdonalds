@@ -55,8 +55,8 @@
 
     function getPieChartData(feedbacks){
        var pie_chart_data = [];
-       _.each(feedbacks,  function(value){
-          pie_chart_data.push({"category": value.option__text, "column-1": value.count});
+       _.each(feedbacks,  function(value, index){
+          pie_chart_data.push({"category": value.option__text, "column-1": value.count, "color": Global.questionnaireDonutColors(index)});
        });
       return pie_chart_data;
     }

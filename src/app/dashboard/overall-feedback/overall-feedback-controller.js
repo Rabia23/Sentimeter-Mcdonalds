@@ -24,7 +24,6 @@
           'apply.daterangepicker': function(ev, picker){
             $scope.show_loading = true;
             show_graph(ev.model.startDate._i, ev.model.endDate._i);
-            $scope.show_loading = false;
           },
           'cancel.daterangepicker': function(ev, picker){
             //$scope.datePicker.date.startDate = null;

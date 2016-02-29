@@ -13,6 +13,11 @@ angular.module( 'helper_factories', ['ngResource'])
       return colors[index];
     },
 
+    questionnaireDonutColors: function(index){
+      var colors = [ "#f7ca17","#e84c3d"];
+      return colors[index];
+    },
+
     opportunityClass: {
       "Quality of Food": [1, "#4CCC72"],
       "Friendly & Courteous Staff": [2, "#3598DC"],
@@ -46,8 +51,8 @@ angular.module( 'helper_factories', ['ngResource'])
     },
 
     promotionPieChartColorScheme: {
-      "Yes": "#4CCC72",
-      "No": "#E74D3D"
+      "Yes": "#f7ca17",
+      "No": "#e84c3d"
     },
 
     complaintAnalysisAction: {
