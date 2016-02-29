@@ -2138,7 +2138,7 @@ li.active,
 	text-align: center;
 	position: fixed;
 	right: 20px;
-	bottom: 50px;
+	bottom: 70px;
 }
 .add-user:hover{
 	background: #f1cf41;
@@ -2166,10 +2166,11 @@ li.active,
 	position: absolute;
 	left: 5px;
 	top: 50%;
-	font-size: 28px;
-	line-height: 28px;
-	margin-top: -14px;
+	font-size: 30px;
+	line-height: 30px;
+	margin-top: -15px;
 	color: #999;
+    font-weight: bold;
 }
 .timeline-section .btn-prev.disabled,
 .timeline-section .btn-next.disabled{display: none;}
