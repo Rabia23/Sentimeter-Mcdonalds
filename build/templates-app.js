@@ -1599,7 +1599,7 @@ angular.module("promotions/promotions-detail.tpl.html", []).run(["$templateCache
     "                    </div>\n" +
     "                    <div class=\"ibox-content\" ng-if=\"question.type == 5\">\n" +
     "                      <div class=\"data-container\">\n" +
-    "                        <div id=\"graph_{{$index}}\">\n" +
+    "                        <div id=\"graph_{{$index}}\" class=\"bar-holder\">\n" +
     "                          <div class=\"progres-container\">\n" +
     "                            <div class=\"progress-area\">\n" +
     "                              <div class=\"progress-holder\" ng-repeat=\"dat in question.question_bar_chart\" data-color=\"dat.colour\" data-data=\"question.question_bar_chart\" question-bar-background>\n" +

@@ -575,6 +575,7 @@ function initSameHeight() {
     elements: '.grid-item .data-container',
     flexible: true,
     multiLine: true,
+    biggestHeight: true,
 	useMinHeight: true
   });
   jQuery('.grids-holder').sameHeight({
