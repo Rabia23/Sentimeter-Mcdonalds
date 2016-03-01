@@ -498,7 +498,9 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "              <th class=\"item2\">Phone / Email</th>\n" +
     "              <th class=\"item3\">Branch</th>\n" +
     "              <th class=\"item4\">Segment</th>\n" +
-    "              <th class=\"item5\">Comments</th>\n" +
+    "              <th class=\"item5\">\n" +
+    "                <div class=\"search-holder\"><input type=\"text\" class=\"search\" placeholder=\"Comments\"></div>\n" +
+    "              </th>\n" +
     "              <th class=\"item6\">\n" +
     "                <div class=\"btn-group\" uib-dropdown is-open=\"status.isopen\">\n" +
     "                  <button id=\"single-button\" type=\"button\" class=\"btn btn-info\" uib-dropdown-toggle>\n" +
