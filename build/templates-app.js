@@ -525,7 +525,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "                    <span class=\"email-holder\">{{comment.email}}</span>\n" +
     "                  </td>\n" +
     "                  <td class=\"item3\">{{comment.data.branch}}</td>\n" +
-    "                  <td class=\"item4\">{{comment.data.segment}} {{comment.show_dropdown}}</td>\n" +
+    "                  <td class=\"item4\">{{comment.data.segment}}</td>\n" +
     "                  <td class=\"item5\">\n" +
     "                    <div class=\"text\">{{comment.data.comment}}</div>\n" +
     "                  </td>\n" +
@@ -1409,7 +1409,7 @@ angular.module("manage-users/edit-user-modal.tpl.html", []).run(["$templateCache
     "          <div class=\"form-group\">\n" +
     "            <label class=\"col-sm-2 col-md-3 control-label\" for=\"email\">Email</label>\n" +
     "            <div class=\"col-sm-10 col-md-9\">\n" +
-    "              <input type=\"email\" id=\"email\" class=\"form-control\" ng-model=\"user.email\" name=\"email\" required=t rue autocomplete=\"off\" ng-pattern=\"/^[a-z]+[a-z0-9._]+@[a-z]+\\.[a-z.]{2,5}$/\">\n" +
+    "              <input type=\"email\" id=\"email\" class=\"form-control\" ng-model=\"user.email\" name=\"email\" required=t rue autocomplete=\"off\" ng-pattern=\"/^[a-z]+[a-z0-9._]+@[a-z]+\\.[a-z.]{2,7}$/\">\n" +
     "              <div ng-show=\"UserForm.email.$error.required && (!UserForm.email.$pristine || submitted == true)\" class=\"form-error-message pull-left\">Email is required.\n" +
     "              </div>\n" +
     "              <div ng-show=\"UserForm.email.$error.pattern && (!UserForm.email.$pristine || submitted == true)\" class=\"form-error-message pull-left\">Wrong email pattern.\n" +
