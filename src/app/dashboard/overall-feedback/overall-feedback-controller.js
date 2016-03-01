@@ -37,6 +37,7 @@
     function show_graph(start_date, end_date){
       Graphs.overall_feedback(start_date, end_date).$promise.then(function(graph_data){
         if(graph_data.success) {
+          $scope.feedback_count = graph_data.response.feedback_count;
           $scope.show_error_message = false;
           $scope.show_labels = graph_data.response.feedback_count === 0 ? false : true;
           $scope.labels = _.map(graph_data.response.feedbacks, function (value) {
