@@ -1485,7 +1485,6 @@ angular.module("manage-users/manage-users.tpl.html", []).run(["$templateCache", 
     "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
     "      <div class=\"row users-section\" ng-class=\"{'loading': show_loading}\">\n" +
     "        <div class=\"col-lg-12\">\n" +
-    "          <h1>{{user_list}}</h1>\n" +
     "          <div class=\"users-area\">\n" +
     "            <div ng-show=\"users.length == 0\" class=\"message-block\">\n" +
     "              <i class=\"fa fa-info-circle\"></i>\n" +
@@ -1574,7 +1573,22 @@ angular.module("promotions/promotions-detail.tpl.html", []).run(["$templateCache
     "      <div class=\"row promotions\" ng-class=\"{loading: show_loading}\">\n" +
     "        <flash-message show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message>\n" +
     "        <div class=\"col-lg-12\">\n" +
-    "          <h1>{{promotion.title}} Promotion</h1>\n" +
+    "          <div class=\"row\">\n" +
+    "            <div class=\"col-xs-12\">\n" +
+    "              <div class=\"calendar-box\">\n" +
+    "                <div class=\"ibox\">\n" +
+    "                  <div class=\"ibox-content\">\n" +
+    "                    <div class=\"calender-outer\">\n" +
+    "                      <span class=\"calendar-holder\">\n" +
+    "                        <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" ng-disabled = \"!mainView\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
+    "                        <i class=\"fa fa-calendar\" map-range-click></i>\n" +
+    "                      </span>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
     "          <div class=\"row grid-container\">\n" +
     "            <div class=\"col-xs-12\">\n" +
     "              <ul class=\"grids-holder\">\n" +
@@ -1671,7 +1685,22 @@ angular.module("questionnaire/questionnaire-detail.tpl.html", []).run(["$templat
     "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
     "      <div class=\"row promotions\" ng-class=\"{loading: show_loading}\">\n" +
     "        <div class=\"col-lg-12\">\n" +
-    "          <h1>{{questionnaire.title}}</h1>\n" +
+    "          <div class=\"row\">\n" +
+    "            <div class=\"col-xs-12\">\n" +
+    "              <div class=\"calendar-box\">\n" +
+    "                <div class=\"ibox\">\n" +
+    "                  <div class=\"ibox-content\">\n" +
+    "                    <div class=\"calender-outer\">\n" +
+    "                      <span class=\"calendar-holder\">\n" +
+    "                        <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" ng-disabled = \"!mainView\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
+    "                        <i class=\"fa fa-calendar\" map-range-click></i>\n" +
+    "                      </span>\n" +
+    "                    </div>\n" +
+    "                  </div>\n" +
+    "                </div>\n" +
+    "              </div>\n" +
+    "            </div>\n" +
+    "          </div>\n" +
     "          <div class=\"row grid-container\">\n" +
     "            <div class=\"col-xs-12\">\n" +
     "              <ul class=\"grids-holder\">\n" +
@@ -1740,7 +1769,6 @@ angular.module("questionnaire/questionnaire.tpl.html", []).run(["$templateCache"
     "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
     "      <div class=\"row questionnaire\" ng-class=\"{'loading': show_loading}\">\n" +
     "        <div class=\"col-lg-12\">\n" +
-    "          <h1>Questionnaires List</h1>\n" +
     "          <div class=\"users-area\">\n" +
     "            <ul class=\"question-list\">\n" +
     "              <li ng-repeat=\"question in questions\">\n" +
