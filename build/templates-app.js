@@ -43,7 +43,7 @@ angular.module("common/header.tpl.html", []).run(["$templateCache", function($te
     "  <div class=\"img-holder\">\n" +
     "    <div class=\"inner-holder\"><img alt=\"image\" class=\"img-responsive\" src=\"/assets/images/img1.jpg\" /></div>\n" +
     "  </div>\n" +
-    "  <div class=\"header-caption animated fadeInRight\">\n" +
+    "  <div class=\"header-caption\">\n" +
     "    <h1>Customer Centric Approach</h1>\n" +
     "  </div>\n" +
     "</div>");
@@ -65,9 +65,17 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "        </li>\n" +
     "        <li ng-class=\"{'active': (currentState == 'questionnaire' || currentState == 'questionnaire_detail' )}\">\n" +
     "          <a ui-sref=\"questionnaire\"><i class=\"fa fa-question-circle\"></i> <span class=\"nav-label\">Questionnaire</span></a>\n" +
+    "          <!--<ul class=\"dropnav\">\n" +
+    "            <li><a>Questionnaire Detail</a></li>\n" +
+    "            <li><a>Manage Questionnaire</a></li>\n" +
+    "          </ul>-->\n" +
     "        </li>\n" +
     "        <li ng-class=\"{'active': (currentState == 'promotions' || currentState == 'promotions_detail' ) }\">\n" +
     "          <a ui-sref=\"promotions\"><i class=\"fa fa-bullhorn\"></i> <span class=\"nav-label\">Promotions</span></a>\n" +
+    "          <!--<ul class=\"dropnav\">\n" +
+    "            <li><a>Promotions Detail</a></li>\n" +
+    "            <li><a>Manage Promotions</a></li>\n" +
+    "          </ul>-->\n" +
     "        </li>\n" +
     "        <li ng-class=\"{'active': currentState == 'users'}\">\n" +
     "          <a ui-sref=\"users\"><i class=\"fa fa-user\"></i> <span class=\"nav-label\">Manage Users</span></a>\n" +
@@ -397,7 +405,7 @@ angular.module("dashboard/overall-feedback/overall-feedback.tpl.html", []).run([
     "    <div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\">\n" +
     "      <div class=\"title-outer\">\n" +
     "        <div class=\"ibox-title\">\n" +
-    "          <h5>Overall Rating</h5>\n" +
+    "          <h5>Overall Rating <small> (<strong>999999</strong>)</small></h5>\n" +
     "          <div class=\"ibox-tools\">\n" +
     "            <ul class=\"tab-links\">\n" +
     "              <li>\n" +
@@ -529,7 +537,10 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "                  <td class=\"item3\">{{comment.data.branch}}</td>\n" +
     "                  <td class=\"item4\">{{comment.data.segment}}</td>\n" +
     "                  <td class=\"item5\">\n" +
-    "                    <div class=\"text\">{{comment.data.comment}}</div>\n" +
+    "                    <div class=\"text\">\n" +
+    "                      <p>{{comment.data.comment}}</p>\n" +
+    "                      <time datetime=\"{{comment.date_time}}\">{{comment.date_time}}</time>\n" +
+    "                    </div>\n" +
     "                  </td>\n" +
     "                  <td class=\"item6\">\n" +
     "                    <div class=\"btn-group\" uib-dropdown dropdown-append-to-body ng-show = \"comment.data.is_negative && comment.show_dropdown\">\n" +
@@ -547,7 +558,10 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "                    <div class=\"btn-group\" uib-dropdown dropdown-append-to-body ng-show = \"!comment.data.is_negative && comment.show_dropdown\">\n" +
     "                      <button type=\"button\" class=\"btn btn-info\" ng-click=\"selectedValue('Recovered',comment)\">Recover</button>\n" +
     "                    </div>\n" +
-    "                    <span ng-hide=\"comment.show_dropdown\">{{comment.action_string}}</span>\n" +
+    "                    <span ng-hide=\"comment.show_dropdown\">\n" +
+    "                      {{comment.action_string}}\n" +
+    "                      <time datetime=\"{{comment.date_time}}\">{{comment.date_time}}</time>\n" +
+    "                    </span>\n" +
     "                  </td>\n" +
     "                </tr>\n" +
     "              </tbody>\n" +

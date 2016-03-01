@@ -46,7 +46,10 @@
                   <td class="item3">{{comment.data.branch}}</td>
                   <td class="item4">{{comment.data.segment}}</td>
                   <td class="item5">
-                    <div class="text">{{comment.data.comment}}</div>
+                    <div class="text">
+                      <p>{{comment.data.comment}}</p>
+                      <time datetime="{{comment.date_time}}">{{comment.date_time}}</time>
+                    </div>
                   </td>
                   <td class="item6">
                     <div class="btn-group" uib-dropdown dropdown-append-to-body ng-show = "comment.data.is_negative && comment.show_dropdown">
@@ -64,7 +67,10 @@
                     <div class="btn-group" uib-dropdown dropdown-append-to-body ng-show = "!comment.data.is_negative && comment.show_dropdown">
                       <button type="button" class="btn btn-info" ng-click="selectedValue('Recovered',comment)">Recover</button>
                     </div>
-                    <span ng-hide="comment.show_dropdown">{{comment.action_string}}</span>
+                    <span ng-hide="comment.show_dropdown">
+                      {{comment.action_string}}
+                      <time datetime="{{comment.date_time}}">{{comment.date_time}}</time>
+                    </span>
                   </td>
                 </tr>
               </tbody>
