@@ -361,6 +361,7 @@
     }
 
     $scope.open = function(option, area, region, city, branch){
+      if (!area){ area = null;}
       if (!region){ region = null;}
       if (!city){ city = null;}
       if (!branch){ branch = null;}

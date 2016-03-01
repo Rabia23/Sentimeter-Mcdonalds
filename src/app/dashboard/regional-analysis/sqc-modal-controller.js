@@ -1,10 +1,20 @@
 (function() {
     angular.module('livefeed.dashboard.regional_analysis')
 
-    .controller('SQCModalCtrl', function ($scope, Graphs, regionalAnalysisChartService, $uibModalInstance, area, region, city, branch, option, start_date, end_date, TokenHandler, flashService){
+    .controller('SQCModalCtrl', function ($scope, Graphs, PatchStatusEnum, regionalAnalysisChartService, $uibModalInstance, area, region, city, branch, option, start_date, end_date, TokenHandler, flashService){
       var user_role = TokenHandler.get_user_role();
-      var type_id;
-
+      var type_id, city_id, area_id;
+      if(user_role == PatchStatusEnum.get_branch_manager_value())
+      {
+        city_id = "";
+        area = "";
+        region = "";
+        city = "";
+      }
+      if(user_role == PatchStatusEnum.get_operational_consultant_value()){
+        area_id = "";
+        area = "";
+      }
       $scope.show_angle_left = true;
       $scope.show_angle_right = true;
 
@@ -79,9 +89,13 @@
         });
       }
       else if(city == null && branch == null){
+
         type_id = user_role == 4 ? "" : 1;
+        if(area){
+         area_id = area.id;
+        }
         onOptionSelect(area, region, null, null, region);
-        Graphs.regional_analysis($scope.question_type,"","",area.id,type_id).$promise.then(function(data) {
+        Graphs.regional_analysis($scope.question_type,"","",area_id,type_id).$promise.then(function(data) {
           if(data.success) {
             $scope.show_error_message = false;
             $scope.sqc_data = getSQCdata(data.response);
@@ -113,18 +127,16 @@
       }
       else{
         type_id = user_role == 3 ? "" : 3;
+        if(city){
+          city_id = city.id;
+        }
         onOptionSelect(area, region, city, branch, branch);
-        Graphs.branch_analysis(city.id, $scope.question_type,"","",type_id).$promise.then(function(data) {
+        Graphs.branch_analysis(city_id, $scope.question_type,"","",type_id).$promise.then(function(data) {
           if(data.success) {
             $scope.show_error_message = false;
             $scope.sqc_data = getSQCdata(data.response);
             hideQSCModalButton(branch, $scope.sqc_data);
-            if (user_role == 3) {
-              showGraph("", "", "", branch, option);
-            }
-            else {
-              showGraph(area, region, city, branch, option);
-            }
+            showGraph(area, region, city, branch, option);
           }
           else{
             $scope.show_error_message = true;
