@@ -17,6 +17,8 @@
     }
 
 
+
+
     ManageApi.manage_users().$promise.then(function(data){
       $scope.show_loading = false;
       $scope.show_users = false;
@@ -24,8 +26,10 @@
         if(data.response.children.length === 0){
             $scope.show_users = true;
         }
+
         $scope.show_error_message = false;
         $scope.user_list = Enum.get_user_label(data.response.child_role) + "S";
+        $rootScope.page_heading = $scope.user_list;
         $scope.users = data.response.children;
         $scope.parent_id = data.response.parent_id;
         $scope.child_role = data.response.child_role;

@@ -7,10 +7,12 @@
     var inc = 1;
     $scope.show_loading = true;
     $scope.all_zero = true;
+    
     PromotionsApi.promotion_detail(promotionId).$promise.then(function(data){
       $scope.show_loading = false;
       if(data.success){
         $scope.promotion = data.response.promotion;
+        $rootScope.page_heading = $scope.promotion.title + " Promotions";
         $scope.questions = data.response.analysis;
         _.each($scope.questions, function(question){
           if (question.total_count > 0) {

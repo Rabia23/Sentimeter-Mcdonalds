@@ -44,7 +44,7 @@ angular.module("common/header.tpl.html", []).run(["$templateCache", function($te
     "    <div class=\"inner-holder\"><img alt=\"image\" class=\"img-responsive\" src=\"/assets/images/img1.jpg\" /></div>\n" +
     "  </div>\n" +
     "  <div class=\"header-caption\">\n" +
-    "    <h1>Customer Centric Approach</h1>\n" +
+    "    <h1>{{page_heading}}</h1>\n" +
     "  </div>\n" +
     "</div>");
 }]);
@@ -405,7 +405,7 @@ angular.module("dashboard/overall-feedback/overall-feedback.tpl.html", []).run([
     "    <div class=\"ibox float-e-margins\" ng-class=\"{loading: show_loading}\">\n" +
     "      <div class=\"title-outer\">\n" +
     "        <div class=\"ibox-title\">\n" +
-    "          <h5>Overall Rating <small> (<strong>999999</strong>)</small></h5>\n" +
+    "          <h5>Overall Rating <small> (<strong>{{feedback_count}}</strong>)</small></h5>\n" +
     "          <div class=\"ibox-tools\">\n" +
     "            <ul class=\"tab-links\">\n" +
     "              <li>\n" +

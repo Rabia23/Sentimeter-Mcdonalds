@@ -1,9 +1,10 @@
 (function() {
   angular.module('livefeed.questionnaire')
 
-  .controller( 'QuestionnaireCtrl', function QuestionnaireCtrl( $scope, $state, TokenHandler, Auth, QuestionnaireApi, flashService) {
+  .controller( 'QuestionnaireCtrl', function QuestionnaireCtrl( $scope, $state, TokenHandler, Auth, QuestionnaireApi, flashService, $rootScope) {
 
     $scope.show_loading = true;
+    $rootScope.page_heading = "Questionnaires List";
     QuestionnaireApi.questionnaire_list().$promise.then(function(data){
       $scope.show_loading = false;
       if(data.success){

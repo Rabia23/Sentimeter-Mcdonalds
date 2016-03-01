@@ -4,6 +4,8 @@
     .controller( 'DashboardCtrl', function DashboardController( $scope, $state, $rootScope, flashService, Graphs) {
       $scope.show_loading = true;
 
+      $rootScope.page_heading = "Dashboard";
+
       $rootScope.$on('app-online', function(event, args) {
         console.log("online in dashboard");
       });

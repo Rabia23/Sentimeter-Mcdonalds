@@ -11,6 +11,7 @@
 
       if(data.success){
         $scope.questionnaire = data.response.questionnaire;
+        $rootScope.page_heading = $scope.questionnaire.title;
         $scope.questions = data.response.analysis;
         _.each($scope.questions, function(question){
           if (question.total_count > 0) {

@@ -4,6 +4,9 @@
 
   .controller( 'PromotionsCtrl', function PromotionCtrl( $scope, $state, $rootScope, TokenHandler, Auth, flashService, PromotionsApi) {
       $scope.show_loading = true;
+      
+      $rootScope.page_heading = "Promotions";
+      
       PromotionsApi.promotions_list().$promise.then(function(data){
         $scope.show_loading = false;
         if(data.success){
