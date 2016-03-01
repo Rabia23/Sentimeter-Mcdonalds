@@ -49,7 +49,7 @@
           <div class="form-group">
             <label class="col-sm-2 col-md-3 control-label" for="email">Email</label>
             <div class="col-sm-10 col-md-9">
-              <input type="email" id="email" class="form-control" ng-model="user.email" name="email" required=t rue autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+              <input type="email" id="email" class="form-control" ng-model="user.email" name="email" required=t rue autocomplete="off" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,7}$/">
               <div ng-show="UserForm.email.$error.required && (!UserForm.email.$pristine || submitted == true)" class="form-error-message pull-left">Email is required.
               </div>
               <div ng-show="UserForm.email.$error.pattern && (!UserForm.email.$pristine || submitted == true)" class="form-error-message pull-left">Wrong email pattern.
