@@ -146,6 +146,31 @@ body.login{background: #eee !important;}
 	background: #ac1a1a;
 	border-color: #ac1a1a;
 }
+#wrapper .navbar-static-side{
+  position: fixed;
+  height: 100%;
+}
+#wrapper .sidebar-collapse{height: 100%;}
+#wrapper #side-menu{
+  height: 100%;
+  padding: 152px 0 0;
+}
+#wrapper #side-menu .logo-holder{
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+#wrapper #side-menu .jcf-scrollable-wrapper,
+#wrapper #side-menu .jcf-scrollable{
+  height: 100% !important;
+  width: 100% !important;
+}
+#wrapper #side-menu .jcf-scrollbar-dec,
+#wrapper #side-menu .jcf-scrollbar-inc{
+  width: 0 !important;
+  height: 0 !important;
+}
+#wrapper #side-menu .jcf-scrollbar-vertical{pointer-events: none;}
 #wrapper .sidebar-collapse .nav > li > a{
 	color: #000;
 	font-size: 15px;
@@ -891,7 +916,10 @@ body.login{background: #eee !important;}
 .jcf-scrollbar-vertical .jcf-scrollbar-handle{min-height: 50px !important;}
 .table-block .jcf-scrollbar.jcf-scrollbar-horizontal{display: none !important;}
 .jcf-scrollbar-vertical,
-.modal-1200 .modal-body .jcf-scrollbar-vertical{width: 7px;}
+.modal-1200 .modal-body .jcf-scrollbar-vertical{
+  width: 7px;
+  z-index: 999;
+}
 .jcf-scrollbar-vertical .jcf-scrollbar-handle,
 .jcf-scrollbar-horizontal .jcf-scrollbar-handle,
 .modal-1200 .modal-body .jcf-scrollbar-vertical .jcf-scrollbar-handle,
@@ -974,13 +1002,13 @@ body.login{background: #eee !important;}
   border: 0;
   outline: none;
 }
-.modal-1200 .table .search::-webkit-input-placeholder {color: #fff;}
-.modal-1200 .table .search:-moz-placeholder {color: #fff;}
+.modal-1200 .table .search::-webkit-input-placeholder {color: rgba(255,255,255,0.8);}
+.modal-1200 .table .search:-moz-placeholder {color: rgba(255,255,255,0.8);}
 .modal-1200 .table .search::-moz-placeholder { 
-	color: #fff;
+	color: rgba(255,255,255,0.8);
 	opacity: 1;
 }
-.modal-1200 .table .search:-ms-input-placeholder {color: #fff;}
+.modal-1200 .table .search:-ms-input-placeholder {color: rgba(255,255,255,0.8);}
 .modal-1200 .table thead th{
 	font-size: 13px;
 	line-height: 1.2;
@@ -1027,6 +1055,7 @@ body.login{background: #eee !important;}
 	text-align: left;
 	overflow: hidden;
 }
+.modal-1200 .table thead th.item6{padding-right: 5px;}
 .modal-1200 .table th.item6,
 .modal-1200 .table td.item6{
 	width: 14%;
@@ -1041,6 +1070,8 @@ body.login{background: #eee !important;}
 .table th .dropdown-menu > li > a:hover,
 .table th .dropdown-menu > li > a:active,
 .table th .dropdown-menu > li > a:focus{color: #fff;}
+.modal-1200 .table th.item6 .btn-group,
+.modal-1200 .table th.item6 .btn-group-vertical{width: 100%;}
 .modal-1200 .table td.item6 .btn{
 	display: block;
 	font-size: 12px;
@@ -1063,6 +1094,14 @@ body.login{background: #eee !important;}
   border: 0;
   box-shadow: none;
   font-weight: 600;
+  width: 100%;
+  text-align: left;
+}
+.modal-1200 .table th.item6 .btn .caret{
+  position: absolute;
+  right: 0;
+  top: 50%;
+  margin-top: -2px;
 }
 .modal-1200 .table th.item6 .btn.btn-info:hover,
 .modal-1200 .table th.item6 .btn.btn-info:active,
@@ -1070,6 +1109,11 @@ body.login{background: #eee !important;}
   background: none !important;
   border: 0 !important;
   box-shadow: none;
+}
+.modal-1200 .table .btn-group.dropdown.open .caret{
+  -webkit-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 .modal-1200 .table .dropdown-menu{
 	left: auto;
@@ -1081,12 +1125,19 @@ body.login{background: #eee !important;}
 	border-radius: 0 !important;
 	z-index: 999;
 }
-.modal-1200 .table th .dropdown-menu{min-width: 100px;}
+.modal-1200 .table th .dropdown-menu{
+  min-width: 100px;
+  margin-top: 12px;
+}
 .modal-1200 .table .dropdown-menu > li > a{
 	padding: 5px;
 	margin: 0 !important;
 	border-radius: 0 !important;
 	text-align: center;
+}
+.modal-1200 .table th .dropdown-menu > li > a{
+  text-align: left;
+  padding: 10px;
 }
 .modal-1200 .table .dropdown-menu > li > a:hover,
 .modal-1200 .table .dropdown-menu > li > a:active,
@@ -3214,6 +3265,8 @@ li.active,
     .legend-items{margin: 0 -10px -10px;}
     .calender-outer.add{padding: 0 7px;}
     .calendar-box {margin: -30px -15px 0 -14px;}
+    .logo-holder{height: 133px;}
+    #wrapper #side-menu{padding: 133px 0 0;}
 }
 
 @media screen and (max-width: 768px) {
@@ -3221,10 +3274,9 @@ li.active,
 		padding-bottom: 75px !important;
 		margin: 0;
 	}
-  #footer .footer-inner{padding-bottom: 5px;}
+    #footer .footer-inner{padding-bottom: 5px;}
 	#footer{left: 0;}
 	#wrapper .navbar-static-side{
-		position: absolute;
 		left: -70px;
 		width: 70px !important;
 		top: 0;

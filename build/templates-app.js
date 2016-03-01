@@ -59,7 +59,7 @@ angular.module("common/sidebar.tpl.html", []).run(["$templateCache", function($t
     "          <a href=\"http://www.mcdonalds.com.pk/\" target=\"_blank\"> <img alt=\"image\" class=\"img-responsive\" src=\"assets/images/logo.jpg\"></a>\n" +
     "        </div>\n" +
     "      </div>\n" +
-    "      <ul class=\"nav metismenu\" id=\"side-menu\">\n" +
+    "      <ul class=\"nav metismenu jcf-scrollable\" custom-form>\n" +
     "        <li ng-class=\"{'active': currentState == 'dashboard'}\">\n" +
     "          <a ui-sref=\"dashboard\"><i class=\"fa fa-home\"></i> <span class=\"nav-label\">Dashboard</span></a>\n" +
     "        </li>\n" +
@@ -512,7 +512,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "              <th class=\"item6\">\n" +
     "                <div class=\"btn-group\" uib-dropdown is-open=\"status.isopen\">\n" +
     "                  <button id=\"single-button\" type=\"button\" class=\"btn btn-info\" uib-dropdown-toggle>\n" +
-    "                    Status &nbsp;<span class=\"caret\"></span>\n" +
+    "                    <span class=\"caret\"></span> Status\n" +
     "                  </button>\n" +
     "                  <ul uib-dropdown-menu role=\"menu\" aria-labelledby=\"single-button\">\n" +
     "                    <li role=\"menuitem\" ng-repeat=\"option in status_options\">\n" +
