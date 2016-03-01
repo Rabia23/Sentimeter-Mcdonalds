@@ -1,7 +1,7 @@
 angular.module('livefeed.regional_analysis.chart', [
   'helper_factories'
 ])
-.service('regionalAnalysisChartService', function(Global, PatchComplaintStatusEnum){
+.service('regionalAnalysisChartService', function(Global, PatchStatusEnum){
   return {
 
       getDonutChartData: function(graph_data, question_type){
@@ -40,14 +40,14 @@ angular.module('livefeed.regional_analysis.chart', [
       _.each(graph_data.analysis, function(data){
         var count = 0;
         _.each(data.data.action_analysis,  function(dat) {
-          if( dat.action_taken === PatchComplaintStatusEnum.get_skip_label_index() ){
+          if( dat.action_taken === PatchStatusEnum.get_skip_label_index() ){
             count = count + dat.count;
           }
         });
         data.data.feedback_count = data.data.feedback_count - count;
       });
       _.map(graph_data.analysis, function(data){
-         data.data.action_analysis = _.filter(data.data.action_analysis,  function(dat) { return dat.action_taken !== PatchComplaintStatusEnum.get_skip_label_index(); });
+         data.data.action_analysis = _.filter(data.data.action_analysis,  function(dat) { return dat.action_taken !== PatchStatusEnum.get_skip_label_index(); });
       });
       return {
         objects: _.map(graph_data.analysis,  function(data){
