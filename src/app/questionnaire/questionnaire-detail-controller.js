@@ -5,6 +5,7 @@
 
     var inc = 1;
     $scope.all_zero = true;
+    $scope.show_loading = true;
     var questionnaireId = $stateParams.questionnaireId;
     
     $scope.today = new Date();
@@ -22,37 +23,43 @@
       eventHandlers: {
         'apply.daterangepicker': function(ev, picker){
           $scope.show_loading = true;
+          $scope.all_zero = true;
+          $scope.start_date = ev.model.startDate._i;
+          $scope.end_date =  ev.model.endDate._i;
+          showQuestionnaireData();
         }
       },
       opens: "left"
     }; 
+    function showQuestionnaireData() {
 
-    QuestionnaireApi.questionnaire_detail(questionnaireId).$promise.then(function(data){
-
-      if(data.success){
-        $scope.questionnaire = data.response.questionnaire;
-        $rootScope.page_heading = $scope.questionnaire.title;
-        $scope.questions = data.response.analysis;
-        _.each($scope.questions, function(question){
-          if (question.total_count > 0) {
+      QuestionnaireApi.questionnaire_detail(questionnaireId, $scope.start_date, $scope.end_date).$promise.then(function (data) {
+        $scope.show_loading = false;
+        if (data.success) {
+          $scope.questionnaire = data.response.questionnaire;
+          $rootScope.page_heading = $scope.questionnaire.title;
+          $scope.questions = data.response.analysis;
+          _.each($scope.questions, function (question) {
+            if (question.total_count > 0) {
               $scope.all_zero = false;
-          }
-          if(question.type == QuestionnaireChartTypeEnum.get_bar_chart_value()){
-            var question_bar_chart = getBarChartData(question.feedbacks, question.total_count);
-             question["question_bar_chart"] = question_bar_chart;
-          }
-          else if(question.type == QuestionnaireChartTypeEnum.get_pie_chart_value()){
-            var question_pie_chart= getPieChartData(question.feedbacks);
-            question["question_pie_chart"] = ["piechart-" + inc, question_pie_chart];
-            inc = inc + 1;
-          }
-        });
-      }
-      else{
-        flashService.createFlash(data.message, "danger");
-      }
+            }
+            if (question.type == QuestionnaireChartTypeEnum.get_bar_chart_value()) {
+              var question_bar_chart = getBarChartData(question.feedbacks, question.total_count);
+              question["question_bar_chart"] = question_bar_chart;
+            }
+            else if (question.type == QuestionnaireChartTypeEnum.get_pie_chart_value()) {
+              var question_pie_chart = getPieChartData(question.feedbacks);
+              question["question_pie_chart"] = ["piechart-" + inc, question_pie_chart];
+              inc = inc + 1;
+            }
+          });
+        }
+        else {
+          flashService.createFlash(data.message, "danger");
+        }
 
-    });
+      });
+    }
 
     function getBarChartData(feedbacks, feedback_count){
       var question_analysis = _.map(feedbacks,  function(data, index){
@@ -74,6 +81,8 @@
       });
       return pie_chart_data;
     }
+
+    showQuestionnaireData();
   });
 
 })();

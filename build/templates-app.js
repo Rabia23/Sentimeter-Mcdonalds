@@ -560,7 +560,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "                    </div>\n" +
     "                    <span ng-hide=\"comment.show_dropdown\">\n" +
     "                      {{comment.action_string}}\n" +
-    "                      <time datetime=\"{{comment.date_time}}\">{{comment.date_time}}</time>\n" +
+    "                      <time datetime=\"{{comment.updated_time}}\">{{comment.updated_time}}</time>\n" +
     "                    </span>\n" +
     "                  </td>\n" +
     "                </tr>\n" +

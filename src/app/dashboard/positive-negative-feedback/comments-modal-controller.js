@@ -23,6 +23,7 @@
           if(data.success) {
             $scope.show_error_message = false;
             comment.data.action_taken = data.response.action_taken;
+            comment.updated_time = new Date().toString(data.response.updated_at).split("GMT")[0];
           }
           else {
            $scope.show_error_message = true;
