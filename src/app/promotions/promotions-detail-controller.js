@@ -2,12 +2,31 @@
   angular.module( 'livefeed.promotions')
 
 
-  .controller( 'PromotionsDetailCtrl', function PromotionDetailCtrl( $scope, $state, $rootScope, Global, TokenHandler, Auth, flashService, $stateParams, PromotionsApi) {
+  .controller( 'PromotionsDetailCtrl', function PromotionDetailCtrl( $scope, $state, $rootScope, Global, PromotionsChartTypeEnum, TokenHandler, Auth, flashService, $stateParams, PromotionsApi) {
     var promotionId = $stateParams.promotionId;
     var inc = 1;
     $scope.show_loading = true;
     $scope.all_zero = true;
-    
+    $scope.today = new Date();
+
+    function resetDates(){
+      $scope.date = {
+        startDate: moment().subtract(1, "days"),
+        endDate: moment()
+      };
+    }
+
+    resetDates();
+
+    $scope.datePickerOption = {
+      eventHandlers: {
+        'apply.daterangepicker': function(ev, picker){
+          $scope.show_loading = true;
+        }
+      },
+      opens: "left"
+    };
+
     PromotionsApi.promotion_detail(promotionId).$promise.then(function(data){
       $scope.show_loading = false;
       if(data.success){
@@ -18,11 +37,11 @@
           if (question.total_count > 0) {
               $scope.all_zero = false;
           }
-          if(question.type == 5){
+          if(question.type == PromotionsChartTypeEnum.get_bar_chart_value()){
             var question_bar_chart = getBarChartData(question.feedbacks, question.total_count);
              question["question_bar_chart"] = question_bar_chart;
           }
-          else if(question.type == 4){
+          else if(question.type == PromotionsChartTypeEnum.get_pie_chart_value()){
             var question_pie_chart= getPieChartData(question.feedbacks);
             question["question_pie_chart"] = ["piechart-" + inc, question_pie_chart];
             inc = inc + 1;

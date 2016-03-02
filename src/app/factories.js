@@ -3,7 +3,7 @@ angular.module( 'factories', [
   'livefeed.api_links',
   'livefeed.authService'
 ])
-//TODO never push commented code
+
 .factory('Filters', ['$resource','apiLinks', function($resource, apiLinks) {
   function Filters() {
     this.service = $resource(apiLinks.staging, {},
@@ -27,8 +27,6 @@ angular.module( 'factories', [
 
 .factory('Graphs', ['$resource','apiLinks','_','TokenHandler','$http','$rootScope',  function($resource, apiLinks, _, TokenHandler, $http, $rootScope) {
 
-
-
   function Graphs() {
     this.service = $resource(apiLinks.staging, {},
                   {
@@ -36,13 +34,11 @@ angular.module( 'factories', [
                     feedback_analysis: {method: "GET",isArray: false, params: {endpoint: "feedback_analysis/"}},
                     overall_rating: {method: "GET",isArray: false, params: {endpoint: "overall_rating/"}},
                     positive_negative_feedback: {method: "GET",isArray: false, params: {endpoint: "positive_negative_feedback/"}},
-                    //category_performance: {method: "GET",isArray: false, params: {endpoint: "category_performance/"}},
                     comments: {method: "GET",isArray: false, params: {endpoint: "comments/"}},
                     feedback_analysis_breakdown: {method: "GET",isArray: false, params: {endpoint: "feedback_analysis_breakdown/"}},
                     map_view: {method: "GET",isArray: false, params: {endpoint: "map_view/"}},
                     feedback_segmentation: {method: "GET",isArray: false, params: {endpoint: "feedback_segmentation/"}},
                     top_concerns: {method: "GET", isArray: false, params: {endpoint: "top_concerns/"}},
-                    //segmentation_rating:{method: "GET",isArray: false, params: {endpoint: "segmentation_rating/"}},
                     action_taken:{method: "POST",isArray: false, params: {endpoint: "action_taken/"}},
                     action_analysis: {method: "GET",isArray: false, params: {endpoint: "action_analysis/"}},
                     area_analysis: {method: "GET",isArray: true, params: {endpoint: "area/"}},
@@ -139,17 +135,6 @@ angular.module( 'factories', [
     type_id = type_id || "";
     return this.service.feedback_analysis({token:  token,type: type_id, date_from: start_date, date_to: end_date, city: city_id, question_type: question_type});
   };
-  //Graphs.prototype.category_performance = function(region_id, city_id, branch_id, option_id, start_date, end_date){
-  //  var token = $rootScope.token || TokenHandler.get_token();
-  //  region_id = region_id || "";
-  //  city_id = city_id || "";
-  //  branch_id = branch_id || "";
-  //  option_id = option_id || "";
-  //  start_date = start_date || "";
-  //  end_date = end_date || "";
-  //  return this.service.category_performance({token:  token,region: region_id, city: city_id, branch: branch_id, option: option_id, date_from: start_date, date_to: end_date});
-  //};
-
   Graphs.prototype.comments = function(page, status_id){
     var token = $rootScope.token || TokenHandler.get_token();
     page = page || 1;
@@ -168,16 +153,6 @@ angular.module( 'factories', [
     end_date = end_date || "";
     return this.service.feedback_analysis_breakdown({token:  token, area: area_id, region: region_id, city: city_id, branch: branch_id, option: option_id, date_from: start_date, date_to: end_date});
   };
-  //Graphs.prototype.segmentation_rating = function(region_id, city_id, branch_id, option_id, start_date, end_date){
-  //  var token = $rootScope.token || TokenHandler.get_token();
-  //  region_id = region_id || "";
-  //  city_id = city_id || "";
-  //  branch_id = branch_id || "";
-  //  option_id = option_id || "";
-  //  start_date = start_date || "";
-  //  end_date = end_date || "";
-  //  return this.service.segmentation_rating({token:  token,region: region_id, city: city_id, branch: branch_id, option: option_id, date_from: start_date, date_to: end_date});
-  //};
   Graphs.prototype.action_analysis = function(type_id, region_id, city_id, date_from, date_to, area_id){
     var token = $rootScope.token || TokenHandler.get_token();
     type_id = type_id || "";

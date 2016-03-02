@@ -11,7 +11,7 @@ angular.module("common/footer.tpl.html", []).run(["$templateCache", function($te
     "      <div class=\"footer-container\">\n" +
     "        Powered By\n" +
     "        <div class=\"img-holder\">\n" +
-    "          <a href=\"http://sentimeter.io/\" target=\"_blank\"><img src=\"assets/images/sentimeter-icon.svg\" alt=\"image description\" onerror=\"this.onerror=null; this.src='assets/images/sentimeter-icon.png'\"></a>\n" +
+    "          <a href=\"http://sentimeter.io/\" target=\"_blank\"><img src=\"assets/images/sentimeter-icon.svg\" alt=\"Sentimeter.io\" onerror=\"this.onerror=null; this.src='assets/images/sentimeter-icon.png'\"></a>\n" +
     "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
@@ -1581,7 +1581,7 @@ angular.module("promotions/promotions-detail.tpl.html", []).run(["$templateCache
     "                  <div class=\"ibox-content\">\n" +
     "                    <div class=\"calender-outer\">\n" +
     "                      <span class=\"calendar-holder\">\n" +
-    "                        <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" ng-disabled = \"!mainView\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
+    "                        <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
     "                        <i class=\"fa fa-calendar\" map-range-click></i>\n" +
     "                      </span>\n" +
     "                    </div>\n" +
@@ -1693,7 +1693,7 @@ angular.module("questionnaire/questionnaire-detail.tpl.html", []).run(["$templat
     "                  <div class=\"ibox-content\">\n" +
     "                    <div class=\"calender-outer\">\n" +
     "                      <span class=\"calendar-holder\">\n" +
-    "                        <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" ng-disabled = \"!mainView\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
+    "                        <input date-range-picker id=\"daterange-map\" readonly=\"readonly\" name=\"daterange-map\" class=\"date-picker\" type=\"text\" ng-model=\"date\" max=\"today\" options = \"datePickerOption\" readonly=\"true\"/>\n" +
     "                        <i class=\"fa fa-calendar\" map-range-click></i>\n" +
     "                      </span>\n" +
     "                    </div>\n" +
