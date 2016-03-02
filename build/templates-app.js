@@ -11,7 +11,7 @@ angular.module("common/footer.tpl.html", []).run(["$templateCache", function($te
     "      <div class=\"footer-container\">\n" +
     "        Powered By\n" +
     "        <div class=\"img-holder\">\n" +
-    "          <a href=\"http://sentimeter.io/\" target=\"_blank\"><img src=\"assets/images/sentimeter-icon.svg\" alt=\"image description\" onerror=\"this.onerror=null; this.src='assets/images/sentimeter-icon.png'\"></a>\n" +
+    "          <a href=\"http://sentimeter.io/\" target=\"_blank\"><img src=\"assets/images/sentimeter-icon.svg\" alt=\"Sentimeter.io\" onerror=\"this.onerror=null; this.src='assets/images/sentimeter-icon.png'\"></a>\n" +
     "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
@@ -760,7 +760,7 @@ angular.module("dashboard/top-concern/top-concern.tpl.html", []).run(["$template
 
 angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("how-to/how-to.tpl.html",
-    "<div id=\"wrapper\" class=\"add\">\n" +
+    "<div id=\"wrapper\" class=\"add\" smooth-scroll scroll-if = \"scrollTo\">\n" +
     "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
     "    <header class=\"doc-header\">\n" +
     "      <a class=\"navbar-minimalize minimalize-styl-2 btn btn-danger visible-xs menu-opener\" doc-nav>\n" +
@@ -774,6 +774,7 @@ angular.module("how-to/how-to.tpl.html", []).run(["$templateCache", function($te
     "    </header>\n" +
     "    <div class=\"doc-block\">\n" +
     "      <nav class=\"navbar-default navbar-static-side\" role=\"navigation\" nav-focus>\n" +
+    "        <a class=\"btn-top\" scroll-to='wrapper' ng-click = \"changeScrollTo()\"><i class=\"fa fa-angle-up\"></i></a>\n" +
     "        <div class=\"sidebar-collapse\">\n" +
     "          <div id=\"side-menu\" class=\"nav metismenu\">\n" +
     "            <ul class=\"nav metismenu\" id=\"side-menu\">\n" +
