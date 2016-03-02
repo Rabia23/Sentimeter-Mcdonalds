@@ -543,16 +543,16 @@ module.exports = function ( grunt ) {
 
     'http-server': {
 
-        'dev': {
+      'dev': {
 
-            root: '<%= build_dir %>',
-            port: 4000,
-            host: "localhost",
-            ext: "html",
-            runInBackground: false,
-            openBrowser : false
+        root: '<%= build_dir %>',
+        port: 4000,
+        host: "localhost",
+        ext: "html",
+        runInBackground: false,
+        openBrowser : false
 
-        }
+      }
 
     }
   };

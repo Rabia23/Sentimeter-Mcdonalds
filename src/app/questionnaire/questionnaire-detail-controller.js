@@ -8,6 +8,9 @@
     var questionnaireId = $stateParams.questionnaireId;
     
     $scope.today = new Date();
+    $scope.show_loader = false;
+
+    $scope.show_loading = true;
 
     function resetDates(){
       $scope.date = {
@@ -21,14 +24,15 @@
     $scope.datePickerOption = {
       eventHandlers: {
         'apply.daterangepicker': function(ev, picker){
-          $scope.show_loading = true;
+          $scope.show_loader = true;
         }
       },
       opens: "left"
     }; 
 
     QuestionnaireApi.questionnaire_detail(questionnaireId).$promise.then(function(data){
-
+      $scope.show_loader = false;
+      $scope.show_loading = false;
       if(data.success){
         $scope.questionnaire = data.response.questionnaire;
         $rootScope.page_heading = $scope.questionnaire.title;

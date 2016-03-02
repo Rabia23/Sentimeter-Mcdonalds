@@ -1571,7 +1571,7 @@ angular.module("promotions/promotions-detail.tpl.html", []).run(["$templateCache
     "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
     "    <ui-view name=\"header\"></ui-view>\n" +
     "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
-    "      <div class=\"row promotions\" ng-class=\"{loading: show_loading}\">\n" +
+    "      <div class=\"row promotions\" ng-class=\"{loading: show_loading, loader: show_loader}\">\n" +
     "        <flash-message show-close=\"true\" on-dismiss=\"onAlertDismiss(flash)\"></flash-message>\n" +
     "        <div class=\"col-lg-12\">\n" +
     "          <div class=\"row\">\n" +
@@ -1684,7 +1684,7 @@ angular.module("questionnaire/questionnaire-detail.tpl.html", []).run(["$templat
     "  <div id=\"page-wrapper\" class=\"gray-bg\">\n" +
     "    <ui-view name=\"header\"></ui-view>\n" +
     "    <div class=\"wrapper wrapper-content animated fadeInRight\">\n" +
-    "      <div class=\"row promotions\" ng-class=\"{loading: show_loading}\">\n" +
+    "      <div class=\"row promotions\" ng-class=\"{loading: show_loading, loader: show_loader}\">\n" +
     "        <div class=\"col-lg-12\">\n" +
     "          <div class=\"row\">\n" +
     "            <div class=\"col-xs-12\">\n" +

@@ -6,6 +6,7 @@
     var promotionId = $stateParams.promotionId;
     var inc = 1;
     $scope.show_loading = true;
+    $scope.show_loader = false;
     $scope.all_zero = true;
     $scope.today = new Date();
 
@@ -21,13 +22,14 @@
     $scope.datePickerOption = {
       eventHandlers: {
         'apply.daterangepicker': function(ev, picker){
-          $scope.show_loading = true;
+          $scope.show_loader  = true;
         }
       },
       opens: "left"
     };
 
     PromotionsApi.promotion_detail(promotionId).$promise.then(function(data){
+      $scope.show_loader = false;
       $scope.show_loading = false;
       if(data.success){
         $scope.promotion = data.response.promotion;
