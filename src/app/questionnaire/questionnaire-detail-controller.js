@@ -7,6 +7,27 @@
      var inc = 1;
      $scope.all_zero = true;
      var questionnaireId = $stateParams.questionnaireId;
+    
+    $scope.today = new Date();
+
+    function resetDates(){
+      $scope.date = {
+        startDate: moment().subtract(1, "days"),
+        endDate: moment()
+      };
+    }
+
+    resetDates();
+
+    $scope.datePickerOption = {
+      eventHandlers: {
+        'apply.daterangepicker': function(ev, picker){
+          $scope.show_loading = true;
+        }
+      },
+      opens: "left"
+    }; 
+
      QuestionnaireApi.questionnaire_detail(questionnaireId).$promise.then(function(data){
 
       if(data.success){

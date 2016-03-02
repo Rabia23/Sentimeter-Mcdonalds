@@ -7,7 +7,26 @@
     var inc = 1;
     $scope.show_loading = true;
     $scope.all_zero = true;
-    
+    $scope.today = new Date();
+
+    function resetDates(){
+      $scope.date = {
+        startDate: moment().subtract(1, "days"),
+        endDate: moment()
+      };
+    }
+
+    resetDates();
+
+    $scope.datePickerOption = {
+      eventHandlers: {
+        'apply.daterangepicker': function(ev, picker){
+          $scope.show_loading = true;
+        }
+      },
+      opens: "left"
+    };
+
     PromotionsApi.promotion_detail(promotionId).$promise.then(function(data){
       $scope.show_loading = false;
       if(data.success){
