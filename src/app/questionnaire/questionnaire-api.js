@@ -19,9 +19,11 @@ angular.module( 'livefeed.questionnaire.api', [
     var token = $rootScope.token || TokenHandler.get_token();
     return this.service.questionnaire_list({token: token});
   };
-  QuestionnaireApi.prototype.questionnaire_detail = function(id){
+  QuestionnaireApi.prototype.questionnaire_detail = function(id, date_from, date_to){
     var token = $rootScope.token || TokenHandler.get_token();
-    return this.service.questionnaire_detail({id: id, token: token});
+    date_from = date_from || "";
+    date_to = date_to || "";
+    return this.service.questionnaire_detail({id: id, token: token, date_from: date_from, date_to: date_to});
   };
   return new QuestionnaireApi();
 }]);

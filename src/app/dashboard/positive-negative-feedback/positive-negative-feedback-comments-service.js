@@ -21,8 +21,9 @@
         var action_string = StatusEnum.get_labels(comment_data.action_taken);
         var show_dropdown = showDropdown(comment_data, action_string);
         var date_time = new Date(comment_data.created_at).toString().split("GMT")[0];
+        var updated_time = new Date(comment_data.updated_at).toString().split("GMT")[0];
 
-        return {data: data, email: email, phone_no: phone_no, show_dropdown:show_dropdown, action_string: action_string, date_time: date_time};
+        return {data: data, email: email, phone_no: phone_no, show_dropdown:show_dropdown, action_string: action_string, date_time: date_time, updated_time: updated_time};
       }
 
     };

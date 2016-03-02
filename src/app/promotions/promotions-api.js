@@ -19,9 +19,11 @@ angular.module( 'livefeed.promotions.api', [
     var token = $rootScope.token || TokenHandler.get_token();
     return this.service.promotions_list({token: token});
   };
-  PromotionsApi.prototype.promotion_detail = function(id){
+  PromotionsApi.prototype.promotion_detail = function(id, date_from, date_to){
     var token = $rootScope.token || TokenHandler.get_token();
-    return this.service.promotion_detail({id: id, token: token});
+    date_from = date_from || "";
+    date_to = date_to || "";
+    return this.service.promotion_detail({id: id, token: token, date_from: date_from, date_to: date_to});
   };
   return new PromotionsApi();
 }]);

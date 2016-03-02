@@ -9,6 +9,8 @@
     $scope.show_loader = false;
     $scope.all_zero = true;
     $scope.today = new Date();
+    $scope.start_date = null;
+    $scope.end_date = null;
 
     function resetDates(){
       $scope.date = {
@@ -23,39 +25,47 @@
       eventHandlers: {
         'apply.daterangepicker': function(ev, picker){
           $scope.show_loader  = true;
+          $scope.all_zero = true;
+          $scope.start_date = ev.model.startDate._i;
+          $scope.end_date =  ev.model.endDate._i;
+          showPromotionData();
         }
       },
       opens: "left"
     };
 
-    PromotionsApi.promotion_detail(promotionId).$promise.then(function(data){
-      $scope.show_loader = false;
-      $scope.show_loading = false;
-      if(data.success){
-        $scope.promotion = data.response.promotion;
-        $rootScope.page_heading = $scope.promotion.title + " Promotions";
-        $scope.questions = data.response.analysis;
-        _.each($scope.questions, function(question){
-          if (question.total_count > 0) {
-              $scope.all_zero = false;
-          }
-          if(question.type == PromotionsChartTypeEnum.get_bar_chart_value()){
-            var question_bar_chart = getBarChartData(question.feedbacks, question.total_count);
-             question["question_bar_chart"] = question_bar_chart;
-          }
-          else if(question.type == PromotionsChartTypeEnum.get_pie_chart_value()){
-            var question_pie_chart= getPieChartData(question.feedbacks);
-            question["question_pie_chart"] = ["piechart-" + inc, question_pie_chart];
-            inc = inc + 1;
-          }
-        });
-      }
-      else{
-        flashService.createFlash(data.message, "danger");
+    function showPromotionData() {
 
-      }
+      PromotionsApi.promotion_detail(promotionId, $scope.start_date, $scope.end_date).$promise.then(function(data){
+        $scope.show_loading = false;
+        $scope.show_loader  = false;
+        if(data.success){
+          console.log(data.response);
+          $scope.promotion = data.response.promotion;
+          $rootScope.page_heading = $scope.promotion.title + " Promotions";
+          $scope.questions = data.response.analysis;
+          _.each($scope.questions, function(question){
+            if (question.total_count > 0) {
+                $scope.all_zero = false;
+            }
+            if(question.type == PromotionsChartTypeEnum.get_bar_chart_value()){
+              var question_bar_chart = getBarChartData(question.feedbacks, question.total_count);
+               question["question_bar_chart"] = question_bar_chart;
+            }
+            else if(question.type == PromotionsChartTypeEnum.get_pie_chart_value()){
+              var question_pie_chart= getPieChartData(question.feedbacks);
+              question["question_pie_chart"] = ["piechart-" + inc, question_pie_chart];
+              inc = inc + 1;
+            }
+          });
+        }
+        else{
+          flashService.createFlash(data.message, "danger");
 
-    });
+        }
+
+      });
+    }
 
     function getBarChartData(feedbacks, feedback_count){
        var question_analysis = _.map(feedbacks,  function(data, index){
@@ -84,6 +94,8 @@
        pie_chart_data = _.sortBy(pie_chart_data, function(value){ return value.priority; });
        return pie_chart_data;
     }
+
+    showPromotionData();
   });
 
 })();
