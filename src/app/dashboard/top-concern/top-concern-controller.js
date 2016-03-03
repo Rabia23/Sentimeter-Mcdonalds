@@ -1,7 +1,7 @@
 (function() {
     angular.module('livefeed.dashboard.top_concern')
 
-    .controller( 'TopConcernsCtrl', function TopConcernController( $rootScope, $scope, Graphs, Global, flashService, $uibModal ) {
+    .controller( 'TopConcernsCtrl', function TopConcernController( $rootScope, $scope, Graphs, Global, flashService ) {
       $scope.colors = [];
       $scope.labels = [];
       $scope.show_loading = true;
@@ -40,5 +40,4 @@
       };
 
     });
-
 })();
