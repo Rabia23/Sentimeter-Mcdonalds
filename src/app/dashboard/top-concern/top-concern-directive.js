@@ -5,7 +5,8 @@
     return {
       restrict: 'A',
       scope: {
-        data: '='
+        data: '=',
+        action: '&'
       },
       link: function(scope, ele, attrs) {
         var chart;
@@ -53,6 +54,11 @@
               $timeout(function () {
                 window.initEqualHeight();
               }, 1000);
+
+              chart.addListener("clickSlice", function(event){
+                scope.$apply(scope.action({text_string: event.dataItem.dataContext.category}));
+              });
+
 
           }
         });

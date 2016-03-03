@@ -1,7 +1,9 @@
 {
   "name": "livefeed-web",
   "author": "Arbisoft",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-lintspaces": "^0.7.3"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-bump": "0.0.6",

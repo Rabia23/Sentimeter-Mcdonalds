@@ -22,7 +22,11 @@
         }
       });
     };
-
+    $scope.$on('handleBroadcast', function(event, args) {
+        console.log('receiving broadcast message');
+        console.log('Concern String: ' + args.text);
+        $scope.open();
+    });
     $scope.open = function (size) {
 
       var modalInstance = $uibModal.open({

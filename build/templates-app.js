@@ -745,7 +745,7 @@ angular.module("dashboard/top-concern/top-concern.tpl.html", []).run(["$template
     "          <h5>Top Opportunities</h5>\n" +
     "        </div>\n" +
     "      </div>\n" +
-    "      <div class=\"content-holder\" top-concerns data-data=\"data\">\n" +
+    "      <div class=\"content-holder\" top-concerns data-data=\"data\" data-action=\"getConcernsString(text_string)\">\n" +
     "        <div class=\"ibox-content float-chart-block chart-box\">\n" +
     "          <div id=\"piechart\" style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
     "          <div ng-show=\"all_zero\" class=\"message-holder\">\n" +
