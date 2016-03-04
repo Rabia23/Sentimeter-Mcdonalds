@@ -23,18 +23,17 @@
       });
     };
     $scope.$on('handleBroadcast', function(event, args) {
-        var concerns_text = args.text;
-        $scope.open();
+      $scope.open(args.text);
     });
-    $scope.open = function (size) {
-
+    
+    $scope.open = function (text) {
       var modalInstance = $uibModal.open({
         templateUrl: 'dashboard/positive-negative-feedback/comments-modal.tpl.html',
         controller: 'ModalInstanceCtrl',
         size: 1200,
         resolve: {
-          items: function () {
-            return $scope.items;
+          text: function () {
+            return text;
           }
         }
       });
