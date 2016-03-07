@@ -34,7 +34,8 @@ angular.module( 'factories', [
                     feedback_analysis: {method: "GET",isArray: false, params: {endpoint: "feedback_analysis/"}},
                     overall_rating: {method: "GET",isArray: false, params: {endpoint: "overall_rating/"}},
                     positive_negative_feedback: {method: "GET",isArray: false, params: {endpoint: "positive_negative_feedback/"}},
-                    comments: {method: "GET",isArray: false, params: {endpoint: "comments/"}},
+                    comments: {method: "GET",isArray: false, params: {endpoint: "comments"}},
+                    comments_text_search: {method: "GET",isArray: false, params: {endpoint: "comments_text_search"}},
                     feedback_analysis_breakdown: {method: "GET",isArray: false, params: {endpoint: "feedback_analysis_breakdown/"}},
                     map_view: {method: "GET",isArray: false, params: {endpoint: "map_view/"}},
                     feedback_segmentation: {method: "GET",isArray: false, params: {endpoint: "feedback_segmentation/"}},
@@ -139,7 +140,23 @@ angular.module( 'factories', [
     var token = $rootScope.token || TokenHandler.get_token();
     page = page || 1;
     status_id = status_id || "";
-    return this.service.comments({token:  token,page: page, status_id: status_id, text:text});
+    return this.service.comments({token:  token,page: page, action_taken: status_id});
+  };
+
+  Graphs.prototype.comments_text_search = function(page, status_id, text){
+    var token = $rootScope.token || TokenHandler.get_token();
+    page = page || 1;
+    status_id = status_id || "";
+    var comment_json = {token:  token,page: page, action_taken: status_id, comment__icontains: text};
+    var area = TokenHandler.get_area();
+    console.log(area);
+    if(area.branch_id){
+      comment_json.branch_id = area.branch_id;
+    }
+    else if(area.region_id){
+      comment_json.region_id = area.region_id;
+    } 
+    return this.service.comments_text_search(comment_json);
   };
 
   Graphs.prototype.feedback_analysis_breakdown = function(area_id, region_id, city_id, branch_id, option_id, start_date, end_date){
