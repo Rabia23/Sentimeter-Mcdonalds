@@ -2,15 +2,17 @@
 
   <div class="ibox-title">
     <h5>{{title}}</h5>
-    <!--<h5 ng-show = "area_view">{{title}}</h5>-->
-    <!--<h5 ng-show = "area_view == false && regional_view == true">{{selected_area.name}}'s Region Analysis</h5>-->
-    <!--<h5 ng-show = "regional_view == false && city_view == true">{{selected_region.name}}'s City Analysis</h5>-->
-    <!--<h5 ng-show = "area_view == false && regional_view == false && city_view == false">{{selected_city.name}}'s Branch Analysis</h5>-->
     <div class="ibox-tools">
       <ul class="tab-links">
-        <li ng-class="{active: radioModel == 'Complaints'}"><a ng-model="radioModel" uib-btn-radio="'Complaints'" ng-click="showChart(null, 'areas')">Complaints</a></li>
-        <li ng-class="{active: radioModel == 'Rating'}"><a ng-model="radioModel" uib-btn-radio="'Rating'" ng-click="showChart(null, 'areas')">Rating</a></li>
-        <li ng-class="{active: radioModel == 'QSC'}"><a ng-model="radioModel" uib-btn-radio="'QSC'" ng-click="showChart(null, 'areas')">QSC</a></li>
+        <li ng-class="{active: radioModel == 'Complaints'}">
+          <a ng-model="radioModel" uib-btn-radio="'Complaints'" ng-click="showChart(null, 'areas')" ng-disabled = "show_loading">Complaints</a>
+        </li>
+        <li ng-class="{active: radioModel == 'Rating'}">
+          <a ng-model="radioModel" uib-btn-radio="'Rating'" ng-click="showChart(null, 'areas')" ng-disabled = "show_loading">Rating</a>
+        </li>
+        <li ng-class="{active: radioModel == 'QSC'}">
+          <a ng-model="radioModel" uib-btn-radio="'QSC'" ng-click="showChart(null, 'areas')" ng-disabled = "show_loading">QSC</a>
+        </li>
         <li class="item5">
           <div class="calender-outer">
             <span class="calendar-holder">
