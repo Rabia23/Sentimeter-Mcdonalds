@@ -618,15 +618,17 @@ angular.module("dashboard/regional-analysis/regional-analysis.tpl.html", []).run
     "\n" +
     "  <div class=\"ibox-title\">\n" +
     "    <h5>{{title}}</h5>\n" +
-    "    <!--<h5 ng-show = \"area_view\">{{title}}</h5>-->\n" +
-    "    <!--<h5 ng-show = \"area_view == false && regional_view == true\">{{selected_area.name}}'s Region Analysis</h5>-->\n" +
-    "    <!--<h5 ng-show = \"regional_view == false && city_view == true\">{{selected_region.name}}'s City Analysis</h5>-->\n" +
-    "    <!--<h5 ng-show = \"area_view == false && regional_view == false && city_view == false\">{{selected_city.name}}'s Branch Analysis</h5>-->\n" +
     "    <div class=\"ibox-tools\">\n" +
     "      <ul class=\"tab-links\">\n" +
-    "        <li ng-class=\"{active: radioModel == 'Complaints'}\"><a ng-model=\"radioModel\" uib-btn-radio=\"'Complaints'\" ng-click=\"showChart(null, 'areas')\">Complaints</a></li>\n" +
-    "        <li ng-class=\"{active: radioModel == 'Rating'}\"><a ng-model=\"radioModel\" uib-btn-radio=\"'Rating'\" ng-click=\"showChart(null, 'areas')\">Rating</a></li>\n" +
-    "        <li ng-class=\"{active: radioModel == 'QSC'}\"><a ng-model=\"radioModel\" uib-btn-radio=\"'QSC'\" ng-click=\"showChart(null, 'areas')\">QSC</a></li>\n" +
+    "        <li ng-class=\"{active: radioModel == 'Complaints'}\">\n" +
+    "          <a ng-model=\"radioModel\" uib-btn-radio=\"'Complaints'\" ng-click=\"showChart(null, 'areas')\" ng-disabled = \"show_loading\">Complaints</a>\n" +
+    "        </li>\n" +
+    "        <li ng-class=\"{active: radioModel == 'Rating'}\">\n" +
+    "          <a ng-model=\"radioModel\" uib-btn-radio=\"'Rating'\" ng-click=\"showChart(null, 'areas')\" ng-disabled = \"show_loading\">Rating</a>\n" +
+    "        </li>\n" +
+    "        <li ng-class=\"{active: radioModel == 'QSC'}\">\n" +
+    "          <a ng-model=\"radioModel\" uib-btn-radio=\"'QSC'\" ng-click=\"showChart(null, 'areas')\" ng-disabled = \"show_loading\">QSC</a>\n" +
+    "        </li>\n" +
     "        <li class=\"item5\">\n" +
     "          <div class=\"calender-outer\">\n" +
     "            <span class=\"calendar-holder\">\n" +

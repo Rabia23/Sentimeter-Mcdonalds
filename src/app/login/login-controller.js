@@ -33,10 +33,19 @@
           $scope.show_loading = true;
           Authentication.login($scope.authenticate).$promise.then(function(data){
             $scope.show_loading = false;
+            console.log(data);
             if(data.success){
               $rootScope.token = data.response.token;
               $rootScope.fullname = data.response.user.first_name+" "+data.response.user.last_name;
-              TokenHandler.store_token(data.response.token, data.response.user.username, data.response.user.role, data.response.user.first_name+" "+data.response.user.last_name, $scope.remember_me, $scope.authenticate.password);
+              var branch_id = null;
+              var region_id = null;
+              if(data.response.user.branch){
+                branch_id = data.response.user.branch.id;
+              }
+              else if(data.response.user.region){
+                region_id = data.response.user.region.id;
+              }
+              TokenHandler.store_token(data.response.token, data.response.user.username, data.response.user.role, data.response.user.first_name+" "+data.response.user.last_name, $scope.remember_me, $scope.authenticate.password, branch_id, region_id);
               $state.go("dashboard");
             }
             else{

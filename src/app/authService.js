@@ -4,12 +4,26 @@ angular.module('livefeed.authService', [])
 
   return {
 
-    store_token: function(token, username, user_role, fullname, remember_me, password){
+    store_token: function(token, username, user_role, fullname, remember_me, password, branch_id, region_id){
       window.sessionStorage.setItem('token', token);
       window.sessionStorage.setItem('loggedin', 'true');
       window.sessionStorage.setItem('username', username);
       window.sessionStorage.setItem('user_role', user_role);
       window.sessionStorage.setItem('fullname', fullname);
+      if(branch_id){
+        window.sessionStorage.setItem('branch_id', branch_id);
+      }
+      else{
+         window.sessionStorage.setItem('branch_id', "");
+      }
+      if(region_id){
+        window.sessionStorage.setItem('region_id', region_id);
+      }
+      else{
+        window.sessionStorage.setItem('region_id', "");
+      }
+      
+      
       if(remember_me){
         window.localStorage.setItem('username', username);
         window.localStorage.setItem('password', password);
@@ -28,6 +42,8 @@ angular.module('livefeed.authService', [])
       window.sessionStorage.setItem('username', "");
       window.sessionStorage.setItem('user_role', "");
       window.sessionStorage.setItem('fullname', "");
+      window.sessionStorage.setItem('branch_id', "");
+      window.sessionStorage.setItem('region_id', "");
 
       window.localStorage.setItem('username', "");
       window.localStorage.setItem('password', "");
@@ -46,8 +62,16 @@ angular.module('livefeed.authService', [])
       return window.sessionStorage.getItem("token");
     },
 
+
     get_username: function(){
       return window.sessionStorage.getItem("username");
+    },
+
+    get_area: function(){
+      return {
+        branch_id: window.sessionStorage.getItem("branch_id"),
+        region_id: window.sessionStorage.getItem("region_id")
+      };
     },
 
     get_user_role: function(){

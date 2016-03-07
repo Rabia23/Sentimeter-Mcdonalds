@@ -1,13 +1,14 @@
 (function() {
   angular.module('livefeed.dashboard.positive_negative_feedback')
 
-  .controller( 'PositiveNegativeFeedbackCtrl', function PositiveNegativeFeedbackCtrl( $scope, _, Global, Graphs,$uibModal, $log, commentService, flashService ) {
+  .controller( 'PositiveNegativeFeedbackCtrl', function PositiveNegativeFeedbackCtrl( $scope, _, Global, Graphs,$uibModal, $log, commentService, flashService, StatusEnum ) {
 
     $scope.show_error_message = false;
 
     $scope.getComments = function() {
-
       Graphs.comments(1).$promise.then(function(data){
+        console.log("comments data");
+        console.log(data);
         if(data.success) {
           $scope.show_error_message = false;
           $scope.feedback_count = data.response.feedback_count;
