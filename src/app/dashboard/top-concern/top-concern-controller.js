@@ -1,7 +1,7 @@
 (function() {
     angular.module('livefeed.dashboard.top_concern')
 
-    .controller( 'TopConcernsCtrl', function TopConcernController( $scope, Graphs, Global, flashService ) {
+    .controller( 'TopConcernsCtrl', function TopConcernController( $rootScope, $scope, Graphs, Global, flashService ) {
       $scope.colors = [];
       $scope.labels = [];
       $scope.show_loading = true;
@@ -34,6 +34,10 @@
           flashService.createFlash($scope.error_message, "danger");
         }
       });
-    });
 
+      $scope.getConcernsString = function (text_string) {
+        $rootScope.$broadcast('handleBroadcast', {text: text_string});
+      };
+
+    });
 })();

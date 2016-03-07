@@ -1,7 +1,7 @@
 (function() {
     angular.module('livefeed.dashboard.positive_negative_feedback')
 
-    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items, Graphs, commentService, StatusEnum, flashService) {
+    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, text, Graphs, commentService, StatusEnum, flashService) {
 
       $scope.comments = [];
       $scope.page = 1;
@@ -11,6 +11,8 @@
       $scope.show_error_message = false;
 
       $scope.is_last_page = false;
+
+      $scope.text = text;
 
       $scope.statusOption = "All";
       $scope.status_options = StatusEnum.get_status_options();
@@ -34,11 +36,11 @@
       };
 
 
-      $scope.showComments = function(option){
+      $scope.showComments = function(option, text){
         $scope.statusOption = option;
         $scope.page = 1;
         var status_id = StatusEnum.get_index(option);
-        Graphs.comments($scope.page, status_id).$promise.then(function(data){
+        Graphs.comments($scope.page, status_id, text).$promise.then(function(data){
           $scope.lock = false;
           $scope.is_last_page = data.response.is_last_page;
           if(data.success) {
@@ -55,13 +57,13 @@
         });
       };
 
-      $scope.getMoreComments = function(option){
+      $scope.getMoreComments = function(option, text){
         var status_id = StatusEnum.get_index(option);
         var show_dropdown, action_string;
         if(!$scope.is_last_page){
           $scope.page = $scope.page + 1;
           $scope.lock = true;
-          Graphs.comments($scope.page,status_id).$promise.then(function(data){
+          Graphs.comments($scope.page,status_id, text).$promise.then(function(data){
             $scope.is_last_page = data.response.is_last_page;
             if(data.success) {
               $scope.show_error_message = false;
@@ -88,7 +90,7 @@
         $uibModalInstance.dismiss('cancel');
       };
 
-      $scope.showComments($scope.statusOption);
+      $scope.showComments($scope.statusOption, text);
     });
 
 })();

@@ -135,11 +135,11 @@ angular.module( 'factories', [
     type_id = type_id || "";
     return this.service.feedback_analysis({token:  token,type: type_id, date_from: start_date, date_to: end_date, city: city_id, question_type: question_type});
   };
-  Graphs.prototype.comments = function(page, status_id){
+  Graphs.prototype.comments = function(page, status_id, text){
     var token = $rootScope.token || TokenHandler.get_token();
     page = page || 1;
     status_id = status_id || "";
-    return this.service.comments({token:  token,page: page, status_id: status_id});
+    return this.service.comments({token:  token,page: page, status_id: status_id, text:text});
   };
 
   Graphs.prototype.feedback_analysis_breakdown = function(area_id, region_id, city_id, branch_id, option_id, start_date, end_date){
