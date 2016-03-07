@@ -507,7 +507,9 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "              <th class=\"item3\">Branch</th>\n" +
     "              <th class=\"item4\">Segment</th>\n" +
     "              <th class=\"item5\">\n" +
-    "                <div class=\"search-holder\"><input type=\"text\" class=\"search\" placeholder=\"Comments\"></div>\n" +
+    "                <div class=\"search-holder\">\n" +
+    "                  <input type=\"text\" class=\"search\" placeholder=\"Comments\" ng-model = \"text\" search-field>\n" +
+    "                </div>\n" +
     "              </th>\n" +
     "              <th class=\"item6\">\n" +
     "                <div class=\"btn-group\" uib-dropdown is-open=\"status.isopen\">\n" +
@@ -525,7 +527,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "          </thead>\n" +
     "        </table>\n" +
     "        <div class=\"content\">\n" +
-    "          <div class=\"table-container jcf-scrollable\" data-comments=\"comments\" ng-class=\"{loading: lock}\" when-scrolled=\"getMoreComments(statusOption)\" custom-form>\n" +
+    "          <div class=\"table-container jcf-scrollable\" data-comments=\"comments\" ng-class=\"{loading: lock}\" when-scrolled=\"getMoreComments(statusOption, text)\" custom-form>\n" +
     "            <table class=\"table\">\n" +
     "              <tbody>\n" +
     "                <tr ng-repeat=\"comment in comments\" ng-class=\"{negative: comment.data.is_negative, recovered: comment.action_string === 'Recovered', NaN: comment.action_string === 'NAN', unprocessed: comment.action_string === 'Unprocessed', unrecoverable: comment.action_string === 'Unrecoverable'}\">\n" +
@@ -747,7 +749,7 @@ angular.module("dashboard/top-concern/top-concern.tpl.html", []).run(["$template
     "          <h5>Top Opportunities</h5>\n" +
     "        </div>\n" +
     "      </div>\n" +
-    "      <div class=\"content-holder\" top-concerns data-data=\"data\">\n" +
+    "      <div class=\"content-holder\" top-concerns data-data=\"data\" data-action=\"getConcernsString(text_string)\">\n" +
     "        <div class=\"ibox-content float-chart-block chart-box\">\n" +
     "          <div id=\"piechart\" style=\"width:100%; height:300px;\" ng-hide=\"all_zero\"></div>\n" +
     "          <div ng-show=\"all_zero\" class=\"message-holder\">\n" +

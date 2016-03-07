@@ -16,7 +16,9 @@
               <th class="item3">Branch</th>
               <th class="item4">Segment</th>
               <th class="item5">
-                <div class="search-holder"><input type="text" class="search" placeholder="Comments"></div>
+                <div class="search-holder">
+                  <input type="text" class="search" placeholder="Comments" ng-model = "text" search-field>
+                </div>
               </th>
               <th class="item6">
                 <div class="btn-group" uib-dropdown is-open="status.isopen">
@@ -34,7 +36,7 @@
           </thead>
         </table>
         <div class="content">
-          <div class="table-container jcf-scrollable" data-comments="comments" ng-class="{loading: lock}" when-scrolled="getMoreComments(statusOption)" custom-form>
+          <div class="table-container jcf-scrollable" data-comments="comments" ng-class="{loading: lock}" when-scrolled="getMoreComments(statusOption, text)" custom-form>
             <table class="table">
               <tbody>
                 <tr ng-repeat="comment in comments" ng-class="{negative: comment.data.is_negative, recovered: comment.action_string === 'Recovered', NaN: comment.action_string === 'NAN', unprocessed: comment.action_string === 'Unprocessed', unrecoverable: comment.action_string === 'Unrecoverable'}">

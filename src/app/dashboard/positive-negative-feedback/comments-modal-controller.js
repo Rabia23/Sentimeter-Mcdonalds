@@ -1,7 +1,7 @@
 (function() {
     angular.module('livefeed.dashboard.positive_negative_feedback')
 
-    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, items, Graphs, commentService, StatusEnum, flashService) {
+    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, text, Graphs, commentService, StatusEnum, flashService) {
 
       $scope.comments = [];
       $scope.page = 1;
@@ -11,6 +11,8 @@
       $scope.show_error_message = false;
 
       $scope.is_last_page = false;
+
+      $scope.text = text;
 
       $scope.statusOption = "All";
       $scope.status_options = StatusEnum.get_status_options();
@@ -34,49 +36,74 @@
       };
 
 
-      $scope.showComments = function(option){
+      $scope.showComments = function(option, text){
         $scope.statusOption = option;
         $scope.page = 1;
         var status_id = StatusEnum.get_index(option);
-        Graphs.comments($scope.page, status_id).$promise.then(function(data){
-          $scope.lock = false;
-          $scope.is_last_page = data.response.is_last_page;
-          if(data.success) {
-            $scope.show_error_message = false;
-            $scope.comments = _.map(data.response.feedbacks, function (data) {
-              return commentService.getComment(data);
-            });
-          }
-          else {
-           $scope.show_error_message = true;
-           $scope.error_message = data.message;
-           flashService.createFlash($scope.error_message, "danger");
-          }
-        });
+        if(text){
+          Graphs.comments_text_search($scope.page, status_id, text).$promise.then(function(data){
+            showCommentsFunction(data);
+          });
+        }
+        else{
+          Graphs.comments($scope.page, status_id).$promise.then(function(data){
+            showCommentsFunction(data);
+          });
+        }
+
       };
 
-      $scope.getMoreComments = function(option){
+
+      function showCommentsFunction(data){
+        $scope.lock = false;
+        $scope.is_last_page = data.response.is_last_page;
+        if(data.success) {
+          $scope.show_error_message = false;
+          $scope.comments = _.map(data.response.feedbacks, function (data) {
+            return commentService.getComment(data);
+          });
+        }
+        else {
+         $scope.show_error_message = true;
+         $scope.error_message = data.message;
+         flashService.createFlash($scope.error_message, "danger");
+        }
+      }
+
+      function showGetMoreFunction(data){
+        $scope.is_last_page = data.response.is_last_page;
+        if(data.success) {
+          $scope.show_error_message = false;
+          $scope.lock = false;
+          angular.forEach(data.response.feedbacks, function (value, key) {
+            var comment_data = commentService.getComment(value);
+            $scope.comments.push(comment_data);
+          });
+        }
+        else {
+         $scope.show_error_message = true;
+         $scope.error_message = data.message;
+         flashService.createFlash($scope.error_message, "danger");
+        }
+      }
+
+      $scope.getMoreComments = function(option, text){
         var status_id = StatusEnum.get_index(option);
         var show_dropdown, action_string;
         if(!$scope.is_last_page){
           $scope.page = $scope.page + 1;
           $scope.lock = true;
-          Graphs.comments($scope.page,status_id).$promise.then(function(data){
-            $scope.is_last_page = data.response.is_last_page;
-            if(data.success) {
-              $scope.show_error_message = false;
-              $scope.lock = false;
-              angular.forEach(data.response.feedbacks, function (value, key) {
-                var comment_data = commentService.getComment(value);
-                $scope.comments.push(comment_data);
-              });
-            }
-            else {
-             $scope.show_error_message = true;
-             $scope.error_message = data.message;
-             flashService.createFlash($scope.error_message, "danger");
-            }
-          });
+          if(text){
+            Graphs.comments_text_search($scope.page, status_id, text).$promise.then(function(data){
+              showGetMoreFunction(data);
+            });
+          }
+          else{
+            Graphs.comments($scope.page,status_id, text).$promise.then(function(data){
+              showGetMoreFunction(data);
+            });
+          }
+         
         }
       };
 
@@ -88,7 +115,7 @@
         $uibModalInstance.dismiss('cancel');
       };
 
-      $scope.showComments($scope.statusOption);
+      $scope.showComments($scope.statusOption, text);
     });
 
 })();
