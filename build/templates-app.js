@@ -150,7 +150,7 @@ angular.module("dashboard/category-performance-analysis/category-performance-ana
     "                    </b>\n" +
     "                  </em>\n" +
     "                </small>\n" +
-    "                <div style=\"cursor: pointer\" class=\"progress-block\" bar-click data-name = \"dat.name\" ng-if = \"mainView\">\n" +
+    "                <div class=\"progress-block main\" bar-click data-name = \"dat.name\" ng-if = \"mainView\">\n" +
     "                  <uib-progressbar animate=\"false\" value=\"dat.percentage\" type=\"success\"></uib-progressbar>\n" +
     "                </div>\n" +
     "                <div class=\"progress-block\" ng-if = \"!mainView\">\n" +
@@ -508,7 +508,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "              <th class=\"item4\">Segment</th>\n" +
     "              <th class=\"item5\">\n" +
     "                <div class=\"search-holder\">\n" +
-    "                  <input type=\"text\" class=\"search\" placeholder=\"Comments\" ng-model = \"text\" search-field>\n" +
+    "                  <input type=\"text\" class=\"search\" placeholder=\"Search For Comments\" ng-model = \"text\" search-field>\n" +
     "                </div>\n" +
     "              </th>\n" +
     "              <th class=\"item6\">\n" +

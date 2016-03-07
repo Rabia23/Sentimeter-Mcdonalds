@@ -785,6 +785,7 @@ body.login{background: #eee !important;}
 	display: inline-block;
 	vertical-align: top;
 	letter-spacing: 0;
+    padding: 5px 0;
 }
 #footer{
 	position: absolute;
@@ -1682,6 +1683,7 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 }
 .progress-area .progress-holder .progress-block {position: relative;}
 .business-segment .progress-area .progress-holder .progress-block{height: 100%;}
+.business-segment .progress-area .progress-holder .progress-block.main{cursor: pointer;}
 .progress-container.Quality .progress-holder .progress-bar {background: #431051;}
 .progress-container.Quality .progress-holder .progress-bar b, .progress-container.Quality .progress-holder .progress-bar span {color: #431051;}
 .progress-container.Quality .progress-holder:nth-child(2) .progress-bar {background: #4f1b5e;}
@@ -1788,23 +1790,6 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 	top: 0;
 	bottom: 0;
 }
-.footable tbody tr{cursor: pointer;}
-.footable tbody tr.deactivate{background: #fce8e8;}
-.footable .btn-box{
-	display: inline-block;
-	vertical-align: middle;
-}
-.footable .fa{
-	font-size: 13px;
-	line-height: 13px;
-	margin: 0 2px;
-	display: inline-block;
-	vertical-align: middle;
-}
-.footable .fa.fa-trash-o{color: #f00;}
-.footable .fa.fa-trash-o:hover{color: #B10000;}
-.footable .fa.fa-pencil-square-o{color: #1ab394;}
-.footable .fa.fa-pencil-square-o:hover{color: #30BA8F;}
 .ibox-title h5{margin: 3px 0 0;}
 .ibox-title h5 small{font-size: 83%;}
 .modal-600 .modal-header{
@@ -2710,7 +2695,8 @@ li.active,
     -moz-transition : all 0.3s linear;
     transition : all 0.3s linear;
 }
-
+.morris-holder .qsc svg > path,
+#piechart .amcharts-chart-div > svg > g > g path{cursor: pointer;}
 @media screen and (min-width: 768px) {
 	.legends-holder{padding: 15px 20px 0;}
 	.legends-list {
@@ -2911,7 +2897,7 @@ li.active,
 @media screen and (max-width: 1800px) {
 	.ibox.detail-block .ibox-content{padding: 15px 10px 20px;}
 	.ibox.detail-block .ibox-title{padding: 14px 8px 7px;}
-	.breadcrum{padding: 5px 8px;}
+	.breadcrum{padding: 0 8px;}
 	.ibox-content h1{font-size: 26px;}
 	.detail-block h1{font-size: 25px;}
 	.tab-links{font-size: 13px;}
