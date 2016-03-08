@@ -1897,7 +1897,8 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .questionnaire:after,
 .modal-dialog .info-form .modal-body:after,
 .promotions:after,
-.grids-holder:after{
+.grids-holder:after,
+.table-container:after{
 	position: absolute;
 	left: 50%;
 	top: 50%;
@@ -1919,11 +1920,6 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 	height: 0;
 	margin: 0;
 }
-.questionnaire.cloading .grids-holder:after,
-.promotions.cloading .grids-holder:after{
-  visibility: visible;
-  opacity: 1;
-}
 .questionnaire.loading:after,
 .promotions.loading:after,
 .users-section.loading:after{
@@ -1938,7 +1934,8 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .form-holder:before,
 .ibox > .content-holder:before,
 .ibox > .ibox-content:before,
-.modal-dialog .info-form .modal-body:before{
+.modal-dialog .info-form .modal-body:before,
+.table-container:before{
 	left: 0;
 	right: 0;
 	top: 0;
@@ -1963,7 +1960,10 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .users-section.loading:after,
 .questionnaire.loading:after,
 .modal-dialog .info-form .modal-body.loading:after,
-.promotions:after{
+.promotions:after,
+.table-container.cloading:after,
+.questionnaire.cloading .grids-holder:after,
+.promotions.cloading .grids-holder:after{
 	visibility: visible;
 	opacity: 1;
 }
@@ -1973,7 +1973,8 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .ibox.loading > .ibox-content:before,
 .modal-dialog .info-form .modal-body.loading:before,
 .questionnaire.cloading .grid-container:before,
-.promotions.cloading .grid-container:before{
+.promotions.cloading .grid-container:before,
+.table-container.cloading:before{
 	visibility: visible;
 	opacity: 0.6;
 }
