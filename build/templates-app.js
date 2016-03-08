@@ -514,7 +514,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "              <th class=\"item6\">\n" +
     "                <div class=\"btn-group\" uib-dropdown is-open=\"status.isopen\">\n" +
     "                  <button id=\"single-button\" type=\"button\" class=\"btn btn-info\" uib-dropdown-toggle>\n" +
-    "                    <span class=\"caret\"></span> Status\n" +
+    "                    <span class=\"caret\"></span> {{statusOption}}\n" +
     "                  </button>\n" +
     "                  <ul uib-dropdown-menu role=\"menu\" aria-labelledby=\"single-button\">\n" +
     "                    <li role=\"menuitem\" ng-repeat=\"option in status_options\">\n" +
