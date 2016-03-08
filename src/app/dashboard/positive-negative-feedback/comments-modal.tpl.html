@@ -36,6 +36,7 @@
           </thead>
         </table>
         <div class="content">
+          <div ng-hide="show_no_data_message">
           <div class="table-container jcf-scrollable" data-comments="comments" ng-class="{loading: lock}" when-scrolled="getMoreComments(statusOption, text)" custom-form>
             <table class="table">
               <tbody>
@@ -79,6 +80,8 @@
             </table>
             <span class="loader"></span>
           </div>
+          </div>
+          <div ng-show="show_no_data_message">No Comments Found</div>
         </div>
       </div>
     </div>
