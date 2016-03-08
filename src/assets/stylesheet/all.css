@@ -1213,6 +1213,7 @@ body.login{background: #eee !important;}
   width: 100%;
   min-width: 730px;
 }
+.modal-1200 .content > div{height: 100%;}
 .modal-1200 .content .jcf-scrollable-wrapper{width: 100% !important;}
 .comments-modal .content .jcf-scrollable-wrapper,
 .comments-modal .content .table-container{
@@ -1234,7 +1235,6 @@ body.login{background: #eee !important;}
   bottom: 0;
 }
 .data-msg{
-  height: 100%;
   width: 100%;
   white-space: nowrap;
   text-align: center;
