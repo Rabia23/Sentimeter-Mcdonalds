@@ -14,6 +14,10 @@
         $state.go('login');
       }
 
+      if(Auth.is_logged_in() && toState.name === 'login'){
+        $state.go('dashboard');
+      }
+
     });
 
     if (Auth.is_logged_in()) {
