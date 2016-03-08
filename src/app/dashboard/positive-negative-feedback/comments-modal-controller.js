@@ -40,9 +40,14 @@
         $scope.statusOption = option;
         $scope.page = 1;
         var status_id = StatusEnum.get_index(option);
-        if(text){
-          Graphs.comments_text_search($scope.page, status_id, text).$promise.then(function(data){
-            showCommentsFunction(data);
+        if($scope.text){
+          Graphs.comments_text_search($scope.page, status_id, $scope.text).$promise.then(function(data){
+            if(data.response.feedback_count === 0){
+              $scope.comments = [];
+            }
+            else{
+              showCommentsFunction(data);
+            }
           });
         }
         else{

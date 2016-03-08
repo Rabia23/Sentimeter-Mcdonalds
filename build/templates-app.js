@@ -570,6 +570,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "            </table>\n" +
     "            <span class=\"loader\"></span>\n" +
     "          </div>\n" +
+    "          <div ng-show=\"comments.length === 0\" class=\"data-msg\"><span>No Comments Found</span></div>\n" +
     "        </div>\n" +
     "      </div>\n" +
     "    </div>\n" +
