@@ -11,7 +11,7 @@
           scope.$watch('comments', function(watchedComments) {
             if(watchedComments !== undefined){
               modalHeight();
-              window.initCustomForms();
+              setTimeout(function(){window.initCustomForms();},0.1);
               $(window).on("resize", function() {
                 modalHeight();
               });
@@ -22,21 +22,9 @@
               var header = $('.modal-1200 .header-holder').height();
               var height = elemHolder - header;
               var content = $('.modal-1200 .modal-detail');
-              var tableHolder = $('.modal-1200 .table-block').height();
-              var tableHeader = $('.modal-1200 .table-header').height();
-              var tableHeight = tableHolder - tableHeader;
-              var tableContent = $('.modal-1200 .content');
-
-              content.css({
-              'height' : height
-              });
-
-              tableContent.css({
-              'height' : tableHeight
-              });
+              content.css({'height' : height});
             }
           });
-
         }
       };
     });

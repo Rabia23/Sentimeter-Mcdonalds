@@ -499,33 +499,35 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "  <div class=\"modal-body\">\n" +
     "    <div class=\"table-holder\">\n" +
     "      <div class=\"table-block jcf-scrollable\" custom-form>\n" +
-    "        <table class=\"table table-header\">\n" +
-    "          <thead>\n" +
-    "            <tr>\n" +
-    "              <th class=\"item1\">Name</th>\n" +
-    "              <th class=\"item2\">Phone / Email</th>\n" +
-    "              <th class=\"item3\">Branch</th>\n" +
-    "              <th class=\"item4\">Segment</th>\n" +
-    "              <th class=\"item5\">\n" +
-    "                <div class=\"search-holder\">\n" +
-    "                  <input type=\"text\" class=\"search\" placeholder=\"Search For Comments\" ng-model = \"text\" search-field>\n" +
-    "                </div>\n" +
-    "              </th>\n" +
-    "              <th class=\"item6\">\n" +
-    "                <div class=\"btn-group\" uib-dropdown is-open=\"status.isopen\">\n" +
-    "                  <button id=\"single-button\" type=\"button\" class=\"btn btn-info\" uib-dropdown-toggle>\n" +
-    "                    <span class=\"caret\"></span> Status\n" +
-    "                  </button>\n" +
-    "                  <ul uib-dropdown-menu role=\"menu\" aria-labelledby=\"single-button\">\n" +
-    "                    <li role=\"menuitem\" ng-repeat=\"option in status_options\">\n" +
-    "                      <a style=\"cursor: pointer\" ng-click=\"showComments(option)\">{{option}}</a>\n" +
-    "                    </li>\n" +
-    "                  </ul>\n" +
-    "                </div>\n" +
-    "              </th>\n" +
-    "            </tr>\n" +
-    "          </thead>\n" +
-    "        </table>\n" +
+    "        <div class=\"table-header-holder\">\n" +
+    "          <table class=\"table table-header\">\n" +
+    "            <thead>\n" +
+    "              <tr>\n" +
+    "                <th class=\"item1\">Name</th>\n" +
+    "                <th class=\"item2\">Phone / Email</th>\n" +
+    "                <th class=\"item3\">Branch</th>\n" +
+    "                <th class=\"item4\">Segment</th>\n" +
+    "                <th class=\"item5\">\n" +
+    "                  <div class=\"search-holder\">\n" +
+    "                    <input type=\"text\" class=\"search\" placeholder=\"Search For Comments\" ng-model = \"text\" search-field>\n" +
+    "                  </div>\n" +
+    "                </th>\n" +
+    "                <th class=\"item6\">\n" +
+    "                  <div class=\"btn-group\" uib-dropdown is-open=\"status.isopen\">\n" +
+    "                    <button id=\"single-button\" type=\"button\" class=\"btn btn-info\" uib-dropdown-toggle>\n" +
+    "                      <span class=\"caret\"></span> Status\n" +
+    "                    </button>\n" +
+    "                    <ul uib-dropdown-menu role=\"menu\" aria-labelledby=\"single-button\">\n" +
+    "                      <li role=\"menuitem\" ng-repeat=\"option in status_options\">\n" +
+    "                        <a style=\"cursor: pointer\" ng-click=\"showComments(option)\">{{option}}</a>\n" +
+    "                      </li>\n" +
+    "                    </ul>\n" +
+    "                  </div>\n" +
+    "                </th>\n" +
+    "              </tr>\n" +
+    "            </thead>\n" +
+    "          </table>\n" +
+    "        </div>\n" +
     "        <div class=\"content\">\n" +
     "          <div class=\"table-container jcf-scrollable\" data-comments=\"comments\" ng-class=\"{loading: lock}\" when-scrolled=\"getMoreComments(statusOption, text)\" custom-form>\n" +
     "            <table class=\"table\">\n" +
