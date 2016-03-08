@@ -1238,7 +1238,7 @@ body.login{background: #eee !important;}
   width: 100%;
   white-space: nowrap;
   text-align: center;
-  padding: 8% 0;
+  padding: 13.9% 0;
 }
 .data-msg:after{
   display: inline-block;
@@ -3355,6 +3355,7 @@ li.active,
     .modal-1200 .table th .dropdown-menu > li > a{padding: 3px 10px;}
     .modal-1200 .table th .dropdown-menu{margin: 0 -5px 0 0;}
     #wrapper .btn-top{margin: -65px 0 0;}
+    .data-msg{padding: 6% 0;}
 }
 
 @media screen and (max-width: 768px) {
@@ -3411,4 +3412,5 @@ li.active,
 	.loader{margin: 11% 16%;}
 	.morris-block-holder .morris-graph-holder .morris-holder .chart-container{max-width: 70%;}
 	.morris-block-holder .morris-content-holder{width: 50%;}
+    .data-msg{padding: 16% 0;}
 }
