@@ -7,6 +7,7 @@
       $scope.page = 1;
 
       $scope.lock = true;
+      $scope.show_loader = false;
 
       $scope.show_error_message = false;
 
@@ -37,11 +38,13 @@
 
 
       $scope.showComments = function(option, text){
+        $scope.show_loader = true;
         $scope.statusOption = option;
         $scope.page = 1;
         var status_id = StatusEnum.get_index(option);
         if($scope.text){
           Graphs.comments_text_search($scope.page, status_id, $scope.text).$promise.then(function(data){
+            $scope.show_loader = false;
             if(data.response.feedback_count === 0){
               $scope.comments = [];
             }
@@ -58,6 +61,25 @@
 
       };
 
+      $scope.getMoreComments = function(option, text){
+        var status_id = StatusEnum.get_index(option);
+        var show_dropdown, action_string;
+        if(!$scope.is_last_page){
+          $scope.page = $scope.page + 1;
+          $scope.lock = true;
+          if(text){
+            Graphs.comments_text_search($scope.page, status_id, text).$promise.then(function(data){
+              showGetMoreFunction(data);
+            });
+          }
+          else{
+            Graphs.comments($scope.page,status_id, text).$promise.then(function(data){
+              showGetMoreFunction(data);
+            });
+          }
+
+        }
+      };
 
       function showCommentsFunction(data){
         $scope.lock = false;
@@ -91,26 +113,6 @@
          flashService.createFlash($scope.error_message, "danger");
         }
       }
-
-      $scope.getMoreComments = function(option, text){
-        var status_id = StatusEnum.get_index(option);
-        var show_dropdown, action_string;
-        if(!$scope.is_last_page){
-          $scope.page = $scope.page + 1;
-          $scope.lock = true;
-          if(text){
-            Graphs.comments_text_search($scope.page, status_id, text).$promise.then(function(data){
-              showGetMoreFunction(data);
-            });
-          }
-          else{
-            Graphs.comments($scope.page,status_id, text).$promise.then(function(data){
-              showGetMoreFunction(data);
-            });
-          }
-         
-        }
-      };
 
       $scope.ok = function () {
         $uibModalInstance.close($scope.selected.item);

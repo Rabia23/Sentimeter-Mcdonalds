@@ -527,7 +527,7 @@ angular.module("dashboard/positive-negative-feedback/comments-modal.tpl.html", [
     "          </thead>\n" +
     "        </table>\n" +
     "        <div class=\"content\">\n" +
-    "          <div class=\"table-container jcf-scrollable\" data-comments=\"comments\" ng-class=\"{loading: lock}\" when-scrolled=\"getMoreComments(statusOption, text)\" custom-form>\n" +
+    "          <div class=\"table-container jcf-scrollable\" data-comments=\"comments\" ng-class=\"{loading: lock, cloading: show_loader}\" when-scrolled=\"getMoreComments(statusOption, text)\" custom-form>\n" +
     "            <table class=\"table\">\n" +
     "              <tbody>\n" +
     "                <tr ng-repeat=\"comment in comments\" ng-class=\"{negative: comment.data.is_negative, recovered: comment.action_string === 'Recovered', NaN: comment.action_string === 'NAN', unprocessed: comment.action_string === 'Unprocessed', unrecoverable: comment.action_string === 'Unrecoverable'}\">\n" +
