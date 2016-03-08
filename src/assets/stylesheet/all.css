@@ -1203,12 +1203,12 @@ body.login{background: #eee !important;}
 .modal-1200 .table tbody td a:hover,
 .modal-1200 .table tbody td a:active,
 .modal-1200 .table tbody td a:focus{color: #000;}
-.comments-modal{
+.modal-1200{
   margin: 0 auto;
   padding: 30px 0;
   height: 100%;
 }
-.comments-modal .modal-content{height: 100%;}
+.modal-1200 .modal-content{height: 100%;}
 .modal-1200 .content,
 .modal-1200 .content > div{
   position: relative;
@@ -1217,20 +1217,20 @@ body.login{background: #eee !important;}
 }
 .modal-1200 .content > div{height: 100%;}
 .modal-1200 .content .jcf-scrollable-wrapper{width: 100% !important;}
-.comments-modal .content .jcf-scrollable-wrapper,
-.comments-modal .content .table-container{
+.modal-1200 .content .jcf-scrollable-wrapper,
+.modal-1200 .content .table-container{
   height: 100% !important;
   min-height: 100% !important;
 }
-.modal-1200.comments-modal .modal-body,
-.modal-1200.comments-modal .modal-body .table-holder{height: 100%;}
-.modal-1200.comments-modal .modal-body .table-holder > .jcf-scrollable-wrapper{height: 100% !important;}
-.modal-1200.comments-modal .modal-body .table-block{
+.modal-1200 .modal-body,
+.modal-1200 .modal-body .table-holder{height: 100%;}
+.modal-1200 .modal-body .table-holder > .jcf-scrollable-wrapper{height: 100% !important;}
+.modal-1200 .modal-body .table-block{
   min-height: inherit !important;
   height: 100% !important;
 }
-.modal-1200.comments-modal .modal-body .table-block > .jcf-scrollable-wrapper{height: 100% !important;}
-.modal-1200.comments-modal .modal-body .table-container{height: 100% !important;}
+.modal-1200 .modal-body .table-block > .jcf-scrollable-wrapper{height: 100% !important;}
+.modal-1200 .modal-body .table-container{height: 100% !important;}
 .modal-1200 .content .jcf-scrollbar.jcf-scrollbar-vertical{
   right: 0;
   top: 0;
