@@ -13,7 +13,6 @@
       $scope.is_last_page = false;
 
       $scope.text = text;
-      $scope.show_no_data_message = false;
 
       $scope.statusOption = "All";
       $scope.status_options = StatusEnum.get_status_options();
@@ -38,20 +37,15 @@
 
 
       $scope.showComments = function(option, text){
-        console.log("text");
-        console.log(text);
         $scope.statusOption = option;
         $scope.page = 1;
         var status_id = StatusEnum.get_index(option);
-        if(text){
-          Graphs.comments_text_search($scope.page, status_id, text).$promise.then(function(data){
-            console.log("text search");
-            console.log(data);
+        if($scope.text){
+          Graphs.comments_text_search($scope.page, status_id, $scope.text).$promise.then(function(data){
             if(data.response.feedback_count === 0){
-              $scope.show_no_data_message = true;
+              $scope.comments = [];
             }
             else{
-              $scope.show_no_data_message = false;
               showCommentsFunction(data);
             }
           });

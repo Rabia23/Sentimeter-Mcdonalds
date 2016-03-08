@@ -922,6 +922,7 @@ body.login{background: #eee !important;}
 .modal-1200 .modal-body .jcf-scrollbar-vertical .jcf-scrollbar-handle{width: 7px;}
 .modal-1200 .modal-body .table-container{
 	position: relative;
+	z-index:99;
 	width: 100% !important;
 	height: 170px !important;
 	min-width: 730px;
@@ -1238,7 +1239,12 @@ body.login{background: #eee !important;}
   width: 100%;
   white-space: nowrap;
   text-align: center;
-  padding: 13.9% 0;
+  position:absolute !important;
+  left:0;
+  right:0;
+  top:0;
+  bottom:0;
+  z-index:5;
 }
 .data-msg:after{
   display: inline-block;
@@ -1262,10 +1268,21 @@ body.login{background: #eee !important;}
 .loading .loader {display: block;}
 .loader {
   display: none;
-  background: url(../assets/images/loader.gif) no-repeat;
+  background:url(../assets/images/loader.gif) no-repeat;
   width: 60px;
   height: 64px;
   margin: 10% auto;
+  position:relative;
+}
+.loader:after{
+    position:absolute;
+    left:-999px;
+    right:-999px;
+    top:-999px;
+    bottom:-999px;
+    content:"";
+    background:#fff;
+    z-index:-1;
 }
 .modal-1000 .modal-title {margin: 0;}
 .modal-1000 .modal-body {padding: 15px 30px;}
@@ -3355,7 +3372,6 @@ li.active,
     .modal-1200 .table th .dropdown-menu > li > a{padding: 3px 10px;}
     .modal-1200 .table th .dropdown-menu{margin: 0 -5px 0 0;}
     #wrapper .btn-top{margin: -65px 0 0;}
-    .data-msg{padding: 6% 0;}
 }
 
 @media screen and (max-width: 768px) {
@@ -3412,5 +3428,4 @@ li.active,
 	.loader{margin: 11% 16%;}
 	.morris-block-holder .morris-graph-holder .morris-holder .chart-container{max-width: 70%;}
 	.morris-block-holder .morris-content-holder{width: 50%;}
-    .data-msg{padding: 16% 0;}
 }
