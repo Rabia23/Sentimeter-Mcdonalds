@@ -1207,12 +1207,13 @@ body.login{background: #eee !important;}
   height: 100%;
 }
 .comments-modal .modal-content{height: 100%;}
-.modal-1200 .content{
+.modal-1200 .content,
+.modal-1200 .content > div{
   position: relative;
   width: 100%;
   min-width: 730px;
 }
-.modal-1200 .content > .jcf-scrollable-wrapper{width: 100% !important;}
+.modal-1200 .content .jcf-scrollable-wrapper{width: 100% !important;}
 .comments-modal .content .jcf-scrollable-wrapper,
 .comments-modal .content .table-container{
   height: 100% !important;
@@ -1231,6 +1232,32 @@ body.login{background: #eee !important;}
   right: 0;
   top: 0;
   bottom: 0;
+}
+.data-msg{
+  height: 100%;
+  width: 100%;
+  white-space: nowrap;
+  text-align: center;
+  padding: 8% 0;
+}
+.data-msg:after{
+  display: inline-block;
+  vertical-align: middle;
+  content: "";
+  min-height: 100%;
+  width: 0;
+  overflow: hidden;
+}
+.data-msg > span{
+  min-width: 30%;
+  padding: 30px 20px;
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  border: 1px solid #e7eaec;
+  color: #4d5153;
+  font-size: 14px;
+  line-height: 20px;
 }
 .loading .loader {display: block;}
 .loader {
@@ -2725,7 +2752,7 @@ li.active,
 		padding-top: 12px;
 		padding-bottom: 12px;
 	}
-	.modal-1200 .modal-body .table-block{min-height: 300px !important;}
+	.modal-1200 .modal-body .table-block{min-height: 358px !important;}
 	.modal-1200 .modal-body .table-container{height: 300px !important;}
 	#wrapper .navbar-top-links li a{padding: 20px 10px;}
 	.info-holder .table-container{max-height: 526px;}
@@ -2905,6 +2932,7 @@ li.active,
 		line-height: 1.2;
 	}
 	.modal-1200 .modal-header{padding: 15px;}
+    .modal-1200 .modal-body .table-block{min-height: 460px !important;}
 	.modal-1200 .modal-body .table-container{height: 400px !important;}
 }
 
@@ -3223,7 +3251,8 @@ li.active,
 	.header-visual .navbar-top-links li:last-child{margin-right: 0;}
 	.btn-list li{width: 50%;}
 	.users-list > li{width: 50%;}
-	.modal-1200 .modal-body .table-container{height: 175px !important;}
+    .modal-1200 .modal-body .table-block{min-height: 227px !important;}	
+    .modal-1200 .modal-body .table-container{height: 175px !important;}
 	.modal-1200 .modal-body{padding: 0 0 10px;}
 	.add-user{
 		width: 50px;
@@ -3359,7 +3388,7 @@ li.active,
 		line-height: 1.4;
 	}
 	.modal-1200 .modal-body .table-container{height: 317px !important;}
-	.modal-1200 .modal-body .table-block{min-height: 354px !important;}
+	.modal-1200 .modal-body .table-block{min-height: 369px !important;}
 	#wrapper .navbar-header{
 		float: none;
 		display: inline-block;
