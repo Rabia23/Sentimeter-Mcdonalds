@@ -8,6 +8,7 @@
 
       $scope.lock = true;
       $scope.show_loader = false;
+      $scope.modal_opened = false;
 
       $scope.show_error_message = false;
 
@@ -38,10 +39,12 @@
 
 
       $scope.showComments = function(option, text){
-        $scope.show_loader = true;
         $scope.statusOption = option;
         $scope.page = 1;
         var status_id = StatusEnum.get_index(option);
+        if($scope.modal_opened){
+          $scope.show_loader = true;
+        }
         if($scope.text){
           Graphs.comments_text_search($scope.page, status_id, $scope.text).$promise.then(function(data){
             $scope.show_loader = false;
@@ -55,10 +58,11 @@
         }
         else{
           Graphs.comments($scope.page, status_id).$promise.then(function(data){
+            $scope.show_loader = false;
             showCommentsFunction(data);
           });
         }
-
+        $scope.modal_opened = true;
       };
 
       $scope.getMoreComments = function(option, text){
