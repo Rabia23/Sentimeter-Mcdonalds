@@ -516,7 +516,10 @@ body.login {background: #eee !important;}
   -o-transition-timing-function: cubic-bezier(0.420, 0.000, 1.000, 1.000);
   transition-timing-function: cubic-bezier(0.420, 0.000, 1.000, 1.000);
 }
-.comments-drop .comments-holder {height: 100px;}
+.comments-drop .comments-holder {
+  height: 100px;
+  position: relative;
+}
 .comments-drop .comments-holder .jcf-scrollable-wrapper,
 .comments-drop .comments-holder .jcf-scrollable {
   height: 100% !important;
@@ -1819,7 +1822,8 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .promotions:after,
 .grids-holder:after,
 .table-container:after,
-.modal-900 .modal-body:after{
+.modal-900 .modal-body:after,
+.comments-drop .comments-holder:after{
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1857,7 +1861,8 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .ibox > .ibox-content:before,
 .modal-dialog .info-form .modal-body:before,
 .table-container:before,
-.modal-900 .modal-body:before{
+.modal-900 .modal-body:before,
+.comments-drop .comments-holder:before{
   left: 0;
   right: 0;
   top: 0;
@@ -1886,7 +1891,8 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .table-container.cloading:after,
 .questionnaire.cloading .grids-holder:after,
 .promotions.cloading .grids-holder:after,
-.modal-900 .modal-body.loading:after{
+.modal-900 .modal-body.loading:after,
+.comments-drop .comments-holder.loading:after{
   visibility: visible;
   opacity: 1;
 }
@@ -1898,7 +1904,8 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .questionnaire.cloading .grid-container:before,
 .promotions.cloading .grid-container:before,
 .table-container.cloading:before,
-.modal-900 .modal-body.loading:before{
+.modal-900 .modal-body.loading:before,
+.comments-drop .comments-holder.loading:before{
   visibility: visible;
   opacity: 0.6;
 }
@@ -2664,7 +2671,7 @@ li.active,
   transition: all 0.3s linear;
 }
 .qsc .morris-holder svg > path,
-.main-view #chartdiv svg circle,
+.mainview #chartdiv svg circle,
 #piechart .amcharts-chart-div > svg > g > g path {cursor: pointer;}
 .progress-box{
   overflow: hidden;
@@ -2970,6 +2977,8 @@ li.active,
 }
 
 @media screen and (max-width: 1279px) {
+  .tab-links li a {padding: 13px 15px;}
+  .calender-outer {min-width: 45px;}
   .users-list ul li .title {width: 77px;}
   .business-segment .progress-area .progress-holder .progress-inner {max-height: inherit;}
   .progress-area .progress-holder,
@@ -3091,11 +3100,12 @@ li.active,
     min-width: inherit;
     height: 41px;
   }
-  .business-segment .tab-links li {width: 27%;}
+  .business-segment .tab-links li {width: 25%;}
   .business-segment .tab-links li.item2,
-  .business-segment .tab-links li.item3 {width: 22.5%;}
+  .business-segment .tab-links li.item3 {width: 21%;}
   .business-segment .tab-links li:first-child,
-  .business-segment .tab-links li:last-child {width: 14%;}
+  .business-segment .tab-links li.item5,
+  .business-segment .tab-links li:last-child {width: 11%;}
   .patch-section .tab-links li {width: 25%;}
   .patch-section .tab-links li:last-child {width: 20%;}
   .patch-section .tab-links li:first-child {width: 30%;}
@@ -3144,7 +3154,7 @@ li.active,
 }
 
 @media screen and (max-width: 767px) {
-  .modal-1200 .content{padding: 52px 0 0;}
+  .modal-1200 .content{padding: 50px 0 0;}
   .promotions .btn.dim {
     font-size: 14px;
     line-height: 20px;
@@ -3331,6 +3341,14 @@ li.active,
   .modal-1200 .table th .dropdown-menu {margin: 0 -5px 0 0;}
   #wrapper .btn-top {margin: -65px 0 0;}
   .modal-1200{padding: 15px 0;}
+  .modal-1200 .table th .btn.btn-info{font-size: 11px;}
+  .modal-1200 .table th.item6 .btn .caret{
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-top-width: 4px;
+    margin-top: -2px;
+    right: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -3386,4 +3404,7 @@ li.active,
   .loader {margin: 11% 16%;}
   .morris-block-holder .morris-graph-holder .morris-holder .chart-container {max-width: 70%;}
   .morris-block-holder .morris-content-holder {width: 50%;}
+  .mini-navbar .tab-links{font-size: 9px;}
+  .mini-navbar .tab-links li a{padding: 10px 2px;}
+  .mini-navbar .tab-links li a i{font-size: 11px;}
 }
