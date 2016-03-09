@@ -110,7 +110,6 @@
     };
 
     $scope.open = function () {
-      console.log("in the open");
       var modalInstance = $uibModal.open({
         templateUrl: 'dashboard/category-performance-analysis/category-modal.tpl.html',
         controller: 'CategoryModalCtrl',
