@@ -42,7 +42,7 @@
         <a ng-click = "backToCities(selected_region)" style = "cursor:pointer;">{{selected_region.name}}</a>
       </span>
     </div>
-    <div class="regional-holder">
+    <div class="regional-holder" ng-class="{qsc: radioModel == 'QSC'}">
       <div class="regional-frame">
         <div class="morris-content-holder" ng-repeat="area in donut_graph_data.objects track by $index" ng-show="area_view == true">
           <div class="morris-graph-holder" same-region-height data-data="donut_graph_data.donutData[$index]">

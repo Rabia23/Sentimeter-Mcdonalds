@@ -16,7 +16,7 @@
           <h2>Positive/Negative Feedback</h2>
         </div>
       </div>
-      <div class="comments-holder">
+      <div class="comments-holder" ng-class="{loading: show_loading}">
         <ul class="comments-list list-unstyled jcf-scrollable" custom-form data-comments="comments">
           <li ng-if="feedback_count != 0" ng-repeat="comment in comments" ng-class="{negative: comment.data.is_negative, positive: !comment.data.is_negative, recovered: comment.action_string == 'Recovered', NaN: comment.action_string == 'NAN', unrecoverable: comment.action_string == 'Unrecoverable', unprocessed: comment.action_string == 'Unprocessed'}">
             <p>{{comment.data.comment}}</p>

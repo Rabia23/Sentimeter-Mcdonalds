@@ -4,17 +4,18 @@
   .controller( 'PositiveNegativeFeedbackCtrl', function PositiveNegativeFeedbackCtrl( $scope, _, Global, Graphs,$uibModal, $log, commentService, flashService, StatusEnum ) {
 
     $scope.show_error_message = false;
+    $scope.show_loading = false;
 
     $scope.getComments = function() {
+      $scope.show_loading = true;
       Graphs.comments(1).$promise.then(function(data){
-        console.log("comments data");
-        console.log(data);
         if(data.success) {
           $scope.show_error_message = false;
           $scope.feedback_count = data.response.feedback_count;
           $scope.comments = _.map(data.response.feedbacks, function (data) {
             return commentService.getComment(data);
           });
+          $scope.show_loading = false;
         }
         else{
           $scope.show_error_message = true;

@@ -516,7 +516,10 @@ body.login {background: #eee !important;}
   -o-transition-timing-function: cubic-bezier(0.420, 0.000, 1.000, 1.000);
   transition-timing-function: cubic-bezier(0.420, 0.000, 1.000, 1.000);
 }
-.comments-drop .comments-holder {height: 100px;}
+.comments-drop .comments-holder {
+  height: 100px;
+  position: relative;
+}
 .comments-drop .comments-holder .jcf-scrollable-wrapper,
 .comments-drop .comments-holder .jcf-scrollable {
   height: 100% !important;
@@ -745,6 +748,10 @@ body.login {background: #eee !important;}
   border-bottom-color: #fff;
   color: #000;
 }
+.tab-links li.item6:hover a,
+.tab-links li.item6:active a,
+.tab-links li.item6.active a,
+.tab-links li.item6:focus a {border-bottom-color: #e7eaec;}
 .calender-outer:hover .fa-calendar,
 .calender-outer:active .fa-calendar,
 .calender-outer:focus .fa-calendar {color: #000;}
@@ -854,12 +861,15 @@ body.login {background: #eee !important;}
   border: 0;
   padding: 15px 10px;
 }
+.modal-900 .modal-header{padding: 15px 10px;}
+.modal-900 .modal-header h2,
 .modal-1200 .modal-header h2 {
   margin: 0;
   font-weight: 700;
   line-height: 1.35;
   overflow: hidden;
 }
+.modal-900 .modal-header .close-btn-font,
 .modal-1200 .modal-header .close-btn-font {
   cursor: pointer;
   color: #888;
@@ -867,6 +877,7 @@ body.login {background: #eee !important;}
   line-height: 20px;
   margin: 2px 0 0;
 }
+.modal-900 .modal-header .close-btn-font:hover,
 .modal-1200 .modal-header .close-btn-font:hover {color: #000;}
 .modal-1200 .modal-body {padding: 0 15px 15px;}
 .modal-1200 .modal-body:after {
@@ -1730,114 +1741,6 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .progress-area .progress-holder .progress-block {position: relative;}
 .business-segment .progress-area .progress-holder .progress-block {height: 100%;}
 .business-segment .progress-area .progress-holder .progress-block.main {cursor: pointer;}
-.progress-container.Quality .progress-holder .progress-bar {background: #431051;}
-.progress-container.Quality .progress-holder .progress-bar b,
-.progress-container.Quality .progress-holder .progress-bar span {color: #431051;}
-.progress-container.Quality .progress-holder:nth-child(2) .progress-bar {background: #4f1b5e;}
-.progress-container.Quality .progress-holder:nth-child(2) .progress-bar b,
-.progress-container.Quality .progress-holder:nth-child(2) .progress-bar span {color: #4f1b5e;}
-.progress-container.Quality .progress-holder:nth-child(3) .progress-bar {background: #602e76;}
-.progress-container.Quality .progress-holder:nth-child(3) .progress-bar b,
-.progress-container.Quality .progress-holder:nth-child(3) .progress-bar span {color: #602e76;}
-.progress-container.Quality .progress-holder:nth-child(4) .progress-bar {background: #7a4191;}
-.progress-container.Quality .progress-holder:nth-child(4) .progress-bar b,
-.progress-container.Quality .progress-holder:nth-child(4) .progress-bar span {color: #7a4191;}
-.progress-container.Quality .progress-holder:nth-child(5) .progress-bar {background: #9352ac;}
-.progress-container.Quality .progress-holder:nth-child(5) .progress-bar b,
-.progress-container.Quality .progress-holder:nth-child(5) .progress-bar span {color: #9352ac;}
-.progress-container.Quality .progress-holder:nth-child(6) .progress-bar {background: #a95dc3;}
-.progress-container.Quality .progress-holder:nth-child(6) .progress-bar b,
-.progress-container.Quality .progress-holder:nth-child(6) .progress-bar span {color: #a95dc3;}
-.progress-container.Quality .progress-section .progress-bar {background: #431051;}
-.progress-container.Quality .progress-section .progress-bar span {border-right-color: #431051;}
-.progress-container.Quality .progress-section .progress-bar:nth-child(2) {background: #4f1b5e;}
-.progress-container.Quality .progress-section .progress-bar:nth-child(2) span {border-right-color: #4f1b5e;}
-.progress-container.Quality .progress-section .progress-bar:nth-child(3) {background: #602e76;}
-.progress-container.Quality .progress-section .progress-bar:nth-child(3) span {border-right-color: #602e76;}
-.progress-container.Quality .progress-section .progress-bar:nth-child(4) {background: #7a4191;}
-.progress-container.Quality .progress-section .progress-bar:nth-child(4) span {border-right-color: #7a4191;}
-.progress-container.Quality .progress-section .progress-bar:nth-child(5) {background: #9352ac;}
-.progress-container.Quality .progress-section .progress-bar:nth-child(5) span {border-right-color: #9352ac;}
-.progress-container.Quality .progress-section .progress-bar:nth-child(6) {background: #a95dc3;}
-.progress-container.Quality .progress-section .progress-bar:nth-child(6) span {border-right-color: #a95dc3;}
-.progress-container.Quality .list.add li:before {background: #431051;}
-.progress-container.Quality .list.add li:nth-child(2):before {background: #4f1b5e;}
-.progress-container.Quality .list.add li:nth-child(3):before {background: #602e76;}
-.progress-container.Quality .list.add li:nth-child(4):before {background: #7a4191;}
-.progress-container.Quality .list.add li:nth-child(5):before {background: #9352ac;}
-.progress-container.Quality .list.add li:nth-child(6):before {background: #a95dc3;}
-.progress-container.Service .progress-holder .progress-bar {background: #fd8e15;}
-.progress-container.Service .progress-holder .progress-bar b,
-.progress-container.Service .progress-holder .progress-bar span {color: #fd8e15;}
-.progress-container.Service .progress-holder:nth-child(2) .progress-bar {background: #fc9918;}
-.progress-container.Service .progress-holder:nth-child(2) .progress-bar b,
-.progress-container.Service .progress-holder:nth-child(2) .progress-bar span {color: #fc9918;}
-.progress-container.Service .progress-holder:nth-child(3) .progress-bar {background: #fca91f;}
-.progress-container.Service .progress-holder:nth-child(3) .progress-bar b,
-.progress-container.Service .progress-holder:nth-child(3) .progress-bar span {color: #fca91f;}
-.progress-container.Service .progress-holder:nth-child(4) .progress-bar {background: #fbbc26;}
-.progress-container.Service .progress-holder:nth-child(4) .progress-bar b,
-.progress-container.Service .progress-holder:nth-child(4) .progress-bar span {color: #fbbc26;}
-.progress-container.Service .progress-holder:nth-child(5) .progress-bar {background: #f9cf2d;}
-.progress-container.Service .progress-holder:nth-child(5) .progress-bar b,
-.progress-container.Service .progress-holder:nth-child(5) .progress-bar span {color: #f9cf2d;}
-.progress-container.Service .progress-holder:nth-child(6) .progress-bar {background: #f8e035;}
-.progress-container.Service .progress-holder:nth-child(6) .progress-bar b,
-.progress-container.Service .progress-holder:nth-child(6) .progress-bar span {color: #f8e035;}
-.progress-container.Service .progress-section .progress-bar {background: #fd8e15;}
-.progress-container.Service .progress-section .progress-bar span {border-right-color: #fd8e15;}
-.progress-container.Service .progress-section .progress-bar:nth-child(2) {background: #fc9918;}
-.progress-container.Service .progress-section .progress-bar:nth-child(2) span {border-right-color: #fc9918;}
-.progress-container.Service .progress-section .progress-bar:nth-child(3) {background: #fca91f;}
-.progress-container.Service .progress-section .progress-bar:nth-child(3) span {border-right-color: #fca91f;}
-.progress-container.Service .progress-section .progress-bar:nth-child(4) {background: #fbbc26;}
-.progress-container.Service .progress-section .progress-bar:nth-child(4) span {border-right-color: #fbbc26;}
-.progress-container.Service .progress-section .progress-bar:nth-child(5) {background: #f9cf2d;}
-.progress-container.Service .progress-section .progress-bar:nth-child(5) span {border-right-color: #f9cf2d;}
-.progress-container.Service .progress-section .progress-bar:nth-child(6) {background: #f8e035;}
-.progress-container.Service .progress-section .progress-bar:nth-child(6) span {border-right-color: #f8e035;}
-.progress-container.Service .list.add li:before {background: #fd8e15;}
-.progress-container.Service .list.add li:nth-child(2):before {background: #fc9918;}
-.progress-container.Service .list.add li:nth-child(3):before {background: #fca91f;}
-.progress-container.Service .list.add li:nth-child(4):before {background: #fbbc26;}
-.progress-container.Service .list.add li:nth-child(5):before {background: #f9cf2d;}
-.progress-container.Service .list.add li:nth-child(6):before {background: #f8e035;}
-.progress-container.Cleanliness .progress-holder .progress-bar {background: #064c7c;}
-.progress-container.Cleanliness .progress-holder .progress-bar b,
-.progress-container.Cleanliness .progress-holder .progress-bar span {color: #064c7c;}
-.progress-container.Cleanliness .progress-holder:nth-child(2) .progress-bar {background: #085389;}
-.progress-container.Cleanliness .progress-holder:nth-child(2) .progress-bar b,
-.progress-container.Cleanliness .progress-holder:nth-child(2) .progress-bar span {color: #085389;}
-.progress-container.Cleanliness .progress-holder:nth-child(3) .progress-bar {background: #0c5e9d;}
-.progress-container.Cleanliness .progress-holder:nth-child(3) .progress-bar b,
-.progress-container.Cleanliness .progress-holder:nth-child(3) .progress-bar span {color: #0c5e9d;}
-.progress-container.Cleanliness .progress-holder:nth-child(4) .progress-bar {background: #0f6db4;}
-.progress-container.Cleanliness .progress-holder:nth-child(4) .progress-bar b,
-.progress-container.Cleanliness .progress-holder:nth-child(4) .progress-bar span {color: #0f6db4;}
-.progress-container.Cleanliness .progress-holder:nth-child(5) .progress-bar {background: #137ecc;}
-.progress-container.Cleanliness .progress-holder:nth-child(5) .progress-bar b,
-.progress-container.Cleanliness .progress-holder:nth-child(5) .progress-bar span {color: #0f6db4;}
-.progress-container.Cleanliness .progress-holder:nth-child(6) .progress-bar {background: #168ce0;}
-.progress-container.Cleanliness .progress-holder:nth-child(6) .progress-bar b,
-.progress-container.Cleanliness .progress-holder:nth-child(6) .progress-bar span {color: #168ce0;}
-.progress-container.Cleanliness .progress-section .progress-bar {background: #064c7c;}
-.progress-container.Cleanliness .progress-section .progress-bar span {border-right-color: #064c7c;}
-.progress-container.Cleanliness .progress-section .progress-bar:nth-child(2) {background: #085389;}
-.progress-container.Cleanliness .progress-section .progress-bar:nth-child(2) span {border-right-color: #085389;}
-.progress-container.Cleanliness .progress-section .progress-bar:nth-child(3) {background: #0c5e9d;}
-.progress-container.Cleanliness .progress-section .progress-bar:nth-child(3) span {border-right-color: #0c5e9d;}
-.progress-container.Cleanliness .progress-section .progress-bar:nth-child(4) {background: #0f6db4;}
-.progress-container.Cleanliness .progress-section .progress-bar:nth-child(4) span {border-right-color: #0f6db4;}
-.progress-container.Cleanliness .progress-section .progress-bar:nth-child(5) {background: #137ecc;}
-.progress-container.Cleanliness .progress-section .progress-bar:nth-child(5) span {border-right-color: #137ecc;}
-.progress-container.Cleanliness .progress-section .progress-bar:nth-child(6) {background: #168ce0;}
-.progress-container.Cleanliness .progress-section .progress-bar:nth-child(6) span {border-right-color: #168ce0;}
-.progress-container.Cleanliness .list.add li:before {background: #064c7c;}
-.progress-container.Cleanliness .list.add li:nth-child(2):before {background: #085389;}
-.progress-container.Cleanliness .list.add li:nth-child(3):before {background: #0c5e9d;}
-.progress-container.Cleanliness .list.add li:nth-child(4):before {background: #0f6db4;}
-.progress-container.Cleanliness .list.add li:nth-child(5):before {background: #137ecc;}
-.progress-container.Cleanliness .list.add li:nth-child(6):before {background: #168ce0;}
 .opportunities .progress-area .progress-holder {
   padding: 0 0 12px;
   min-height: inherit;
@@ -1918,7 +1821,9 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .modal-dialog .info-form .modal-body:after,
 .promotions:after,
 .grids-holder:after,
-.table-container:after{
+.table-container:after,
+.modal-900 .modal-body:after,
+.comments-drop .comments-holder:after{
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1931,26 +1836,6 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
   opacity: 0;
   z-index: 992;
   display: block !important;
-}
-.questionnaire:after,
-.promotions:after,
-.users-section:after {
-  position: static;
-  width: 0;
-  height: 0;
-  margin: 0;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	background: url(../assets/images/loader.gif) no-repeat;
-	width: 75px;
-	height: 70px;
-	content: "";
-	margin: -37px 0 0 -35px;
-	visibility: hidden;
-	opacity: 0;
-	z-index: 992;
-	display: block !important;
 }
 .questionnaire:after,
 .promotions:after,
@@ -1975,7 +1860,9 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .ibox > .content-holder:before,
 .ibox > .ibox-content:before,
 .modal-dialog .info-form .modal-body:before,
-.table-container:before{
+.table-container:before,
+.modal-900 .modal-body:before,
+.comments-drop .comments-holder:before{
   left: 0;
   right: 0;
   top: 0;
@@ -1987,19 +1874,6 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
   position: absolute;
   z-index: 991;
   display: block !important;
-}
-.grid-container:before {
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	content: "";
-	background: #fff;
-	visibility: hidden;
-	opacity: 0;
-	position: absolute;
-	z-index: 991;
-	display: block !important;
 }
 .grid-container:before{
   left: -10px;
@@ -2016,13 +1890,11 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .promotions:after,
 .table-container.cloading:after,
 .questionnaire.cloading .grids-holder:after,
-.promotions.cloading .grids-holder:after {
+.promotions.cloading .grids-holder:after,
+.modal-900 .modal-body.loading:after,
+.comments-drop .comments-holder.loading:after{
   visibility: visible;
   opacity: 1;
-}
-.promotions.cloading .grids-holder:after{
-	visibility: visible;
-	opacity: 1;
 }
 .modal-1000 .graph-container.loading .holder:before,
 .form-holder.loading:before,
@@ -2031,14 +1903,17 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .modal-dialog .info-form .modal-body.loading:before,
 .questionnaire.cloading .grid-container:before,
 .promotions.cloading .grid-container:before,
-.table-container.cloading:before{
+.table-container.cloading:before,
+.modal-900 .modal-body.loading:before,
+.comments-drop .comments-holder.loading:before{
   visibility: visible;
   opacity: 0.6;
 }
 .map-section .ibox-content,
 .timeline-section .ibox-content {min-height: 200px;}
 .message-holder {
-  @include inline-block(middle);
+  display: inline-block;
+  vertical-align: middle;
   width: 100%;
   padding: 40px 10px;
   text-align: center;
@@ -2795,10 +2670,57 @@ li.active,
   -moz-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
-.morris-holder .qsc svg > path,
+.qsc .morris-holder svg > path,
+.mainview #chartdiv svg circle,
 #piechart .amcharts-chart-div > svg > g > g path {cursor: pointer;}
-
+.progress-box{
+  overflow: hidden;
+  margin: 0 0 20px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid #e5e5e5;
+  letter-spacing: -6px;
+  min-height: 100px;
+}
+.progress-box .progress-holder{
+  display: inline-block;
+  vertical-align: top;
+  width: 100%;
+  letter-spacing:0;
+}
+.progress-box .progress-area .progress-holder .progress{height: 20px !important;}
+.progress-box .progress-holder{padding: 10px 0;}
+.modal-900 .modal-body{
+  padding: 15px 10px;
+  min-height: 200px;
+  overflow: hidden;
+}
+.modal-900 .modal-body.loading .progress-box{border-bottom: 0;}
+.modal-opener i{
+  -ms-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.progress-container{min-height: 150px;}
 @media screen and (min-width: 768px) {
+  .progress-box .progress-area{
+    position: relative;
+    margin: 0 -10px;
+  }
+  .progress-box .progress-area:after{
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    content: "";
+    background: #e5e5e5;
+    width: 1px;
+    position: absolute;
+  }
+  .progress-box .progress-holder{
+    padding: 10px;
+    width: 50%;
+  }
+  .modal-900{width: 730px;}
   .legends-holder {padding: 15px 20px 0;}
   .legends-list {
     font-size: 13px;
@@ -2834,6 +2756,7 @@ li.active,
 }
 
 @media screen and (min-width: 992px) {
+  .modal-900{width: 900px;}
   .modal-1200 .table tbody td {
     font-size: 13px;
     line-height: 1.2;
@@ -2990,7 +2913,9 @@ li.active,
     font-size: 14px;
     line-height: 1.2;
   }
-  .modal-1200 .modal-header {padding: 15px;}
+  .modal-1200 .modal-header,
+  .modal-900 .modal-header,
+  .modal-900 .modal-body{padding: 15px;}
 }
 
 @media screen and (max-width: 1800px) {
@@ -3000,8 +2925,8 @@ li.active,
   .ibox-content h1 {font-size: 26px;}
   .detail-block h1 {font-size: 25px;}
   .tab-links {font-size: 13px;}
-  .tab-links li a {padding: 13px 9px;}
-  .calender-outer {min-width: 40px;}
+  .tab-links li a {padding: 13px 15px;}
+  .calender-outer {min-width: 45px;}
   .users-list li .ibox {padding: 15px 10px 10px;}
   .users-list > li {
     width: 25%;
@@ -3011,6 +2936,8 @@ li.active,
 }
 
 @media screen and (max-width: 1600px) {
+  .tab-links li a {padding: 13px 7px;}
+  .calender-outer {min-width: 35px;}
   .row {
     margin-left: -5px;
     margin-right: -5px;
@@ -3050,6 +2977,8 @@ li.active,
 }
 
 @media screen and (max-width: 1279px) {
+  .tab-links li a {padding: 13px 15px;}
+  .calender-outer {min-width: 45px;}
   .users-list ul li .title {width: 77px;}
   .business-segment .progress-area .progress-holder .progress-inner {max-height: inherit;}
   .progress-area .progress-holder,
@@ -3171,11 +3100,12 @@ li.active,
     min-width: inherit;
     height: 41px;
   }
-  .business-segment .tab-links li {width: 27%;}
+  .business-segment .tab-links li {width: 25%;}
   .business-segment .tab-links li.item2,
-  .business-segment .tab-links li.item3 {width: 22.5%;}
+  .business-segment .tab-links li.item3 {width: 21%;}
   .business-segment .tab-links li:first-child,
-  .business-segment .tab-links li:last-child {width: 14%;}
+  .business-segment .tab-links li.item5,
+  .business-segment .tab-links li:last-child {width: 11%;}
   .patch-section .tab-links li {width: 25%;}
   .patch-section .tab-links li:last-child {width: 20%;}
   .patch-section .tab-links li:first-child {width: 30%;}
@@ -3224,7 +3154,7 @@ li.active,
 }
 
 @media screen and (max-width: 767px) {
-  .modal-1200 .content{padding: 52px 0 0;}
+  .modal-1200 .content{padding: 50px 0 0;}
   .promotions .btn.dim {
     font-size: 14px;
     line-height: 20px;
@@ -3411,6 +3341,14 @@ li.active,
   .modal-1200 .table th .dropdown-menu {margin: 0 -5px 0 0;}
   #wrapper .btn-top {margin: -65px 0 0;}
   .modal-1200{padding: 15px 0;}
+  .modal-1200 .table th .btn.btn-info{font-size: 11px;}
+  .modal-1200 .table th.item6 .btn .caret{
+    border-left-width: 4px;
+    border-right-width: 4px;
+    border-top-width: 4px;
+    margin-top: -2px;
+    right: 0;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -3439,7 +3377,8 @@ li.active,
   .btn-list li {width: 100%;}
   .morris-content-outer .morris-content-holder {width: 100%;}
   .users-list > li {width: 100%;}
-  .modal-1200 .modal-header h2 {
+  .modal-1200 .modal-header h2,
+  .modal-900 .modal-header h2{
     font-size: 18px;
     line-height: 1.4;
   }
@@ -3465,4 +3404,7 @@ li.active,
   .loader {margin: 11% 16%;}
   .morris-block-holder .morris-graph-holder .morris-holder .chart-container {max-width: 70%;}
   .morris-block-holder .morris-content-holder {width: 50%;}
+  .mini-navbar .tab-links{font-size: 9px;}
+  .mini-navbar .tab-links li a{padding: 10px 2px;}
+  .mini-navbar .tab-links li a i{font-size: 11px;}
 }
