@@ -2,11 +2,10 @@
   angular.module('livefeed.dashboard.category_performance_analysis')
 
   .controller('CategoryModalCtrl', function ($scope, $timeout, $uibModalInstance, feedbackService, CategoryPerformanceApi, flashService, option_id, string) {
-    console.log("option object");
-    console.log(option_id);
+
+    $scope.show_loading = true;
 
     CategoryPerformanceApi.category_performance("","","",option_id, null, null).$promise.then(function(performance_data){
-      console.log(performance_data);
       if(performance_data.success) {
         $scope.category_data = _.map(performance_data.response.feedbacks, function (data) {
           return feedbackService.getCategoryFeedbacks(data, performance_data.response.feedback_count, option_id, string);
