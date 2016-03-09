@@ -8,33 +8,35 @@
   <div class="modal-body">
     <div class="table-holder">
       <div class="table-block jcf-scrollable" custom-form>
-        <table class="table table-header">
-          <thead>
-            <tr>
-              <th class="item1">Name</th>
-              <th class="item2">Phone / Email</th>
-              <th class="item3">Branch</th>
-              <th class="item4">Segment</th>
-              <th class="item5">
-                <div class="search-holder">
-                  <input type="text" class="search" placeholder="Search For Comments" ng-model = "text" search-field>
-                </div>
-              </th>
-              <th class="item6">
-                <div class="btn-group" uib-dropdown is-open="status.isopen">
-                  <button id="single-button" type="button" class="btn btn-info" uib-dropdown-toggle>
-                    <span class="caret"></span> {{statusOption}}
-                  </button>
-                  <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
-                    <li role="menuitem" ng-repeat="option in status_options">
-                      <a style="cursor: pointer" ng-click="showComments(option)">{{option}}</a>
-                    </li>
-                  </ul>
-                </div>
-              </th>
-            </tr>
-          </thead>
-        </table>
+        <div class="table-header-holder">
+          <table class="table table-header">
+            <thead>
+              <tr>
+                <th class="item1">Name</th>
+                <th class="item2">Phone / Email</th>
+                <th class="item3">Branch</th>
+                <th class="item4">Segment</th>
+                <th class="item5">
+                  <div class="search-holder">
+                    <input type="text" class="search" placeholder="Search For Comments" ng-model = "text" search-field>
+                  </div>
+                </th>
+                <th class="item6">
+                  <div class="btn-group" uib-dropdown is-open="status.isopen">
+                    <button id="single-button" type="button" class="btn btn-info" uib-dropdown-toggle>
+                      <span class="caret"></span> {{statusOption}}
+                    </button>
+                    <ul uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                      <li role="menuitem" ng-repeat="option in status_options">
+                        <a style="cursor: pointer" ng-click="showComments(option)">{{option}}</a>
+                      </li>
+                    </ul>
+                  </div>
+                </th>
+              </tr>
+            </thead>
+          </table>
+        </div>
         <div class="content">
           <div class="table-container jcf-scrollable" data-comments="comments" ng-class="{loading: lock, cloading: show_loader}" when-scrolled="getMoreComments(statusOption, text)" custom-form>
             <table class="table">
