@@ -121,6 +121,12 @@
           },
           string: function () {
             return $scope.string;
+          },
+          start_date: function () {
+            return $scope.start_date;
+          },
+          end_date: function () {
+            return $scope.end_date;
           }
         }
       });
