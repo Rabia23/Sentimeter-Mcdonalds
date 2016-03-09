@@ -1,7 +1,7 @@
 (function() {
   angular.module( 'livefeed.dashboard.category_performance_analysis')
 
-  .controller('CategoryPerformanceAnalysisCtrl', function CategoryPerformanceAnalysisCtrl($scope, CategoryPerformanceApi, Global, $timeout, flashService, $uibModal) {
+  .controller('CategoryPerformanceAnalysisCtrl', function CategoryPerformanceAnalysisCtrl($scope, Global, feedbackService, CategoryPerformanceApi, $timeout, flashService, $uibModal) {
 
     $scope.show_loading = false;
     $scope.class = '';
@@ -44,15 +44,8 @@
       CategoryPerformanceApi.category_performance(region_id,city_id,branch_id,option_id, $scope.start_date, $scope.end_date).$promise.then(function(performance_data){
         if(performance_data.success) {
           $scope.show_error_message = false;
-          $scope.category_data = _.map(performance_data.response.feedbacks, function (data, index) {
-            return {
-              id: data.option_id,
-              name: data.option__text,
-              complaints: data.count,
-              percentage: data.count === 0 ? 0 : Math.round((data.count / performance_data.response.feedback_count) * 100),
-              priority: option_id == null ? Global.qscPriority[data.option__text] : Global.qscSubCategoriesData[string][data.option__text].priority,
-              colour: option_id == null ? Global.categoryPerformanceClass[data.option__text] : Global.qscSubCategoriesData[string][data.option__text].color
-            };
+          $scope.category_data = _.map(performance_data.response.feedbacks, function (data) {
+             return feedbackService.getCategoryFeedbacks(data, performance_data.response.feedback_count, option_id, string);
           });
           $scope.category_data = _.sortBy($scope.category_data, function (value) {
             return value.priority;
@@ -77,29 +70,8 @@
         if(segment_data.success) {
           $scope.show_error_message = false;
           $timeout(function () {
-            $scope.segments = _.map(segment_data.response.segments, function (data,index) {
-              return {
-                name: data.segment,
-                show_string: data.option_count === 0 ? true : false,
-                data: _.map(data.option_data, function (dat) {
-                  return dat.count;
-                }),
-                labels: _.map(data.option_data, function (dat) {
-                  return dat.option__text;
-                }),
-                colors: _.map(data.option_data, function (dat, index) {
-                  return option_id == null ? Global.categoryPerformanceClass[dat.option__text] : Global.qscSubCategoriesData[string][dat.option__text].color;
-                }),
-                options: {
-                  percentageInnerCutout: 70,
-                  tooltipTemplate: "<%if (label) %><%= value %>",
-                  tooltipYPadding: 4,
-                  tooltipXPadding: 2,
-                  tooltipCornerRadius: 0,
-                  tooltipFontSize: 14
-                },
-                priority: Global.segmentationPriority[data.segment]
-              };
+            $scope.segments = _.map(segment_data.response.segments, function (data) {
+              return feedbackService.getSegmentFeedbacks(data, option_id, string);
             });
             $scope.segments = _.sortBy($scope.segments, function (value) {
               return value.priority;
@@ -132,7 +104,7 @@
     };
 
     $scope.onClick = function(option_id,string){
-      console.log("on click");
+      $scope.string = string;
       $scope.option_id = option_id;
       $scope.onOptionSelect(string,option_id);
     };
@@ -144,6 +116,12 @@
         controller: 'CategoryModalCtrl',
         size: 900,
         resolve: {
+          option_id: function () {
+            return $scope.option_id;
+          },
+          string: function () {
+            return $scope.string;
+          }
         }
       });
     };
@@ -152,5 +130,45 @@
     $scope.showCategoryData();
     $scope.showSegmentData();
 
+  })
+  .service('feedbackService', function(_, Global){
+
+    return {
+      getCategoryFeedbacks: function(data, feedback_count, option_id, string){
+        var id = data.option_id;
+        var name = data.option__text;
+        var complaints = data.count;
+        var percentage = data.count === 0 ? 0 : Math.round((data.count / feedback_count) * 100);
+        var priority = option_id == null ? Global.qscPriority[data.option__text] : Global.qscSubCategoriesData[string][data.option__text].priority;
+        var colour = option_id == null ? Global.categoryPerformanceClass[data.option__text] : Global.qscSubCategoriesData[string][data.option__text].color;
+        return {
+          id: id, name: name, complaints: complaints, percentage: percentage, priority: priority, colour: colour };
+      },
+      getSegmentFeedbacks: function(data, option_id, string){
+        return {
+          name: data.segment,
+          show_string: data.option_count === 0 ? true : false,
+          data: _.map(data.option_data, function (dat) {
+            return dat.count;
+          }),
+          labels: _.map(data.option_data, function (dat) {
+            return dat.option__text;
+          }),
+          colors: _.map(data.option_data, function (dat) {
+            return option_id == null ? Global.categoryPerformanceClass[dat.option__text] : Global.qscSubCategoriesData[string][dat.option__text].color;
+          }),
+          options: {
+            percentageInnerCutout: 70,
+            tooltipTemplate: "<%if (label) %><%= value %>",
+            tooltipYPadding: 4,
+            tooltipXPadding: 2,
+            tooltipCornerRadius: 0,
+            tooltipFontSize: 14
+          },
+          priority: Global.segmentationPriority[data.segment]
+        };
+      }
+
+    };
   });
 })();

@@ -2671,6 +2671,7 @@ li.active,
   display: inline-block;
   vertical-align: top;
   width: 100%;
+  letter-spacing:0;
 }
 .modal-900 .modal-body{padding: 15px 10px;}
 .modal-opener i{
