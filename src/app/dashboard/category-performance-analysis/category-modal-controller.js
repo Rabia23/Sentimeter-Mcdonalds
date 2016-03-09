@@ -1,11 +1,11 @@
 (function() {
   angular.module('livefeed.dashboard.category_performance_analysis')
 
-  .controller('CategoryModalCtrl', function ($scope, $timeout, $uibModalInstance, feedbackService, CategoryPerformanceApi, flashService, option_id, string) {
+  .controller('CategoryModalCtrl', function ($scope, $timeout, $uibModalInstance, feedbackService, CategoryPerformanceApi, flashService, option_id, string, start_date, end_date) {
 
     $scope.show_loading = true;
 
-    CategoryPerformanceApi.category_performance("","","",option_id, null, null).$promise.then(function(performance_data){
+    CategoryPerformanceApi.category_performance("","","",option_id, start_date, end_date).$promise.then(function(performance_data){
       if(performance_data.success) {
         $scope.category_data = _.map(performance_data.response.feedbacks, function (data) {
           return feedbackService.getCategoryFeedbacks(data, performance_data.response.feedback_count, option_id, string);
@@ -13,19 +13,13 @@
         $scope.category_data = _.sortBy($scope.category_data, function (value) {
           return value.priority;
         });
-
-        if (option_id == null) {
-          $scope.QualityID = $scope.category_data[0].id;
-          $scope.ServiceID = $scope.category_data[1].id;
-          $scope.CleanlinessID = $scope.category_data[2].id;
-        }
       }
       else{
         flashService.createFlash(performance_data.message, "danger");
       }
     });
 
-    CategoryPerformanceApi.segmentation_rating("","","",option_id, null, null).$promise.then(function (segment_data) {
+    CategoryPerformanceApi.segmentation_rating("","","",option_id, start_date, end_date).$promise.then(function (segment_data) {
       if(segment_data.success) {
         $timeout(function () {
           $scope.segments = _.map(segment_data.response.segments, function (data) {
