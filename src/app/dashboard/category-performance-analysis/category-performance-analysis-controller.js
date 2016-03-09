@@ -142,7 +142,7 @@
       var modalInstance = $uibModal.open({
         templateUrl: 'dashboard/category-performance-analysis/category-modal.tpl.html',
         controller: 'CategoryModalCtrl',
-        size: 1200,
+        size: 900,
         resolve: {
         }
       });

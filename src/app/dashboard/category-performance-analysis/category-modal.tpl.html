@@ -8,6 +8,45 @@
 </div>
 <div class="modal-detail">
   <div class="modal-body">
-    This is category performance analysis
+    <div class="progress-box">
+      <div class="progress-area">
+        <div class="progress-holder" ng-repeat="dat in category_data" data-color="dat.colour" data-data="category_data" progress-bar-background>
+          <div class="progress-inner">
+            <small>
+              <em>
+                <a bar-click data-name = "dat.name" ng-if = "mainView">
+                  {{dat.name}}
+                </a>
+                <span ng-if = "!mainView">
+                  {{dat.name}}
+                </span>
+                <b>
+                  {{dat.complaints}} complaints
+                </b>
+              </em>
+            </small>
+            <div class="progress-block main" bar-click data-name = "dat.name" ng-if = "mainView">
+              <uib-progressbar animate="false" value="dat.percentage" type="success"></uib-progressbar>
+            </div>
+            <div class="progress-block" ng-if = "!mainView">
+              <uib-progressbar animate="false" value="dat.percentage" type="success"></uib-progressbar>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="morris-block-holder">
+      <div class="morris-content-holder" ng-repeat="segment in segments track by $index">
+        <div class="morris-graph-holder">
+          <div class="morris-holder">
+            <div ng-hide="segment.show_string">
+              <canvas id="doughnut" width="100" height="100" class="chart chart-doughnut" chart-data="segment.data" chart-labels="segment.labels" chart-colours="segment.colors" chart-options="segment.options"></canvas>
+            </div>
+            <div ng-show="segment.show_string">No Data Available</div>
+          </div>
+        </div>
+        <strong class="title">{{segment.name}}</strong>
+      </div>
+    </div>
   </div>
 </div>
