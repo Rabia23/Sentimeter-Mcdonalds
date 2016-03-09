@@ -1,7 +1,7 @@
 (function() {
   angular.module( 'livefeed.dashboard.category_performance_analysis')
 
-  .controller('CategoryPerformanceAnalysisCtrl', function DashboardController($scope, CategoryPerformanceApi, Global, $timeout, flashService) {
+  .controller('CategoryPerformanceAnalysisCtrl', function CategoryPerformanceAnalysisCtrl($scope, CategoryPerformanceApi, Global, $timeout, flashService, $uibModal) {
 
     $scope.show_loading = false;
     $scope.class = '';
@@ -132,8 +132,20 @@
     };
 
     $scope.onClick = function(option_id,string){
+      console.log("on click");
       $scope.option_id = option_id;
       $scope.onOptionSelect(string,option_id);
+    };
+
+    $scope.open = function () {
+      console.log("in the open");
+      var modalInstance = $uibModal.open({
+        templateUrl: 'dashboard/category-performance-analysis/category-modal.tpl.html',
+        controller: 'CategoryModalCtrl',
+        size: 1200,
+        resolve: {
+        }
+      });
     };
 
     resetDates();

@@ -7,8 +7,6 @@
 
     $scope.getComments = function() {
       Graphs.comments(1).$promise.then(function(data){
-        console.log("comments data");
-        console.log(data);
         if(data.success) {
           $scope.show_error_message = false;
           $scope.feedback_count = data.response.feedback_count;
