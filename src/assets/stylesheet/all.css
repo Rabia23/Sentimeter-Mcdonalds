@@ -1818,7 +1818,8 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .modal-dialog .info-form .modal-body:after,
 .promotions:after,
 .grids-holder:after,
-.table-container:after{
+.table-container:after,
+.modal-900 .modal-body:after{
   position: absolute;
   left: 50%;
   top: 50%;
@@ -1855,7 +1856,8 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .ibox > .content-holder:before,
 .ibox > .ibox-content:before,
 .modal-dialog .info-form .modal-body:before,
-.table-container:before{
+.table-container:before,
+.modal-900 .modal-body:before{
   left: 0;
   right: 0;
   top: 0;
@@ -1883,7 +1885,8 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .promotions:after,
 .table-container.cloading:after,
 .questionnaire.cloading .grids-holder:after,
-.promotions.cloading .grids-holder:after {
+.promotions.cloading .grids-holder:after,
+.modal-900 .modal-body.loading:after{
   visibility: visible;
   opacity: 1;
 }
@@ -1894,7 +1897,8 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .modal-dialog .info-form .modal-body.loading:before,
 .questionnaire.cloading .grid-container:before,
 .promotions.cloading .grid-container:before,
-.table-container.cloading:before{
+.table-container.cloading:before,
+.modal-900 .modal-body.loading:before{
   visibility: visible;
   opacity: 0.6;
 }
@@ -2659,8 +2663,8 @@ li.active,
   -moz-transition: all 0.3s linear;
   transition: all 0.3s linear;
 }
-.morris-holder .qsc svg > path,
-#chartdiv svg circle,
+.qsc .morris-holder svg > path,
+.main #chartdiv svg circle,
 #piechart .amcharts-chart-div > svg > g > g path {cursor: pointer;}
 .progress-box{
   overflow: hidden;
@@ -2668,6 +2672,7 @@ li.active,
   padding: 0 0 10px;
   border-bottom: 1px solid #e5e5e5;
   letter-spacing: -6px;
+  min-height: 100px;
 }
 .progress-box .progress-holder{
   display: inline-block;
@@ -2677,13 +2682,19 @@ li.active,
 }
 .progress-box .progress-area .progress-holder .progress{height: 20px !important;}
 .progress-box .progress-holder{padding: 10px 0;}
-.modal-900 .modal-body{padding: 15px 10px;}
+.modal-900 .modal-body{
+  padding: 15px 10px;
+  min-height: 200px;
+  overflow: hidden;
+}
+.modal-900 .modal-body.loading .progress-box{border-bottom: 0;}
 .modal-opener i{
   -ms-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
   -webkit-transform: rotate(-45deg);
   transform: rotate(-45deg);
 }
+.progress-container{min-height: 150px;}
 @media screen and (min-width: 768px) {
   .progress-box .progress-area{
     position: relative;
