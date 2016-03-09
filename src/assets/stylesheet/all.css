@@ -2665,6 +2665,8 @@ li.active,
 .progress-box{
   overflow: hidden;
   margin: 0 0 20px;
+  padding: 0 0 10px;
+  border-bottom: 1px solid #e5e5e5;
   letter-spacing: -6px;
 }
 .progress-box .progress-holder{
@@ -2673,6 +2675,8 @@ li.active,
   width: 100%;
   letter-spacing:0;
 }
+.progress-box .progress-area .progress-holder .progress{height: 20px !important;}
+.progress-box .progress-holder{padding: 10px 0;}
 .modal-900 .modal-body{padding: 15px 10px;}
 .modal-opener i{
   -ms-transform: rotate(-45deg);
@@ -2695,7 +2699,7 @@ li.active,
     position: absolute;
   }
   .progress-box .progress-holder{
-    padding: 0 10px;
+    padding: 10px;
     width: 50%;
   }
   .modal-900{width: 730px;}
