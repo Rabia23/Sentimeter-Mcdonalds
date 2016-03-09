@@ -2664,7 +2664,7 @@ li.active,
   transition: all 0.3s linear;
 }
 .qsc .morris-holder svg > path,
-.main #chartdiv svg circle,
+.main-view #chartdiv svg circle,
 #piechart .amcharts-chart-div > svg > g > g path {cursor: pointer;}
 .progress-box{
   overflow: hidden;
