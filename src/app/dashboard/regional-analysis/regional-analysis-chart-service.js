@@ -17,7 +17,7 @@ angular.module('livefeed.regional_analysis.chart', [
         donutOptions: _.map(graph_data.analysis,  function(data){
           return   {
               colors: _.map(data.data.feedbacks, function(dat){
-                return (question_type == 1) ? Global.mainRatingColorScheme[dat.option__text] : Global.optionsColorScheme[dat.option__text];
+                return (question_type == 1) ? Global.mainRatingColorScheme[dat.option__text] : dat.option__color_code;
               })
             };
         })
@@ -30,7 +30,7 @@ angular.module('livefeed.regional_analysis.chart', [
             return {label: data.option__text, value: data.count};
           }),
           donutOptions: {colors: _.map(graph_data.feedbacks,  function(data){
-            return Global.qscSubCategoriesData[string][data.option__text].color;
+            return data.option__color_code;
             })
           }
        };
