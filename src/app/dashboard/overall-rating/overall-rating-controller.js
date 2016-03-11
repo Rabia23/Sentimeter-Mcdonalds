@@ -57,122 +57,95 @@
         $scope.max_page = $scope.data_array.length;
       }
 
-      function drawGraph(data){
-        $scope.overall_rating_data = [];
-        var timeline_data = overallRatingChartService.getAreaChart(data);
-        $scope.overall_rating_data = [$scope.labels, timeline_data];
+      function getLabelColor(timelinedata, value){
+        var label_value;
+        _.each(timelinedata.labels, function(val, ind){
+          if(val.value === value.option__text){
+            label_value = val;
+          }
+        });
+
+        return label_value;
+
       }
 
-       function calculate_labels(feedbacks){
-         $scope.labels = _.map(feedbacks, function (value, index) {
-             return {
-                 option_id: value.option_id,
-                 option_name: value.option__text,
-                 parent_id: value.option__parent_id,
-                 color: Global.optionsColorScheme[value.option__text],
-                 priority: Global.qscPriority[value.option__text],
-                 lineColor: Global.optionsLineColorScheme[value.option__text],
-                 title: value.option__text,
-                 id: "column-" + Global.qscPriority[value.option__text] + "-id",
-                 valueField: "column-" + Global.qscPriority[value.option__text]
-             };
-         });
-         $scope.labels = _.sortBy($scope.labels, function (value) {
-             return value.priority;
-         });
-       }
+      function drawGraph(data, feedbacks){
+        $scope.overall_rating_data = [];
 
-       function drawLabelGraph(data){
-         $scope.overall_rating_data = [];
-         var label_data =  overallRatingChartService.getAreaLabelChart(data);
-         $scope.overall_rating_data = [$scope.labels, label_data];
-       }
+        var timelinedata = overallRatingChartService.getAreaLabelChart(data);
+        $scope.labels = _.map(feedbacks, function (value, index) {
+          
+          var label_value = getLabelColor(timelinedata, value);
+          
+          return {
+            option_id: value.option_id,
+            option_name: value.option__text,
+            parent_id: value.option__parent_id,
+            color: label_value.color,
+            lineColor: label_value.color,
+            title: value.option__text,
+            id:  label_value.column + "-id",
+            valueField: label_value.column
+          };
+        });
+        $scope.overall_rating_data = [$scope.labels, timelinedata.data];
+      }
 
-       function calculate_option_labels(feedbacks){
-         $scope.labels = _.map(feedbacks ,function(value, index){
+      function calculate_option_labels(feedbacks){
+        $scope.labels = _.map(feedbacks ,function(value, index){
             return {
-               option_id: value.option_id,
-               option_name: value.option__text,
-               parent_id: value.option__parent_id,
-               color: Global.subOptionsColorScheme[value.option__text].color,
-               lineColor: Global.subOptionsColorScheme[value.option__text].color,
-               priority:  Global.subOptionsColorScheme[value.option__text].priority,
-               title: value.option__text,
-               id: "column-"+(index+1)+"-id",
-               valueField: "column-"+(index+1)
+              option_id: value.option_id,
+              option_name: value.option__text,
+              parent_id: value.option__parent_id,
+              color: value.option__color_code,
+              lineColor: value.option__color_code,
+              title: value.option__text,
+              id: "column-"+(index+1)+"-id",
+              valueField: "column-"+(index+1)
             };
          });
-         $scope.labels = _.sortBy($scope.labels, function (value) {
-             return value.priority;
-         });
-       }
-       $scope.mainRating = function(){
+      }
+      $scope.mainRating = function(option){
 
-           $scope.mainView = true;
-           $scope.show_loading = true;
-           $scope.optionView = false;
-           Graphs.overall_rating(null, $scope.start_date, $scope.end_date).$promise.then(function (data) {
-             if(data.success) {
-               if($scope.width < $scope.height) {
-                  calculate_data_sets(data, 3);
-               }
-               else {
-                   calculate_data_sets(data, 7);
-               }
-               calculate_labels($scope.data_array[0][0].data.feedbacks);
-               $scope.page = 1;
-               drawGraph($scope.data_array[0]);
-               $scope.show_loading = false;
-             }
-             else{
-               flashService.createFlash(data.message, "danger");
-             }
-           });
-       };
-
-       $scope.labelClick = function(option){
-          $scope.option = option;
-          if(option.parent_id == null){
-            $scope.show_loading = true;
-            $scope.optionView = true;
-            Graphs.overall_rating(option.option_id, $scope.start_date, $scope.end_date).$promise.then(function(data) {
-              if(data.success) {
-                $scope.mainView = false;
-                if($scope.width < $scope.height)  {
-                  calculate_data_sets(data, 3);
-                }
-                else {
-                  calculate_data_sets(data, 7);
-                }
-                calculate_option_labels($scope.data_array[0][0].data.feedbacks);
-                $scope.page = 1;
-                drawLabelGraph($scope.data_array[0]);
-                $scope.show_loading = false;
-              }
-              else {
-                flashService.createFlash(data.message, "danger");
-              }
-            });
+        $scope.show_loading = true;
+        $scope.optionView = false;
+        var option_id = (option)? option.option_id : null;
+        $scope.mainView = (option)? false : true;
+        Graphs.overall_rating(option_id, $scope.start_date, $scope.end_date).$promise.then(function (data) {
+          if(data.success) {
+            if($scope.width < $scope.height) {
+              calculate_data_sets(data, 3);
+            }
+            else {
+              calculate_data_sets(data, 7);
+            }
+            $scope.page = 1;
+            drawGraph($scope.data_array[0], $scope.data_array[0][0].data.feedbacks);
+            $scope.show_loading = false;
           }
-       };
+          else{
+            flashService.createFlash(data.message, "danger");
+          }
+        });
+      };
 
-        function drawOptionGraph(data){
-         $scope.overall_rating_data = [];
-         $scope.overall_rating_data = [$scope.labels, data];
-       }
+      function drawOptionGraph(data){
+        $scope.overall_rating_data = [];
+        $scope.overall_rating_data = [$scope.labels, data];
+      }
 
-       $scope.optionClick = function (option_object){
-         $scope.option_object = option_object;
-         var option_id = option_object.item.dataContext[option_object.graph.id];
-         var date = option_object.item.category;
-         if(option_id !== undefined) {
-           $scope.show_loading = true;
+      $scope.optionClick = function (option_object){
+        $scope.option_object = option_object;
+        var option_id = option_object.item.dataContext[option_object.graph.id];
+        var date = option_object.item.category;
+        if(option_id !== undefined) {
+          $scope.show_loading = true;
 
            Graphs.feedback_segmentation(date, option_id, $scope.type).$promise.then(function (data) {
              $scope.show_loading = false;
              if (data.success) {
                 $scope.mainView = false;
-                $scope.optionView = false;
+                $scope.optionView = true;
                 if (data.response.options !== undefined) {
                   $scope.labels = _.map(data.response.options, function (value, index) {
                     return {
@@ -180,14 +153,10 @@
                       parent_id: "",
                       color: Global.subOptionsColorScheme[value.option__text].color,
                       lineColor: Global.subOptionsColorScheme[value.option__text].color,
-                      priority:  Global.subOptionsColorScheme[value.option__text].priority,
                       title: value.option__text,
                       id: "column-" + (index + 1) + "-id",
                       valueField: "column-" + (index + 1)
                     };
-                  });
-                  $scope.labels = _.sortBy($scope.labels, function (value) {
-                     return value.priority;
                   });
                   var qsc_suboptions_data;
                   $scope.segments_data_array = [];
@@ -214,54 +183,42 @@
        };
 
 
-       $scope.axisChanged = function(){
-         $scope.show_loading = true;
-         $scope.mainRating();
+      $scope.axisChanged = function(){
+        $scope.show_loading = true;
+        $scope.mainRating();
+      };
+
+      $scope.Next = function(){
+        if($scope.page < $scope.max_page){
+          $scope.page = $scope.page + 1;
+          drawGraph($scope.data_array[($scope.page -1 )], $scope.data_array[0][0].data.feedbacks);
+        }
+      };
+
+      $scope.optionNext = function(){
+        if($scope.page < $scope.max_page){
+          $scope.page = $scope.page + 1;
+          drawOptionGraph($scope.segments_data_array[($scope.page -1 )]);
+        }
        };
 
-       $scope.Next = function(){
-         if($scope.page < $scope.max_page){
-           $scope.page = $scope.page + 1;
-           drawGraph($scope.data_array[($scope.page -1 )]);
-         }
-       };
+      $scope.backToMain = function() {
+        $scope.mainRating();
+      };
 
-       $scope.labelNext = function(){
-         if($scope.page < $scope.max_page){
-           $scope.page = $scope.page + 1;
-           drawLabelGraph($scope.data_array[($scope.page -1 )]);
-         }
-       };
-       $scope.optionNext = function(){
-         if($scope.page < $scope.max_page){
-           $scope.page = $scope.page + 1;
-           drawOptionGraph($scope.segments_data_array[($scope.page -1 )]);
-         }
-       };
+      $scope.Prev = function(){
+        if($scope.page > 1){
+          $scope.page = $scope.page - 1;
+          drawGraph($scope.data_array[($scope.page -1 )], $scope.data_array[0][0].data.feedbacks);
+        }
+      };
 
-       $scope.backToMain = function() {
-         $scope.mainRating();
-       };
-
-       $scope.Prev = function(){
-         if($scope.page > 1){
-           $scope.page = $scope.page - 1;
-           drawGraph($scope.data_array[($scope.page -1 )]);
-         }
-       };
-
-       $scope.labelPrev = function(){
-         if($scope.page > 1){
-           $scope.page = $scope.page - 1;
-           drawLabelGraph($scope.data_array[($scope.page -1 )]);
-         }
-       };
-       $scope.optionPrev = function(){
-         if($scope.page > 1){
-           $scope.page = $scope.page - 1;
-           drawOptionGraph($scope.segments_data_array[($scope.page -1 )]);
-         }
-       };
+      $scope.optionPrev = function(){
+        if($scope.page > 1){
+          $scope.page = $scope.page - 1;
+          drawOptionGraph($scope.segments_data_array[($scope.page -1 )]);
+        }
+      };
 
        resetDates();
     });
