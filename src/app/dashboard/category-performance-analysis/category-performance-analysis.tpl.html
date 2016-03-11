@@ -3,7 +3,7 @@
   <div class="title-outer">
     <div class="ibox-title">
       <h5>
-        Business Segment Breakdown
+        Business Segment Breakdown <small> (<strong>{{total_feedback_count}}</strong>)</small>
       </h5>
       <div class="ibox-tools">
         <ul class="tab-links">
@@ -85,7 +85,7 @@
                   <div ng-show="segment.show_string">No Data Available</div>
                 </div>
               </div>
-              <strong class="title">{{segment.name}}</strong>
+              <strong class="title">{{segment.name}} ({{segment.total_option_count}}) </strong>
             </div>
           </div>
         </div>
