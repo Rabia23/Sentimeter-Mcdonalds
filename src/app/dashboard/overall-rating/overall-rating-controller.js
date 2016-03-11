@@ -141,46 +141,48 @@
         if(option_id !== undefined) {
           $scope.show_loading = true;
 
-           Graphs.feedback_segmentation(date, option_id, $scope.type).$promise.then(function (data) {
-             $scope.show_loading = false;
-             if (data.success) {
-                $scope.mainView = false;
-                $scope.optionView = true;
-                if (data.response.options !== undefined) {
-                  $scope.labels = _.map(data.response.options, function (value, index) {
-                    return {
-                      option_name: value.option__text,
-                      parent_id: "",
-                      color: Global.subOptionsColorScheme[value.option__text].color,
-                      lineColor: Global.subOptionsColorScheme[value.option__text].color,
-                      title: value.option__text,
-                      id: "column-" + (index + 1) + "-id",
-                      valueField: "column-" + (index + 1)
-                    };
-                  });
-                  var qsc_suboptions_data;
-                  $scope.segments_data_array = [];
-                  $scope.page = 1;
-                  $scope.max_page = 1;
-                  qsc_suboptions_data = overallRatingChartService.getAreaSegmentChart(data.response.options);
-                  if($scope.width < $scope.height) {
-                    while (qsc_suboptions_data.length > 0) {
-                      $scope.segments_data_array.push(qsc_suboptions_data.splice(0, 3));
-                    }
-                    $scope.max_page = $scope.segments_data_array.length;
-                    drawOptionGraph($scope.segments_data_array[0]);
+          Graphs.feedback_segmentation(date, option_id, $scope.type).$promise.then(function (data) {
+            $scope.show_loading = false;
+            if (data.success) {
+              $scope.mainView = false;
+              $scope.optionView = true;
+              if (data.response.options !== undefined) {
+                var qsc_suboptions_data;
+                qsc_suboptions_data = overallRatingChartService.getAreaSegmentChart(data.response.options);
+                $scope.labels = _.map(data.response.options, function (value, index) {
+                  var label_value = getLabelColor(qsc_suboptions_data, value);
+                  return {
+                    option_name: value.option__text,
+                    parent_id: "",
+                    color: value.option__color_code,
+                    lineColor: value.option__color_code,
+                    title: value.option__text,
+                    id: "column-"+(index+1)+"-id",
+                    valueField: "column-"+(index+1)
+                  };
+                });
+                
+                $scope.segments_data_array = [];
+                $scope.page = 1;
+                $scope.max_page = 1;
+                if($scope.width < $scope.height) {
+                  while (qsc_suboptions_data.data.length > 0) {
+                    $scope.segments_data_array.push(qsc_suboptions_data.data.splice(0, 3));
                   }
-                  else {
-                    drawOptionGraph(qsc_suboptions_data);
-                  }
+                  $scope.max_page = $scope.segments_data_array.length;
+                  drawOptionGraph($scope.segments_data_array[0]);
                 }
-             }
-             else {
-               flashService.createFlash(data.message, "danger");
-             }
-           });
-         }
-       };
+                else {
+                  drawOptionGraph(qsc_suboptions_data.data);
+                }
+              }
+            }
+            else {
+              flashService.createFlash(data.message, "danger");
+            }
+          });
+        }
+      };
 
 
       $scope.axisChanged = function(){

@@ -8,13 +8,14 @@ angular.module('livefeed.overall_rating.chart', [
       var segment_data = [];
       var segment_array = {};
 
-      var segments = _.map(graph_data[0].segment_list ,function(value){
+
+      var segments = _.map(graph_data[0].segment_list ,function(value, index){
         segment_data.push({category: value.segment});
         return value.segment;
       });
 
-       _.each(segments, function(value){
-         segment_array[value] = [];
+      _.each(segments, function(value){
+        segment_array[value] = [];
       });
 
       _.each(graph_data, function(value, upper_index){
@@ -30,7 +31,7 @@ angular.module('livefeed.overall_rating.chart', [
         });
         inc = inc + 1;
       });
-      return segment_data;
+      return {data: segment_data, labels: segments};
     },
     getAreaLabelChart: function(graph_data) {
       
@@ -52,6 +53,7 @@ angular.module('livefeed.overall_rating.chart', [
         _.each(value.data.feedbacks, function (item) {
           var index = label_array[item.option__text].column;
           label_data[upper_index]["column-" + (index)] = item.count;
+          label_data[upper_index]["column-" + (index) + "-id"] = item.option_id;
         });
       });
 
