@@ -3,6 +3,8 @@
 
   .controller('CategoryPerformanceAnalysisCtrl', function CategoryPerformanceAnalysisCtrl($scope, Global, feedbackService, CategoryPerformanceApi, $timeout, flashService, $uibModal) {
 
+    var category_performance_array = [];
+
     $scope.show_loading = false;
     $scope.class = '';
     $scope.option_id = null;
@@ -40,11 +42,17 @@
     };
 
     $scope.showCategoryData = function(region_id,city_id,branch_id,option_id,string){
+      category_performance_array = [];
       $scope.show_loading = true;
       CategoryPerformanceApi.category_performance(region_id,city_id,branch_id,option_id, $scope.start_date, $scope.end_date).$promise.then(function(performance_data){
         if(performance_data.success) {
-          $scope.show_error_message = false;
-          $scope.category_data = _.map(performance_data.response.feedbacks, function (data) {
+          if(performance_data.response.feedbacks.length > 6){
+            category_performance_array.push(performance_data.response.feedbacks.splice(0, 6));
+          }
+          else{
+            category_performance_array[0] = performance_data.response.feedbacks;
+          }
+          $scope.category_data = _.map(category_performance_array[0], function (data) {
              return feedbackService.getCategoryFeedbacks(data, performance_data.response.feedback_count, option_id, string);
           });
           $scope.category_data = _.sortBy($scope.category_data, function (value) {
@@ -58,9 +66,7 @@
           }
         }
         else{
-          $scope.show_error_message = true;
-          $scope.error_message = performance_data.message;
-          flashService.createFlash($scope.error_message, "danger");
+          flashService.createFlash(performance_data.message, "danger");
         }
       });
     };
@@ -68,7 +74,19 @@
     $scope.showSegmentData = function(region_id,city_id,branch_id,option_id,string) {
       CategoryPerformanceApi.segmentation_rating(region_id, city_id, branch_id, option_id, $scope.start_date, $scope.end_date).$promise.then(function (segment_data) {
         if(segment_data.success) {
-          $scope.show_error_message = false;
+          if(segment_data.response.segments[0].option_data.length > 6){
+            _.each(segment_data.response.segments, function (data){
+              var options_array = [];
+              _.each(category_performance_array[0], function(item){
+                _.each(data.option_data, function(option_object){
+                  if(option_object.option__text == item.option__text){
+                    options_array.push(option_object);
+                  }
+                });
+              });
+              data.option_data = options_array;
+            });
+          }
           $timeout(function () {
             $scope.segments = _.map(segment_data.response.segments, function (data) {
               return feedbackService.getSegmentFeedbacks(data, option_id, string);
@@ -80,9 +98,7 @@
           }, 500);
         }
         else{
-          $scope.show_error_message = true;
-          $scope.error_message = segment_data.message;
-          flashService.createFlash($scope.error_message, "danger");
+          flashService.createFlash(segment_data.message, "danger");
         }
       });
     };
