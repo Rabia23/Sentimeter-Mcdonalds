@@ -1,5 +1,5 @@
 (function() {
-  angular.module( 'livefeed.login')
+  angular.module( 'livefeed.error_404')
 
   .config(function config( $stateProvider ) {
     $stateProvider
@@ -7,7 +7,7 @@
       url: '/404',
       views: {
         "": {
-          templateUrl: '404/404.tpl.html'
+          templateUrl: 'error-404/error-404.tpl.html'
         }
       },
       authenticate: false

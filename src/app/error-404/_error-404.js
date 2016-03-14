@@ -1,5 +1,5 @@
 (function() {
-  angular.module( 'livefeed.404', [
+  angular.module( 'livefeed.error_404', [
     'ui.router'
   ]);
 })();
