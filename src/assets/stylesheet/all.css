@@ -3,7 +3,8 @@ body {
   min-width: 320px;
   -ms-overflow-style: scrollbar;
 }
-body.login {background: #eee !important;}
+body.login,
+body.error {background: #eee !important;}
 .morris-block-holder {letter-spacing: -6px;}
 .morris-block-holder .morris-content-holder {
   display: inline-block;
@@ -424,10 +425,6 @@ body.login {background: #eee !important;}
   height: 100% !important;
   width: 100% !important;
   min-height: 300px;
-}
-#chartdiv {
-  width: 100% !important;
-  height: auto !important;
 }
 .same-height .block-holder {height: 100% !important;}
 #world-map > div {
@@ -2702,6 +2699,32 @@ li.active,
   transform: rotate(-45deg);
 }
 .progress-container{min-height: 150px;}
+.error-block .btn.btn-info{
+  border-radius: 0;
+  -webkit-border-radius: 0;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.5em;
+  color: #927510;
+  text-shadow: 0 1px rgba(255,255,255,.75);
+  border-color: #e1d84c;
+  background: #ffeb7e;
+  text-transform: uppercase;
+  background: -moz-linear-gradient(top, #ffeb7e 0%, #fde976 23%, #f5e056 80%, #f3de4f 100%);
+  background: -webkit-linear-gradient(top, #ffeb7e 0%,#fde976 23%,#f5e056 80%,#f3de4f 100%);
+  background: linear-gradient(to bottom, #ffeb7e 0%,#fde976 23%,#f5e056 80%,#f3de4f 100%);
+}
+
+.error-block .btn.btn-info:hover,
+.error-block .btn.btn-info:active,
+.error-block .btn.btn-info:focus{
+  color: #927510;
+  background: #f3de4f;
+  background: -moz-linear-gradient(top, #f3de4f 0%, #f5e056 20%, #fde976 77%, #ffeb7e 100%);
+  background: -webkit-linear-gradient(top, #f3de4f 0%,#f5e056 20%,#fde976 77%,#ffeb7e 100%);
+  background: linear-gradient(to bottom, #f3de4f 0%,#f5e056 20%,#fde976 77%,#ffeb7e 100%);
+}
+
 @media screen and (min-width: 768px) {
   .progress-box .progress-area{
     position: relative;
@@ -2936,7 +2959,7 @@ li.active,
 }
 
 @media screen and (max-width: 1600px) {
-  .tab-links li a {padding: 13px 7px;}
+  .tab-links li a {padding: 13px 5px;}
   .calender-outer {min-width: 35px;}
   .row {
     margin-left: -5px;
