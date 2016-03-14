@@ -147,9 +147,8 @@ angular.module( 'factories', [
     var token = $rootScope.token || TokenHandler.get_token();
     page = page || 1;
     status_id = status_id || "";
-    var comment_json = {token:  token,page: page, action_taken: status_id, comment__icontains: text};
+    var comment_json = {token:  token,page: page, action_taken: status_id, text: text};
     var area = TokenHandler.get_area();
-    console.log(area);
     if(area.branch_id){
       comment_json.branch_id = area.branch_id;
     }
