@@ -10,6 +10,7 @@
     'livefeed.promotions',
     'livefeed.questionnaire',
     'livefeed.authService',
+    'livefeed.404',
     'ui.router',
     'livefeed.offline',
     'toaster'
