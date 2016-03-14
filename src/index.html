@@ -45,7 +45,7 @@
 
   </head>
 
-  <body ng-class = "{'login': currentState == 'login'}">
+  <body ng-class = "{'login': currentState == 'login', 'error': currentState == '404'}">
     <ui-view></ui-view>
 
   </body>
