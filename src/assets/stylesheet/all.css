@@ -1844,7 +1844,7 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .modal-dialog .info-form .modal-body:after,
 .promotions:after,
 .grids-holder:after,
-.table-container:after,
+.modal-1200 .content:after,
 .modal-900 .modal-body:after,
 .comments-drop .comments-holder:after{
   position: absolute;
@@ -1883,7 +1883,7 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .ibox > .content-holder:before,
 .ibox > .ibox-content:before,
 .modal-dialog .info-form .modal-body:before,
-.table-container:before,
+.modal-1200 .content:before,
 .modal-900 .modal-body:before,
 .comments-drop .comments-holder:before{
   left: 0;
@@ -1898,6 +1898,7 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
   z-index: 991;
   display: block !important;
 }
+.modal-1200 .content:before{top: 60px;}
 .grid-container:before{
   left: -10px;
   right: -10px;
@@ -1911,7 +1912,7 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .questionnaire.loading:after,
 .modal-dialog .info-form .modal-body.loading:after,
 .promotions:after,
-.table-container.cloading:after,
+.modal-1200 .content.cloading:after,
 .questionnaire.cloading .grids-holder:after,
 .promotions.cloading .grids-holder:after,
 .modal-900 .modal-body.loading:after,
@@ -1926,7 +1927,7 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .modal-dialog .info-form .modal-body.loading:before,
 .questionnaire.cloading .grid-container:before,
 .promotions.cloading .grid-container:before,
-.table-container.cloading:before,
+.modal-1200 .content.cloading:before,
 .modal-900 .modal-body.loading:before,
 .comments-drop .comments-holder.loading:before{
   visibility: visible;
@@ -3104,6 +3105,7 @@ li.active,
   }
   #wrapper .doc-block .wrapper {padding: 0 10px 0 200px !important;}
   .modal-1200 .content{padding: 58px 0 0;}
+  .modal-1200 .content:before{top: 58px;}
 }
 
 @media screen and (max-width: 991px) {
@@ -3204,6 +3206,7 @@ li.active,
 
 @media screen and (max-width: 767px) {
   .modal-1200 .content{padding: 50px 0 0;}
+  .modal-1200 .content:before{top: 50px;}
   .promotions .btn.dim {
     font-size: 14px;
     line-height: 20px;
