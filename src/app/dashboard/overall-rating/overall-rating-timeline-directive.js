@@ -140,7 +140,6 @@
               }
             });
             $timeout(function(){
-              console.log("same height fnc called inside directive...");
               window.initSameHeight();
             },200);
             chart.addListener("clickGraphItem", function(event){
