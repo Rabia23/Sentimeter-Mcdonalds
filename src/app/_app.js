@@ -11,6 +11,7 @@
     'livefeed.questionnaire',
     'livefeed.authService',
     'livefeed.error_404',
+    'livefeed.error_500',
     'ui.router',
     'livefeed.offline',
     'toaster'
