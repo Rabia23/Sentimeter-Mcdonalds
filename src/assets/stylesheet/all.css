@@ -4,7 +4,7 @@ body {
   -ms-overflow-style: scrollbar;
 }
 body.login,
-body.error {background: #eee !important;}
+body.errorpage {background: #eee !important;}
 .morris-block-holder {letter-spacing: -6px;}
 .morris-block-holder .morris-content-holder {
   display: inline-block;
@@ -395,6 +395,32 @@ body.error {background: #eee !important;}
   overflow: hidden;
   min-height: 100%;
 }
+#wrapper.error-page{
+  height: 100%;
+  overflow: visible;
+  white-space: nowrap;
+  text-align: center;
+}
+#wrapper.error-page:after{
+  display: inline-block;
+  vertical-align: middle;
+  content: "";
+  overflow: hidden;
+  min-height: 100%;
+  width: 0;
+}
+#wrapper.error-page > *{
+  white-space: normal;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 20px 5px 30px;
+}
+#wrapper .middle-box h1{
+  margin: 0 0 15px;
+  line-height: 1;
+}
+#wrapper .middle-box .font-bold{margin: 0 0 10px;}
+#wrapper .middle-box .error-desc{margin: 0 0 20px;}
 .navbar-static-side {height: 100%;}
 #wrapper .minimalize-styl-2 {margin: 14px 5px 5px 10px;}
 #wrapper.add .minimalize-styl-2 {
@@ -3372,6 +3398,7 @@ li.active,
     margin-top: -2px;
     right: 0;
   }
+  #wrapper .middle-box h1{font-size: 120px;}
 }
 
 @media screen and (max-width: 768px) {
@@ -3430,4 +3457,5 @@ li.active,
   .mini-navbar .tab-links{font-size: 9px;}
   .mini-navbar .tab-links li a{padding: 10px 2px;}
   .mini-navbar .tab-links li a i{font-size: 11px;}
+  #wrapper .middle-box{font-size: 12px;}
 }
