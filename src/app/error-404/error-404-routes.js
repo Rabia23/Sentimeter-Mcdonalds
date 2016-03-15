@@ -3,7 +3,7 @@
 
   .config(function config( $stateProvider ) {
     $stateProvider
-    .state( '404', {
+    .state( 'error_404', {
       url: '/404',
       views: {
         "": {
