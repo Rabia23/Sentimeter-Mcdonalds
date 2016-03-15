@@ -139,7 +139,10 @@
                 $($(value).parents("g")[0]).attr("transform", "translate("+ x + "," + y + ")");
               }
             });
-            window.initSameHeight();
+            $timeout(function(){
+              console.log("same height fnc called inside directive...");
+              window.initSameHeight();
+            },200);
             chart.addListener("clickGraphItem", function(event){
               scope.$apply(scope.action({option_object: event}));
             });
