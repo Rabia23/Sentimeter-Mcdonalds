@@ -60,6 +60,10 @@
           "age_group_analysis@dashboard":{
             controller: "AgeAnalysisCtrl",
             templateUrl: 'dashboard/age-group-analysis/age-group-analysis.tpl.html'
+          },
+          "recommendation_likeness@dashboard":{
+            controller: "RecommendationLikenessCtrl",
+            "templateUrl": "dashboard/recommendation-likeness/recommendation-likeness.tpl.html"
           }
 
         },
