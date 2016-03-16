@@ -131,19 +131,26 @@
       </div>
       <div class="row">
         <div class="col-xs-12 patch-section">
-          <ui-view name = "regional_analysis"></ui-view>
+          <ui-view name="regional_analysis"></ui-view>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <ui-view name="age_group_analysis"></ui-view>
+        </div>
+        <div class="col-xs-6">
         </div>
       </div>
       <div class="row same-height-parent">
         <div class="col-lg-6 map-section">
-          <ui-view name = "feedback_map"></ui-view>
+          <ui-view name="feedback_map"></ui-view>
         </div>
         <div class="col-lg-6 timeline-section">
-          <ui-view name = "overall_rating"></ui-view>
+          <ui-view name="overall_rating"></ui-view>
         </div>
       </div>
     </div>
   </div>
-    <ui-view name = "footer"></ui-view>
+    <ui-view name="footer"></ui-view>
   </div>
 </div>
