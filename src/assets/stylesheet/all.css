@@ -117,6 +117,13 @@ body.errorpage {background: #eee !important;}
   width: 100% !important;
   height: auto !important;
 }
+.data-block .ibox-content{
+  border-top: 0;
+  padding-top: 0;
+}
+.data-block .legends-holder{
+  border-top: 1px solid #e7eaec;
+}
 .navbar.dashboard {
   position: absolute;
   left: 0;
@@ -1933,6 +1940,7 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
   visibility: visible;
   opacity: 0.6;
 }
+.data-block .ibox-content,
 .map-section .ibox-content,
 .timeline-section .ibox-content {min-height: 200px;}
 .message-holder {
@@ -3161,6 +3169,7 @@ li.active,
   .patch-section .tab-links li:last-child {width: 20%;}
   .patch-section .tab-links li:first-child {width: 30%;}
   .timeline-section .ibox-tools,
+  .data-block .ibox-tools,
   .map-section .ibox-tools,
   .rating .ibox-tools {
     clear: none;
@@ -3168,6 +3177,7 @@ li.active,
     padding-top: 0;
     float: right;
   }
+  .data-block .tab-links,
   .timeline-section .tab-links,
   .map-section .tab-links,
   .rating .tab-links {
@@ -3177,12 +3187,14 @@ li.active,
     margin: -15px -15px -8px 0;
     text-align: right;
   }
+  .data-block .tab-links li,
   .timeline-section .tab-links li,
   .map-section .tab-links li,
   .rating .tab-links li {
     width: inherit;
     min-width: 50px;
   }
+  .data-block .tab-links li .calender-outer,
   .timeline-section .tab-links li .calender-outer,
   .map-section .tab-links li .calender-outer,
   .rating .tab-links li .calender-outer {height: 48px;}
