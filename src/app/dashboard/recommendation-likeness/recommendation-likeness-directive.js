@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.dashboard.age_group_analysis')
 
-  .directive('recommendationLikeness', function() {
+  .directive('recommendationLikeness', function($timeout) {
     return {
       restrict: 'A',
       scope: {
@@ -97,6 +97,9 @@
             }
           ]
         });
+        $timeout(function(){
+          window.initSameHeight();
+        },1000);
       }
     };
   });
