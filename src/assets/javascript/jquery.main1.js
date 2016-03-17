@@ -564,6 +564,13 @@ function initSameHeight() {
     biggestHeight: true,
     useMinHeight: true
   });
+  jQuery('.morris-block-holder').sameHeight({
+    elements: '.morris-holder',
+    flexible: true,
+    multiLine: true,
+    biggestHeight: true,
+    useMinHeight: true
+  });
   jQuery('.same-height-parent').sameHeight({
     elements: '.map-section .ibox-content , .timeline-section .ibox-content',
     flexible: true,

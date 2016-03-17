@@ -4,6 +4,12 @@ body {
   -ms-overflow-style: scrollbar;
 }
 body.login {background: #eee !important;}
+.feedback-count{
+  display: block;
+  margin: 0 0 5px;
+  font-size: 13px;
+  line-height: 16px;
+}
 .morris-block-holder {letter-spacing: -6px;}
 .morris-block-holder .morris-content-holder {
   display: inline-block;
