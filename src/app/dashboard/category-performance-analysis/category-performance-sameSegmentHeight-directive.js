@@ -9,8 +9,6 @@
       link: function(scope, ele, attrs) {
         scope.$watch('data', function(watchedData) {
           if(watchedData !== undefined){
-            console.log("same segment height");
-            console.log(watchedData);
             window.initSameHeight();
           }
         });
