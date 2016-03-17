@@ -7,6 +7,7 @@
 
     CategoryPerformanceApi.category_performance("","","",option_id, start_date, end_date).$promise.then(function(performance_data){
       if(performance_data.success) {
+        $scope.total_feedback_count = performance_data.response.feedback_count;
         $scope.category_data = _.map(performance_data.response.feedbacks, function (data) {
           return feedbackService.getCategoryFeedbacks(data, performance_data.response.feedback_count, option_id, string);
         });

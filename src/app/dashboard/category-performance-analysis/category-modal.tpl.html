@@ -3,7 +3,9 @@
     <a ng-click="cancel()" class="pull-right close-btn-font">
       <i class="fa fa-times"></i>
     </a>
-    <h2>Category Performance Analysis</h2>
+    <h2>
+      Business Segment Breakdown <small> (<strong>{{total_feedback_count}}</strong>)</small>
+    </h2>
   </div>
 </div>
 <div class="modal-detail">
@@ -37,6 +39,7 @@
     </div>
     <div class="morris-block-holder">
       <div class="morris-content-holder" ng-repeat="segment in segments track by $index">
+        <span ng-hide="segment.total_feedback_count==0"> Feedbacks: {{segment.total_feedback_count}} </span>
         <div class="morris-graph-holder">
           <div class="morris-holder">
             <div ng-hide="segment.show_string">
@@ -45,7 +48,7 @@
             <div ng-show="segment.show_string">No Data Available</div>
           </div>
         </div>
-        <strong class="title">{{segment.name}}</strong>
+        <strong class="title">{{segment.name}} ({{segment.total_option_count}}) </strong>
       </div>
     </div>
   </div>

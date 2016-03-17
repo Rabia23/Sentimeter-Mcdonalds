@@ -77,6 +77,7 @@
         <div class="row">
           <div class="morris-block-holder">
             <div class="morris-content-holder" ng-repeat="segment in segments track by $index">
+              <span ng-hide="segment.total_feedback_count==0"> Feedbacks: {{segment.total_feedback_count}} </span>
               <div class="morris-graph-holder">
                 <div class="morris-holder">
                   <div ng-hide="segment.show_string">
