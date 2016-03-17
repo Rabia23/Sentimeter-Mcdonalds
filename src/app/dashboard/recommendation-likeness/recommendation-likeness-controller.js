@@ -39,7 +39,7 @@
 
 
     function draw_recommendation_likeness(region_id, city_id, branch_id){
-     RecommendationLikenessApi.recommendation_analysis(region_id, city_id, branch_id, $scope.start_date, $scope.end_date).$promise.then(function (data) {
+      RecommendationLikenessApi.recommendation_analysis(region_id, city_id, branch_id, $scope.start_date, $scope.end_date).$promise.then(function (data) {
         $scope.show_loading = false;
         $scope.recommendation_likeness_data = [];
         $scope.feedback_count = data.response.feedback_count;
