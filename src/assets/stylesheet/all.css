@@ -117,13 +117,26 @@ body.errorpage {background: #eee !important;}
   width: 100% !important;
   height: auto !important;
 }
-.data-block .ibox-content{
-  border-top: 0;
+#wrapper .data-block .ibox-content{
+  border-top-width: 0;
   padding-top: 0;
 }
-.data-block .legends-holder{
-  border-top: 1px solid #e7eaec;
+#wrapper .data-block.add .ibox-content{
+  border-top-width: 1px;
+  padding-top: 10px;
 }
+#wrapper .data-block .legends-holder{border-top: 1px solid #e7eaec;}
+.progress-data .holder{
+  overflow: hidden;
+  padding: 0 20px 10px;
+}
+.progress-data strong{
+  display: block;
+  font-size: 13px;
+  line-height: 16px;
+  margin: 0 0 5px;
+}
+.progress-data .progress{margin-bottom: 0;}
 .navbar.dashboard {
   position: absolute;
   left: 0;
@@ -2814,6 +2827,11 @@ li.active,
 }
 
 @media screen and (min-width: 992px) {
+  .progress-data{
+    display: table-footer-group;
+    height: 1%;
+    width: 100%;
+  }
   .modal-900{width: 900px;}
   .modal-1200 .table tbody td {
     font-size: 13px;
@@ -2994,6 +3012,7 @@ li.active,
 }
 
 @media screen and (max-width: 1600px) {
+  .wrapper .ibox-title h5{font-size: 13px;}
   .tab-links li a {padding: 13px 5px;}
   .calender-outer {min-width: 35px;}
   .row {
@@ -3035,6 +3054,7 @@ li.active,
 }
 
 @media screen and (max-width: 1279px) {
+  .wrapper .ibox-title h5{font-size: 14px;}
   .tab-links li a {padding: 13px 15px;}
   .calender-outer {min-width: 45px;}
   .users-list ul li .title {width: 77px;}
@@ -3214,6 +3234,7 @@ li.active,
   }
   .modal-1200 .modal-body {padding: 0 0 15px;}
   .modal-1200 .table th .dropdown-menu {margin: 0 -5px 0 0;}
+  .content-inner{background: #fff;}
 }
 
 @media screen and (max-width: 767px) {

@@ -56,43 +56,43 @@
           "titles": [],
           "dataProvider": [
             {
-                "category": "category 1",
+                "category": "1",
                 "column-1": 8
             },
             {
-                "category": "category 2",
+                "category": "2",
                 "column-1": 16
             },
             {
-                "category": "category 3",
+                "category": "3",
                 "column-1": 2
             },
             {
-                "category": "category 4",
+                "category": "4",
                 "column-1": 7
             },
             {
-                "category": "category 5",
+                "category": "5",
                 "column-1": 5
             },
             {
-                "category": "category 6",
+                "category": "6",
                 "column-1": 9
             },
             {
-                "category": "category 7",
+                "category": "7",
                 "column-1": 4
             },
             {
-                "category": "category 8",
+                "category": "8",
                 "column-1": 15
             },
             {
-                "category": "category 9",
+                "category": "9",
                 "column-1": 10
             },
             {
-                "category": "category 10",
+                "category": "10",
                 "column-1": 17
             }
           ]
