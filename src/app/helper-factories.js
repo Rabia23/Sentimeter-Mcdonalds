@@ -4,11 +4,6 @@ angular.module( 'helper_factories', ['ngResource'])
 
   return {
 
-    getRecommendationBarChartColor: function(){
-      var color = "#4CCC72";
-      return color;
-    },
-
     qscSubCategoriesColors: function(index){
       var colors = [ "#4CCC72","#3598DC","#9C59B8","#34495E","#F0C547","#E74D3D"];
       return colors[index];

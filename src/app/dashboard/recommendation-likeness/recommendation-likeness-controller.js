@@ -1,7 +1,7 @@
 (function() {
-  angular.module('livefeed.dashboard.age_group_analysis')
+  angular.module('livefeed.dashboard.recommendation_likeness')
 
-  .controller( 'RecommendationLikenessCtrl', function ( $scope, Graphs, mapService, flashService, RecommendationLikenessApi, Global ) {
+  .controller( 'RecommendationLikenessCtrl', function ( $scope, Graphs, mapService, flashService, RecommendationLikenessApi, RecommendationEnum ) {
 
     $scope.today = new Date();
 
@@ -48,7 +48,7 @@
           $scope.total_average = 0;
           _.each(data.response.feedbacks, function(data){
             average = average + data.count * (data.option__text/10);
-            $scope.recommendation_likeness_data.push({"category": data.option__text,"column-1": data.count, "color": Global.getRecommendationBarChartColor()});
+            $scope.recommendation_likeness_data.push({"category": data.option__text,"column-1": data.count, "color": RecommendationEnum.getRecommendationBarChartColor()});
           });
           $scope.total_average = Math.round((average * 10)/data.response.feedback_count)*10;
         }

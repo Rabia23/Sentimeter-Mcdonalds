@@ -1,5 +1,5 @@
 (function() {
-  angular.module('livefeed.dashboard.age_group_analysis')
+  angular.module('livefeed.dashboard.recommendation_likeness')
 
   .directive('recommendationLikeness', function($timeout) {
     return {
@@ -60,7 +60,7 @@
             });
             $timeout(function(){
               window.initSameHeight();
-            },1000);
+            },200);
           }
         });
       }
