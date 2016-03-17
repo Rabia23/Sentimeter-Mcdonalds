@@ -50,6 +50,7 @@
             average = average + data.count * (data.option__text/10);
             $scope.recommendation_likeness_data.push({"category": data.option__text,"column-1": data.count, "color": RecommendationEnum.getRecommendationBarChartColor()});
           });
+          $scope.recommendation_likeness_data = _.sortBy($scope.recommendation_likeness_data, function(item){ return parseInt(item.category, 10); });
           $scope.total_average = Math.round((average * 10)/data.response.feedback_count)*10;
         }
         else{
