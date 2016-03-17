@@ -16,7 +16,7 @@
 
     resetDates();
 
-    $scope.show_loading = true;
+    //$scope.show_loading = true;
 
 
     function draw_age_analysis(start_date,end_date ){

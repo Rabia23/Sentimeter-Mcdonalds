@@ -16,7 +16,7 @@
 
     resetDates();
 
-    $scope.show_loading = true;
+    //$scope.show_loading = true;
 
 
     function draw_recommendation_likeness(start_date,end_date ){
