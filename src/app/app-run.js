@@ -3,6 +3,7 @@
 
   .run( function run ($rootScope, Auth, $state, TokenHandler, flashService, $timeout) {
 
+
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
       $rootScope.show_alert = false;
       $timeout(function(){

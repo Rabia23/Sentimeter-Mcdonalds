@@ -49,6 +49,7 @@
           Graphs.comments_text_search($scope.page, status_id, $scope.text).$promise.then(function(data){
             $scope.show_loader = false;
             if(data.response.feedback_count === 0){
+              $scope.lock = false;
               $scope.comments = [];
             }
             else{
