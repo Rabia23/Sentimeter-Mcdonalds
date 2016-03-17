@@ -18,6 +18,8 @@
       getSegmentFeedbacks: function(data, option_id, string){
         return {
           name: data.segment,
+          total_feedback_count: data.feedback_count,
+          total_option_count: data.option_count,
           show_string: data.option_count === 0 ? true : false,
           data: _.map(data.option_data, function (dat) {
             return dat.count;

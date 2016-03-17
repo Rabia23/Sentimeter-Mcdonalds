@@ -3,8 +3,15 @@ body {
   min-width: 320px;
   -ms-overflow-style: scrollbar;
 }
-body.login,
+body.login {background: #eee !important;}
+.feedback-count{
+  display: block;
+  margin: 0 0 5px;
+  font-size: 13px;
+  line-height: 16px;
+}
 body.errorpage {background: #eee !important;}
+
 .morris-block-holder {letter-spacing: -6px;}
 .morris-block-holder .morris-content-holder {
   display: inline-block;

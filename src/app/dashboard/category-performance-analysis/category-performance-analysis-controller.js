@@ -46,6 +46,7 @@
       $scope.show_loading = true;
       CategoryPerformanceApi.category_performance(region_id,city_id,branch_id,option_id, $scope.start_date, $scope.end_date).$promise.then(function(performance_data){
         if(performance_data.success) {
+          $scope.total_feedback_count = performance_data.response.feedback_count;
           if(performance_data.response.feedbacks.length > 6){
             category_performance_array.push(performance_data.response.feedbacks.splice(0, 6));
           }
