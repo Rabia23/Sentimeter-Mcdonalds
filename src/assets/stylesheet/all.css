@@ -3,7 +3,6 @@ body {
   min-width: 320px;
   -ms-overflow-style: scrollbar;
 }
-<<<<<<< HEAD
 body.login {background: #eee !important;}
 .feedback-count{
   display: block;
@@ -11,10 +10,8 @@ body.login {background: #eee !important;}
   font-size: 13px;
   line-height: 16px;
 }
-=======
-body.login,
 body.errorpage {background: #eee !important;}
->>>>>>> frontend-develop
+
 .morris-block-holder {letter-spacing: -6px;}
 .morris-block-holder .morris-content-holder {
   display: inline-block;
