@@ -1,11 +1,9 @@
 (function() {
   angular.module('livefeed.dashboard.age_group_analysis')
 
-  .controller( 'RecommendationLikenessCtrl', function ( $scope, Graphs, mapService, flashService ) {
+  .controller( 'RecommendationLikenessCtrl', function ( $scope, Graphs, mapService, flashService, RecommendationLikenessApi, Global ) {
 
     $scope.today = new Date();
-
-    $scope.show_error_message = false;
 
     function resetDates(){
       $scope.date = {
@@ -14,31 +12,52 @@
       };
     }
 
-    resetDates();
-
-    //$scope.show_loading = true;
-
-
-    function draw_recommendation_likeness(start_date,end_date ){
-
-    }
-
     $scope.datePickerOption = {
       eventHandlers: {
         'apply.daterangepicker': function(ev, picker){
 
           $scope.show_loading = true;
-          draw_recommendation_likeness(ev.model.startDate._i, ev.model.endDate._i);
+          $scope.start_date = ev.model.startDate._i;
+          $scope.end_date =  ev.model.endDate._i;
+
+          draw_recommendation_likeness();
         },
         'cancel.daterangepicker': function(ev, picker){
-          //$scope.datePicker.date.startDate = null;
-          //$scope.datePicker.date.endDate = null;
         }
 
       },
       opens: "left"
     };
 
+    resetDates();
+
+    $scope.start_date = null;
+    $scope.end_date = null;
+
+
+    $scope.show_loading = true;
+
+
+    function draw_recommendation_likeness(region_id, city_id, branch_id){
+     RecommendationLikenessApi.recommendation_analysis(region_id, city_id, branch_id, $scope.start_date, $scope.end_date).$promise.then(function (data) {
+        $scope.show_loading = false;
+        $scope.recommendation_likeness_data = [];
+        $scope.feedback_count = data.response.feedback_count;
+        if(data.success) {
+          var average = 0;
+          $scope.total_average = 0;
+          _.each(data.response.feedbacks, function(data){
+            average = average + data.count * (data.option__text/10);
+            $scope.recommendation_likeness_data.push({"category": data.option__text,"column-1": data.count, "color": Global.getRecommendationBarChartColor()});
+          });
+          $scope.total_average = Math.round((average * 10)/data.response.feedback_count)*10;
+        }
+        else{
+          flashService.createFlash(data.message, "danger");
+        }
+      });
+
+    }
 
     draw_recommendation_likeness();
   });
