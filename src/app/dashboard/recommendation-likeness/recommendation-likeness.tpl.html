@@ -16,6 +16,18 @@
   </div>
   <div class="content-holder">
     <div class="content-inner">
+      <div class="legends-outer" ng-hide="feedback_count==0">
+        <div class="legends-holder">
+          <strong>Average <em>{{total_average}}%</em></strong>
+          <div class="progress-area">
+            <div class="progress-holder">
+              <div class="progress-block">
+                <uib-progressbar animate="false" value="total_average" type="success"></uib-progressbar>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="content-block">
         <div class="ibox-content" same-recommendation-height>
           <div class="data-inner" recommendation-likeness data-data="recommendation_likeness_data">
@@ -23,14 +35,6 @@
             <div ng-show="feedback_count==0" class="message-holder">
               <h2>No Data Available</h2>
             </div>
-          </div>
-        </div>
-      </div>
-      <div class="progress-data" ng-hide="feedback_count==0">
-        <div class="holder">
-          <strong>Average <em>{{total_average}}%</em></strong>
-          <div class="progress-block">
-            <uib-progressbar animate="false" value="total_average" type="success"></uib-progressbar>
           </div>
         </div>
       </div>

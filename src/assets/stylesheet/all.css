@@ -122,9 +122,8 @@ body.errorpage {background: #eee !important;}
   padding-top: 0;
   white-space: nowrap;
 }
-#wrapper .data-block.add .ibox-content{
-  border-top-width: 1px;
-  padding-top: 10px;
+#wrapper .data-block .content-holder{
+  border-top: 1px solid #e7eaec;
 }
 #wrapper .data-block .ibox-content:after{
   display: inline-block;
@@ -140,15 +139,16 @@ body.errorpage {background: #eee !important;}
   white-space: normal;
   width: 100%;
 }
-#wrapper .data-block .legends-holder{border-top: 1px solid #e7eaec;}
-.progress-data .holder{
-  overflow: hidden;
-  padding: 0 20px 10px;
+#wrapper .data-block .progress-holder:after{display: none;}
+#wrapper .data-block .progress{
+  height: 10px !important;
+  margin: 0 0 6px;
 }
-.progress-data strong{
+.data-block .legends-holder strong{
   display: block;
   font-size: 13px;
   line-height: 16px;
+  font-weight: 600;
   margin: 0 0 5px;
 }
 .progress-data .progress{margin-bottom: 0;}
