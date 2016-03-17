@@ -141,7 +141,7 @@ body.errorpage {background: #eee !important;}
 }
 #wrapper .data-block .progress-holder:after{display: none;}
 #wrapper .data-block .progress{
-  height: 10px !important;
+  height: 10px !important; 
   margin: 0 0 6px;
 }
 .data-block .legends-holder strong{
