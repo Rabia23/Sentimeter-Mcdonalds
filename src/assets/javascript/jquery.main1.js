@@ -572,7 +572,7 @@ function initSameHeight() {
     useMinHeight: false
   });
   jQuery('.same-height-parent').sameHeight({
-    elements: '.data-block .ibox-content',
+    elements: '.data-block .equal-height',
     flexible: true,
     multiLine: true,
     biggestHeight: true,
