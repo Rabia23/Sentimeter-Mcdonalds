@@ -11,8 +11,6 @@
         scope.$watchCollection('data', function(watchedData) {
           if(watchedData !== undefined){
             var data = scope.data;
-            console.log("in the directive");
-            console.log(data);
             var chart = AmCharts.makeChart("agechartdiv",
             {
               "type": "serial",
