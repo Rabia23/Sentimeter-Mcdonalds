@@ -36,7 +36,6 @@
             });
             return obj;
           });
-          console.log($scope.customer_analysis_data);
         }
         else{
           flashService.createFlash(data.message, "danger");
