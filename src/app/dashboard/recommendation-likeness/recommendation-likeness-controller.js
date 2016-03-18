@@ -44,7 +44,6 @@
         $scope.recommendation_likeness_data = [];
         $scope.feedback_count = data.response.feedback_count;
         if(data.success) {
-          console.log(data.response);
           var average = 0;
           $scope.total_average = 0;
           _.each(data.response.feedbacks, function(data){

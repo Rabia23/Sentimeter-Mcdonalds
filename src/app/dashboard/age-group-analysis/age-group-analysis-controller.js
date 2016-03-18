@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.dashboard.age_group_analysis')
 
-  .controller( 'AgeAnalysisCtrl', function ( $scope, Graphs, mapService, flashService, AgeAnalysisApi ) {
+  .controller( 'AgeAnalysisCtrl', function ( $scope, Graphs, mapService, flashService, AgeAnalysisApi, GenderColors ) {
 
     $scope.today = new Date();
 
@@ -17,6 +17,8 @@
     resetDates();
 
     $scope.show_loading = true;
+    $scope.men_color = GenderColors.get_male_color();
+    $scope.female_color = GenderColors.get_female_color();
 
 
     function draw_age_analysis(start_date,end_date ){

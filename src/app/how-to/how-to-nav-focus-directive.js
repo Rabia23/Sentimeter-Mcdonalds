@@ -25,11 +25,6 @@
           var window_height = document.body.offsetHeight;
 
           $("section").each(function(index, value){
-            //console.log("scroll top");
-            //console.log($(window).scrollTop());
-            //console.log(value);
-            //console.log("value top");
-            //console.log($(value).offset().top);
             var scrollTop     = $(window).scrollTop(),
                 elementOffset = $(value).offset().top,
                 distance      = (elementOffset - scrollTop);
@@ -37,10 +32,8 @@
               var id = $(value).attr("id");
               $("nav li").removeClass("active");
               var newId = id + "-li";
-              console.log(newId);
-              console.log($("nav li#"+ newId));
               $("nav li#"+ newId).addClass("active");
-              console.log($("nav li#"+ newId).parents("li").addClass("active"));
+              $("nav li#"+ newId).parents("li").addClass("active");
             }
           });
         }

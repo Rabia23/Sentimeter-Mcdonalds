@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.dashboard.age_group_analysis')
 
-  .directive('ageGroupAnalysis', function() {
+  .directive('ageGroupAnalysis', function(GenderColors) {
     return {
       restrict: 'A',
       scope: {
@@ -35,7 +35,10 @@
                   "id": "AmGraph-1",
                   "title": "MALE",
                   "type": "column",
-                  "valueField": "column-1"
+                  "valueField": "column-1",
+                  "color": "#808080",
+                  "fillColors": GenderColors.get_male_color(),
+                  "lineColor": GenderColors.get_male_color()
                 },
                 {
                   "balloonText": "[[title]]: [[value]]",
@@ -43,7 +46,10 @@
                   "id": "AmGraph-2",
                   "title": "FEMALE",
                   "type": "column",
-                  "valueField": "column-2"
+                  "valueField": "column-2",
+                  "color": "#808080",
+                  "fillColors": GenderColors.get_female_color(),
+                  "lineColor": GenderColors.get_female_color()
                 }
               ],
               "guides": [],

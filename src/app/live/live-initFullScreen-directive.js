@@ -5,10 +5,8 @@
       return {
         restrict: 'A',
         link: function(scope, ele, attrs) {
-          console.log("in the initFullScreen");
           var element = document.documentElement;
-          //var element = document.getElementById("live-dashboard");
-          console.log(element);
+
           if(element.requestFullScreen) {
             element.requestFullScreen();
           }
