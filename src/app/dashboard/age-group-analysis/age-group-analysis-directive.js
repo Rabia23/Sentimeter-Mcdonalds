@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.dashboard.age_group_analysis')
 
-  .directive('ageGroupAnalysis', function(GenderColors) {
+  .directive('ageGroupAnalysis', function(GenderColors, $timeout) {
     return {
       restrict: 'A',
       scope: {
@@ -63,7 +63,8 @@
                   "gridAlpha": 0.4,
                   "gridColor": "#CED4CE",
                   "tickLength": 0,
-                  "fontSize": 12
+                  "fontSize": 12,
+                  "minimum": 0
                 }
               ],
               "allLabels": [],
@@ -75,6 +76,9 @@
               "titles": [],
               "dataProvider": data
             });
+            $timeout(function(){
+              window.initSameHeight();
+            },200);
           }  
         });
       }
