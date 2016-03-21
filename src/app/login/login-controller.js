@@ -33,7 +33,6 @@
           $scope.show_loading = true;
           Authentication.login($scope.authenticate).$promise.then(function(data){
             $scope.show_loading = false;
-            console.log(data);
             if(data.success){
               $rootScope.token = data.response.token;
               $rootScope.fullname = data.response.user.first_name+" "+data.response.user.last_name;

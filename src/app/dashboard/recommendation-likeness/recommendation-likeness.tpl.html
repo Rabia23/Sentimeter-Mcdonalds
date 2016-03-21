@@ -1,0 +1,52 @@
+<div class="ibox float-e-margins" ng-class="{loading: show_loading}">
+  <div class="ibox-title">
+    <h5>Recommendation Likeness</h5>
+    <div class="ibox-tools">
+      <ul class="tab-links">
+        <li>
+          <div class="calender-outer">
+            <span class="calendar-holder">
+              <input date-range-picker id="daterange-map" readonly="readonly" name="daterange-map" class="date-picker" type="text" ng-model="date" max="today" options = "datePickerOption" readonly="true"/>
+              <i class="fa fa-calendar" map-range-click></i>
+            </span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="content-holder">
+    <div class="equal-height">
+      <div class="content-inner">
+        <div class="legends-outer" ng-hide="feedback_count==0">
+          <div class="legends-holder">
+            <strong>Average <em>{{total_average}}%</em></strong>
+            <div class="progress-area">
+              <div class="progress-holder">
+                <div class="progress-block" average-progress-bar-background data-data="recommendation_likeness_data" data-color="bar_color">
+                  <uib-progressbar animate="false" value="total_average" type="success"></uib-progressbar>
+                  <ul class="counts">
+                    <li>0</li>
+                    <li>25</li>
+                    <li>50</li>
+                    <li>75</li>
+                    <li>100</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content-block">
+          <div class="ibox-content">
+            <div class="data-inner" recommendation-likeness data-data="recommendation_likeness_data">
+              <div ng-hide="feedback_count==0" id="barchartdiv" style="width: 100%; height: 320px" ></div>
+              <div ng-show="feedback_count==0" class="message-holder">
+                <h2>No Data Available</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

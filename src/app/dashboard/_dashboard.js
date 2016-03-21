@@ -11,6 +11,8 @@
       'livefeed.dashboard.positive_negative_feedback',
       'livefeed.dashboard.top_concern',
       'livefeed.dashboard.opportunities',
+      'livefeed.dashboard.age_group_analysis',
+      'livefeed.dashboard.recommendation_likeness',
       'livefeed.authService'
 
     ]);

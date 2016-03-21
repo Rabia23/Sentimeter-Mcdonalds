@@ -578,6 +578,13 @@ function initSameHeight() {
     biggestHeight: true,
     useMinHeight: false
   });
+  jQuery('.same-height-parent').sameHeight({
+    elements: '.data-block .equal-height',
+    flexible: true,
+    multiLine: true,
+    biggestHeight: true,
+    useMinHeight: false
+  });
   jQuery('.grids-holder').sameHeight({
     elements: '.grid-item .data-container',
     flexible: true,
