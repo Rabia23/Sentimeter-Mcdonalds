@@ -23,6 +23,8 @@
                 "startDuration": 0,
                 "color": "#FFF",
                 "marginLeft": 12,
+                "marginRight": 10,
+                "marginTop": 10,
                 "autoMargins": false,
                 "labelText": "[[title]] : [[value]]",
                 "labelTickColor" : "#FFF",
