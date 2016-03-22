@@ -1,7 +1,7 @@
 (function() {
     angular.module('livefeed.dashboard.positive_negative_feedback')
 
-    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, text, Graphs, commentService, StatusEnum, flashService) {
+    .controller('ModalInstanceCtrl', function ($scope, $uibModal, $uibModalInstance, text, Graphs, commentService, StatusEnum, flashService) {
 
       $scope.comments = [];
       $scope.page = 1;
@@ -20,6 +20,15 @@
       $scope.status_options = StatusEnum.get_status_options();
 
       $scope.selectedValue = function(value, comment){
+
+        console.log(" in add comment function..");
+        var modalInstance = $uibModal.open({
+          templateUrl: 'dashboard/positive-negative-feedback/view-comment-modal.tpl.html',
+          controller: 'AddCommentModalCtrl',
+          size: 600,
+          resolve: {
+          }
+        });
         comment.show_dropdown = false;
         comment.action_string = value;
         var action_id = StatusEnum.get_index(value);
@@ -128,6 +137,17 @@
       };
 
       $scope.showComments($scope.statusOption, text);
+
+      $scope.openComment = function (text) {
+        console.log(" in open comment function..");
+        var modalInstance = $uibModal.open({
+          templateUrl: 'dashboard/positive-negative-feedback/view-comment-modal.tpl.html',
+          controller: 'ViewCommentModalCtrl',
+          size: 600,
+          resolve: {
+          }
+        });
+      };
     });
 
 })();
