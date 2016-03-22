@@ -23,6 +23,7 @@
     CategoryPerformanceApi.segmentation_rating("","","",option_id, start_date, end_date).$promise.then(function (segment_data) {
       if(segment_data.success) {
         $timeout(function () {
+          $scope.segments = [];
           $scope.segments = _.map(segment_data.response.segments, function (data) {
             return feedbackService.getSegmentFeedbacks(data, option_id, string);
           });

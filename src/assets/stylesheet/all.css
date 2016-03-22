@@ -2628,12 +2628,16 @@ li.active,
   max-width: 500px;
 }
 .ibox.regional.loading .tab-links li a,
-.ibox.regional.loading .tab-links li {
+.ibox.regional.loading .tab-links li,
+.ibox.business-breakdown.loading .tab-links li a,
+.ibox.business-breakdown.loading .tab-links li{
   pointer-events: none;
   cursor: default;
 }
 .ibox.regional.loading .tab-links li.active,
-.ibox.regional.loading .tab-links li.active a {
+.ibox.regional.loading .tab-links li.active a,
+.ibox.business-breakdown.loading .tab-links li.active,
+.ibox.business-breakdown.loading .tab-links li.active a{
   pointer-events: auto;
   cursor: pointer;
 }
