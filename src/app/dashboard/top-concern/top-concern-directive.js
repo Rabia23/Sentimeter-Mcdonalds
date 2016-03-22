@@ -24,7 +24,7 @@
                 "color": "#FFF",
                 "marginLeft": 12,
                 "marginRight": 10,
-                "marginTop": 10,
+                "marginTop": 35,
                 "autoMargins": false,
                 "labelText": "[[title]] : [[value]]",
                 "labelTickColor" : "#FFF",
