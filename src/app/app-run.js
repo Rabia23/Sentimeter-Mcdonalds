@@ -5,10 +5,6 @@
 
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
-      $rootScope.show_alert = false;
-      $timeout(function(){
-        $rootScope.show_alert = true;
-      }, 5000);
       
       if (toState.authenticate && !Auth.is_logged_in()) {
         event.preventDefault();

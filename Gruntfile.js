@@ -112,7 +112,7 @@ module.exports = function ( grunt ) {
       build_vendor_assets: {
         files: [
           {
-            src: [ 'vendor/footable/css/fonts' ],
+            src: [ ],
             dest: '<%= build_dir %>/assets/',
             cwd: '.',
             expand: true,

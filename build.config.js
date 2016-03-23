@@ -73,8 +73,6 @@ module.exports = {
       'vendor/jquery/dist/jquery.js',
       'vendor/morris.js/morris.js',
       'vendor/raphael/raphael.js',
-      'vendor/color/one-color-all.js',
-      'vendor/enscroll/js/mylibs/enscroll.js',
       'vendor/ngmap/build/scripts/ng-map.min.js',
       'vendor/moment/moment.js',
       'vendor/bootstrap-daterangepicker/daterangepicker.js',
