@@ -927,7 +927,11 @@ body.errorpage {background: #eee !important;}
   border: 0;
   padding: 15px 10px;
 }
+.commentModal .modal-600 .modal-header{border-bottom: 1px solid #e5e5e5;}
+.commentModal .modal-600 .modal-body{padding: 20px 10px;}
+.commentModal .modal-600 .modal-header,
 .modal-900 .modal-header{padding: 15px 10px;}
+.commentModal .modal-600 h2,
 .modal-900 .modal-header h2,
 .modal-1200 .modal-header h2 {
   margin: 0;
@@ -935,6 +939,42 @@ body.errorpage {background: #eee !important;}
   line-height: 1.35;
   overflow: hidden;
 }
+.commentModal{background: rgba(255,255,255,0.5);}
+.comment-msg{
+  font-size: 14px;
+  line-height: 18px;
+  padding: 15px 12px;
+  background: #e5e5e5;
+  border: 1px solid #e5e5e5;
+  position: relative;
+  margin: 0 0 10px;
+  color: #000;
+}
+.comment-msg:after {
+  border-color: #e5e5e5 transparent;
+  border-style: solid;
+  border-width: 10px 11px 0 0;
+  bottom: -10px;
+  content: "";
+  display: block;
+  left: 12px;
+  position: absolute;
+  width: 0;
+}
+.comment-msg + i{
+  font-size: 14px;
+  line-height: 14px;
+}
+textarea.form-control{
+  min-height: 100px;
+  max-height: 100px;
+  height: 100px;
+  min-width: 100%;
+  max-width: 100%;
+  width: 100%;
+  resize: none;
+}
+.commentModal .modal-600 .modal-header .close-btn-font,
 .modal-900 .modal-header .close-btn-font,
 .modal-1200 .modal-header .close-btn-font {
   cursor: pointer;
@@ -943,6 +983,7 @@ body.errorpage {background: #eee !important;}
   line-height: 20px;
   margin: 2px 0 0;
 }
+.commentModal .modal-600 .modal-header .close-btn-font:hover,
 .modal-900 .modal-header .close-btn-font:hover,
 .modal-1200 .modal-header .close-btn-font:hover {color: #000;}
 .modal-1200 .modal-body {padding: 0 15px 15px;}
@@ -3059,6 +3100,8 @@ li.active,
     font-size: 14px;
     line-height: 1.2;
   }
+  .commentModal .modal-600 .modal-body{padding: 20px 15px;}
+  .commentModal .modal-600 .modal-header,
   .modal-1200 .modal-header,
   .modal-900 .modal-header,
   .modal-900 .modal-body{padding: 15px;}
@@ -3374,11 +3417,6 @@ li.active,
     padding: 8px 5px;
     font-size: 11px;
   }
-  #wrapper .footable.breakpoint > tbody > tr > td > span.footable-toggle {font-size: 12px;}
-  .footable .fa {
-    font-size: 12px;
-    line-height: 12px;
-  }
   .header-visual .img-holder img,
   .header-visual .inner-holder {
     height: 133px;
@@ -3535,6 +3573,7 @@ li.active,
   .btn-list li {width: 100%;}
   .morris-content-outer .morris-content-holder {width: 100%;}
   .users-list > li {width: 100%;}
+  .commentModal .modal-600 .modal-header h2,
   .modal-1200 .modal-header h2,
   .modal-900 .modal-header h2{
     font-size: 18px;

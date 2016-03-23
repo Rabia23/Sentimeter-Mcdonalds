@@ -21,6 +21,7 @@
         var modalInstance = $uibModal.open({
           templateUrl: 'dashboard/positive-negative-feedback/view-comment-modal.tpl.html',
           controller: 'AddCommentModalCtrl',
+          windowClass: 'modal commentModal',
           size: 600,
           resolve: {
             comment: function () {
@@ -129,6 +130,7 @@
         var modalInstance = $uibModal.open({
           templateUrl: 'dashboard/positive-negative-feedback/view-comment-modal.tpl.html',
           controller: 'ViewCommentModalCtrl',
+          windowClass: 'modal commentModal',
           size: 600,
           resolve: {
           }
