@@ -7,7 +7,7 @@
     $scope.comment = "";
     $scope.add_comment = true;
 
-    $scope.save = function(){
+    function action_performed(){
       comment.show_dropdown = false;
       comment.action_string = status_id;
       var action_id = StatusEnum.get_index(status_id);
@@ -20,12 +20,17 @@
          flashService.createFlash(data.message, "danger");
         }
       });
+    }
+
+    $scope.save = function(){
+      action_performed();
       var message = "Comment successfully added.";
       flashService.createFlash(message, "success");
       $uibModalInstance.close();
     };
 
     $scope.cancel = function () {
+      action_performed();
       $uibModalInstance.dismiss('cancel');
     };
   });
