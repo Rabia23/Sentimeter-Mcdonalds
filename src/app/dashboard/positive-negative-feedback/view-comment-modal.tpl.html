@@ -6,10 +6,13 @@
 </div>
 <div class="modal-detail">
   <div class="modal-body">
-    Hi....
+    <label ng-if="add_comment">
+      <textarea placeholder="Write a Comment" ng-model="comment"></textarea>
+    </label>
+    <div>{{comment}}</div>
   </div>
-  <div class="modal-footer">
+  <div class="modal-footer" ng-if="add_comment">
     <a class="btn btn-white" ng-click="cancel()"> Skip </a>
-    <button class="btn btn-primary" type="submit"> Save </button>
+    <button class="btn btn-primary" ng-click="save()"> Save </button>
   </div>
 </div>
