@@ -26,10 +26,6 @@ body.errorpage {background: #eee !important;}
   max-width: 60%;
   margin: 0 auto;
 }
-.morris-block-holder .morris-graph-holder .morris-holder .chart-container .chart-doughnut {
-  width: 100% !important;
-  height: auto !important;
-}
 .regional-holder,
 .morris-holder {
   white-space: nowrap;
@@ -3372,7 +3368,7 @@ li.active,
   .header-caption h1 {margin: 0 10px 0 0;}
   .morris-block-holder .morris-content-holder {
     width: 33.33%;
-    padding: 0 5px 10px;
+    padding: 0 5px 15px;
   }
   .nav-active .comments-drop {width: 260px;}
   .comments-list li {
