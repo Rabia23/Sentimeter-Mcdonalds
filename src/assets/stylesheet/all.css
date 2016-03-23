@@ -1323,7 +1323,7 @@ textarea.form-control{
   position: absolute;
   left: 0;
   top: 0;
-  z-index: 991;
+  z-index: 9991;
 }
 .modal-1200 .content,
 .modal-1200 .content > div {
@@ -3541,6 +3541,9 @@ li.active,
     right: 0;
   }
   #wrapper .middle-box h1{font-size: 120px;}
+  .modal-1200 .table th.item6 .btn.btn-info{padding-right: 10px;}
+  .modal .modal-dialog.modal-1200{padding: 15px 0;}
+  .modal .modal-dialog .modal-content{margin: 15px 0;}
 }
 
 @media screen and (max-width: 768px) {
