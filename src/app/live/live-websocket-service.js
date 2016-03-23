@@ -9,7 +9,6 @@
           console.log("in the init function");
           ws = null;
           ws = new WebSocket("wss://staginglivefeed.arbisoft.com:5679/");
-          //ws = new WebSocket("ws://172.16.11.113:5678/");
           ws.onopen = function (event) {
             console.log("sockets opened");
             $rootScope.$broadcast('web-socket-open');

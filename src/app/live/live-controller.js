@@ -9,7 +9,6 @@
       $rootScope.$on('app-online', function(event, args) {
         console.log("online");
         WebSocket.init();
-        //live_dashboard();
         $timeout(function() {
             live_dashboard();
         }, 5000);
