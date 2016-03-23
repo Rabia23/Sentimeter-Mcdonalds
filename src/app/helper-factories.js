@@ -131,6 +131,12 @@ angular.module( 'helper_factories', ['ngResource'])
       "Dinner": 5
     },
 
+    qscPriority: {
+      "Cleanliness": 3,
+      "Quality": 1,
+      "Service": 2
+    },
+
 
 
     overallFeedbackPriority: {
