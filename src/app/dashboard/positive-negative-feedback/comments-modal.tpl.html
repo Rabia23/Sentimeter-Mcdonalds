@@ -74,7 +74,7 @@
                     <span ng-hide="comment.show_dropdown">
                       {{comment.action_string}}
                       <time datetime="{{comment.updated_time}}">{{comment.updated_time}}</time>
-                      <a ng-click="openComment()"> <small>View Comment</small> </a>
+                      <a ng-click="openComment(comment.data.action_comment)"> <small>View Comment</small> </a>
                     </span>
                   </td>
                 </tr>

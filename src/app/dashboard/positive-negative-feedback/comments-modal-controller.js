@@ -125,14 +125,16 @@
 
       $scope.showComments($scope.statusOption, text);
 
-      $scope.openComment = function (text) {
-        console.log(" in open comment function..");
+      $scope.openComment = function (action_comment) {
         var modalInstance = $uibModal.open({
           templateUrl: 'dashboard/positive-negative-feedback/view-comment-modal.tpl.html',
           controller: 'ViewCommentModalCtrl',
           windowClass: 'modal commentModal',
           size: 600,
           resolve: {
+            comment_text: function(){
+              return action_comment;
+            }
           }
         });
       };
