@@ -2848,6 +2848,13 @@ li.active,
   pointer-events: auto;
   margin: 30px 0;
 }
+.msg-holder{
+  overflow: hidden;
+  padding: 20px 0;
+  font-weight: 600;
+  font-size: 14px;
+  text-align: center;
+}
 @media screen and (min-width: 768px) {
   .progress-box .progress-area{
     position: relative;
@@ -3004,19 +3011,6 @@ li.active,
     height: 1%;
     width: 100%;
   }
-  .form-container {position: relative;}
-  .form-container.edit-form:before {display: none !important;}
-  .form-container:before {
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 20px;
-    width: 1px;
-    content: "";
-    background: #f1f1f1;
-    display: block !important;
-  }
-  .form-container.edit-form .col-md-6 {width: 100% !important;}
 }
 
 @media screen and (min-width: 1200px) {
@@ -3138,10 +3132,10 @@ li.active,
   .blocks-holder,
   .progress-container,
   .progress-area{height: auto !important;}
-  .same-height-parent .col-lg-6 {
+  #wrapper .same-height-parent .col-lg-6 {
     left: 0;
     top: 0;
-    width: 100% !important;
+    width: 100%;
     clear: both;
   }
   .same-height-block .inner-row > .col-sm-6,
@@ -3217,6 +3211,7 @@ li.active,
   .tab-links li {float: left;}
   .ibox-tools {vertical-align: top;}
   .users-list > li {width: 50%;}
+  #wrapper .timeline-section .ibox-content,
   .same-height-block,
   .inner-row,
   .same-height-col,
@@ -3320,8 +3315,8 @@ li.active,
   .modal-1200 .table thead,
   .modal-1200 .table {
     min-width: 730px;
-    width: inherit !important;
-    max-width: inherit !important;
+    width: inherit;
+    max-width: inherit;
   }
   .modal-1200 {width: auto;}
   .morris-content-outer .morris-content-holder {width: 50%;}
@@ -3412,8 +3407,6 @@ li.active,
     line-height: 30px;
   }
   .loader {margin: 8% 27%;}
-  .question-list .ibox,
-  #wrapper .timeline-section .ibox-content {height: auto !important;}
   .steps-list {
     font-size: 14px;
     line-height: 18px;
@@ -3528,8 +3521,8 @@ li.active,
 }
 
 @media screen and (max-width: 479px) {
+  .promotions .grid-item .data-container,
   .grid-item .ibox-title {min-height: inherit !important;}
-  .promotions .grid-item .data-container {min-height: 200px !important;}
   .grid-container .grid-item {width: 100%;}
   .btn-list li {width: 100%;}
   .morris-content-outer .morris-content-holder {width: 100%;}
@@ -3558,7 +3551,6 @@ li.active,
   }
   .header-caption {padding: 55px 0 5px;}
   body.mini-navbar .tab-links a {font-size: 10px;}
-  .promotions .btn.dim .title {height: auto !important;}
   .loader {margin: 11% 16%;}
   .morris-block-holder .morris-graph-holder .morris-holder .chart-container {max-width: 70%;}
   .morris-block-holder .morris-content-holder {width: 50%;}

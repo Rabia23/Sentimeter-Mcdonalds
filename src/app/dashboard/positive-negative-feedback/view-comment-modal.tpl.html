@@ -13,10 +13,10 @@
       <div class="comment-msg">{{comment}}</div>
       <i class="fa fa-user"></i>
     </div>
+    <div ng-if="!add_comment" ng-hide="comment" class="msg-holder"> No Comment </div>
   </div>
   <div class="modal-footer" ng-if="add_comment">
     <a class="btn btn-white" ng-click="cancel()"> Skip </a>
     <button class="btn btn-primary" ng-click="save()"> Save </button>
   </div>
-  <div ng-if="!add_comment" ng-hide="comment"> No Comment </div>
 </div>
