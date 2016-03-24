@@ -1,0 +1,22 @@
+<div class="header-holder">
+  <div class="modal-header">
+    <a ng-click="cancel()" class="pull-right close-btn-font"><i class="fa fa-times"></i></a>
+    <h2>Comment</h2>
+  </div>
+</div>
+<div class="modal-detail">
+  <div class="modal-body">
+    <div ng-if="add_comment">
+      <textarea placeholder="Write a Comment" class="form-control" ng-model="comment_text" ng-change="evaluateChange(this)"></textarea>
+    </div>
+    <div ng-if="!add_comment" ng-show="comment">
+      <div class="comment-msg">{{comment}}</div>
+      <i class="fa fa-user"></i>
+    </div>
+    <div ng-if="!add_comment" ng-hide="comment" class="msg-holder"> No Comment </div>
+  </div>
+  <div class="modal-footer" ng-if="add_comment">
+    <a class="btn btn-white" ng-click="cancel()"> Skip </a>
+    <button class="btn btn-primary" ng-click="save()"> Save </button>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 (function() {
     angular.module('livefeed.dashboard.positive_negative_feedback')
 
-    .controller('ModalInstanceCtrl', function ($scope, $uibModalInstance, text, Graphs, commentService, StatusEnum, flashService) {
+    .controller('ModalInstanceCtrl', function ($scope, $uibModal, $uibModalInstance, text, Graphs, commentService, StatusEnum, flashService) {
 
       $scope.comments = [];
       $scope.page = 1;
@@ -9,8 +9,6 @@
       $scope.lock = true;
       $scope.show_loader = false;
       $scope.modal_opened = false;
-
-      $scope.show_error_message = false;
 
       $scope.is_last_page = false;
 
@@ -20,23 +18,21 @@
       $scope.status_options = StatusEnum.get_status_options();
 
       $scope.selectedValue = function(value, comment){
-        comment.show_dropdown = false;
-        comment.action_string = value;
-        var action_id = StatusEnum.get_index(value);
-        Graphs.action_taken(comment.data.id,action_id).$promise.then(function(data){
-          if(data.success) {
-            $scope.show_error_message = false;
-            comment.data.action_taken = data.response.action_taken;
-            comment.updated_time = new Date().toString(data.response.updated_at).split("GMT")[0];
-          }
-          else {
-           $scope.show_error_message = true;
-           $scope.error_message = data.message;
-           flashService.createFlash($scope.error_message, "danger");
+        var modalInstance = $uibModal.open({
+          templateUrl: 'dashboard/positive-negative-feedback/view-comment-modal.tpl.html',
+          controller: 'AddCommentModalCtrl',
+          windowClass: 'modal commentModal',
+          size: 600,
+          resolve: {
+            comment: function () {
+              return comment;
+            },
+            status_id: function() {
+              return value;
+            }
           }
         });
       };
-
 
       $scope.showComments = function(option, text){
         $scope.statusOption = option;
@@ -128,6 +124,20 @@
       };
 
       $scope.showComments($scope.statusOption, text);
+
+      $scope.openComment = function (action_comment) {
+        var modalInstance = $uibModal.open({
+          templateUrl: 'dashboard/positive-negative-feedback/view-comment-modal.tpl.html',
+          controller: 'ViewCommentModalCtrl',
+          windowClass: 'modal commentModal',
+          size: 600,
+          resolve: {
+            comment_text: function(){
+              return action_comment;
+            }
+          }
+        });
+      };
     });
 
 })();

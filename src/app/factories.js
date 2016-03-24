@@ -64,9 +64,9 @@ angular.module( 'factories', [
     return this.service.live_dashboard();
   };
 
-  Graphs.prototype.action_taken = function(feedback_id,action_id){
+  Graphs.prototype.action_taken = function(feedback_id,action_id,action_comment){
     var token = $rootScope.token || TokenHandler.get_token();
-    return this.service.action_taken({token:  token, feedback_id: feedback_id, action_id: action_id});
+    return this.service.action_taken({token:  token, feedback_id: feedback_id, action_id: action_id, action_comment: action_comment});
   };
 
   Graphs.prototype.top_concerns = function(){
