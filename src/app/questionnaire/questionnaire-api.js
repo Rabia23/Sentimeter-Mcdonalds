@@ -9,7 +9,7 @@ angular.module( 'livefeed.questionnaire.api', [
 
 
   function QuestionnaireApi() {
-    this.service = $resource(apiLinks.staging, {},
+    this.service = $resource(apiLinks.link.api, {},
                   {
                     questionnaire_list: {method: "GET",isArray: false, params: {endpoint: "questionnaire"}},
                     questionnaire_detail: {method: "GET",isArray: false, params: {endpoint: "questionnaire_detail"}}

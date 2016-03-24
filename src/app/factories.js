@@ -6,7 +6,7 @@ angular.module( 'factories', [
 
 .factory('Filters', ['$resource','apiLinks', function($resource, apiLinks) {
   function Filters() {
-    this.service = $resource(apiLinks.staging, {},
+    this.service = $resource(apiLinks.link.api, {},
                   {
                     allRegions: {method: "GET",isArray: false, params: {endpoint: "region"}},
                     Cities: {method: "GET",isArray: false, params: {endpoint: "city"}},
@@ -28,7 +28,7 @@ angular.module( 'factories', [
 .factory('Graphs', ['$resource','apiLinks','_','TokenHandler','$http','$rootScope',  function($resource, apiLinks, _, TokenHandler, $http, $rootScope) {
 
   function Graphs() {
-    this.service = $resource(apiLinks.staging, {},
+    this.service = $resource(apiLinks.link.api, {},
                   {
                     overall_feedback: {method: "GET",isArray: false, params: {endpoint: "overall_feedback/"}},
                     feedback_analysis: {method: "GET",isArray: false, params: {endpoint: "feedback_analysis/"}},

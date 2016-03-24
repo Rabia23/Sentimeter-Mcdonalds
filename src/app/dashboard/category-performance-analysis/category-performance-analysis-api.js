@@ -7,7 +7,7 @@
 
   .factory('CategoryPerformanceApi', ['$resource', 'apiLinks', '_', 'TokenHandler', '$http', '$rootScope', function ($resource, apiLinks, _, TokenHandler, $http, $rootScope) {
     function CategoryPerformanceApi() {
-      this.service = $resource(apiLinks.staging, {},
+      this.service = $resource(apiLinks.link.api, {},
         {
           category_performance: {method: "GET", isArray: false, params: {endpoint: "category_performance/"}},
           segmentation_rating: {method: "GET", isArray: false, params: {endpoint: "segmentation_rating/"}}

@@ -9,7 +9,7 @@ angular.module( 'livefeed.promotions.api', [
 
 
   function PromotionsApi() {
-    this.service = $resource(apiLinks.staging, {},
+    this.service = $resource(apiLinks.link.api, {},
                   {
                     promotions_list: {method: "GET",isArray: false, params: {endpoint: "promotion"}},
                     promotion_detail: {method: "GET",isArray: false, params: {endpoint: "promotion_detail"}}

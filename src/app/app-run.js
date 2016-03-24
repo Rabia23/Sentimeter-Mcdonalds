@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed')
 
-  .run( function run ($rootScope, Auth, $state, TokenHandler, flashService, $timeout) {
+  .run( function run ($rootScope, Auth, $state, TokenHandler, flashService, $timeout, $window, $location, apiLinks) {
 
 
     $rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
@@ -23,7 +23,7 @@
 
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
       $rootScope.currentState = toState.name;
-
+      $window.ga('send', 'pageview', $location.path());
     });
 
     $rootScope.logout = function(){
@@ -32,6 +32,10 @@
       $state.go('login');
     };
 
+    apiLinks.link.analytics();
+
   });
+
+  
 
 })();
