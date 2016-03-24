@@ -9,7 +9,7 @@ angular.module( 'livefeed.manage_users.api', [
 
 
   function ManageApi() {
-    this.service = $resource(apiLinks.staging, {},
+    this.service = $resource(apiLinks.link.api, {},
                   {
                     manage_users: {method: "GET",isArray: false, params: {endpoint: "manage_user"}},
                     add_user: {method: "POST",isArray: false, params: {endpoint: "user/"}},
