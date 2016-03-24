@@ -1,7 +1,7 @@
 (function() {
     angular.module('livefeed.live')
 
-    .service('WebSocket', ['$rootScope', function($rootScope, apiLinks){
+    .service('WebSocket', ['$rootScope','apiLinks', function($rootScope, apiLinks){
       var ws = null;
       return {
 
