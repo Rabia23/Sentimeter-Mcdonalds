@@ -1,14 +1,14 @@
 (function() {
     angular.module('livefeed.live')
 
-    .service('WebSocket', ['$rootScope', function($rootScope){
+    .service('WebSocket', ['$rootScope', function($rootScope, apiLinks){
       var ws = null;
       return {
 
         init: function(){
           console.log("in the init function");
           ws = null;
-          ws = new WebSocket("wss://staginglivefeed.arbisoft.com:5679/");
+          ws = new WebSocket(apiLinks.link.socket);
           ws.onopen = function (event) {
             console.log("sockets opened");
             $rootScope.$broadcast('web-socket-open');

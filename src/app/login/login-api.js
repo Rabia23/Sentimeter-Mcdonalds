@@ -6,7 +6,7 @@ angular.module( 'livefeed.login.api', [
 
 .factory('Authentication', ['$resource','apiLinks', function($resource, apiLinks) {
   function Authentication() {
-    this.service = $resource(apiLinks.staging,{},
+    this.service = $resource(apiLinks.link.api,{},
     {
       login: {method: "POST",isArray: false, params: {endpoint: "login/"}}
     });

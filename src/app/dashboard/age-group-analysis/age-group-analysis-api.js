@@ -7,7 +7,7 @@
 
   .factory('AgeAnalysisApi', ['$resource', 'apiLinks', '_', 'TokenHandler', '$http', '$rootScope', function ($resource, apiLinks, _, TokenHandler, $http, $rootScope) {
     function AgeAnalysisApi() {
-      this.service = $resource(apiLinks.staging, {},
+      this.service = $resource(apiLinks.link.api, {},
         {
           customer_analysis: {method: "GET", isArray: false, params: {endpoint: "customer_analysis"}}
         });

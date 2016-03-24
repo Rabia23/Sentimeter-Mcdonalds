@@ -11,7 +11,7 @@ angular.module( 'livefeed.live.api', [
 
 
   function Api() {
-    this.service = $resource(apiLinks.staging, {},
+    this.service = $resource(apiLinks.link.api, {},
                   {
                     live_dashboard: {method: "GET", isArray: false, params:{endpoint: "livedashboard/"}}
 
