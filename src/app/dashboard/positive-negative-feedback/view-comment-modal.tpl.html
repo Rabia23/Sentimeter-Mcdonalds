@@ -7,7 +7,7 @@
 <div class="modal-detail">
   <div class="modal-body">
     <div ng-if="add_comment">
-      <textarea placeholder="Write a Comment" class="form-control" ng-model="comment_text" ng-change="evaluateChange(this)"></textarea>
+      <textarea placeholder="Write a Comment" class="form-control" ng-model="comment_text" ng-change="evaluateChange(this)" maxlength="1000"></textarea>
     </div>
     <div ng-if="!add_comment" ng-show="comment">
       <div class="comment-msg">{{comment}}</div>

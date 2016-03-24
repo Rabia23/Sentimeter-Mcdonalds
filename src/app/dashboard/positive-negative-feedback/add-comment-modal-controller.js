@@ -16,6 +16,10 @@
           comment.data.action_taken = data.response.action_taken;
           comment.data.action_comment = data.response.action_comment;
           comment.updated_time = new Date().toString(data.response.updated_at).split("GMT")[0];
+          if(data.response.action_comment){
+            var message = "Comment successfully added.";
+            flashService.createFlash(message, "success");
+          }
         }
         else {
          flashService.createFlash(data.message, "danger");
@@ -25,8 +29,6 @@
 
     $scope.save = function(){
       action_performed();
-      var message = "Comment successfully added.";
-      flashService.createFlash(message, "success");
       $uibModalInstance.close();
     };
 
