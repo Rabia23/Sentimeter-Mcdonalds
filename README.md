@@ -1,15 +1,15 @@
 # livefeed-web
 
-Introduction
+## Introduction
 
 This app is a single page application built on AngularJs. The repository is based on ng-boilerplate and john papa app structure.
 
-Dependencies
+## Dependencies
 
 The app maintains bower.json and package.json files, which lists all the dependencies.
 
 
-Quick Start
+## Quick Start
 
 To compile scss you need to install ruby latest version and then install gem compass. Assuming git, npm and nodejs are already installed on your computer. To get started do following steps.
 
@@ -22,7 +22,7 @@ To compile scss you need to install ruby latest version and then install gem com
 7. grunt watch
 8. Open new terminal tab and run grunt server
 
-App Structure
+## App Structure
 
 Each functionality is a module which may or may not be sub divided in modules. Following are the conventitons we follow while writing modules
 
@@ -32,18 +32,44 @@ Each functionality is a module which may or may not be sub divided in modules. F
 4. All parts of modules e.g controllers, services, routes, configurations and directives must be included in the module folder unless it is using common code.
 
 
-Html Coding Conventions
+## Coding Conventions
 
-1. We use 2 space indentation for coding html.
+### Html
+
+1. We use *2 space indentation* for coding html.
 2. Dont use tabs
 3. No trailing spaces
 
-Javascript Coding Conventions
+### Javascript
 
 1. We are following John Papa angular style guide to make the code more readable.
+2. Dont use tabs
+3. We use *2 space indentation* for coding html
+4. Semicolon after each line of code
 
 
-Grunt Commands
+## Git
+
+We are using *git-flow* to manage our repository. Following may be useful
+
+1. frontend-master 
+
+We have frontend-master branch for production
+
+2. frontend-develop
+
+We have frontend-developbranch for staging
+
+3. Feature 
+
+When we do addition or bug fixing in frontend-develop, we create a new branch and we call it feature. Developer should create a pull request to merge new feature into frontend-develop
+
+4. Hot-fix
+
+To create an urgent fix on master, we create a new branch from master and create a pull request, we call it hot-fix
+
+
+## Grunt Commands
 
 1. grunt build. To build the src folder and put the files in build directory. Although this folder can be hosted on server the files are not compressed
 
