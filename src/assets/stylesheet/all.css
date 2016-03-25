@@ -671,6 +671,7 @@ html body.errorpage {background: #eee;}
   font-size: 13px;
   line-height: 16px;
   padding: 10px 15px;
+  word-wrap: break-word;
 }
 .comments-list li p {margin: 0 0 5px;}
 .comments-list li:hover {background: #f6f6f6;}
