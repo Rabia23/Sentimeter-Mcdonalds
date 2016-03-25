@@ -554,6 +554,28 @@ html body.errorpage {background: #eee;}
   height: 100px;
   position: relative;
 }
+.comments-drop .comments-box{height: 100%;}
+.comments-drop .msg-box{
+  height: 100%;
+  white-space: nowrap;
+  text-align: center;
+  letter-spacing: -6px;
+  border-top: 1px solid #d9d9d9;
+}
+.comments-drop .msg-box:after{
+  display: inline-block;
+  vertical-align: middle;
+  content: "";
+  width: 0;
+  min-height: 100%;
+  overflow: hidden;
+}
+.comments-drop .msg-box > *{
+  display: inline-block;
+  vertical-align: middle;
+  white-space: normal;
+  letter-spacing: 0;
+}
 .nav-active .comment-block > .nav-opener {
   -moz-transform: translateX(100%);
   -webkit-transform: translateX(100%);
@@ -912,6 +934,7 @@ html body.errorpage {background: #eee;}
   position: relative;
   margin: 0 0 10px;
   color: #000;
+  word-wrap: break-word;
 }
 .comment-msg:after {
   border-color: #e5e5e5 transparent;
