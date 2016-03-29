@@ -50,7 +50,7 @@
             }
             if(question.type == PromotionsChartTypeEnum.get_bar_chart_value()){
               var question_bar_chart = getBarChartData(question.feedbacks, question.total_count);
-               question["question_bar_chart"] = question_bar_chart;
+              question["question_bar_chart"] = question_bar_chart;
             }
             else if(question.type == PromotionsChartTypeEnum.get_pie_chart_value()){
               var question_pie_chart= getPieChartData(question.feedbacks);
@@ -68,7 +68,7 @@
     }
 
     function getBarChartData(feedbacks, feedback_count){
-       var question_analysis = _.map(feedbacks,  function(data, index){
+      var question_analysis = _.map(feedbacks,  function(data, index){
         return {
           id: data.option_id,
           name: data.option__text,
@@ -83,16 +83,17 @@
     }
 
     function getPieChartData(feedbacks){
-       var pie_chart_data = [];
-       _.each(feedbacks,  function(value){
-          pie_chart_data.push({
-            "category": value.option__text,
-            "column-1": value.count,
-            "priority": Global.promotionPieChartPriority[value.option__text],
-            "color": Global.promotionPieChartColorScheme[value.option__text]});
-       });
-       pie_chart_data = _.sortBy(pie_chart_data, function(value){ return value.priority; });
-       return pie_chart_data;
+      var pie_chart_data = [];
+      _.each(feedbacks,  function(value){
+        pie_chart_data.push({
+          "category": value.option__text,
+          "column-1": value.count,
+          "priority": Global.promotionPieChartPriority[value.option__text],
+          "color": Global.promotionPieChartColorScheme[value.option__text]
+        });
+      });
+      pie_chart_data = _.sortBy(pie_chart_data, function(value){ return value.priority; });
+      return pie_chart_data;
     }
 
     showPromotionData();

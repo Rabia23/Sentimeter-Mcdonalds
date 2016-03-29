@@ -1,9 +1,9 @@
 // page init
- jQuery(function(){
- //initPositionFixed();
-  //initMobileNav();
- // initSlideShow();
- });
+  jQuery(function(){
+    //initPositionFixed();
+    //initMobileNav();
+    // initSlideShow();
+  });
 
 
 
@@ -35,7 +35,7 @@ function initSlideShow() {
     switchTime: 24000,
     animSpeed: 1000
   });
-	jQuery('#wrapper').fadeGallery({
+  jQuery('#wrapper').fadeGallery({
     slides: '.timer-slider li',
     btnPrev: '.btn-prev',
     btnNext: '.btn-next',
@@ -590,13 +590,13 @@ function initSameHeight() {
     flexible: true,
     multiLine: true,
     biggestHeight: true,
-	useMinHeight: true
+    useMinHeight: true
   });
   jQuery('.grids-holder').sameHeight({
     elements: '.grid-item .ibox-title',
     flexible: true,
     multiLine: true,
-	useMinHeight: true
+    useMinHeight: true
   });
   jQuery('.btn-list').sameHeight({
     elements: '.title',

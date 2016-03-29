@@ -5,7 +5,7 @@
   .factory('Enum', [function() {
 
     var users = ["CUSTOMER","GRO", "BRANCH MANAGER", "OPERATIONAL CONSULTANT",
-     "OPERATIONAL MANAGER", "ASSISTANT DIRECTOR","DIRECTOR"];
+      "OPERATIONAL MANAGER", "ASSISTANT DIRECTOR","DIRECTOR"];
 
     return {
       get_user_label: function(index){

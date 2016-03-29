@@ -4,7 +4,7 @@ angular.module('livefeed.regional_analysis.chart', [
 .service('regionalAnalysisChartService', function(Global, PatchStatusEnum){
   return {
 
-      getDonutChartData: function(graph_data, question_type){
+    getDonutChartData: function(graph_data, question_type){
       return {
         objects: _.map(graph_data.analysis,  function(data){
           return {
@@ -16,7 +16,7 @@ angular.module('livefeed.regional_analysis.chart', [
         }),
         donutOptions: _.map(graph_data.analysis,  function(data){
           return   {
-              colors: _.map(data.data.feedbacks, function(dat){
+            colors: _.map(data.data.feedbacks, function(dat){
                 return (question_type == 1) ? Global.mainRatingColorScheme[dat.option__text] : dat.option__color_code;
               })
             };
@@ -33,7 +33,7 @@ angular.module('livefeed.regional_analysis.chart', [
             return data.option__color_code;
             })
           }
-       };
+      };
     },
 
     getComplaintsDonutChartData: function(graph_data){
@@ -47,7 +47,7 @@ angular.module('livefeed.regional_analysis.chart', [
         data.data.feedback_count = data.data.feedback_count - count;
       });
       _.map(graph_data.analysis, function(data){
-         data.data.action_analysis = _.filter(data.data.action_analysis,  function(dat) { return dat.action_taken !== PatchStatusEnum.get_skip_label_index(); });
+        data.data.action_analysis = _.filter(data.data.action_analysis,  function(dat) { return dat.action_taken !== PatchStatusEnum.get_skip_label_index(); });
       });
       return {
         objects: _.map(graph_data.analysis,  function(data){

@@ -1,5 +1,6 @@
 (function() {
   angular.module('livefeed.dashboard.category_performance_analysis')
+
   .directive('sameSegmentHeight', function() {
     return {
       restrict: 'A',

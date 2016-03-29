@@ -53,10 +53,7 @@
 
           $scope.show_loading = true;
           draw_age_analysis(ev.model.startDate._i, ev.model.endDate._i);
-        },
-        'cancel.daterangepicker': function(ev, picker){
         }
-
       },
       opens: "left"
     };

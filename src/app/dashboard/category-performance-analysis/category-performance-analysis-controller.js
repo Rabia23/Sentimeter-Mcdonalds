@@ -34,8 +34,6 @@
           $scope.end_date =  ev.model.endDate._i;
           $scope.showCategoryData("","","",$scope.option_id,$scope.class);
           $scope.showSegmentData("","","",$scope.option_id,$scope.class);
-        },
-        'cancel.daterangepicker': function(ev, picker){
         }
       },
       opens: "left"
