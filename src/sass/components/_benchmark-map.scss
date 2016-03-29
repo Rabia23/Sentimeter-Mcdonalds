@@ -27,7 +27,7 @@
 	.inner-box{
 		overflow: hidden;
 		padding: 20px 0 30px;
-		color: $mine-shaft;
+		color: $white;
 		
 		
 		@include media("≥widescreen"){padding: 30px 0;}
@@ -35,7 +35,7 @@
 		.hold{overflow: hidden;}
 		
 		h3{
-			color: $rosso-corsa;
+			color: #fbe400;
 			margin: 0 0 10px;
 			font-weight: 400;
 			letter-spacing: 1px;
@@ -86,10 +86,11 @@
 
 .info-block{
 	overflow: hidden;
+    color: $white;
 	text-transform: uppercase;
 	
 	h3{
-		color: $rosso-corsa;
+		color: #fbe400;
 		margin: 0 8px 15px;
 		font-weight: 400;
 		letter-spacing: 1px;
@@ -132,7 +133,7 @@
 		
 		li{
 			overflow: hidden;
-			border-top: 1px solid $lemon;
+			border-top: 1px solid $white;
 			padding: 20px 8px;
 			
 			@include media("≥widescreen"){padding: 30px 10px;}
