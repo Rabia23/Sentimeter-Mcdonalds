@@ -1,5 +1,5 @@
 html body {
-  background: #f1c40f;
+  background: #ffe500;
   min-width: 320px;
   -ms-overflow-style: scrollbar;
 }
@@ -169,14 +169,15 @@ html body.errorpage {background: #eee;}
   padding-left: 45px;
 }
 .navbar.dashboard .navbar-minimalize {
-  background: #ac1a1a;
-  border-color: #ac1a1a;
+  background: #1a3c7b;
+  border-color: #1a3c7b;
 }
+.navbar.dashboard .navbar-minimalize i{color: #ffe500;}
 .navbar.dashboard .navbar-minimalize:hover,
 .navbar.dashboard .navbar-minimalize:active,
 .navbar.dashboard .navbar-minimalize:focus {
-  background: #ac1a1a;
-  border-color: #ac1a1a;
+  background: #183771;
+  border-color: #183771;
 }
 #wrapper .navbar-static-side {
   position: fixed;
@@ -185,7 +186,7 @@ html body.errorpage {background: #eee;}
 #wrapper .sidebar-collapse {height: 100%;}
 #wrapper #side-menu {
   height: 100%;
-  padding: 152px 0 0;
+  padding: 123px 0 0;
 }
 #wrapper .doc-block .navbar-static-side {position: absolute;}
 #wrapper .doc-block .sidebar-collapse,
@@ -343,14 +344,10 @@ html body.errorpage {background: #eee;}
   left: -50%;
 }
 .header-caption {
-  position: absolute;
-  left: 23px;
-  right: 23px;
-  top: 0;
-  bottom: 0;
   z-index: 9;
   color: #000;
-  padding: 65px 0 5px;
+  background: #f9f9f9;
+  padding: 75px 23px 15px;
   white-space: nowrap;
 }
 .header-caption:after {
@@ -383,8 +380,8 @@ html body.errorpage {background: #eee;}
 }
 .logo-holder {
   width: 100%;
-  height: 152px;
-  background: #be1011;
+  height: 123px;
+  background: #1a3c7b;
   white-space: nowrap;
   text-align: center;
 }
@@ -477,7 +474,7 @@ html body.errorpage {background: #eee;}
 .comment-block {
   position: absolute;
   right: 0;
-  top: 152px;
+  top: 123px;
   z-index: 999;
   bottom: 0;
   pointer-events: none;
@@ -490,8 +487,8 @@ html body.errorpage {background: #eee;}
 .comment-block > .nav-opener {
   pointer-events: auto;
   float: right;
-  background: #ffc72c;
-  color: #fff;
+  background: #1a3c7b;
+  color: #ffe500;
   margin-top: 0;
   padding: 8px 10px;
   font-size: 28px;
@@ -509,7 +506,7 @@ html body.errorpage {background: #eee;}
   -o-transition-timing-function: cubic-bezier(0.420, 0.000, 1.000, 1.000);
   transition-timing-function: cubic-bezier(0.420, 0.000, 1.000, 1.000);
 }
-.comment-block > .nav-opener:hover {background: #ffbc01;}
+.comment-block > .nav-opener:hover {background: #183771;}
 .comment-block > .nav-opener .count {
   position: absolute;
   right: 5px;
@@ -625,7 +622,7 @@ html body.errorpage {background: #eee;}
   cursor: default;
   font-size: 100px;
   line-height: 100px;
-  color: #f1c40f;
+  color: #ffe500;
 }
 .comments-drop h2 {
   margin: 0 0 10px;
@@ -3133,10 +3130,6 @@ li.active,
   body.mini-navbar #wrapper .navbar-static-side {width: 70px;}
   body.mini-navbar #wrapper #page-wrapper {margin: 0 0 0 70px;}
   #wrapper .wrapper-content {padding: 40px 0 0;}
-  .header-caption {
-    left: 13px;
-    right: 13px;
-  }
   #wrapper .minimalize-styl-2 {margin-left: 0;}
   .footer-holder .footer-text,
   .footer-holder .footer-container {padding: 0 5px;}
@@ -3151,6 +3144,7 @@ li.active,
   .grid-container .grid-item {padding: 0 5px;}
   .calendar-box {margin: -40px -15px 0 -14px;}
   #wrapper .calendar-box .ibox-content {padding: 0 10px;}
+  .header-caption{padding: 75px 15px 15px;}
 }
 
 @media screen and (max-width: 1279px) {
@@ -3425,7 +3419,7 @@ li.active,
     height: 133px;
     min-width: 550px;
   }
-  .comment-block {top: 133px;}
+  .comment-block {top: 114px;}
   #wrapper .m-r-sm {margin-right: 5px;}
   #wrapper .nav > li > a i {margin-right: 3px;}
   #wrapper .users-section h1,
@@ -3531,8 +3525,8 @@ li.active,
   .legend-items {margin: 0 -10px -10px;}
   .calender-outer.add {padding: 0 7px;}
   .calendar-box {margin: -30px -15px 0 -14px;}
-  .logo-holder {height: 133px;}
-  #wrapper #side-menu {padding: 133px 0 0;}
+  .logo-holder {height: 114px;}
+  #wrapper #side-menu {padding: 114px 0 0;}
   .modal-1200 .table th .dropdown-menu > li > a {padding: 3px 10px;}
   .modal-1200 .table th .dropdown-menu {margin: 0 -5px 0 0;}
   #wrapper .doc-block .navbar-static-side a.btn-top {margin: -65px 0 0;}
@@ -3592,7 +3586,10 @@ li.active,
     padding: 0;
     min-height: inherit;
   }
-  .header-caption {padding: 55px 0 5px;}
+  .header-caption {padding: 62px 15px 15px;}
+  .comment-block{top: 101px;}
+  .logo-holder{height: 101px;}
+  #wrapper #side-menu{padding: 101px 0 0;}
   body.mini-navbar .tab-links a {font-size: 10px;}
   .loader {margin: 11% 16%;}
   .morris-block-holder .morris-graph-holder .morris-holder .chart-container {max-width: 70%;}
