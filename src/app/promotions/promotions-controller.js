@@ -2,7 +2,7 @@
   angular.module( 'livefeed.promotions')
 
 
-  .controller( 'PromotionsCtrl', function PromotionCtrl( $scope, $state, $rootScope, TokenHandler, Auth, flashService, PromotionsApi) {
+  .controller( 'PromotionsCtrl', function PromotionCtrl( $scope, $state, $rootScope, flashService, PromotionsApi) {
       $scope.show_loading = true;
       
       $rootScope.page_heading = "Promotions";

@@ -7,7 +7,7 @@
     </div>
     <ul class="nav navbar-top-links navbar-right">
       <li>
-        <span class="m-r-sm text-muted welcome-message">Welcome <span class="name text-capitalize">{{fullname}}</span></span>
+        <span class="m-r-sm text-muted welcome-message">Welcome <span class="name text-capitalize">{{::fullname}}</span></span>
       </li>
       <li>
         <a style="cursor:pointer;" ng-click="logout()">
@@ -21,6 +21,6 @@
     <div class="inner-holder"><img alt="image" class="img-responsive" src="/assets/images/img1.jpg" /></div>
   </div>
   <div class="header-caption">
-    <h1>{{page_heading}}</h1>
+    <h1>{{::page_heading}}</h1>
   </div>
 </div>

@@ -15,9 +15,9 @@
             <form class="login-form" name="LoginForm" ng-submit="login(LoginForm.$valid)" novalidate>
               <fieldset>
                 <input type="text" class="form-control" placeholder="User Name" required name="username" ng-model="authenticate.username" ng-model-options="{ debounce: 300 }">
-                <div ng-show="LoginForm.username.$error.required && (!LoginForm.username.$pristine || submitted == true)" class="form-error-message pull-left">Username is required.</div>
+                <div ng-if="LoginForm.username.$error.required && (!LoginForm.username.$pristine || submitted == true)" class="form-error-message pull-left">Username is required.</div>
                 <input type="password" class="form-control" placeholder="Password" required name="password" ng-model="authenticate.password" ng-model-options="{ debounce: 300 }">
-                <div ng-show="LoginForm.password.$error.required && (!LoginForm.password.$pristine || submitted == true)" class="form-error-message pull-left">Password is required.</div>
+                <div ng-if="LoginForm.password.$error.required && (!LoginForm.password.$pristine || submitted == true)" class="form-error-message pull-left">Password is required.</div>
                 <input type="submit" value="Log in" class="btn btn-info">
                 <label for="check-1">
                   <input id="check-1" type="checkbox" ng-model="remember_me" ng-checked="remember_me">
