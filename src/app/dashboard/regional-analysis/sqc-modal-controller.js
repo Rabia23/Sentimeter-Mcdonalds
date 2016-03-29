@@ -59,7 +59,7 @@
     function hideQSCModalButton(sqc, sqc_data){
       var index = findSqcIndex(sqc,sqc_data);
       if(index == sqc_data.length-1){
-         $scope.show_angle_right = false;
+        $scope.show_angle_right = false;
       }
       else if(index === 0){
         $scope.show_angle_left = false;

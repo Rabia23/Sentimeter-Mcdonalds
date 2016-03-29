@@ -162,14 +162,10 @@
               width = width + 20;
               $("#area-chart").find("svg").css("width", width);
             }
-            else{
+            else {
               live_sqc_chart.dataProvider = data;
               live_sqc_chart.validateData();
             }
-           
-            
-            
-
           }
         });
       }

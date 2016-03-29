@@ -10,7 +10,7 @@
     }
 
     $rootScope.$on('live-data-received', function (event, data) {
-     leader_board();
+      leader_board();
     });
   
   });
