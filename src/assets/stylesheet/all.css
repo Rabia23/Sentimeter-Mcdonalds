@@ -2531,7 +2531,7 @@ li.active,
   top: 0;
   height: 25px;
   content: "";
-  background: #be1011;
+  background: #1a3c7b;
   z-index: 1;
 }
 .doc-header:before {
@@ -2543,7 +2543,7 @@ li.active,
   height: 25px;
   margin-left: -150px;
   content: "";
-  background: #f1c40f;
+  background: #ffe500;
   z-index: 2;
 }
 .doc-header .logo-holder {
