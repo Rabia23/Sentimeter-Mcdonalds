@@ -54,7 +54,7 @@
             category_performance_array[0] = performance_data.response.feedbacks;
           }
           $scope.category_data = _.map(category_performance_array[0], function (data) {
-             return feedbackService.getCategoryFeedbacks(data, performance_data.response.feedback_count, option_id, string);
+            return feedbackService.getCategoryFeedbacks(data, performance_data.response.feedback_count, option_id, string);
           });
           $scope.category_data = _.sortBy($scope.category_data, function (value) {
             return value.priority;

@@ -313,19 +313,19 @@ module.exports = function ( grunt ) {
           spaces: 2,
           indentationGuess: true
         }
+      },
+      javascript: {
+        src: [
+            'src/**/*.js'
+        ],
+        options: {
+            //newline: true,
+            //trailingspaces: true,
+            indentation: 'spaces',
+            spaces: 2,
+            ignores: ['js-comments']
+        }
       }
-      // javascript: {
-      //   src: [
-      //       'src/**/*.js'
-      //   ],
-      //   options: {
-      //       // newline: true,
-      //       //trailingspaces: true,
-      //       indentation: 'spaces',
-      //       spaces: 2,
-      //       ignores: ['js-comments']
-      //   }
-      // }
     },
 
      /**

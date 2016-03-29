@@ -27,7 +27,7 @@ angular.module('livefeed.overall_rating.chart', [
       var inc = 0;
       _.each(segment_array, function(value,upper_index){
         _.each(value, function(value, index){
-           segment_data[inc]["column-"+(index+1)] = value;
+          segment_data[inc]["column-"+(index+1)] = value;
         });
         inc = inc + 1;
       });
