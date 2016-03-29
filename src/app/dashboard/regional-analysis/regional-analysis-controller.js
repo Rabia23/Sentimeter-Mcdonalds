@@ -26,13 +26,13 @@
           $scope.start_date = ev.model.startDate._i;
           $scope.end_date =  ev.model.endDate._i;
           if(user_role == 4){
-             $scope.showChart("", "regions");
+            $scope.showChart("", "regions");
           }
           else if(user_role == 3){
             $scope.showChart("");
           }
           else{
-           $scope.showChart($scope.object_id, $scope.string);
+            $scope.showChart($scope.object_id, $scope.string);
           }
         },
         'cancel.daterangepicker': function(ev, picker){

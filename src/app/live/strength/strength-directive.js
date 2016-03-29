@@ -28,16 +28,16 @@
 
         var vertical_gap = 0;
         var ms_ie = false;
-         var ua = window.navigator.userAgent;
-         var old_ie = ua.indexOf('MSIE ');
-         var new_ie = ua.indexOf('Trident/');
+        var ua = window.navigator.userAgent;
+        var old_ie = ua.indexOf('MSIE ');
+        var new_ie = ua.indexOf('Trident/');
 
-         if ((old_ie > -1) || (new_ie > -1)) {
-           ms_ie = true;
-         }
+        if ((old_ie > -1) || (new_ie > -1)) {
+          ms_ie = true;
+        }
 
         if ( ms_ie ) {
-            vertical_gap = -20;
+          vertical_gap = -20;
         }
 
         scope.$watch('data', function(watchedData) {
