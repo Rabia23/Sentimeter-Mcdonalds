@@ -19,6 +19,7 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-http-server');
   grunt.loadNpmTasks('grunt-lintspaces');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   /**
    * Load in our build configuration file.
@@ -245,11 +246,20 @@ module.exports = function ( grunt ) {
      */
     uglify: {
       compile: {
-        // options: {
-        //   banner: '<%= meta.banner %>'
-        // },
         files: {
           '<%= concat.compile_js.dest %>': '<%= concat.compile_js.dest %>'
+        }
+      }
+    },
+
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        report: 'min'
+      },
+      target: {
+        files: {
+          '<%= concat.build_css.dest %>': '<%= concat.build_css.dest %>'
         }
       }
     },
@@ -590,7 +600,7 @@ module.exports = function ( grunt ) {
    * minifying your code.
    */
   grunt.registerTask( 'compile', [
-    'copy:compile_assets', 'ngAnnotate', 'concat:compile_js', 'uglify', 'index:compile'
+    'copy:compile_assets', 'ngAnnotate', 'concat:compile_js', 'uglify','concat:build_css', 'cssmin', 'index:compile'
   ]);
 
   /**
