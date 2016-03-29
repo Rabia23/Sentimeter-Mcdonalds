@@ -10,10 +10,10 @@ angular.module( 'livefeed.questionnaire.api', [
 
   function QuestionnaireApi() {
     this.service = $resource(apiLinks.link.api, {},
-                  {
-                    questionnaire_list: {method: "GET",isArray: false, params: {endpoint: "questionnaire"}},
-                    questionnaire_detail: {method: "GET",isArray: false, params: {endpoint: "questionnaire_detail"}}
-                 });
+    {
+      questionnaire_list: {method: "GET",isArray: false, params: {endpoint: "questionnaire"}},
+      questionnaire_detail: {method: "GET",isArray: false, params: {endpoint: "questionnaire_detail"}}
+    });
   }
   QuestionnaireApi.prototype.questionnaire_list = function(){
     var token = $rootScope.token || TokenHandler.get_token();

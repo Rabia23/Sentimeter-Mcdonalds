@@ -90,7 +90,7 @@ angular.module( 'helper_factories', ['ngResource'])
 
     },
 
-     optionsColorScheme: {
+    optionsColorScheme: {
       "Quality": '#cb1e24',
       "Service": "#ffd200",
       "Cleanliness": '#1f9aec'

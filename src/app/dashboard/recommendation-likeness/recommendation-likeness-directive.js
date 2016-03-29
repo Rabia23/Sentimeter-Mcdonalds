@@ -29,15 +29,15 @@
               },
               "trendLines": [],
               "graphs": [
-               {
-                 "colorField": "color",
-                 "fillAlphas": 1,
-                 "id": "AmGraph-1",
-                 "lineColorField": "color",
-                 "title": "graph 1",
-                 "type": "column",
-                 "valueField": "column-1"
-               }
+                {
+                  "colorField": "color",
+                  "fillAlphas": 1,
+                  "id": "AmGraph-1",
+                  "lineColorField": "color",
+                  "title": "graph 1",
+                  "type": "column",
+                  "valueField": "column-1"
+                }
               ],
               "guides": [],
               "valueAxes": [

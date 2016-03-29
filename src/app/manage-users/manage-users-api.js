@@ -10,13 +10,13 @@ angular.module( 'livefeed.manage_users.api', [
 
   function ManageApi() {
     this.service = $resource(apiLinks.link.api, {},
-                  {
-                    manage_users: {method: "GET",isArray: false, params: {endpoint: "manage_user"}},
-                    add_user: {method: "POST",isArray: false, params: {endpoint: "user/"}},
-                    edit_user: {method: "PUT",isArray: false, params: {endpoint: "user/"}},
-                    delete_user: {method: "DELETE", isArray: false, params:{endpoint: "user/"}},
-                    disassociate: {method: "GET", isArray: false, params: {endpoint: "disassociate"}}
-                 });
+    {
+      manage_users: {method: "GET",isArray: false, params: {endpoint: "manage_user"}},
+      add_user: {method: "POST",isArray: false, params: {endpoint: "user/"}},
+      edit_user: {method: "PUT",isArray: false, params: {endpoint: "user/"}},
+      delete_user: {method: "DELETE", isArray: false, params:{endpoint: "user/"}},
+      disassociate: {method: "GET", isArray: false, params: {endpoint: "disassociate"}}
+    });
   }
   ManageApi.prototype.manage_users = function(){
     var token = $rootScope.token || TokenHandler.get_token();
@@ -48,7 +48,7 @@ angular.module( 'livefeed.manage_users.api', [
   ManageApi.prototype.add_user = function(user){
     var token = $rootScope.token || TokenHandler.get_token();
     var user_json = {first_name: user.first_name, last_name: user.last_name, username: user.username,
-       password: user.password, email: user.email, phone_no: user.phone_no, role: user.role, parent_id: user.parent_id, token: token};
+      password: user.password, email: user.email, phone_no: user.phone_no, role: user.role, parent_id: user.parent_id, token: token};
     if(user.role == 4){
       user_json.region_id = user.region_id;
     }

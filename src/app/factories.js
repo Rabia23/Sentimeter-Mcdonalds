@@ -7,11 +7,11 @@ angular.module( 'factories', [
 .factory('Filters', ['$resource','apiLinks', function($resource, apiLinks) {
   function Filters() {
     this.service = $resource(apiLinks.link.api, {},
-                  {
-                    allRegions: {method: "GET",isArray: false, params: {endpoint: "region"}},
-                    Cities: {method: "GET",isArray: false, params: {endpoint: "city"}},
-                    Branches: {method: "GET",isArray: false, params: {endpoint: "branch"}}
-                 });
+    {
+      allRegions: {method: "GET",isArray: false, params: {endpoint: "region"}},
+      Cities: {method: "GET",isArray: false, params: {endpoint: "city"}},
+      Branches: {method: "GET",isArray: false, params: {endpoint: "branch"}}
+    });
   }
   Filters.prototype.allRegions = function(){
     return this.service.allRegions();
@@ -29,28 +29,28 @@ angular.module( 'factories', [
 
   function Graphs() {
     this.service = $resource(apiLinks.link.api, {},
-                  {
-                    overall_feedback: {method: "GET",isArray: false, params: {endpoint: "overall_feedback/"}},
-                    feedback_analysis: {method: "GET",isArray: false, params: {endpoint: "feedback_analysis/"}},
-                    overall_rating: {method: "GET",isArray: false, params: {endpoint: "overall_rating/"}},
-                    positive_negative_feedback: {method: "GET",isArray: false, params: {endpoint: "positive_negative_feedback/"}},
-                    comments: {method: "GET",isArray: false, params: {endpoint: "comments"}},
-                    comments_text_search: {method: "GET",isArray: false, params: {endpoint: "comments_text_search"}},
-                    feedback_analysis_breakdown: {method: "GET",isArray: false, params: {endpoint: "feedback_analysis_breakdown/"}},
-                    map_view: {method: "GET",isArray: false, params: {endpoint: "map_view/"}},
-                    feedback_segmentation: {method: "GET",isArray: false, params: {endpoint: "feedback_segmentation/"}},
-                    top_concerns: {method: "GET", isArray: false, params: {endpoint: "top_concerns/"}},
-                    action_taken:{method: "POST",isArray: false, params: {endpoint: "action_taken/"}},
-                    action_analysis: {method: "GET",isArray: false, params: {endpoint: "action_analysis/"}},
-                    area_analysis: {method: "GET",isArray: true, params: {endpoint: "area/"}},
-                    top_charts: {method: "GET",isArray: false, params: {endpoint: "top_charts/"}},
-                    top_rankings: {method: "GET", isArray: false, params:{endpoint: "top_rankings"}},
-                    complaint_analysis: {method: "GET", isArray: true, params:{endpoint: "complaint_analysis"}},
-                    leader_board: {method: "GET", isArray: false, params:{endpoint: "leader_board"}},
-                    live_dashboard: {method: "GET", isArray: false, params:{endpoint: "livedashboard/"}},
-                    opportunity_analysis: {method: "GET", isArray: false, params:{endpoint: "opportunity_analysis/"}}
+    {
+      overall_feedback: {method: "GET",isArray: false, params: {endpoint: "overall_feedback/"}},
+      feedback_analysis: {method: "GET",isArray: false, params: {endpoint: "feedback_analysis/"}},
+      overall_rating: {method: "GET",isArray: false, params: {endpoint: "overall_rating/"}},
+      positive_negative_feedback: {method: "GET",isArray: false, params: {endpoint: "positive_negative_feedback/"}},
+      comments: {method: "GET",isArray: false, params: {endpoint: "comments"}},
+      comments_text_search: {method: "GET",isArray: false, params: {endpoint: "comments_text_search"}},
+      feedback_analysis_breakdown: {method: "GET",isArray: false, params: {endpoint: "feedback_analysis_breakdown/"}},
+      map_view: {method: "GET",isArray: false, params: {endpoint: "map_view/"}},
+      feedback_segmentation: {method: "GET",isArray: false, params: {endpoint: "feedback_segmentation/"}},
+      top_concerns: {method: "GET", isArray: false, params: {endpoint: "top_concerns/"}},
+      action_taken:{method: "POST",isArray: false, params: {endpoint: "action_taken/"}},
+      action_analysis: {method: "GET",isArray: false, params: {endpoint: "action_analysis/"}},
+      area_analysis: {method: "GET",isArray: true, params: {endpoint: "area/"}},
+      top_charts: {method: "GET",isArray: false, params: {endpoint: "top_charts/"}},
+      top_rankings: {method: "GET", isArray: false, params:{endpoint: "top_rankings"}},
+      complaint_analysis: {method: "GET", isArray: true, params:{endpoint: "complaint_analysis"}},
+      leader_board: {method: "GET", isArray: false, params:{endpoint: "leader_board"}},
+      live_dashboard: {method: "GET", isArray: false, params:{endpoint: "livedashboard/"}},
+      opportunity_analysis: {method: "GET", isArray: false, params:{endpoint: "opportunity_analysis/"}}
 
-                 });
+    });
   }
 
   Graphs.prototype.overall_rating = function(option_id, date_from, date_to){

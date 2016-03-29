@@ -10,7 +10,6 @@
     };
 
     return {
-
       get_male_color:function(){
         return chart_color["MEN"];
       },

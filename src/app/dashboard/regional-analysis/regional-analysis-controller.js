@@ -26,13 +26,13 @@
           $scope.start_date = ev.model.startDate._i;
           $scope.end_date =  ev.model.endDate._i;
           if(user_role == 4){
-             $scope.showChart("", "regions");
+            $scope.showChart("", "regions");
           }
           else if(user_role == 3){
             $scope.showChart("");
           }
           else{
-           $scope.showChart($scope.object_id, $scope.string);
+            $scope.showChart($scope.object_id, $scope.string);
           }
         },
         'cancel.daterangepicker': function(ev, picker){
@@ -69,65 +69,64 @@
       var donut_data = [], donut_colors = [];
 
       if($scope.radioModel === 'Complaints'){
-         Graphs.action_analysis("", "", "", $scope.start_date, $scope.end_date, "").$promise.then(function(complains_data){
-           if(complains_data.success) {
-             $scope.show_error_message = false;
-             showString(complains_data.response.count);
-             $scope.donut_graph_data = regionalAnalysisChartService.getComplaintsDonutChartData(complains_data.response);
-             $scope.donut_graph_data.objects.push({
-               id: "",
-               name: "Pakistan",
-               show_chart: $scope.donut_graph_data.objects[0].show_chart === false && $scope.donut_graph_data.objects[1].show_chart === false ? false : true
-             });
-             _.each($scope.donut_graph_data.donutData[0], function (data) {
-               _.find($scope.donut_graph_data.donutData[1], function (dat) {
-                 if (data['label'] === dat['label']) {
-                   donut_data.push({id: "", label: dat['label'], value: data['value'] + dat['value']});
-                   var color = Global.complaintAnalysisAction[dat.action_taken][1];
-                   donut_colors.push(color);
-                 }
-               });
-             });
-             $scope.donut_graph_data.donutData.push(donut_data);
-             $scope.donut_graph_data.donutOptions.push({colors: donut_colors});
-             $scope.show_loading = false;
-           }
-           else {
-             $scope.show_error_message = true;
-             $scope.error_message = complains_data.message;
-             flashService.createFlash($scope.error_message, "danger");
-           }
-         });
+        Graphs.action_analysis("", "", "", $scope.start_date, $scope.end_date, "").$promise.then(function(complains_data){
+          if(complains_data.success) {
+            $scope.show_error_message = false;
+            showString(complains_data.response.count);
+            $scope.donut_graph_data = regionalAnalysisChartService.getComplaintsDonutChartData(complains_data.response);
+            $scope.donut_graph_data.objects.push({
+              id: "",
+              name: "Pakistan",
+              show_chart: $scope.donut_graph_data.objects[0].show_chart === false && $scope.donut_graph_data.objects[1].show_chart === false ? false : true
+            });
+            _.each($scope.donut_graph_data.donutData[0], function (data) {
+              _.find($scope.donut_graph_data.donutData[1], function (dat) {
+                if (data['label'] === dat['label']) {
+                  donut_data.push({id: "", label: dat['label'], value: data['value'] + dat['value']});
+                  var color = Global.complaintAnalysisAction[dat.action_taken][1];
+                  donut_colors.push(color);
+                }
+              });
+            });
+            $scope.donut_graph_data.donutData.push(donut_data);
+            $scope.donut_graph_data.donutOptions.push({colors: donut_colors});
+            $scope.show_loading = false;
+          }
+          else {
+            $scope.show_error_message = true;
+            $scope.error_message = complains_data.message;
+            flashService.createFlash($scope.error_message, "danger");
+          }
+        });
       }
       else {
         Graphs.area_analysis($scope.question_type, $scope.start_date, $scope.end_date).$promise.then(function (area_data){
           if(area_data.success) {
-             $scope.show_error_message = false;
-             showString(area_data.response.count);
-             $scope.donut_graph_data = regionalAnalysisChartService.getDonutChartData(area_data.response, $scope.question_type);
-             $scope.donut_graph_data.objects.push({
-               id: "",
-               name: "Pakistan",
-               show_chart: $scope.donut_graph_data.objects[0].show_chart === false && $scope.donut_graph_data.objects[1].show_chart === false ? false : true
-             });
-             _.each($scope.donut_graph_data.donutData[0], function (data) {
-               _.find($scope.donut_graph_data.donutData[1], function (dat) {
-                 if (data['label'] === dat['label']) {
-                   donut_data.push({id: dat['id'], label: dat['label'], value: data['value'] + dat['value']});
-                   var color = $scope.question_type == 1 ? Global.mainRatingColorScheme[dat['label']] : Global.optionsColorScheme[dat['label']];
-                   donut_colors.push(color);
-                 }
-               });
-             });
-             $scope.donut_graph_data.donutData.push(donut_data);
-             $scope.donut_graph_data.donutOptions.push({colors: donut_colors});
-             $scope.show_loading = false;
+            $scope.show_error_message = false;
+            showString(area_data.response.count);
+            $scope.donut_graph_data = regionalAnalysisChartService.getDonutChartData(area_data.response, $scope.question_type);
+            $scope.donut_graph_data.objects.push({
+              id: "",
+              name: "Pakistan",
+              show_chart: $scope.donut_graph_data.objects[0].show_chart === false && $scope.donut_graph_data.objects[1].show_chart === false ? false : true
+            });
+            _.each($scope.donut_graph_data.donutData[0], function (data) {
+              _.find($scope.donut_graph_data.donutData[1], function (dat) {
+                if (data['label'] === dat['label']) {
+                  donut_data.push({id: dat['id'], label: dat['label'], value: data['value'] + dat['value']});
+                  var color = $scope.question_type == 1 ? Global.mainRatingColorScheme[dat['label']] : Global.optionsColorScheme[dat['label']];
+                  donut_colors.push(color);
+                }
+              });
+            });
+            $scope.donut_graph_data.donutData.push(donut_data);
+            $scope.donut_graph_data.donutOptions.push({colors: donut_colors});
+            $scope.show_loading = false;
           }
           else {
-           $scope.show_error_message = true;
-           $scope.error_message = area_data.message;
-           flashService.createFlash($scope.error_message, "danger");
-
+            $scope.show_error_message = true;
+            $scope.error_message = area_data.message;
+            flashService.createFlash($scope.error_message, "danger");
           }
         });
       }
@@ -157,7 +156,6 @@
             $scope.show_error_message = true;
             $scope.error_message = complains_data.message;
             flashService.createFlash($scope.error_message, "danger");
-
           }
         });
       }
@@ -359,7 +357,7 @@
     else {
       $scope.showChart(null, 'areas');
     }
-
+    //TODO correct identation of these one line conditions
     $scope.open = function(option, area, region, city, branch){
       if (!area){ area = null;}
       if (!region){ region = null;}
