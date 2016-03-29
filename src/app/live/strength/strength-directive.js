@@ -86,6 +86,7 @@
                   "markerType": "circle",
                   "valueText": "",
                   "valueWidth": 0,
+                  "color": "#FFFFFF",
                   "position": "right",
                   "marginRight":80,
                   "marginTop": 50,

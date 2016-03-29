@@ -86,6 +86,7 @@
                   "valueText": "",
                   "valueWidth": 0,
                   "position": "right",
+                  "color": "#FFFFFF",
                   "marginRight":-20,
                   "marginTop": 50,
                  "autoMargins":false,
