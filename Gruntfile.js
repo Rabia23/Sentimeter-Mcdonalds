@@ -13,8 +13,6 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-bump');
-  grunt.loadNpmTasks('grunt-contrib-coffee');
-  grunt.loadNpmTasks('grunt-coffeelint');
   grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-http-server');
@@ -182,7 +180,7 @@ module.exports = function ( grunt ) {
           '<%= vendor_files.css %>',
           'src/assets/stylesheet/*.css'
         ],
-        dest: '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
+        dest: '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.min.css'
       },
       /**
        * The `compile_js` target is the concatenation of our application source
@@ -198,29 +196,10 @@ module.exports = function ( grunt ) {
           '<%= html2js.common.dest %>',
           'module.suffix'
         ],
-        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'
+        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.min.js'
       }
     },
 
-    /**
-     * `grunt coffee` compiles the CoffeeScript sources. To work well with the
-     * rest of the build, we have a separate compilation task for sources and
-     * specs so they can go to different places. For example, we need the
-     * sources to live with the rest of the copied JavaScript so we can include
-     * it in the final build, but we don't want to include our specs there.
-     */
-    coffee: {
-      source: {
-        options: {
-          bare: true
-        },
-        expand: true,
-        cwd: '.',
-        src: [ '<%= app_files.coffee %>' ],
-        dest: '<%= build_dir %>',
-        ext: '.js'
-      }
-    },
 
     /**
      * `ngAnnotate` annotates the sources before minifying. That is, it allows us
@@ -256,9 +235,14 @@ module.exports = function ( grunt ) {
         report: 'min'
       },
       target: {
-        files: {
-          '<%= concat.build_css.dest %>': '<%= concat.build_css.dest %>'
-        }
+        files: [
+          {
+            '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.min.css': '<%= concat.build_css.dest %>'
+          },
+          {
+            '<%= build_dir %>/assets/live.min.css': '<%= build_dir %>/assets/live.css'
+          }
+        ]
       }
     },
 
@@ -332,24 +316,6 @@ module.exports = function ( grunt ) {
             indentation: 'spaces',
             spaces: 2,
             ignores: ['js-comments']
-        }
-      }
-    },
-
-     /**
-     * `coffeelint` does the same as `jshint`, but for CoffeeScript.
-     * CoffeeScript is not the default in ngBoilerplate, so we're just using
-     * the defaults here.
-     */
-    coffeelint: {
-      src: {
-        files: {
-          src: [ '<%= app_files.coffee %>' ]
-        }
-      },
-      test: {
-        files: {
-          src: [ '<%= app_files.coffeeunit %>' ]
         }
       }
     },
@@ -472,16 +438,6 @@ module.exports = function ( grunt ) {
         tasks: [ 'jshint:src', 'copy:build_appjs' ]
       },
 
-      /**
-       * When our CoffeeScript source files change, we want to run lint them and
-       * run our unit tests.
-       */
-      coffeesrc: {
-        files: [
-          '<%= app_files.coffee %>'
-        ],
-        tasks: [ 'coffeelint:src', 'coffee:source', 'karma:unit:run', 'copy:build_appjs' ]
-      },
 
 
       /**
@@ -536,19 +492,6 @@ module.exports = function ( grunt ) {
 
     },
 
-    /**
-     * When a CoffeeScript unit test file changes, we only want to lint it and
-     * run the unit tests. We don't want to do any live reloading.
-     */
-    coffeeunit: {
-      files: [
-        '<%= app_files.coffeeunit %>'
-      ],
-      tasks: [ 'coffeelint:test', 'karma:unit:run' ],
-      options: {
-        livereload: false
-      }
-    },
 
     'http-server': {
 
@@ -589,9 +532,9 @@ module.exports = function ( grunt ) {
    * The `build` task gets your app ready to run for development and testing.
    */
   grunt.registerTask( 'build', [
-    'clean', 'html2js', 'jshint','lintspaces' ,'coffeelint', 'coffee','sass:dev',
+    'clean', 'html2js', 'jshint','lintspaces' ,'sass:dev',
     'concat:build_css','copy:build_app_assets', 'copy:build_vendor_assets',
-    'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_vendorcss', 'index:build'
+    'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_vendorcss','cssmin', 'index:build'
   ]);
 
   /**
