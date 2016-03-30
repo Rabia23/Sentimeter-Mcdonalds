@@ -12,9 +12,9 @@
 
 	  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon"/>
 
-    <link rel="stylesheet" type="text/css" href="assets/livefeed-web-.css" ng-if = "currentState != 'live'"/>
+    <link rel="stylesheet" type="text/css" href="assets/livefeed-web-.min.css" ng-if = "currentState != 'live'"/>
 
-    <link rel="stylesheet" type="text/css" href= "assets/live.css" ng-if = "currentState == 'live'"%>
+    <link rel="stylesheet" type="text/css" href= "assets/live.min.css" ng-if = "currentState == 'live'"%>
 
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&lang=en' rel='stylesheet' type='text/css'>
@@ -26,11 +26,7 @@
 
     <link href='https://fonts.googleapis.com/css?family=Oswald:400,300,700' rel='stylesheet' type='text/css'>
 
-    <script src="https://maps.google.com/maps/api/js?key=AIzaSyBjl0H3AhPhvqQmWQjO1JE1cSZNrtDzBO8"></script>
-
-
-    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
-    <script type="text/javascript" src="<%= file %>"></script><% }); %>
+    
 
 
     <script>
@@ -43,5 +39,12 @@
 
   <body ng-class = "{'login': currentState == 'login', 'errorpage': (currentState == 'error_404' || currentState == 'error_500')}">
     <ui-view></ui-view>
+
+    <script src="https://maps.google.com/maps/api/js?key=AIzaSyBjl0H3AhPhvqQmWQjO1JE1cSZNrtDzBO8"></script>
+
+
+    <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+    <script type="text/javascript" src="<%= file %>"></script><% }); %>
   </body>
+
 </html>
