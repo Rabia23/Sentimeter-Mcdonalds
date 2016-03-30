@@ -822,7 +822,7 @@ html body.errorpage {background: #eee;}
   font-size: 30px;
   line-height: 36px;
   font-weight: 600;
-  color: #e02127;
+  color: #000;
   margin: 0 0 20px;
 }
 .breadcrum {
