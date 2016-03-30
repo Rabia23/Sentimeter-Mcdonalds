@@ -85,7 +85,11 @@ module.exports = {
       'vendor/hammerjs/hammer.min.js',
       'vendor/ngmap/build/scripts/ng-map.min.js',
       'vendor/AngularJS-Toaster/toaster.min.js',
-      'vendor/ngSmoothScroll/lib/angular-smooth-scroll.js'
+      'vendor/ngSmoothScroll/lib/angular-smooth-scroll.js',
+      'vendor/amcharts/amcharts.js',
+      'vendor/amcharts/serial.js',
+      'vendor/amcharts/light.js',
+      'vendor/amcharts/pie.js'
     ],
     css: [
       'vendor/bootstrap/dist/css/bootstrap.min.css',

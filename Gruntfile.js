@@ -189,9 +189,7 @@ module.exports = function ( grunt ) {
        * code and all specified vendor source code into a single file.
        */
       compile_js: {
-        // options: {
-        //   banner: '<%= meta.banner %>'
-        // },
+
         src: [
           '<%= vendor_files.js %>',
           'module.prefix',
@@ -405,6 +403,7 @@ module.exports = function ( grunt ) {
         src: [
           '<%= vendor_files.js %>',
           '<%= build_dir %>/src/**/*.js',
+          '<%= build_dir %>/assets/**/*.js',
           '<%= html2js.common.dest %>',
           '<%= html2js.app.dest %>',
           '<%= vendor_files.css %>',
