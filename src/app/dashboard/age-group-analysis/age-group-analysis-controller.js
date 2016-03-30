@@ -5,8 +5,6 @@
 
     $scope.today = new Date();
 
-    $scope.show_error_message = false;
-
     function resetDates(){
       $scope.date = {
         startDate: moment().subtract(1, "days"),

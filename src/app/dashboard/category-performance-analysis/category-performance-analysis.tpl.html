@@ -3,7 +3,7 @@
   <div class="title-outer">
     <div class="ibox-title">
       <h5>
-        Business Segment Breakdown <small> (<strong>{{total_feedback_count}}</strong>)</small>
+        Business Segment Breakdown <small> (<strong>{{::total_feedback_count}}</strong>)</small>
       </h5>
       <div class="ibox-tools">
         <ul class="tab-links">
@@ -46,27 +46,27 @@
     <div class="ibox-content add">
       <div class="chart-outer">
         <div class="progress-container">
-          <div class="progress-area" progress-bar-spacing data-data="category_data">
-            <div class="progress-holder" ng-repeat="dat in category_data" data-color="dat.colour" data-data="category_data" progress-bar-background>
+          <div class="progress-area" progress-bar-spacing data-data="::category_data">
+            <div class="progress-holder" ng-repeat="dat in ::category_data" data-color="::dat.colour" data-data="::category_data" progress-bar-background>
               <div class="progress-inner">
                 <small>
                   <em>
                     <a bar-click data-name = "dat.name" ng-if = "mainView">
-                      {{dat.name}}
+                      {{::dat.name}}
                     </a>
                     <span ng-if = "!mainView">
-                      {{dat.name}}
+                      {{::dat.name}}
                     </span>
                     <b>
-                      {{dat.complaints}} complaints
+                      {{::dat.complaints}} complaints
                     </b>
                   </em>
                 </small>
-                <div class="progress-block main" bar-click data-name = "dat.name" ng-if = "mainView">
-                  <uib-progressbar animate="false" value="dat.percentage" type="success"></uib-progressbar>
+                <div class="progress-block main" bar-click data-name = "::dat.name" ng-if = "mainView">
+                  <uib-progressbar animate="false" value="::dat.percentage" type="success"></uib-progressbar>
                 </div>
                 <div class="progress-block" ng-if = "!mainView">
-                  <uib-progressbar animate="false" value="dat.percentage" type="success"></uib-progressbar>
+                  <uib-progressbar animate="false" value="::dat.percentage" type="success"></uib-progressbar>
                 </div>
               </div>
             </div>
@@ -75,8 +75,8 @@
       </div>
       <div class="list-holder">
         <div class="row">
-          <div class="morris-block-holder" same-segment-height data-data="segments">
-            <div class="morris-content-holder" ng-repeat="segment in segments track by $index">
+          <div class="morris-block-holder" same-segment-height data-data="::segments">
+            <div class="morris-content-holder" ng-repeat="segment in ::segments track by $index">
               <span class="feedback-count"> Feedbacks: {{segment.total_feedback_count}} </span>
               <div class="morris-graph-holder">
                 <div class="morris-holder">
@@ -86,7 +86,7 @@
                   <div ng-show="segment.show_string">No Data Available</div>
                 </div>
               </div>
-              <strong class="title">{{segment.name}} ({{segment.total_option_count}}) </strong>
+              <strong class="title">{{::segment.name}} ({{::segment.total_option_count}}) </strong>
             </div>
           </div>
         </div>

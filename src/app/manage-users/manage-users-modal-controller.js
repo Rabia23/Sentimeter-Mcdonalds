@@ -3,7 +3,7 @@
 
 
 
-  .controller('ModalAddInstanceCtrl', function ($scope, $uibModalInstance, parent_id, child_role,branch_id, region_id, ManageApi, Enum, Filters, flashService, $timeout) {
+  .controller('ModalAddInstanceCtrl', function ($scope, $uibModalInstance, parent_id, child_role, branch_id, region_id, ManageApi, Enum, Filters, flashService) {
 
     $scope.user = {role: child_role, parent_id: parent_id};
     if(branch_id){

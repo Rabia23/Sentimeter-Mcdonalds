@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.questionnaire')
 
-  .controller( 'QuestionnaireDetailCtrl', function QuestionnaireDetailCtrl( $scope, $rootScope, Global, QuestionnaireChartTypeEnum, TokenHandler, Auth, flashService, $stateParams, QuestionnaireApi) {
+  .controller( 'QuestionnaireDetailCtrl', function QuestionnaireDetailCtrl( $scope, $rootScope, Global, QuestionnaireChartTypeEnum, flashService, $stateParams, QuestionnaireApi) {
 
     var inc = 1;
     $scope.all_zero = true;
@@ -12,6 +12,9 @@
     $scope.show_loader = false;
 
     $scope.show_loading = true;
+
+    var start_date = null;
+    var end_date = null;
 
     function resetDates(){
       $scope.date = {
@@ -27,8 +30,8 @@
         'apply.daterangepicker': function(ev, picker){
           $scope.show_loader = true;
           $scope.all_zero = true;
-          $scope.start_date = ev.model.startDate._i;
-          $scope.end_date =  ev.model.endDate._i;
+          start_date = ev.model.startDate._i;
+          end_date =  ev.model.endDate._i;
           showQuestionnaireData();
         }
       },
@@ -36,7 +39,7 @@
     }; 
     function showQuestionnaireData() {
 
-      QuestionnaireApi.questionnaire_detail(questionnaireId, $scope.start_date, $scope.end_date).$promise.then(function (data) {
+      QuestionnaireApi.questionnaire_detail(questionnaireId, start_date, end_date).$promise.then(function (data) {
         $scope.show_loading = false;
         $scope.show_loader = false;
         if (data.success) {

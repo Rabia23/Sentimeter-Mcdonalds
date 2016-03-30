@@ -5,8 +5,6 @@
 
       $scope.today = new Date();
 
-      $scope.show_error_message = false;
-
       function resetDates(){
         $scope.date = {
             startDate: moment().subtract(1, "days"),
@@ -26,7 +24,6 @@
         $scope.markers = [];
         Graphs.map_view(start_date, end_date).$promise.then(function(data){
           if(data.success) {
-            $scope.show_error_message = false;
             _.each(data.response.branches, function (branch) {
               var icon;
               if (branch.count_exceeded === false) {
@@ -40,9 +37,7 @@
             $scope.show_loading = false;
           }
           else{
-            $scope.show_error_message = true;
-            $scope.error_message = data.message;
-            flashService.createFlash($scope.error_message, "danger");
+            flashService.createFlash(data.message, "danger");
           }
         });
 

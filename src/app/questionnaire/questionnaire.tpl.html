@@ -9,9 +9,9 @@
           <div class="users-area">
             <ul class="question-list">
               <li ng-repeat="question in questions">
-                <a class="ibox" question-same-height data-questionnaire ="question" ng-click="detail(question.id)">
+                <a class="ibox" question-same-height data-questionnaire ="::question" ng-click="::detail(question.id)">
                   <span class="question-holder">Q <i class="fa fa-angle-right"></i> </span>
-                  <div class="text">{{question.title}}</div>
+                  <div class="text">{{::question.title}}</div>
                 </a>
               </li>
             </ul>
