@@ -63,14 +63,8 @@ module.exports = {
    */
   vendor_files: {
     js: [
-      'vendor/angular/angular.js',
-      'vendor/angular-bootstrap/ui-bootstrap.js',
-      'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
-      'vendor/angular-ui-router/release/angular-ui-router.js',
-      'vendor/angular-ui-utils/modules/route/route.js',
-      'vendor/underscore/underscore-min.js',
-      'vendor/angular-resource/angular-resource.js',
-      'vendor/jquery/dist/jquery.js',
+      
+
       'vendor/morris.js/morris.js',
       'vendor/raphael/raphael.js',
       'vendor/ngmap/build/scripts/ng-map.min.js',
@@ -83,13 +77,22 @@ module.exports = {
       'vendor/angular-animate/angular-animate.min.js',
       'vendor/metisMenu/dist/metisMenu.min.js',
       'vendor/hammerjs/hammer.min.js',
-      'vendor/ngmap/build/scripts/ng-map.min.js',
       'vendor/AngularJS-Toaster/toaster.min.js',
       'vendor/ngSmoothScroll/lib/angular-smooth-scroll.js',
       'vendor/amcharts/amcharts.js',
       'vendor/amcharts/serial.js',
       'vendor/amcharts/light.js',
       'vendor/amcharts/pie.js'
+    ],
+    required_js: [
+      
+      'vendor/angular/angular.js',
+      'vendor/angular-bootstrap/ui-bootstrap.js',
+      'vendor/angular-bootstrap/ui-bootstrap-tpls.min.js',
+      'vendor/angular-ui-router/release/angular-ui-router.js',
+      'vendor/underscore/underscore-min.js',
+      'vendor/angular-resource/angular-resource.js',
+      'vendor/jquery/dist/jquery.js'
     ],
     css: [
       'vendor/bootstrap/dist/css/bootstrap.min.css',

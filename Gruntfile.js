@@ -132,13 +132,14 @@ module.exports = function ( grunt ) {
       build_vendorjs: {
         files: [
           {
-            src: [ '<%= vendor_files.js %>' ],
+            src: [ '<%= vendor_files.required_js %>' ,'<%= vendor_files.js %>'],
             dest: '<%= build_dir %>/',
             cwd: '.',
             expand: true
           }
         ]
       },
+
       build_vendorcss: {
         files: [
           {
@@ -186,17 +187,30 @@ module.exports = function ( grunt ) {
        * The `compile_js` target is the concatenation of our application source
        * code and all specified vendor source code into a single file.
        */
-      compile_js: {
+      compile_vendor: {
 
         src: [
-          '<%= vendor_files.js %>',
-          'module.prefix',
+          '<%= vendor_files.required_js %>'
+          
+        ],
+        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>vendor.min.js'
+      },
+
+      compile_vendor_extra: {
+
+        src: [
+          '<%= vendor_files.js %>'
+        ],
+        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-extra-vendor.min.js'
+      },
+      compile_app: {
+
+        src: [
           '<%= build_dir %>/src/**/*.js',
           '<%= html2js.app.dest %>',
-          '<%= html2js.common.dest %>',
-          'module.suffix'
+          '<%= html2js.common.dest %>'
         ],
-        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.min.js'
+        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-app.min.js'
       }
     },
 
@@ -223,9 +237,18 @@ module.exports = function ( grunt ) {
      */
     uglify: {
       compile: {
-        files: {
-          '<%= concat.compile_js.dest %>': '<%= concat.compile_js.dest %>'
-        }
+        files: [
+          {
+            '<%= concat.compile_vendor.dest %>': '<%= concat.compile_vendor.dest %>'
+          },
+          {
+            '<%= concat.compile_vendor_extra.dest %>': '<%= concat.compile_vendor_extra.dest %>'
+          },
+          {
+            '<%= concat.compile_app.dest %>': '<%= concat.compile_app.dest %>'
+          }
+
+        ]
       }
     },
 
@@ -385,7 +408,9 @@ module.exports = function ( grunt ) {
       compile: {
         dir: '<%= compile_dir %>',
         src: [
-          '<%= concat.compile_js.dest %>',
+          '<%= concat.compile_vendor.dest %>',
+          '<%= concat.compile_vendor_extra.dest %>',
+          '<%= concat.compile_app.dest %>',
           '<%= vendor_files.css %>',
           '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
         ]
@@ -542,7 +567,7 @@ module.exports = function ( grunt ) {
    * minifying your code.
    */
   grunt.registerTask( 'compile', [
-    'copy:compile_assets', 'ngAnnotate', 'concat:compile_js', 'uglify','concat:build_css', 'cssmin', 'index:compile'
+    'copy:compile_assets', 'ngAnnotate', 'concat:compile_vendor', 'concat:compile_vendor_extra','concat:compile_app','uglify','concat:build_css', 'cssmin', 'index:compile'
   ]);
 
   /**
@@ -572,10 +597,16 @@ module.exports = function ( grunt ) {
   grunt.registerMultiTask( 'index', 'Process index.html template', function () {
     var dirRE = new RegExp( '^('+grunt.config('build_dir')+'|'+grunt.config('compile_dir')+')\/', 'g' );
 
-    var jsFiles = filterForJS( this.filesSrc ).map( function ( file ) {
+    
+    var files = userConfig.vendor_files.required_js;
+    files = files.concat(this.filesSrc );
+
+    
+    var jsFiles = filterForJS( files ).map( function ( file ) {
       return file.replace( dirRE, '' );
     });
-    var cssFiles = filterForCSS( this.filesSrc ).map( function ( file ) {
+
+    var cssFiles = filterForCSS( files ).map( function ( file ) {
       return file.replace( dirRE, '' );
     });
 
