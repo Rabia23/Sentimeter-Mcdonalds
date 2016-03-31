@@ -107,14 +107,14 @@
       if(string === 'All'){
         $scope.mainView = true;
         $scope.class = "";
-        $scope.showCategoryData();
-        $scope.showSegmentData();
+        showCategoryData();
+        showSegmentData();
       }
       else{
         $scope.mainView = false;
         $scope.class = string;
-        $scope.showCategoryData("","","",option_id,string);
-        $scope.showSegmentData("","","",option_id,string);
+        showCategoryData("","","",option_id,string);
+        showSegmentData("","","",option_id,string);
       }
     };
 
