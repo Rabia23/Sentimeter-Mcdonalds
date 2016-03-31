@@ -2,15 +2,11 @@
     angular.module('livefeed.dashboard.top_concern')
 
     .controller( 'TopConcernsCtrl', function TopConcernController( $rootScope, $scope, Graphs, Global, flashService ) {
-      $scope.colors = [];
-      $scope.labels = [];
-      $scope.show_loading = true;
 
-      $scope.show_error_message = false;
+      $scope.show_loading = true;
 
       Graphs.top_concerns().$promise.then(function(data){
         if(data.success) {
-          $scope.show_error_message = false;
           $scope.data = [];
           $scope.all_zero = true;
 
@@ -29,9 +25,7 @@
           $scope.show_loading = false;
         }
         else{
-          $scope.show_error_message = true;
-          $scope.error_message = data.message;
-          flashService.createFlash($scope.error_message, "danger");
+          flashService.createFlash(data.message, "danger");
         }
       });
 

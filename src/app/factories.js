@@ -79,10 +79,10 @@ angular.module( 'factories', [
     return this.service.top_rankings({token:  token});
   };
 
-  Graphs.prototype.feedback_segmentation = function(date, option_id, type){
+  Graphs.prototype.feedback_segmentation = function(date, option_id){
     var token = $rootScope.token || TokenHandler.get_token();
     date = date || "";
-    return this.service.feedback_segmentation({token:  token,date_to: date, option: option_id, type: type});
+    return this.service.feedback_segmentation({token:  token,date_to: date, option: option_id});
   };
 
   Graphs.prototype.map_view = function(date_from, date_to){

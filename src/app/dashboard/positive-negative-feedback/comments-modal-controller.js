@@ -8,7 +8,7 @@
 
     $scope.lock = true;
     $scope.show_loader = false;
-    $scope.modal_opened = false;
+    var modal_opened = false;
 
     $scope.is_last_page = false;
 
@@ -38,7 +38,7 @@
       $scope.statusOption = option;
       $scope.page = 1;
       var status_id = StatusEnum.get_index(option);
-      if($scope.modal_opened){
+      if(modal_opened){
         $scope.show_loader = true;
       }
       if($scope.text){
@@ -59,7 +59,7 @@
           showCommentsFunction(data);
         });
       }
-      $scope.modal_opened = true;
+      modal_opened = true;
     };
 
     $scope.getMoreComments = function(option, text){

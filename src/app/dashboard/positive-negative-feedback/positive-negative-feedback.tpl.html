@@ -18,8 +18,8 @@
       </div>
       <div class="comments-holder" ng-class="{loading: show_loading}">
         <div class="comments-box" ng-if="feedback_count != 0">
-          <ul class="comments-list list-unstyled jcf-scrollable" custom-form data-comments="comments">
-            <li ng-repeat="comment in comments" ng-class="{negative: comment.data.is_negative, positive: !comment.data.is_negative, recovered: comment.action_string == 'Recovered', NaN: comment.action_string == 'NAN', unrecoverable: comment.action_string == 'Unrecoverable', unprocessed: comment.action_string == 'Unprocessed'}">
+          <ul class="comments-list list-unstyled jcf-scrollable" custom-form data-comments="::comments">
+            <li ng-repeat="comment in ::comments" ng-class="{negative: comment.data.is_negative, positive: !comment.data.is_negative, recovered: comment.action_string == 'Recovered', NaN: comment.action_string == 'NAN', unrecoverable: comment.action_string == 'Unrecoverable', unprocessed: comment.action_string == 'Unprocessed'}">
               <p>{{comment.data.comment}}</p>
               <time datetime="{{comment.date_time}}">{{comment.date_time}}</time>
             </li>

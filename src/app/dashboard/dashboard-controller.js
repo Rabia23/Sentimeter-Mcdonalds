@@ -1,7 +1,7 @@
 (function() {
     angular.module('livefeed.dashboard')
 
-    .controller( 'DashboardCtrl', function DashboardController( $scope, $state, $rootScope, flashService, Graphs) {
+    .controller( 'DashboardCtrl', function DashboardController( $scope, $rootScope, flashService, Graphs) {
       $scope.show_loading = true;
 
       $rootScope.page_heading = "Dashboard";

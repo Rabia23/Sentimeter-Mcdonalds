@@ -4,6 +4,14 @@
   .controller('SQCModalCtrl', function ($scope, Graphs, PatchStatusEnum, regionalAnalysisChartService, $uibModalInstance, area, region, city, branch, option, start_date, end_date, TokenHandler, flashService){
     var user_role = TokenHandler.get_user_role();
     var type_id, city_id, area_id;
+
+    $scope.show_angle_left = true;
+    $scope.show_angle_right = true;
+
+    $scope.question_type = 2;
+    $scope.show_div = false;
+    $scope.show_loading = false;
+
     if(user_role == PatchStatusEnum.get_branch_manager_value())
     {
       city_id = "";
@@ -15,28 +23,17 @@
       area_id = "";
       area = "";
     }
-    $scope.show_angle_left = true;
-    $scope.show_angle_right = true;
-
-    $scope.question_type = 2;
-    $scope.show_div = false;
-    $scope.show_loading = false;
-
-    $scope.show_error_message = false;
 
     function showGraph(area, region, city, branch, option) {
       $scope.show_loading = true;
       Graphs.feedback_analysis_breakdown(area.id,region.id,city.id,branch.id,option.id,start_date,end_date).$promise.then(function(data) {
         if(data.success) {
-          $scope.show_error_message = false;
           $scope.show_div = data.response.feedback_count === 0 ? true : false;
           $scope.donut_subgraph_data = regionalAnalysisChartService.getSubDonutChartData(data.response, option.label);
           $scope.show_loading = false;
         }
         else{
-          $scope.show_error_message = true;
-          $scope.error_message = data.message;
-          flashService.createFlash($scope.error_message, "danger");
+          flashService.createFlash(data.message, "danger");
         }
       });
     }
