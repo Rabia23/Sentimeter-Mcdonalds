@@ -9,9 +9,11 @@
     $scope.class = '';
     $scope.option_id = null;
 
-    $scope.today = new Date();
+    var start_date = null;
+    var end_date = null;
 
-    $scope.show_error_message = false;
+
+    $scope.today = new Date();
 
     $scope.mainView = true;
 
@@ -24,25 +26,22 @@
 
     resetDates();
 
-    $scope.start_date = null;
-    $scope.end_date = null;
-
     $scope.datePickerOption = {
       eventHandlers: {
         'apply.daterangepicker': function(ev, picker){
-          $scope.start_date = ev.model.startDate._i;
-          $scope.end_date =  ev.model.endDate._i;
-          $scope.showCategoryData("","","",$scope.option_id,$scope.class);
-          $scope.showSegmentData("","","",$scope.option_id,$scope.class);
+          start_date = ev.model.startDate._i;
+          end_date =  ev.model.endDate._i;
+          showCategoryData("","","",$scope.option_id,$scope.class);
+          showSegmentData("","","",$scope.option_id,$scope.class);
         }
       },
       opens: "left"
     };
 
-    $scope.showCategoryData = function(region_id,city_id,branch_id,option_id,string){
+    function showCategoryData(region_id,city_id,branch_id,option_id,string){
       category_performance_array = [];
       $scope.show_loading = true;
-      CategoryPerformanceApi.category_performance(region_id,city_id,branch_id,option_id, $scope.start_date, $scope.end_date).$promise.then(function(performance_data){
+      CategoryPerformanceApi.category_performance(region_id,city_id,branch_id,option_id, start_date, end_date).$promise.then(function(performance_data){
         if(performance_data.success) {
           $scope.total_feedback_count = performance_data.response.feedback_count;
           if(performance_data.response.feedbacks.length > 6){
@@ -68,10 +67,10 @@
           flashService.createFlash(performance_data.message, "danger");
         }
       });
-    };
+    }
 
-    $scope.showSegmentData = function(region_id,city_id,branch_id,option_id,string) {
-      CategoryPerformanceApi.segmentation_rating(region_id, city_id, branch_id, option_id, $scope.start_date, $scope.end_date).$promise.then(function (segment_data) {
+    function showSegmentData(region_id,city_id,branch_id,option_id,string) {
+      CategoryPerformanceApi.segmentation_rating(region_id, city_id, branch_id, option_id, start_date, end_date).$promise.then(function (segment_data) {
         if(segment_data.success) {
           if(segment_data.response.segments[0].option_data.length > 6){
             _.each(segment_data.response.segments, function (data){
@@ -87,6 +86,7 @@
             });
           }
           $timeout(function () {
+            $scope.segments = [];
             $scope.segments = _.map(segment_data.response.segments, function (data) {
               return feedbackService.getSegmentFeedbacks(data, option_id, string);
             });
@@ -100,21 +100,21 @@
           flashService.createFlash(segment_data.message, "danger");
         }
       });
-    };
+    }
 
 
     $scope.onOptionSelect = function(string,option_id){
       if(string === 'All'){
         $scope.mainView = true;
         $scope.class = "";
-        $scope.showCategoryData();
-        $scope.showSegmentData();
+        showCategoryData();
+        showSegmentData();
       }
       else{
         $scope.mainView = false;
         $scope.class = string;
-        $scope.showCategoryData("","","",option_id,string);
-        $scope.showSegmentData("","","",option_id,string);
+        showCategoryData("","","",option_id,string);
+        showSegmentData("","","",option_id,string);
       }
     };
 
@@ -137,18 +137,18 @@
             return $scope.string;
           },
           start_date: function () {
-            return $scope.start_date;
+            return start_date;
           },
           end_date: function () {
-            return $scope.end_date;
+            return end_date;
           }
         }
       });
     };
 
     resetDates();
-    $scope.showCategoryData();
-    $scope.showSegmentData();
+    showCategoryData();
+    showSegmentData();
 
   });
 })();

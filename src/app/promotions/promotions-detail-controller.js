@@ -2,15 +2,15 @@
   angular.module( 'livefeed.promotions')
 
 
-  .controller( 'PromotionsDetailCtrl', function PromotionDetailCtrl( $scope, $state, $rootScope, Global, PromotionsChartTypeEnum, TokenHandler, Auth, flashService, $stateParams, PromotionsApi) {
+  .controller( 'PromotionsDetailCtrl', function PromotionDetailCtrl( $scope, $state, $rootScope, Global, PromotionsChartTypeEnum, flashService, $stateParams, PromotionsApi) {
     var promotionId = $stateParams.promotionId;
     var inc = 1;
     $scope.show_loading = true;
     $scope.show_loader = false;
     $scope.all_zero = true;
     $scope.today = new Date();
-    $scope.start_date = null;
-    $scope.end_date = null;
+    var start_date = null;
+    var end_date = null;
 
     function resetDates(){
       $scope.date = {
@@ -26,8 +26,8 @@
         'apply.daterangepicker': function(ev, picker){
           $scope.show_loader  = true;
           $scope.all_zero = true;
-          $scope.start_date = ev.model.startDate._i;
-          $scope.end_date =  ev.model.endDate._i;
+          start_date = ev.model.startDate._i;
+          end_date =  ev.model.endDate._i;
           showPromotionData();
         }
       },
@@ -36,11 +36,10 @@
 
     function showPromotionData() {
 
-      PromotionsApi.promotion_detail(promotionId, $scope.start_date, $scope.end_date).$promise.then(function(data){
+      PromotionsApi.promotion_detail(promotionId, start_date, end_date).$promise.then(function(data){
         $scope.show_loading = false;
         $scope.show_loader  = false;
         if(data.success){
-          console.log(data.response);
           $scope.promotion = data.response.promotion;
           $rootScope.page_heading = $scope.promotion.title + " Promotions";
           $scope.questions = data.response.analysis;

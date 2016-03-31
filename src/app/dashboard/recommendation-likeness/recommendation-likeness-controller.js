@@ -4,6 +4,10 @@
   .controller( 'RecommendationLikenessCtrl', function ( $scope, Graphs, mapService, flashService, RecommendationLikenessApi, calculateAverageService, AverageBarColors) {
 
     $scope.today = new Date();
+    $scope.show_loading = true;
+
+    var start_date = null;
+    var end_date = null;
 
     function resetDates(){
       $scope.date = {
@@ -17,8 +21,8 @@
         'apply.daterangepicker': function(ev, picker){
 
           $scope.show_loading = true;
-          $scope.start_date = ev.model.startDate._i;
-          $scope.end_date =  ev.model.endDate._i;
+          start_date = ev.model.startDate._i;
+          end_date =  ev.model.endDate._i;
 
           draw_recommendation_likeness();
         },
@@ -28,14 +32,6 @@
       },
       opens: "left"
     };
-
-    resetDates();
-
-    $scope.start_date = null;
-    $scope.end_date = null;
-
-
-    $scope.show_loading = true;
 
     function getAverageBarColor(){
       $scope.bar_color = null;
@@ -54,7 +50,7 @@
     }
 
     function draw_recommendation_likeness(region_id, city_id, branch_id){
-      RecommendationLikenessApi.recommendation_analysis(region_id, city_id, branch_id, $scope.start_date, $scope.end_date).$promise.then(function (data) {
+      RecommendationLikenessApi.recommendation_analysis(region_id, city_id, branch_id, start_date, end_date).$promise.then(function (data) {
         $scope.feedback_count = 0;
         $scope.show_loading = false;
         $scope.recommendation_likeness_data = [];
@@ -76,7 +72,7 @@
       });
 
     }
-
+    resetDates();
     draw_recommendation_likeness();
   });
 })();

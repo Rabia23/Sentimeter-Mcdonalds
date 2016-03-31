@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.questionnaire')
 
-  .controller( 'QuestionnaireCtrl', function QuestionnaireCtrl( $scope, $state, TokenHandler, Auth, QuestionnaireApi, flashService, $rootScope) {
+  .controller( 'QuestionnaireCtrl', function QuestionnaireCtrl( $scope, $state, QuestionnaireApi, flashService, $rootScope) {
 
     $scope.show_loading = true;
     $rootScope.page_heading = "Questionnaires List";

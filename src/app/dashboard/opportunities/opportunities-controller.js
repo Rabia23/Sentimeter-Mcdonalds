@@ -2,16 +2,13 @@
   angular.module('livefeed.dashboard.opportunities')
 
   .controller( 'OpportunitiesCtrl', function OpportunitiesCtrl( $scope, Graphs, Global, flashService ) {
-    $scope.start_date = null;
-    $scope.end_date = null;
+    var start_date = null;
+    var end_date = null;
     $scope.show_loading = true;
 
-    $scope.show_error_message = false;
-
-    Graphs.opportunity_analysis("","","",$scope.start_date, $scope.end_date).$promise.then(function(opportunity_data){
+    Graphs.opportunity_analysis("", "", "", start_date, end_date).$promise.then(function(opportunity_data){
       $scope.show_loading = false;
       if(opportunity_data.success) {
-        $scope.show_error_message = false;
         $scope.opportunity_data = _.map(opportunity_data.response.feedbacks, function (data, index) {
           return {
             id: data.option_id,
@@ -27,9 +24,7 @@
         });
       }
       else{
-        $scope.show_error_message = true;
-        $scope.error_message = opportunity_data.message;
-        flashService.createFlash($scope.error_message, "danger");
+        flashService.createFlash(opportunity_data.message, "danger");
       }
     });
   });
