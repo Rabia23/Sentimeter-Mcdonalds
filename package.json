@@ -21,6 +21,10 @@
     "grunt-html2js": "^0.1.9",
     "grunt-http-server": "~1.13.0",
     "grunt-lintspaces": "~0.7.2",
-    "grunt-ng-annotate": "^2.0.1"
+    "grunt-ng-annotate": "^2.0.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-jasmine": "^0.3.8"
   }
 }
