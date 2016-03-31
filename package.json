@@ -20,7 +20,6 @@
     "grunt-conventional-changelog": "^0.1.2",
     "grunt-html2js": "^0.1.9",
     "grunt-http-server": "~1.13.0",
-    "grunt-karma": "^0.12.2",
     "grunt-lintspaces": "~0.7.2",
     "grunt-ng-annotate": "^2.0.1",
     "jasmine-core": "^2.4.1",
