@@ -1,7 +1,5 @@
 (function() {
-    angular.module( 'livefeed.dashboard.opportunities', [
-      'factories',
-      'helper_factories'
-    ]);
+  angular.module( 'livefeed.dashboard.opportunities', [
+  ]);
 
 })();

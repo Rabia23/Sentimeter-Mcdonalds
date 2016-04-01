@@ -2,7 +2,7 @@
   angular.module( 'livefeed.manage_users')
 
 
-  .controller( 'ManageUsersCtrl', function ManageUsersCtrl( $scope, $state, $rootScope, TokenHandler, $uibModal, ManageApi, Enum, flashService) {
+  .controller( 'ManageUsersCtrl', function ManageUsersCtrl( $scope, $state, $rootScope, Auth, TokenHandler, $uibModal, ManageApi, Enum, flashService) {
 
     $scope.show_active_icon = false;
     $scope.show_deactive_icon = false;

@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.dashboard.recommendation_likeness')
 
-  .controller( 'RecommendationLikenessCtrl', function ( $scope, Graphs, mapService, flashService, RecommendationLikenessApi, calculateAverageService, AverageBarColors) {
+  .controller( 'RecommendationLikenessCtrl', function ( $scope, flashService, RecommendationLikenessApi, calculateAverageService, AverageBarColors) {
 
     $scope.today = new Date();
     $scope.show_loading = true;
@@ -23,12 +23,8 @@
           $scope.show_loading = true;
           start_date = ev.model.startDate._i;
           end_date =  ev.model.endDate._i;
-
           draw_recommendation_likeness();
-        },
-        'cancel.daterangepicker': function(ev, picker){
         }
-
       },
       opens: "left"
     };

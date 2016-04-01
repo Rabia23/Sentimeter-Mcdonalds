@@ -1,7 +1,7 @@
 (function() {
   angular.module( 'livefeed.dashboard.regional_analysis')
 
-  .controller( 'RegionalAnalysisCtrl', function DashboardController( $rootScope, $scope, Graphs, regionalAnalysisChartService, $uibModal, Global, TokenHandler, flashService ) {
+  .controller( 'RegionalAnalysisCtrl', function DashboardController( $scope, Graphs, regionalAnalysisChartService, $uibModal, Global, TokenHandler, flashService ) {
 
     var user_role = TokenHandler.get_user_role();
     $scope.today = new Date();

@@ -19,11 +19,11 @@
       <div class="content-inner">
         <div class="legends-outer" ng-hide="feedback_count==0">
           <div class="legends-holder">
-            <strong>Average <em>{{::total_average}}%</em></strong>
+            <strong>Average <em>{{total_average}}%</em></strong>
             <div class="progress-area">
               <div class="progress-holder">
-                <div class="progress-block" average-progress-bar-background data-data="::recommendation_likeness_data" data-color="::bar_color">
-                  <uib-progressbar animate="false" value="::total_average" type="success"></uib-progressbar>
+                <div class="progress-block" average-progress-bar-background data-data="recommendation_likeness_data" data-color="bar_color">
+                  <uib-progressbar animate="false" value="total_average" type="success"></uib-progressbar>
                   <ul class="counts">
                     <li>0</li>
                     <li>25</li>
@@ -38,7 +38,7 @@
         </div>
         <div class="content-block">
           <div class="ibox-content">
-            <div class="data-inner" recommendation-likeness data-data="::recommendation_likeness_data">
+            <div class="data-inner" recommendation-likeness data-data="recommendation_likeness_data">
               <div ng-hide="feedback_count==0" id="barchartdiv" style="width: 100%; height: 320px" ></div>
               <div ng-show="feedback_count==0" class="message-holder">
                 <h2>No Data Available</h2>

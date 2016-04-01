@@ -1,7 +1,7 @@
 (function() {
     angular.module('livefeed.login')
 
-    .controller( 'LoginCtrl', function LoginController( $scope,  _ , $rootScope, $state, Authentication, TokenHandler, flashService, Auth) {
+    .controller( 'LoginCtrl', function LoginController( $scope, $rootScope, $state, Authentication, TokenHandler, flashService, Auth) {
       $scope.submitted = false;
       $scope.authenticate = {};
       $scope.show_loading = false;

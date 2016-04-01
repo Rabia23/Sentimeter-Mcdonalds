@@ -2,7 +2,7 @@
   angular.module('livefeed.dashboard.recommendation_likeness.average_service',
   [])
 
-  .service('calculateAverageService', function(_, Global){
+  .service('calculateAverageService', function(){
 
     return {
       getAverage: function(data, feedback_count){
