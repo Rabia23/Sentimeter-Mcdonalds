@@ -8,7 +8,7 @@
       views: {
         "": {
           controller: 'PromotionsCtrl',
-          templateUrl: 'promotions/promotions.tpl.html'
+          templateUrl: 'promotions/promotions-list/promotions.tpl.html'
         },
         "sidebar@promotions":{
           templateUrl: 'common/sidebar.tpl.html'
@@ -30,7 +30,7 @@
       views: {
         "": {
           controller: 'PromotionsDetailCtrl',
-          templateUrl: 'promotions/promotions-detail.tpl.html'
+          templateUrl: 'promotions/promotions-detail/promotions-detail.tpl.html'
         },
         "sidebar@promotions_detail":{
           templateUrl: 'common/sidebar.tpl.html'

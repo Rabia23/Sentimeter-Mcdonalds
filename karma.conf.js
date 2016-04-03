@@ -2,6 +2,24 @@
 // Generated on Thu Mar 31 2016 12:40:11 GMT+0500 (PKT)
 
 module.exports = function(config) {
+
+  var userConfig = require( './build.config.js' );
+  
+  var files = userConfig.vendor_files.required_js;
+  var js = userConfig.vendor_files.js;
+  var test_js = userConfig.test_files.js;
+
+  var other = [
+    'build/templates-app.js',
+    'build/templates-common.js',
+    'src/app/**/*.js'
+
+  ];
+
+  files = files.concat( test_js );
+  files = files.concat( js );
+  files = files.concat( other );
+  
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -14,14 +32,7 @@ module.exports = function(config) {
 
 
     // list of files / patterns to load in the browser
-    files: [
-      'vendor/angular/angular.js',
-      'vendor/angular-mocks/angular-mocks.js',
-      'vendor/angular-ui-router/release/angular-ui-router.js',
-      'vendor/angular-resource/angular-resource.js',
-      'src/app/**/*.js',
-      'src/app/**/*.spec.js'
-    ],
+    files: files,
 
 
     // list of files to exclude
@@ -32,13 +43,18 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
+      // source files, that you wanna generate coverage for
+      // do not include tests or libraries
+      // (these files will be instrumented by Istanbul)
+      'src/**/*.js': ['coverage']
     },
 
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+
 
 
     // web server port
