@@ -13,12 +13,11 @@ module.exports = function ( grunt ) {
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-conventional-changelog');
   grunt.loadNpmTasks('grunt-bump');
-  grunt.loadNpmTasks('grunt-contrib-coffee');
-  grunt.loadNpmTasks('grunt-coffeelint');
   grunt.loadNpmTasks('grunt-ng-annotate');
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-http-server');
   grunt.loadNpmTasks('grunt-lintspaces');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
 
   /**
    * Load in our build configuration file.
@@ -133,13 +132,14 @@ module.exports = function ( grunt ) {
       build_vendorjs: {
         files: [
           {
-            src: [ '<%= vendor_files.js %>' ],
+            src: [ '<%= vendor_files.required_js %>' ,'<%= vendor_files.js %>'],
             dest: '<%= build_dir %>/',
             cwd: '.',
             expand: true
           }
         ]
       },
+
       build_vendorcss: {
         files: [
           {
@@ -181,47 +181,39 @@ module.exports = function ( grunt ) {
           '<%= vendor_files.css %>',
           'src/assets/stylesheet/*.css'
         ],
-        dest: '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
+        dest: '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.min.css'
       },
       /**
        * The `compile_js` target is the concatenation of our application source
        * code and all specified vendor source code into a single file.
        */
-      compile_js: {
-        // options: {
-        //   banner: '<%= meta.banner %>'
-        // },
+      compile_vendor: {
+
         src: [
-          '<%= vendor_files.js %>',
-          'module.prefix',
+          '<%= vendor_files.required_js %>'
+          
+        ],
+        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>vendor.min.js'
+      },
+
+      compile_vendor_extra: {
+
+        src: [
+          '<%= vendor_files.js %>'
+        ],
+        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-extra-vendor.min.js'
+      },
+      compile_app: {
+
+        src: [
           '<%= build_dir %>/src/**/*.js',
           '<%= html2js.app.dest %>',
-          '<%= html2js.common.dest %>',
-          'module.suffix'
+          '<%= html2js.common.dest %>'
         ],
-        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.js'
+        dest: '<%= compile_dir %>/assets/<%= pkg.name %>-app.min.js'
       }
     },
 
-    /**
-     * `grunt coffee` compiles the CoffeeScript sources. To work well with the
-     * rest of the build, we have a separate compilation task for sources and
-     * specs so they can go to different places. For example, we need the
-     * sources to live with the rest of the copied JavaScript so we can include
-     * it in the final build, but we don't want to include our specs there.
-     */
-    coffee: {
-      source: {
-        options: {
-          bare: true
-        },
-        expand: true,
-        cwd: '.',
-        src: [ '<%= app_files.coffee %>' ],
-        dest: '<%= build_dir %>',
-        ext: '.js'
-      }
-    },
 
     /**
      * `ngAnnotate` annotates the sources before minifying. That is, it allows us
@@ -245,12 +237,35 @@ module.exports = function ( grunt ) {
      */
     uglify: {
       compile: {
-        // options: {
-        //   banner: '<%= meta.banner %>'
-        // },
-        files: {
-          '<%= concat.compile_js.dest %>': '<%= concat.compile_js.dest %>'
-        }
+        files: [
+          {
+            '<%= concat.compile_vendor.dest %>': '<%= concat.compile_vendor.dest %>'
+          },
+          {
+            '<%= concat.compile_vendor_extra.dest %>': '<%= concat.compile_vendor_extra.dest %>'
+          },
+          {
+            '<%= concat.compile_app.dest %>': '<%= concat.compile_app.dest %>'
+          }
+
+        ]
+      }
+    },
+
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        report: 'min'
+      },
+      target: {
+        files: [
+          {
+            '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.min.css': '<%= concat.build_css.dest %>'
+          },
+          {
+            '<%= build_dir %>/assets/live.min.css': '<%= build_dir %>/assets/live.css'
+          }
+        ]
       }
     },
 
@@ -328,24 +343,6 @@ module.exports = function ( grunt ) {
       }
     },
 
-     /**
-     * `coffeelint` does the same as `jshint`, but for CoffeeScript.
-     * CoffeeScript is not the default in ngBoilerplate, so we're just using
-     * the defaults here.
-     */
-    coffeelint: {
-      src: {
-        files: {
-          src: [ '<%= app_files.coffee %>' ]
-        }
-      },
-      test: {
-        files: {
-          src: [ '<%= app_files.coffeeunit %>' ]
-        }
-      }
-    },
-
     /**
      * HTML2JS is a Grunt plugin that takes all of your template files and
      * places them into JavaScript files as strings that are added to
@@ -395,6 +392,7 @@ module.exports = function ( grunt ) {
         src: [
           '<%= vendor_files.js %>',
           '<%= build_dir %>/src/**/*.js',
+          '<%= build_dir %>/assets/**/*.js',
           '<%= html2js.common.dest %>',
           '<%= html2js.app.dest %>',
           '<%= vendor_files.css %>',
@@ -410,7 +408,9 @@ module.exports = function ( grunt ) {
       compile: {
         dir: '<%= compile_dir %>',
         src: [
-          '<%= concat.compile_js.dest %>',
+          '<%= concat.compile_vendor.dest %>',
+          '<%= concat.compile_vendor_extra.dest %>',
+          '<%= concat.compile_app.dest %>',
           '<%= vendor_files.css %>',
           '<%= build_dir %>/assets/<%= pkg.name %>-<%= pkg.version %>.css'
         ]
@@ -463,16 +463,6 @@ module.exports = function ( grunt ) {
         tasks: [ 'jshint:src', 'copy:build_appjs' ]
       },
 
-      /**
-       * When our CoffeeScript source files change, we want to run lint them and
-       * run our unit tests.
-       */
-      coffeesrc: {
-        files: [
-          '<%= app_files.coffee %>'
-        ],
-        tasks: [ 'coffeelint:src', 'coffee:source', 'karma:unit:run', 'copy:build_appjs' ]
-      },
 
 
       /**
@@ -527,19 +517,6 @@ module.exports = function ( grunt ) {
 
     },
 
-    /**
-     * When a CoffeeScript unit test file changes, we only want to lint it and
-     * run the unit tests. We don't want to do any live reloading.
-     */
-    coffeeunit: {
-      files: [
-        '<%= app_files.coffeeunit %>'
-      ],
-      tasks: [ 'coffeelint:test', 'karma:unit:run' ],
-      options: {
-        livereload: false
-      }
-    },
 
     'http-server': {
 
@@ -580,9 +557,9 @@ module.exports = function ( grunt ) {
    * The `build` task gets your app ready to run for development and testing.
    */
   grunt.registerTask( 'build', [
-    'clean', 'html2js', 'jshint','lintspaces' ,'coffeelint', 'coffee','sass:dev',
+    'clean', 'html2js', 'jshint','lintspaces' ,'sass:dev',
     'concat:build_css','copy:build_app_assets', 'copy:build_vendor_assets',
-    'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_vendorcss', 'index:build'
+    'copy:build_appjs', 'copy:build_vendorjs', 'copy:build_vendorcss','cssmin', 'index:build'
   ]);
 
   /**
@@ -590,7 +567,7 @@ module.exports = function ( grunt ) {
    * minifying your code.
    */
   grunt.registerTask( 'compile', [
-    'copy:compile_assets', 'ngAnnotate', 'concat:compile_js', 'uglify', 'index:compile'
+    'copy:compile_assets', 'ngAnnotate', 'concat:compile_vendor', 'concat:compile_vendor_extra','concat:compile_app','uglify','concat:build_css', 'cssmin', 'index:compile'
   ]);
 
   /**
@@ -620,10 +597,16 @@ module.exports = function ( grunt ) {
   grunt.registerMultiTask( 'index', 'Process index.html template', function () {
     var dirRE = new RegExp( '^('+grunt.config('build_dir')+'|'+grunt.config('compile_dir')+')\/', 'g' );
 
-    var jsFiles = filterForJS( this.filesSrc ).map( function ( file ) {
+    
+    var files = userConfig.vendor_files.required_js;
+    files = files.concat(this.filesSrc );
+
+    
+    var jsFiles = filterForJS( files ).map( function ( file ) {
       return file.replace( dirRE, '' );
     });
-    var cssFiles = filterForCSS( this.filesSrc ).map( function ( file ) {
+
+    var cssFiles = filterForCSS( files ).map( function ( file ) {
       return file.replace( dirRE, '' );
     });
 
