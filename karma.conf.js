@@ -12,6 +12,7 @@ module.exports = function(config) {
   var other = [
     'build/templates-app.js',
     'build/templates-common.js',
+    'src/assets/javascript/jquery.main1.js',
     'src/app/**/*.js'
 
   ];
@@ -28,7 +29,7 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
+    frameworks: ['jasmine-jquery','jasmine'],
 
 
     // list of files / patterns to load in the browser

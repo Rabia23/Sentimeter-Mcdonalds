@@ -40,7 +40,7 @@
                 "dataProvider": data[1]
               });
               $timeout(function(){
-                  window.initSameHeight();
+                window.initSameHeight();
               },500);
 
             }

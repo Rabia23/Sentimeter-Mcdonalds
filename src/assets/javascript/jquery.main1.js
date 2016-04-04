@@ -1,13 +1,3 @@
-// page init
-  jQuery(function(){
-    //initPositionFixed();
-    //initMobileNav();
-    // initSlideShow();
-  });
-
-
-
-// fade gallery init
 function initSlideShow() {
   jQuery('#wrapper').fadeGallery({
     slides: '.heading-slide',
