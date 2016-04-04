@@ -8,7 +8,7 @@
       views: {
         "": {
           controller: 'QuestionnaireCtrl',
-          templateUrl: 'questionnaire/questionnaire.tpl.html'
+          templateUrl: 'questionnaire/questionnaire-list/questionnaire.tpl.html'
         },
         "sidebar@questionnaire":{
           templateUrl: 'common/sidebar.tpl.html'
@@ -31,7 +31,7 @@
       views: {
         "": {
           controller: 'QuestionnaireDetailCtrl',
-          templateUrl: 'questionnaire/questionnaire-detail.tpl.html'
+          templateUrl: 'questionnaire/questionnaire-detail/questionnaire-detail.tpl.html'
         },
         "sidebar@questionnaire_detail":{
           templateUrl: 'common/sidebar.tpl.html'
