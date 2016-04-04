@@ -2,6 +2,10 @@
     angular.module( 'livefeed.dashboard', [
       'ui.router',
       'factories',
+      'helper_factories',
+      'chart.js',
+      'ui.bootstrap',
+      'daterangepicker',
       'livefeed.dashboard.regional_analysis',
       'livefeed.dashboard.feedback_map',
       'livefeed.dashboard.category_performance_analysis',

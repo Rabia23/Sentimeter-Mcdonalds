@@ -1,8 +1,5 @@
-angular.module('livefeed.map', [
-  'helper_factories',
-  'ngMap'
-
-])
+angular.module('livefeed.map_service', []
+)
 
 .service('mapService', function(_){
 

@@ -1,7 +1,7 @@
 (function() {
   angular.module( 'livefeed.dashboard.category_performance_analysis')
 
-  .controller('CategoryPerformanceAnalysisCtrl', function CategoryPerformanceAnalysisCtrl($scope, Global, feedbackService, CategoryPerformanceApi, $timeout, flashService, $uibModal) {
+  .controller('CategoryPerformanceAnalysisCtrl', function CategoryPerformanceAnalysisCtrl($scope, feedbackService, CategoryPerformanceApi, $timeout, flashService, $uibModal) {
 
     var category_performance_array = [];
 

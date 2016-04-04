@@ -1,6 +1,5 @@
-angular.module('livefeed.regional_analysis.chart', [
-  'helper_factories'
-])
+angular.module('livefeed.regional_analysis.chart', []
+)
 .service('regionalAnalysisChartService', function(Global, PatchStatusEnum){
   return {
 

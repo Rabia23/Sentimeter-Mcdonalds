@@ -2,7 +2,7 @@
   angular.module( 'livefeed.promotions')
 
 
-  .controller( 'PromotionsDetailCtrl', function PromotionDetailCtrl( $scope, $state, $rootScope, Global, PromotionsChartTypeEnum, flashService, $stateParams, PromotionsApi) {
+  .controller( 'PromotionsDetailCtrl', function PromotionDetailCtrl( $scope, $rootScope, Global, PromotionsChartTypeEnum, flashService, $stateParams, PromotionsApi) {
     var promotionId = $stateParams.promotionId;
     var inc = 1;
     $scope.show_loading = true;

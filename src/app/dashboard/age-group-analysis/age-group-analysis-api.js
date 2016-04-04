@@ -1,5 +1,5 @@
 (function() {
-  angular.module('livefeed.dashboard.age_group_analysis', [
+  angular.module('livefeed.dashboard.age_group_analysis.api', [
     'ngResource',
     'livefeed.api_links',
     'livefeed.authService'

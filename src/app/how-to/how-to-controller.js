@@ -1,7 +1,7 @@
 (function() {
   angular.module( 'livefeed.how_to')
 
-  .controller( 'HowToCtrl', function CouponController( $scope,  _ , $rootScope, $location) {
+  .controller( 'HowToCtrl', function CouponController( $scope, $rootScope) {
 
     $rootScope.$on('app-online', function(event, args) {
       console.log("online in login");

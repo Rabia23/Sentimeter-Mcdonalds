@@ -1,6 +1,5 @@
-angular.module('livefeed.overall_feedback.chart', [
-  'helper_factories'
-])
+angular.module('livefeed.overall_feedback.chart', []
+)
 .service('overallFeedbackChartService', function(Global){
     return {
       getBarChartData: function(graph_data,max){

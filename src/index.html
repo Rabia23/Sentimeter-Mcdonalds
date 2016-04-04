@@ -37,7 +37,7 @@
     </script>
   </head>
 
-  <body ng-class = "{'login': currentState == 'login', 'errorpage': (currentState == 'error_404' || currentState == 'error_500')}">
+  <body ng-class = "::{'login': currentState == 'login', 'errorpage': (currentState == 'error_404' || currentState == 'error_500')}">
     <ui-view></ui-view>
 
   </body>

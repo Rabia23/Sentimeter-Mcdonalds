@@ -1,7 +1,6 @@
-angular.module('livefeed.overall_rating.chart', [
-  'helper_factories'
-])
-.service('overallRatingChartService', function(Global){
+angular.module('livefeed.overall_rating.chart', []
+)
+.service('overallRatingChartService', function(){
   return {
 
     getAreaSegmentChart: function(graph_data){

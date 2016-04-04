@@ -7,6 +7,15 @@
 
     $scope.today = new Date();
 
+    $scope.mainView = true;
+    $scope.optionView = false;
+
+    $scope.page = 1;
+    $scope.max_page = 1;
+
+    var start_date = null;
+    var end_date = null;
+
     function resetDates(){
       $scope.date = {
         startDate: moment().subtract(6, "days"),
@@ -18,30 +27,16 @@
       eventHandlers: {
         'apply.daterangepicker': function(ev, picker){
           $scope.show_loading = true;
-          $scope.type = "1";
           if($scope.mainView){
-            $scope.start_date = ev.model.startDate._i;
-            $scope.end_date = ev.model.endDate._i;
+            start_date = ev.model.startDate._i;
+            end_date = ev.model.endDate._i;
             $scope.mainRating();
           }
 
-        },
-        'cancel.daterangepicker': function(ev, picker){
-          //resetDates();
         }
       },
       opens: "left"
     };
-
-    $scope.start_date = null;
-    $scope.end_date = null;
-
-    $scope.type = "1";
-    $scope.mainView = true;
-    $scope.optionView = false;
-
-    $scope.page = 1;
-    $scope.max_page = 1;
 
     function calculate_data_sets(data, value){
       $scope.data_array = [];
@@ -111,7 +106,7 @@
       $scope.optionView = false;
       var option_id = (option)? option.option_id : null;
       $scope.mainView = (option)? false : true;
-      Graphs.overall_rating(option_id, $scope.start_date, $scope.end_date).$promise.then(function (data) {
+      Graphs.overall_rating(option_id, start_date, end_date).$promise.then(function (data) {
         if(data.success) {
           if($scope.width < $scope.height) {
             calculate_data_sets(data, 3);
@@ -141,7 +136,7 @@
       if(option_id !== undefined) {
         $scope.show_loading = true;
 
-        Graphs.feedback_segmentation(date, option_id, $scope.type).$promise.then(function (data) {
+        Graphs.feedback_segmentation(date, option_id).$promise.then(function (data) {
           $scope.show_loading = false;
           if (data.success) {
             $scope.mainView = false;
