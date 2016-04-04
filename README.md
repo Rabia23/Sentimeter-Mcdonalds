@@ -17,10 +17,11 @@ To compile scss you need to install ruby latest version and then install gem com
 2. cd livefeed-web
 3. sudo npm -g install grunt-cli
 4. sudo npm -g install bower
-5. npm install
-6. bower install
-7. grunt watch
-8. Open new terminal tab and run grunt server
+5. sudo npm -g install karma-cli
+6. npm install
+7. bower install
+8. grunt watch
+9. Open new terminal tab and run grunt server
 
 ## App Structure
 
@@ -46,6 +47,14 @@ Each functionality is a module which may or may not be sub divided in modules. F
 2. Dont use tabs
 3. We use *2 space indentation* for coding html
 4. Semicolon after each line of code
+
+## Unit Testing
+
+We believe that unit testing is an integral part of the Javascript code and we motivate developers to write unit tests of their awesome Javascript code. We are using
+
+1. Jasmine as the unit testing framework
+2. Karma to run the tests
+3. Instanbul to generate reports for code test coverage
 
 
 ## Git
@@ -76,3 +85,7 @@ To create an urgent fix on master, we create a new branch from master and create
 2. grunt compile. To compile the project in min files and paste it in bin directory, Use this folder to host on server
 
 3. grunt watch. To watch all the changes taking place in the html, scss and js files and auto build it.
+
+## Note
+
+We have modified some of the plugins files. For this reason, we have attached some files in lib folder of the app. Once you complete bower install, please dont forget to put these files in their respective folders in vendors folder. 
