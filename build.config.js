@@ -70,7 +70,7 @@ module.exports = {
       'vendor/angular-daterangepicker/js/angular-daterangepicker.js',
       'vendor/Chart.js/Chart.js',
       'vendor/angular-chart.js/dist/angular-chart.js',
-      'vendor/Heyoffline/Heyoffline.js',
+      'vendor/Heyoffline/heyoffline.js',
       'vendor/angular-animate/angular-animate.min.js',
       'vendor/metisMenu/dist/metisMenu.min.js',
       'vendor/hammerjs/hammer.min.js',
