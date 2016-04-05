@@ -1,4 +1,4 @@
-# livefeed-web
+# Sentimeter
 
 ## Introduction
 
