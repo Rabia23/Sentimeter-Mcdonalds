@@ -13,15 +13,6 @@ describe('questionBarBackground', function(){
   
   }));
 
-  // it('should apply inline stylings', function(){
-
-  //   $element.scope().$apply();
-  //   $scope.data = "barfoo";
-  //   $element.scope().$apply();
-  //   //var changed_color = $element.css('background-color');
-  //   console.log($($element[0]).find('.progress-bar').css('color'));
-  //   //expect(changed_color).toBe($scope.color);
-  // });
 
   it('should apply same height', function(){
 

@@ -39,7 +39,7 @@ angular.module( 'factories', [
       feedback_analysis_breakdown: {method: "GET",isArray: false, params: {endpoint: "feedback_analysis_breakdown/"}},
       map_view: {method: "GET",isArray: false, params: {endpoint: "map_view/"}},
       feedback_segmentation: {method: "GET",isArray: false, params: {endpoint: "feedback_segmentation/"}},
-      top_concerns: {method: "GET", isArray: false, params: {endpoint: "top_concerns/"}},
+      top_concerns: {method: "GET", isArray: false, params: {endpoint: "top_concerns"}},
       action_taken:{method: "POST",isArray: false, params: {endpoint: "action_taken/"}},
       action_analysis: {method: "GET",isArray: false, params: {endpoint: "action_analysis/"}},
       area_analysis: {method: "GET",isArray: true, params: {endpoint: "area/"}},
@@ -48,7 +48,7 @@ angular.module( 'factories', [
       complaint_analysis: {method: "GET", isArray: true, params:{endpoint: "complaint_analysis"}},
       leader_board: {method: "GET", isArray: false, params:{endpoint: "leader_board"}},
       live_dashboard: {method: "GET", isArray: false, params:{endpoint: "livedashboard/"}},
-      opportunity_analysis: {method: "GET", isArray: false, params:{endpoint: "opportunity_analysis/"}}
+      opportunity_analysis: {method: "GET", isArray: false, params:{endpoint: "opportunity_analysis"}}
 
     });
   }
