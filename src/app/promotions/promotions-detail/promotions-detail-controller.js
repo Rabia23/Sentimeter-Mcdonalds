@@ -12,14 +12,15 @@
     var start_date = null;
     var end_date = null;
 
-    function resetDates(){
-      $scope.date = {
-        startDate: moment().subtract(1, "days"),
-        endDate: moment()
-      };
-    }
 
-    resetDates();
+    var vm = this;
+    vm.resetDates = resetDates;
+    vm.showPromotionData = showPromotionData;
+    vm.getBarChartData = getBarChartData;
+    vm.getPieChartData = getPieChartData;
+
+    vm.resetDates();
+    vm.showPromotionData();
 
     $scope.datePickerOption = {
       eventHandlers: {
@@ -33,6 +34,13 @@
       },
       opens: "left"
     };
+
+    function resetDates(){
+      $scope.date = {
+        startDate: moment().subtract(1, "days"),
+        endDate: moment()
+      };
+    }
 
     function showPromotionData() {
 
@@ -60,9 +68,7 @@
         }
         else{
           flashService.createFlash(data.message, "danger");
-
         }
-
       });
     }
 
@@ -95,7 +101,7 @@
       return pie_chart_data;
     }
 
-    showPromotionData();
+    
   });
 
 })();
