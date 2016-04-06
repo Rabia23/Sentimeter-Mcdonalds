@@ -1,15 +1,15 @@
-describe('promotionSameHeight', function(){
+describe('questionSameHeight', function(){
 
   var $element, $scope;
-  
-  beforeEach(module('livefeed.promotions'));
+
+  beforeEach(module('livefeed.questionnaire'));
 
   beforeEach(inject(function( _$compile_, _$rootScope_ ) {
-    
+
     $scope = _$rootScope_;
-    $scope.promotion = 'foo';
-    $element = _$compile_("<div promotion-same-height data-promotion = 'promotion'> </div>")(_$rootScope_);
-  
+    $scope.question = 'foo';
+    $element = _$compile_("<div question-same-height data-questionnaire = 'question'> </div>")($scope);
+
   }));
 
   it('should apply same height', function(){
