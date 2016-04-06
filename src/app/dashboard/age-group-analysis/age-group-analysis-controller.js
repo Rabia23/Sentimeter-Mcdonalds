@@ -1,9 +1,20 @@
 (function() {
   angular.module('livefeed.dashboard.age_group_analysis')
 
-  .controller( 'AgeAnalysisCtrl', function ( $scope, Graphs, mapService, flashService, AgeAnalysisApi, GenderColors ) {
+  .controller( 'AgeAnalysisCtrl', function ( $scope, flashService, AgeAnalysisApi, GenderColors ) {
 
     $scope.today = new Date();
+    $scope.show_loading = true;
+    $scope.men_color = GenderColors.get_male_color();
+    $scope.female_color = GenderColors.get_female_color();
+
+    var vm = this;
+    vm.resetDates = resetDates;
+    vm.draw_age_analysis = draw_age_analysis;
+
+    vm.resetDates();
+    vm.draw_age_analysis();
+
 
     function resetDates(){
       $scope.date = {
@@ -12,14 +23,18 @@
       };
     }
 
-    resetDates();
+    $scope.datePickerOption = {
+      eventHandlers: {
+        'apply.daterangepicker': function(ev, picker){
 
-    $scope.show_loading = true;
-    $scope.men_color = GenderColors.get_male_color();
-    $scope.female_color = GenderColors.get_female_color();
+          $scope.show_loading = true;
+          draw_age_analysis(ev.model.startDate._i, ev.model.endDate._i);
+        }
+      },
+      opens: "left"
+    };
 
-
-    function draw_age_analysis(start_date,end_date ){
+    function draw_age_analysis(start_date, end_date){
       AgeAnalysisApi.customer_analysis(null, null, null, start_date, end_date).$promise.then(function(data){
         $scope.show_loading = false;
         $scope.customer_analysis_data = [];
@@ -42,19 +57,6 @@
         }
       });
     }
-
-    draw_age_analysis();
-
-    $scope.datePickerOption = {
-      eventHandlers: {
-        'apply.daterangepicker': function(ev, picker){
-
-          $scope.show_loading = true;
-          draw_age_analysis(ev.model.startDate._i, ev.model.endDate._i);
-        }
-      },
-      opens: "left"
-    };
 
   });
 })();
