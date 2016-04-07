@@ -8,6 +8,13 @@
 
     $scope.today = new Date();
 
+    var vm = this;
+    vm.resetDates = resetDates;
+    vm.show_graph = show_graph;
+
+    vm.resetDates();
+    vm.show_graph();
+
     function resetDates(){
       $scope.date = {
         startDate: moment().subtract(1, "days"),
@@ -15,13 +22,11 @@
       };
     }
 
-    resetDates();
-
     $scope.datePickerOption = {
       eventHandlers: {
           'apply.daterangepicker': function(ev, picker){
             $scope.show_loading = true;
-            show_graph(ev.model.startDate._i, ev.model.endDate._i);
+            vm.show_graph(ev.model.startDate._i, ev.model.endDate._i);
           }
       },
       opens: "left"
@@ -36,11 +41,12 @@
             return {option_name: value.option__text, color: Global.mainRatingColorScheme[value.option__text]};
           });
           $scope.show_canvas = graph_data.response.feedback_count === 0 ? false : true;
-          var maximum = _.max(graph_data.response.feedbacks, function (data) {
+          vm.maximum = {};
+          vm.maximum = _.max(graph_data.response.feedbacks, function (data) {
             return data.count;
           });
           $scope.bar = {};
-          $scope.bar = overallFeedbackChartService.getBarChartData(graph_data.response, maximum.count);
+          $scope.bar = overallFeedbackChartService.getBarChartData(graph_data.response, vm.maximum.count);
           $scope.show_loading = false;
         }
         else {
@@ -48,7 +54,6 @@
         }
       });
     }
-    show_graph("","");
 
   });
 })();

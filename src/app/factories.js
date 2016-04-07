@@ -30,7 +30,7 @@ angular.module( 'factories', [
   function Graphs() {
     this.service = $resource(apiLinks.link.api, {},
     {
-      overall_feedback: {method: "GET",isArray: false, params: {endpoint: "overall_feedback/"}},
+      overall_feedback: {method: "GET",isArray: false, params: {endpoint: "overall_feedback"}},
       feedback_analysis: {method: "GET",isArray: false, params: {endpoint: "feedback_analysis/"}},
       overall_rating: {method: "GET",isArray: false, params: {endpoint: "overall_rating/"}},
       positive_negative_feedback: {method: "GET",isArray: false, params: {endpoint: "positive_negative_feedback/"}},

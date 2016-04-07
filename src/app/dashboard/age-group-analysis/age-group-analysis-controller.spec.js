@@ -86,9 +86,7 @@ describe('AgeAnalysisCtrl', function(){
 
     it('shows flash when api call fails', function(){
       controller.draw_age_analysis();
-      httpResponse = {
-        success: false
-      };
+      httpResponse.success = false;
       spyOn(flashService, 'createFlash');
       $httpBackend.whenGET(apiLink).respond(httpResponse);
 
