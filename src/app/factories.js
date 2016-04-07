@@ -37,7 +37,7 @@ angular.module( 'factories', [
       comments: {method: "GET",isArray: false, params: {endpoint: "comments"}},
       comments_text_search: {method: "GET",isArray: false, params: {endpoint: "comments_text_search"}},
       feedback_analysis_breakdown: {method: "GET",isArray: false, params: {endpoint: "feedback_analysis_breakdown/"}},
-      map_view: {method: "GET",isArray: false, params: {endpoint: "map_view/"}},
+      map_view: {method: "GET",isArray: false, params: {endpoint: "map_view"}},
       feedback_segmentation: {method: "GET",isArray: false, params: {endpoint: "feedback_segmentation/"}},
       top_concerns: {method: "GET", isArray: false, params: {endpoint: "top_concerns"}},
       action_taken:{method: "POST",isArray: false, params: {endpoint: "action_taken/"}},

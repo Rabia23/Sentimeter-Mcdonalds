@@ -28,7 +28,7 @@
         'apply.daterangepicker': function(ev, picker){
 
           $scope.show_loading = true;
-          draw_age_analysis(ev.model.startDate._i, ev.model.endDate._i);
+          vm.draw_age_analysis(ev.model.startDate._i, ev.model.endDate._i);
         }
       },
       opens: "left"
@@ -37,8 +37,8 @@
     function draw_age_analysis(start_date, end_date){
       AgeAnalysisApi.customer_analysis(null, null, null, start_date, end_date).$promise.then(function(data){
         $scope.show_loading = false;
-        $scope.customer_analysis_data = [];
         if(data.success) {
+          $scope.customer_analysis_data = [];
           $scope.customer_analysis_data = _.map(data.response.customer_analysis, function(item, index){
             var obj = {"category": item.age_group_label};
             _.each(item.gender_division, function(value, ind){
