@@ -24,6 +24,7 @@
     $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
       $rootScope.currentState = toState.name;
       $window.ga('send', 'pageview', $location.path());
+      $window.ga('set', 'userId', $rootScope.fullname);
     });
 
     $rootScope.logout = function(){

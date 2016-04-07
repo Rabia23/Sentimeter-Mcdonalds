@@ -16,9 +16,6 @@
       $rootScope.username = TokenHandler.get_username();
     }
 
-
-
-
     ManageApi.manage_users().$promise.then(function(data){
       $scope.show_loading = false;
       $scope.show_users = false;
@@ -59,9 +56,7 @@
 
 
     $scope.disassociate = function(user, index){
-      console.log(user);
       ManageApi.disassociate(user.id).$promise.then(function(data){
-        console.log(data);
         if(data.success){
           user = data.response;
           user.user_role = Enum.get_user_label(user.role);
