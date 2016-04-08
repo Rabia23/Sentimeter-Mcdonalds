@@ -5,7 +5,6 @@ describe('AgeAnalysisCtrl', function(){
 
   beforeEach(module('livefeed.dashboard.age_group_analysis'));
   beforeEach(module('livefeed'));
-  beforeEach(module('livefeed.dashboard.age_group_analysis.api'));
 
   beforeEach(inject(function(_AgeAnalysisApi_, _$rootScope_, $controller, _GenderColors_, _$httpBackend_, _flashService_) {
 

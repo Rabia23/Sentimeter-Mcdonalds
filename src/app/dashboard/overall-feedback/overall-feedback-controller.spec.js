@@ -5,9 +5,6 @@ describe('OverallFeedbackCtrl', function(){
 
   beforeEach(module('livefeed.dashboard.overall_feedback'));
   beforeEach(module('livefeed'));
-  beforeEach(module('factories'));
-  beforeEach(module('helper_factories'));
-
 
   beforeEach(inject(function(_$httpBackend_,_$rootScope_,$controller,_flashService_) {
     $rootScope = _$rootScope_;
