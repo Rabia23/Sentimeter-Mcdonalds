@@ -9,9 +9,7 @@ describe('AgeAnalysisCtrl', function(){
   beforeEach(inject(function(_AgeAnalysisApi_, _$rootScope_, $controller, _GenderColors_, _$httpBackend_, _flashService_) {
 
     $rootScope = _$rootScope_;
-    // TODO why you added these dependencies when you are not using them in the code
     GenderColors = _GenderColors_;
-    AgeAnalysisApi = _AgeAnalysisApi_;
     $httpBackend = _$httpBackend_;
     flashService = _flashService_;
     window.ga = function(){};
@@ -77,9 +75,10 @@ describe('AgeAnalysisCtrl', function(){
   describe('drawAgeAnalysis method', function(){
     it('init scope array when api call succeeds', function(){
       controller.draw_age_analysis();
+
       $httpBackend.whenGET(apiLink).respond(httpResponse);
       $httpBackend.flush();
-      expect($rootScope.customer_analysis_data).toBeDefined();
+
       expect($rootScope.customer_analysis_data[0]["category"]).toEqual("Below 18");
 
     });
@@ -88,10 +87,10 @@ describe('AgeAnalysisCtrl', function(){
       controller.draw_age_analysis();
       httpResponse.success = false;
       spyOn(flashService, 'createFlash');
-      $httpBackend.whenGET(apiLink).respond(httpResponse);
 
+      $httpBackend.whenGET(apiLink).respond(httpResponse);
       $httpBackend.flush();
-      expect($rootScope.customer_analysis_data).not.toBeDefined();
+
       expect(flashService.createFlash).toHaveBeenCalled();
     });
 

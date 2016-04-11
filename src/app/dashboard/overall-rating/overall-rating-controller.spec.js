@@ -1,6 +1,4 @@
 describe('OverallRatingCtrl', function(){
-
-  // TODO this file need much refractoring
   
   var $rootScope, $httpBackend, controller, flashService, mockResponse;
   var apiLink = 'https://stagingapimcdonalds.sentimeter.io/api/overall_rating?option=';
@@ -112,6 +110,27 @@ describe('OverallRatingCtrl', function(){
       }
     };
 
+    labels = [
+      {
+        "color": "#4CCC72",
+        "id": "column-1-id",
+        "lineColor": "#4CCC72",
+        "option_name": "Not Fresh",
+        "parent_id": "",
+        "title": "Not Fresh",
+        "valueField" : "column-1"
+      }
+    ];
+
+    data = [
+      {
+        "category": "Late Night",
+        "column-1": 0,
+        "column-2": 0,
+        "column-3": 0
+      }
+    ];
+
   }));
 
   it('should define controller', function(){
@@ -124,8 +143,6 @@ describe('OverallRatingCtrl', function(){
 
   describe('resetDates method', function(){
     it('reset dates', function(){
-      // TODO the tests says that it resets the dates but you are not resetting it?
-      // This shows how careful you are while writting code
       controller.resetDates();
       expect($rootScope.date).toBeDefined();
     });
@@ -134,21 +151,19 @@ describe('OverallRatingCtrl', function(){
 
   describe('mainRating method', function(){
 
-    it('init scope arrays when api call succeeds', function(){
-      $rootScope.mainRating();
+    it('should call calculate_data_sets and drawGraph methods when api call succeeds', function(){
+      spyOn(controller, 'calculate_data_sets');
+      spyOn(controller, 'drawGraph');
+      controller.calculate_data_sets();
+      controller.drawGraph();
 
-      expect($rootScope.optionView).toBe(false);
-      expect(controller.option_id).toBe(null);
-      expect($rootScope.mainView).toBe(true);
+      $rootScope.mainRating();
 
       $httpBackend.whenGET(apiLink).respond(mockResponse);
       $httpBackend.flush();
 
-      // TODO make multiple tests for them because how will i know what following tests do
-
-      expect(controller.calculate_data_sets).toBeDefined();
-      expect($rootScope.page).toBe(1);
-      expect(controller.drawGraph).toBeDefined();
+      expect(controller.calculate_data_sets).toHaveBeenCalled();
+      expect(controller.drawGraph).toHaveBeenCalled();
 
     });
 
@@ -160,10 +175,6 @@ describe('OverallRatingCtrl', function(){
       $httpBackend.whenGET(apiLink).respond(mockResponse);
       $httpBackend.flush();
 
-      expect($rootScope.optionView).toBe(false);
-      expect(controller.option_id).toBe(null);
-      expect($rootScope.mainView).toBe(true);
-
       expect(flashService.createFlash).toHaveBeenCalled();
     });
 
@@ -171,25 +182,31 @@ describe('OverallRatingCtrl', function(){
 
   describe('optionClick method', function(){
 
-    it('init scope arrays when api call succeeds', function(){
-      $rootScope.optionClick(option_object);
-      expect($rootScope.option_object.item.category).toBe("07-04-16");
-      expect(controller.option_id).toBe(48);
-      expect(controller.date).toBe("07-04-16");
-      expect(controller.option_id).toBeDefined();
+    describe('api call succeeds',function(){
 
-      $httpBackend.whenGET(apiSegmentationLink).respond(httpResponse);
-      $httpBackend.flush();
+      it('init scope and controller arrays', function(){
+        $rootScope.optionClick(option_object);
 
-      expect($rootScope.mainView).toBe(false);
-      expect($rootScope.optionView).toBe(true);
-      expect(httpResponse.response.options).toBeDefined();
-      expect(controller.qsc_sub_options_data.data[0].category).toEqual("Late Night");
-      expect(controller.qsc_sub_options_data.labels[0]).toEqual("Late Night");
-      expect($rootScope.labels[0].title).toEqual("Not Fresh");
-      expect($rootScope.page).toBe(1);
-      expect($rootScope.max_page).toBe(1);
-      expect(controller.drawOptionGraph).toBeDefined();
+        $httpBackend.whenGET(apiSegmentationLink).respond(httpResponse);
+        $httpBackend.flush();
+
+        expect(controller.qsc_sub_options_data.data[0].category).toEqual("Late Night");
+        expect(controller.qsc_sub_options_data.labels[0]).toEqual("Late Night");
+        expect($rootScope.labels[0].title).toEqual("Not Fresh");
+      });
+
+      it('should call drawOptionGraph method', function(){
+        spyOn(controller,'drawOptionGraph');
+        controller.drawOptionGraph();
+
+        $rootScope.optionClick(option_object);
+
+        $httpBackend.whenGET(apiSegmentationLink).respond(httpResponse);
+        $httpBackend.flush();
+
+        expect(controller.drawOptionGraph).toHaveBeenCalled();
+      });
+
     });
 
     it('shows flash when api call fails', function(){
@@ -200,10 +217,12 @@ describe('OverallRatingCtrl', function(){
       $httpBackend.whenGET(apiSegmentationLink).respond(httpResponse);
       $httpBackend.flush();
 
-      expect(controller.qsc_sub_options_data).not.toBeDefined();
-      expect($rootScope.labels).not.toBeDefined();
-
       expect(flashService.createFlash).toHaveBeenCalled();
+    });
+
+    it('init option object', function(){
+      $rootScope.optionClick(option_object);
+      expect($rootScope.option_object.item.category).toBe("07-04-16");
     });
 
   });
@@ -212,9 +231,11 @@ describe('OverallRatingCtrl', function(){
 
     it('returns data sets of api response', function(){
       controller.calculate_data_sets(mockResponse,7);
-      expect($rootScope.data_array).toBeDefined();
-      expect(mockResponse.response.length).toBe(1);
       expect($rootScope.data_array[0][0].date).toEqual("2016-04-02");
+    });
+
+    it('sets max pages',function(){
+      controller.calculate_data_sets(mockResponse,7);
       expect($rootScope.max_page).toBe(1);
     });
 
@@ -240,9 +261,9 @@ describe('OverallRatingCtrl', function(){
 
   describe('drawGraph method', function(){
 
-    it('draws timeline graph', function(){
+    it('init scope and controller arrays', function(){
       controller.drawGraph(mockResponse.response, mockResponse.response[0].data.feedbacks);
-      expect($rootScope.overall_rating_data).toBeDefined();
+
       expect(controller.timelinedata.data[0].category).toEqual("02-04-16");
       expect(controller.timelinedata.labels[0].value).toEqual("Quality");
       expect($rootScope.labels[0].title).toEqual("Quality");
@@ -254,11 +275,9 @@ describe('OverallRatingCtrl', function(){
 
   describe('drawOptionGraph method', function(){
 
-    it('draws timeline option graph', function(){
-      var labels = [{ "color": "#4CCC72", "id": "column-1-id", "lineColor": "#4CCC72", "option_name": "Not Fresh", "parent_id": "", "title": "Not Fresh", "valueField" : "column-1" }];
-      var data = [{ "category": "Late Night", "column-1": 0, "column-2": 0, "column-3": 0 }];
+    it('init scope array', function(){
       controller.drawOptionGraph(data,labels);
-      expect($rootScope.overall_rating_data).toBeDefined();
+
       expect($rootScope.overall_rating_data[0][0].title).toEqual("Not Fresh");
       expect($rootScope.overall_rating_data[1][0].category).toEqual("Late Night");
 

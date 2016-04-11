@@ -56,32 +56,16 @@ describe('OverallFeedbackCtrl', function(){
   });
 
   describe('showGraph method', function(){
-
-    it('init scope arrays when api call succeeds', function(){
-      
+    it('init scope arrays and returns maximum count when api call succeeds', function(){
       controller.show_graph();
 
       $httpBackend.whenGET(apilink).respond(mockResponse);
       $httpBackend.flush();
-      // TODO this is not how we write unit tests
-      // look at the definition of the tests
-      // The test says that scope arrays is defined when api succeed but you can checking
-      // many things here
-      // secondly we dont want to check the internal states of all the variables
-      // it seems to me that you still do not know why we write unit tests
-      expect($rootScope.feedback_count).toBeDefined();
-      expect($rootScope.show_labels).toBeDefined();
-      expect($rootScope.labels).toBeDefined();
-      expect(controller.maximum).toBeDefined();
-      expect($rootScope.show_canvas).toBeDefined();
-      expect($rootScope.bar).toBeDefined();
+
       expect($rootScope.feedback_count).toBe(48);
-      expect($rootScope.show_labels).toBe(true);
       expect($rootScope.labels[0]).toEqual({option_name: "I'm lovin' it", color: '#0E590A'});
-      expect($rootScope.show_canvas).toBe(true);
       expect(controller.maximum.count).toBe(21);
       expect($rootScope.bar.labels[0]).toEqual("I'm lovin' it");
-
     });
 
     it('shows flash when api call fails', function(){
@@ -91,15 +75,6 @@ describe('OverallFeedbackCtrl', function(){
       spyOn(flashService, 'createFlash');
       $httpBackend.whenGET(apilink).respond(mockResponse);
       $httpBackend.flush();
-
-      // Why following expect statements?
-
-      expect($rootScope.feedback_count).not.toBeDefined();
-      expect($rootScope.show_labels).toBe(true);
-      expect($rootScope.labels).not.toBeDefined();
-      expect(controller.maximum).not.toBeDefined();
-      expect($rootScope.show_canvas).not.toBeDefined();
-      expect($rootScope.bar).not.toBeDefined();
 
       expect(flashService.createFlash).toHaveBeenCalled();
     });

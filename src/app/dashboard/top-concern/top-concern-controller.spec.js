@@ -36,7 +36,7 @@ describe('TopConcernsCtrl', function(){
     expect($rootScope.all_zero).toBe(false);
   });
 
-  it('show flash when api request failure', function(){
+  it('show flash when api request fails', function(){
 
     spyOn(flashService, 'createFlash');
     
