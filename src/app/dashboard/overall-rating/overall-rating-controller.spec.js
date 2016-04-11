@@ -13,6 +13,7 @@ describe('OverallRatingCtrl', function(){
     flashService = _flashService_;
     controller = $controller('TimeLineCtrl', { $scope: $rootScope });
     window.ga = function(){};
+
     mockResponse = {
       success: true,
       response: [
@@ -110,6 +111,16 @@ describe('OverallRatingCtrl', function(){
       }
     };
 
+    timelinedata = {
+      "labels": [
+        {
+          "color": "#cb1e24",
+          "column": "column-1",
+          "value": "Quality"
+        }
+      ]
+    };
+
     labels = [
       {
         "color": "#4CCC72",
@@ -131,6 +142,74 @@ describe('OverallRatingCtrl', function(){
       }
     ];
 
+    graph_output = [
+      [
+        {
+          option_id: 48,
+          option_name: 'Quality',
+          parent_id: null,
+          color: '#cb1e24',
+          lineColor: '#cb1e24',
+          title: 'Quality',
+          id: 'column-1-id',
+          valueField: 'column-1'
+        },
+        {
+          option_id: 52,
+          option_name: 'Service',
+          parent_id: null,
+          color: '#ffd200',
+          lineColor: '#ffd200',
+          title: 'Service',
+          id: 'column-2-id',
+          valueField: 'column-2'
+        },
+        {
+          option_id: 42,
+          option_name: 'Cleanliness',
+          parent_id: null,
+          color: '#1f9aec',
+          lineColor: '#1f9aec',
+          title: 'Cleanliness',
+          id: 'column-3-id',
+          valueField: 'column-3'
+        }
+      ],
+      [
+        {
+          "category": '02-04-16',
+          "column-1": 0,
+          "column-1-id": 48,
+          "column-2": 0,
+          "column-2-id": 52,
+          "column-3": 0,
+          "column-3-id": 42
+        }
+      ]
+    ];
+
+    optionGraph_output = [
+      [
+        {
+          color: '#4CCC72',
+          id: 'column-1-id',
+          lineColor: '#4CCC72',
+          option_name: 'Not Fresh',
+          parent_id: '',
+          title: 'Not Fresh',
+          valueField: 'column-1'
+        }
+      ],
+      [
+        {
+          "category": 'Late Night',
+          "column-1": 0,
+          "column-2": 0,
+          "column-3": 0
+        }
+      ]
+    ];
+
   }));
 
   it('should define controller', function(){
@@ -144,26 +223,22 @@ describe('OverallRatingCtrl', function(){
   describe('resetDates method', function(){
     it('reset dates', function(){
       controller.resetDates();
-      expect($rootScope.date).toBeDefined();
+      expect($rootScope.date.startDate._d.getDate()).toBe(new Date().getUTCDate()-6);
+      expect($rootScope.date.endDate._d.getDate()).toBe(new Date().getUTCDate());
     });
 
   });
 
   describe('mainRating method', function(){
 
-    it('should call calculate_data_sets and drawGraph methods when api call succeeds', function(){
-      spyOn(controller, 'calculate_data_sets');
-      spyOn(controller, 'drawGraph');
-      controller.calculate_data_sets();
-      controller.drawGraph();
-
+    it('init scope arrays when api call succeeds', function(){
       $rootScope.mainRating();
 
       $httpBackend.whenGET(apiLink).respond(mockResponse);
       $httpBackend.flush();
 
-      expect(controller.calculate_data_sets).toHaveBeenCalled();
-      expect(controller.drawGraph).toHaveBeenCalled();
+      expect($rootScope.data_array[0][0].date).toEqual("2016-04-02");
+      expect($rootScope.overall_rating_data[0][0].option_name).toEqual("Quality");
 
     });
 
@@ -182,31 +257,16 @@ describe('OverallRatingCtrl', function(){
 
   describe('optionClick method', function(){
 
-    describe('api call succeeds',function(){
+    it('init scope and controller arrays when api call succeeds', function(){
+      $rootScope.optionClick(option_object);
 
-      it('init scope and controller arrays', function(){
-        $rootScope.optionClick(option_object);
+      $httpBackend.whenGET(apiSegmentationLink).respond(httpResponse);
+      $httpBackend.flush();
 
-        $httpBackend.whenGET(apiSegmentationLink).respond(httpResponse);
-        $httpBackend.flush();
-
-        expect(controller.qsc_sub_options_data.data[0].category).toEqual("Late Night");
-        expect(controller.qsc_sub_options_data.labels[0]).toEqual("Late Night");
-        expect($rootScope.labels[0].title).toEqual("Not Fresh");
-      });
-
-      it('should call drawOptionGraph method', function(){
-        spyOn(controller,'drawOptionGraph');
-        controller.drawOptionGraph();
-
-        $rootScope.optionClick(option_object);
-
-        $httpBackend.whenGET(apiSegmentationLink).respond(httpResponse);
-        $httpBackend.flush();
-
-        expect(controller.drawOptionGraph).toHaveBeenCalled();
-      });
-
+      expect(controller.qsc_sub_options_data.data[0].category).toEqual("Late Night");
+      expect(controller.qsc_sub_options_data.labels[0]).toEqual("Late Night");
+      expect($rootScope.labels[0].title).toEqual("Not Fresh");
+      expect($rootScope.overall_rating_data[0][0].option_name).toEqual("Not Fresh");
     });
 
     it('shows flash when api call fails', function(){
@@ -230,8 +290,7 @@ describe('OverallRatingCtrl', function(){
   describe('calculateDataSets method', function(){
 
     it('returns data sets of api response', function(){
-      controller.calculate_data_sets(mockResponse,7);
-      expect($rootScope.data_array[0][0].date).toEqual("2016-04-02");
+      expect(controller.calculate_data_sets(mockResponse,7)).toEqual([mockResponse.response]);
     });
 
     it('sets max pages',function(){
@@ -244,43 +303,23 @@ describe('OverallRatingCtrl', function(){
   describe('getLabelColor method', function(){
 
     it('returns label color', function(){
-      var timelinedata = {
-        "labels": [
-          {
-            "color": "#cb1e24",
-            "column": "column-1",
-            "value": "Quality"
-          }
-        ]
-      };
       expect(controller.getLabelColor(timelinedata, mockResponse.response[0].data.feedbacks[0])).toEqual({value: 'Quality', color: '#cb1e24', column: 'column-1'});
-
     });
 
   });
 
   describe('drawGraph method', function(){
 
-    it('init scope and controller arrays', function(){
-      controller.drawGraph(mockResponse.response, mockResponse.response[0].data.feedbacks);
-
-      expect(controller.timelinedata.data[0].category).toEqual("02-04-16");
-      expect(controller.timelinedata.labels[0].value).toEqual("Quality");
-      expect($rootScope.labels[0].title).toEqual("Quality");
-      expect($rootScope.overall_rating_data[0][0].title).toEqual("Quality");
-      expect($rootScope.overall_rating_data[1][0].category).toEqual("02-04-16");
+    it('returns an array to draw graph', function(){
+      expect(controller.drawGraph(mockResponse.response, mockResponse.response[0].data.feedbacks)).toEqual(graph_output);
     });
 
   });
 
   describe('drawOptionGraph method', function(){
 
-    it('init scope array', function(){
-      controller.drawOptionGraph(data,labels);
-
-      expect($rootScope.overall_rating_data[0][0].title).toEqual("Not Fresh");
-      expect($rootScope.overall_rating_data[1][0].category).toEqual("Late Night");
-
+    it('returns an array to draw option graph', function(){
+      expect(controller.drawOptionGraph(data,labels)).toEqual(optionGraph_output);
     });
 
   });
@@ -289,7 +328,7 @@ describe('OverallRatingCtrl', function(){
 
     it('returns to main view', function(){
       spyOn($rootScope, 'mainRating');
-      $rootScope.mainRating();
+      $rootScope.backToMain();
       expect($rootScope.mainRating).toHaveBeenCalled();
 
     });

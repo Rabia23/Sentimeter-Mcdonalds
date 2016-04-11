@@ -40,24 +40,24 @@
             vm.end_date = ev.model.endDate._i;
             $scope.mainRating();
           }
-
         }
       },
       opens: "left"
     };
 
     function calculate_data_sets(data, value){
-      $scope.data_array = [];
+      var data_array = [];
       if (data.response.length > value) {
         var sets = data.response.length / value;
         while (data.response.length > 0) {
-          $scope.data_array.push(data.response.splice(0, value));
+          data_array.push(data.response.splice(0, value));
         }
       }
       else {
-        $scope.data_array[0] = data.response;
+        data_array[0] = data.response;
       }
-      $scope.max_page = $scope.data_array.length;
+      $scope.max_page = data_array.length;
+      return data_array;
     }
 
     function getLabelColor(timelinedata, value){
@@ -71,7 +71,6 @@
     }
 
     function drawGraph(data, feedbacks){
-      $scope.overall_rating_data = [];
       vm.timelinedata = overallRatingChartService.getAreaLabelChart(data);
       $scope.labels = _.map(feedbacks, function (value, index) {
         var label_value = getLabelColor(vm.timelinedata, value);
@@ -86,7 +85,7 @@
           valueField: label_value.column
         };
       });
-      $scope.overall_rating_data = [$scope.labels, vm.timelinedata.data];
+      return [$scope.labels, vm.timelinedata.data];
     }
 
     $scope.mainRating = function(option){
@@ -97,14 +96,16 @@
       $scope.mainView = (option)? false : true;
       Graphs.overall_rating(vm.option_id, vm.start_date, vm.end_date).$promise.then(function (data) {
         if(data.success) {
+          $scope.data_array = [];
           if($scope.width < $scope.height) {
-            calculate_data_sets(data, 3);
+            $scope.data_array = calculate_data_sets(data, 3);
           }
           else {
-            calculate_data_sets(data, 7);
+            $scope.data_array = calculate_data_sets(data, 7);
           }
           $scope.page = 1;
-          drawGraph($scope.data_array[0], $scope.data_array[0][0].data.feedbacks);
+          $scope.overall_rating_data = [];
+          $scope.overall_rating_data = drawGraph($scope.data_array[0], $scope.data_array[0][0].data.feedbacks);
           $scope.show_loading = false;
         }
         else{
@@ -114,8 +115,7 @@
     };
 
     function drawOptionGraph(data,labels){
-      $scope.overall_rating_data = [];
-      $scope.overall_rating_data = [labels, data];
+      return [labels, data];
     }
 
     $scope.optionClick = function (option_object){
@@ -153,10 +153,11 @@
                   $scope.segments_data_array.push(vm.qsc_sub_options_data.data.splice(0, 3));
                 }
                 $scope.max_page = $scope.segments_data_array.length;
-                drawOptionGraph($scope.segments_data_array[0],$scope.labels);
+                $scope.overall_rating_data = [];
+                $scope.overall_rating_data = drawOptionGraph($scope.segments_data_array[0],$scope.labels);
               }
               else {
-                drawOptionGraph(vm.qsc_sub_options_data.data,$scope.labels);
+                $scope.overall_rating_data = drawOptionGraph(vm.qsc_sub_options_data.data,$scope.labels);
               }
             }
           }
@@ -170,14 +171,14 @@
     $scope.Next = function(){
       if($scope.page < $scope.max_page){
         $scope.page = $scope.page + 1;
-        drawGraph($scope.data_array[($scope.page -1 )], $scope.data_array[0][0].data.feedbacks);
+        $scope.overall_rating_data = drawGraph($scope.data_array[($scope.page -1 )], $scope.data_array[0][0].data.feedbacks);
       }
     };
 
     $scope.optionNext = function(){
       if($scope.page < $scope.max_page){
         $scope.page = $scope.page + 1;
-        drawOptionGraph($scope.segments_data_array[($scope.page -1 )],$scope.labels);
+        $scope.overall_rating_data = drawOptionGraph($scope.segments_data_array[($scope.page -1 )],$scope.labels);
       }
     };
 
@@ -188,14 +189,14 @@
     $scope.Prev = function(){
       if($scope.page > 1){
         $scope.page = $scope.page - 1;
-        drawGraph($scope.data_array[($scope.page -1 )], $scope.data_array[0][0].data.feedbacks);
+        $scope.overall_rating_data = drawGraph($scope.data_array[($scope.page -1 )], $scope.data_array[0][0].data.feedbacks);
       }
     };
 
     $scope.optionPrev = function(){
       if($scope.page > 1){
         $scope.page = $scope.page - 1;
-        drawOptionGraph($scope.segments_data_array[($scope.page -1 )],$scope.labels);
+        $scope.overall_rating_data = drawOptionGraph($scope.segments_data_array[($scope.page -1 )],$scope.labels);
       }
     };
 

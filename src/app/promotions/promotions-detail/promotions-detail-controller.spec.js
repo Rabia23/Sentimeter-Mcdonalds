@@ -64,7 +64,8 @@ describe('PromotionsDetailCtrl', function(){
   describe('resetDates method', function(){
     it('reset dates', function(){
       controller.resetDates();
-      expect($rootScope.date).toBeDefined();
+      expect($rootScope.date.startDate._d.getDate()).toBe(new Date().getUTCDate()-1);
+      expect($rootScope.date.endDate._d.getDate()).toBe(new Date().getUTCDate());
     });
     
   });
