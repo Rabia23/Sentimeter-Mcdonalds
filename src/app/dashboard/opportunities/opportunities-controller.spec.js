@@ -5,7 +5,6 @@ describe('OpportunitiesCtrl', function(){
   
   beforeEach(module('livefeed.dashboard.opportunities'));
   beforeEach(module('livefeed'));
-  beforeEach(module('factories'));
 
   beforeEach(inject(function(_$httpBackend_,_$rootScope_, _$controller_, _flashService_) {
     $rootScope = _$rootScope_;

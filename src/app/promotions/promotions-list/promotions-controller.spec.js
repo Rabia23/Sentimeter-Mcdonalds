@@ -5,7 +5,6 @@ describe('PromotionsCtrl', function(){
   
   beforeEach(module('livefeed.promotions'));
   beforeEach(module('livefeed'));
-  beforeEach(module('livefeed.promotions.api'));
 
   beforeEach(inject(function(_$httpBackend_,_$state_, _$rootScope_, _$controller_, _flashService_) {
     $state = _$state_;

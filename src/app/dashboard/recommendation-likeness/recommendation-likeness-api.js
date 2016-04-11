@@ -9,7 +9,7 @@
     function RecommendationLikenessApi() {
       this.service = $resource(apiLinks.link.api, {},
         {
-          recommendation_analysis: {method: "GET", isArray: false, params: {endpoint: "recommendation_analysis/"}}
+          recommendation_analysis: {method: "GET", isArray: false, params: {endpoint: "recommendation_analysis"}}
         });
     }
 

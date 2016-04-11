@@ -9,6 +9,14 @@
     var start_date = null;
     var end_date = null;
 
+    var vm = this;
+    vm.resetDates = resetDates;
+    vm.draw_recommendation_likeness = draw_recommendation_likeness;
+    vm.getAverageBarColor = getAverageBarColor;
+
+    vm.resetDates();
+    vm.draw_recommendation_likeness();
+
     function resetDates(){
       $scope.date = {
           startDate: moment().subtract(1, "days"),
@@ -29,28 +37,29 @@
       opens: "left"
     };
 
-    function getAverageBarColor(){
-      $scope.bar_color = null;
-      if($scope.total_average <= 25){
-        $scope.bar_color = AverageBarColors.get_bar_color(0);
+    function getAverageBarColor(total_average){
+      var bar_color = null;
+      if(total_average <= 25){
+        bar_color = AverageBarColors.get_bar_color(0);
       }
-      else if($scope.total_average <= 50){
-        $scope.bar_color = AverageBarColors.get_bar_color(1);
+      else if(total_average <= 50){
+        bar_color = AverageBarColors.get_bar_color(1);
       }
-      else if($scope.total_average <= 75){
-        $scope.bar_color = AverageBarColors.get_bar_color(2);
+      else if(total_average <= 75){
+        bar_color = AverageBarColors.get_bar_color(2);
       }
       else{
-        $scope.bar_color = AverageBarColors.get_bar_color(3);
+        bar_color = AverageBarColors.get_bar_color(3);
       }
+      return bar_color;
     }
 
     function draw_recommendation_likeness(region_id, city_id, branch_id){
       RecommendationLikenessApi.recommendation_analysis(region_id, city_id, branch_id, start_date, end_date).$promise.then(function (data) {
         $scope.feedback_count = 0;
         $scope.show_loading = false;
-        $scope.recommendation_likeness_data = [];
         if(data.success) {
+          $scope.recommendation_likeness_data = [];
           $scope.feedback_count = data.response.feedback_count;
           $scope.total_average = 0;
 
@@ -60,15 +69,15 @@
 
           $scope.recommendation_likeness_data = _.sortBy($scope.recommendation_likeness_data, function(item){ return parseInt(item.category, 10); });
           $scope.total_average = calculateAverageService.getAverage(data.response.feedbacks, data.response.feedback_count);
-          getAverageBarColor();
+          $scope.bar_color = getAverageBarColor($scope.total_average);
         }
         else{
+
           flashService.createFlash(data.message, "danger");
         }
       });
 
     }
-    resetDates();
-    draw_recommendation_likeness();
+
   });
 })();
