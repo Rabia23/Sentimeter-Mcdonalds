@@ -64,7 +64,8 @@ describe('PromotionsDetailCtrl', function(){
   describe('resetDates method', function(){
     it('reset dates', function(){
       controller.resetDates();
-      expect($rootScope.date).toBeDefined();
+      expect($rootScope.date.startDate._d.getDate()).toBe(new Date().getUTCDate()-1);
+      expect($rootScope.date.endDate._d.getDate()).toBe(new Date().getUTCDate());
     });
     
   });
@@ -73,23 +74,22 @@ describe('PromotionsDetailCtrl', function(){
 
     it('init scope arrays when api call succeeds', function(){
       controller.showPromotionData();
-      $httpBackend.whenGET(apilink).respond(mockResponse);
 
+      $httpBackend.whenGET(apilink).respond(mockResponse);
       $httpBackend.flush();
-      expect($rootScope.promotion).toBeDefined();
-      expect($rootScope.questions).toBeDefined();
+
       expect($rootScope.promotion.title).toEqual("Coffee");
+      expect($rootScope.questions[0].question).toEqual("Are you satisfied with the taste?");
     });
 
     it('shows flash when api call fails', function(){
       controller.showPromotionData();
       mockResponse.success = false;
       spyOn(flashService, 'createFlash');
-      $httpBackend.whenGET(apilink).respond(mockResponse);
 
+      $httpBackend.whenGET(apilink).respond(mockResponse);
       $httpBackend.flush();
-      expect($rootScope.promotion).not.toBeDefined();
-      expect($rootScope.questions).not.toBeDefined();
+
       expect(flashService.createFlash).toHaveBeenCalled();
     });
   });

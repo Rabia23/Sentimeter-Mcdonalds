@@ -50,21 +50,20 @@ describe('RecommendationLikenessCtrl', function(){
   describe('resetDates method', function(){
     it('reset dates', function(){
       controller.resetDates();
-      expect($rootScope.date).toBeDefined();
+      expect($rootScope.date.startDate._d.getDate()).toBe(new Date().getUTCDate()-1);
+      expect($rootScope.date.endDate._d.getDate()).toBe(new Date().getUTCDate());
     });
 
   });
 
   describe('drawRecommendationLikeness method', function(){
-    it('init scope array when api call succeeds', function(){
+
+    it('init scope arrays when api call succeeds', function(){
       controller.draw_recommendation_likeness();
 
       $httpBackend.whenGET(apiLink).respond(httpResponse);
       $httpBackend.flush();
 
-      //TODO write additional tests
-
-      expect($rootScope.recommendation_likeness_data).toBeDefined();
       expect($rootScope.feedback_count).toBe(18);
       expect($rootScope.recommendation_likeness_data[0]["category"]).toEqual("7");
       expect($rootScope.total_average).toBe(9);
@@ -79,10 +78,6 @@ describe('RecommendationLikenessCtrl', function(){
 
       $httpBackend.whenGET(apiLink).respond(httpResponse);
       $httpBackend.flush();
-
-      expect($rootScope.recommendation_likeness_data).not.toBeDefined();
-      expect($rootScope.total_average).not.toBeDefined();
-      expect($rootScope.bar_color).not.toBeDefined();
 
       expect(flashService.createFlash).toHaveBeenCalled();
     });
