@@ -10,7 +10,7 @@
           scope.width = $(window).width();
 
           if(scope.mainView === false && scope.optionView === true){
-            scope.labelClick(scope.option);
+            scope.mainRating(scope.option);
           }
           else if(scope.mainView === false && scope.optionView === false){
             scope.optionClick(scope.option_object);

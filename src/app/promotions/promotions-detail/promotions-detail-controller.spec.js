@@ -5,9 +5,6 @@ describe('PromotionsDetailCtrl', function(){
   
   beforeEach(module('livefeed.promotions'));
   beforeEach(module('livefeed'));
-  beforeEach(module('livefeed.promotions.api'));
-  beforeEach(module('helper_factories'));
-  
 
   beforeEach(inject(function(_$httpBackend_,_$rootScope_, _$controller_, _flashService_) {
     $rootScope = _$rootScope_;
