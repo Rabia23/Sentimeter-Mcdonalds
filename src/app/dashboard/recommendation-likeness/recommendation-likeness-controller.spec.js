@@ -62,6 +62,8 @@ describe('RecommendationLikenessCtrl', function(){
       $httpBackend.whenGET(apiLink).respond(httpResponse);
       $httpBackend.flush();
 
+      //TODO write additional tests
+
       expect($rootScope.recommendation_likeness_data).toBeDefined();
       expect($rootScope.feedback_count).toBe(18);
       expect($rootScope.recommendation_likeness_data[0]["category"]).toEqual("7");

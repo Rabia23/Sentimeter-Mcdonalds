@@ -9,6 +9,7 @@ describe('AgeAnalysisCtrl', function(){
   beforeEach(inject(function(_AgeAnalysisApi_, _$rootScope_, $controller, _GenderColors_, _$httpBackend_, _flashService_) {
 
     $rootScope = _$rootScope_;
+    // TODO why you added these dependencies when you are not using them in the code
     GenderColors = _GenderColors_;
     AgeAnalysisApi = _AgeAnalysisApi_;
     $httpBackend = _$httpBackend_;

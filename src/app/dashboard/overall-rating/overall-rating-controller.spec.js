@@ -1,5 +1,7 @@
 describe('OverallRatingCtrl', function(){
 
+  // TODO this file need much refractoring
+  
   var $rootScope, $httpBackend, controller, flashService, mockResponse;
   var apiLink = 'https://stagingapimcdonalds.sentimeter.io/api/overall_rating?option=';
   var apiSegmentationLink = 'https://stagingapimcdonalds.sentimeter.io/api/feedback_segmentation?date_to=07-04-16&option=48';
@@ -122,6 +124,8 @@ describe('OverallRatingCtrl', function(){
 
   describe('resetDates method', function(){
     it('reset dates', function(){
+      // TODO the tests says that it resets the dates but you are not resetting it?
+      // This shows how careful you are while writting code
       controller.resetDates();
       expect($rootScope.date).toBeDefined();
     });
@@ -139,6 +143,8 @@ describe('OverallRatingCtrl', function(){
 
       $httpBackend.whenGET(apiLink).respond(mockResponse);
       $httpBackend.flush();
+
+      // TODO make multiple tests for them because how will i know what following tests do
 
       expect(controller.calculate_data_sets).toBeDefined();
       expect($rootScope.page).toBe(1);

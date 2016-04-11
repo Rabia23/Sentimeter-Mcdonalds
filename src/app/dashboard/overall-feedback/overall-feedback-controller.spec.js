@@ -58,11 +58,17 @@ describe('OverallFeedbackCtrl', function(){
   describe('showGraph method', function(){
 
     it('init scope arrays when api call succeeds', function(){
+      
       controller.show_graph();
 
       $httpBackend.whenGET(apilink).respond(mockResponse);
       $httpBackend.flush();
-
+      // TODO this is not how we write unit tests
+      // look at the definition of the tests
+      // The test says that scope arrays is defined when api succeed but you can checking
+      // many things here
+      // secondly we dont want to check the internal states of all the variables
+      // it seems to me that you still do not know why we write unit tests
       expect($rootScope.feedback_count).toBeDefined();
       expect($rootScope.show_labels).toBeDefined();
       expect($rootScope.labels).toBeDefined();
@@ -85,6 +91,8 @@ describe('OverallFeedbackCtrl', function(){
       spyOn(flashService, 'createFlash');
       $httpBackend.whenGET(apilink).respond(mockResponse);
       $httpBackend.flush();
+
+      // Why following expect statements?
 
       expect($rootScope.feedback_count).not.toBeDefined();
       expect($rootScope.show_labels).toBe(true);
