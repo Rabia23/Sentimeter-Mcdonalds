@@ -5,7 +5,8 @@ angular.module('livefeed.api_links', [])
   return {
 
     link: {
-      api: "https://stagingapimcdonalds.sentimeter.io/api/:endpoint/",
+      api: "https://stagingapimcdonalds.sentimeter.io/api/:endpoint",
+      //api: "http://172.16.11.113:8000/api/:endpoint/",
       analytics: function(){
         //return $window.ga('create', 'UA-75485796-1', 'none');
       },

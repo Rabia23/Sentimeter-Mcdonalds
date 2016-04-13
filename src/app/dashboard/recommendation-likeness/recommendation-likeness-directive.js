@@ -50,7 +50,8 @@
                   "gridAlpha": 0.4,
                   "gridColor": "#CED4CE",
                   "tickLength": 0,
-                  "fontSize": 12
+                  "fontSize": 12,
+                  "minimum": 0
                 }
               ],
               "allLabels": [],

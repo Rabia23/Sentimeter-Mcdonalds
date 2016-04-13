@@ -95,21 +95,21 @@
               "graphs": graphs,
               "guides": [],
               "valueAxes": [
-                  {
-                      "id": "ValueAxis-1",
-                      "synchronizationMultiplier": 0,
-                      "axisAlpha": 0.4,
-                      "axisColor": "#CED4CE",
-                      "color": "#808080",
-                      "fillColor": "#A7AAA7",
-                      "gridAlpha": 0.4,
-                      "gridColor": "#CED4CE",
-                      "gridCount": 20,
-                      "tickLength": 0,
-                      "title": "",
-                      "fontSize": 12
-
-                  }
+                {
+                  "id": "ValueAxis-1",
+                  "synchronizationMultiplier": 0,
+                  "axisAlpha": 0.4,
+                  "axisColor": "#CED4CE",
+                  "color": "#808080",
+                  "fillColor": "#A7AAA7",
+                  "gridAlpha": 0.4,
+                  "gridColor": "#CED4CE",
+                  "gridCount": 20,
+                  "tickLength": 0,
+                  "title": "",
+                  "fontSize": 12,
+                  "minimum": 0
+                }
               ],
               "allLabels": [],
               "balloon": {

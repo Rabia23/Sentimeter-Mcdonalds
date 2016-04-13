@@ -34,7 +34,6 @@
         Authentication.login($scope.authenticate).$promise.then(function(data){
           $scope.show_loading = false;
           if(data.success){
-            $rootScope.token = data.response.token;
             $rootScope.fullname = data.response.user.first_name+" "+data.response.user.last_name;
             var branch_id = null;
             var region_id = null;
