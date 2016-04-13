@@ -1,14 +1,13 @@
 angular.module( 'livefeed.login.api', [
   'ngResource',
-  'livefeed.api_links',
-  'livefeed.authService'
+  'livefeed.api_links'
 ])
 
 .factory('Authentication', ['$resource','apiLinks', function($resource, apiLinks) {
   function Authentication() {
     this.service = $resource(apiLinks.link.api,{},
     {
-      login: {method: "POST",isArray: false, params: {endpoint: "login/"}}
+      login: {method: "POST",isArray: false, params: {endpoint: "login"}}
     });
   }
 

@@ -1,10 +1,9 @@
 angular.module( 'livefeed.promotions.api', [
   'ngResource',
-  'livefeed.api_links',
-  'livefeed.authService'
+  'livefeed.api_links'
 ])
 
-.factory('PromotionsApi', ['$resource','apiLinks','TokenHandler','$rootScope', function($resource, apiLinks, TokenHandler, $rootScope) {
+.factory('PromotionsApi', ['$resource','apiLinks', function($resource, apiLinks) {
 
 
 
@@ -16,12 +15,10 @@ angular.module( 'livefeed.promotions.api', [
     });
   }
   PromotionsApi.prototype.promotions_list = function(){
-    var token = $rootScope.token || TokenHandler.get_token();
-    return this.service.promotions_list({token: token});
+    return this.service.promotions_list();
   };
   PromotionsApi.prototype.promotion_detail = function(id, date_from, date_to){
-    var token = $rootScope.token || TokenHandler.get_token();
-    return this.service.promotion_detail({id: id, token: token, date_from: date_from, date_to: date_to});
+    return this.service.promotion_detail({id: id, date_from: date_from, date_to: date_to});
   };
   return new PromotionsApi();
 }]);
