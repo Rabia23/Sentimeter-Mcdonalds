@@ -2,7 +2,6 @@
 
   angular.module( 'livefeed.live.overall-ratings')
 
-
   .directive('overallRating', function() {
     return {
       restrict: 'A',

@@ -9,7 +9,7 @@
     'livefeed.live.business_segment',
     'livefeed.live.qsc',
     'livefeed.live.patch_qsc_analysis',
-    'livefeed.live.benchmark_map',
+    'livefeed.live.leader_board',
     'livefeed.live.strength'
   ]);
 

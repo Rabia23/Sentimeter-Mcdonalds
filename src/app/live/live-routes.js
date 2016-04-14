@@ -29,9 +29,9 @@
           controller: "PatchQscAnalysisCtrl",
           templateUrl: 'live/patch-qsc-analysis/patch-qsc-analysis.tpl.html'
         },
-        "benchmark_map@live":{
-          controller: "BenchmarkMapCtrl",
-          templateUrl: 'live/benchmark-map/benchmark-map.tpl.html'
+        "leader_board@live":{
+          controller: "LeaderBoardCtrl",
+          templateUrl: 'live/leader-board/leader-board.tpl.html'
         },
         "strength@live":{
           controller: "StrengthCtrl",

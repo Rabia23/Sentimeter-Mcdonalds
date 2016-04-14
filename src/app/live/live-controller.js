@@ -79,7 +79,6 @@
         $scope.time = Clock.formatAMPM(date);
 
         var date_string = date.toString().split(" ");
-        console.log(date_string);
         $scope.date_output = date_string[0] + " - " + date_string[1] + " " + date_string[2] + " - " + date_string[3].substr(2,2);
       };
 
