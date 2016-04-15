@@ -1,6 +1,6 @@
 describe('OverallRatingCtrl', function(){
 
-  var $rootScope, controller, helper_factory;
+  var $rootScope, controller;
 
   beforeEach(module('livefeed.live.overall-ratings'));
   beforeEach(module('helper_factories'));

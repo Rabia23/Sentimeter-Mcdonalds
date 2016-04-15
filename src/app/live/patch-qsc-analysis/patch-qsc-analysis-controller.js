@@ -4,6 +4,10 @@
 
   .controller( 'PatchQscAnalysisCtrl', function PatchQscAnalysisController( $scope, Global, $rootScope, ComplaintStatusEnum ) {
 
+    var vm = this;
+    vm.region_data = region_data;
+    vm.patch_qsc_analysis = patch_qsc_analysis;
+
     function region_data(action_analysis_data){
       var complaints = {};
       _.each(action_analysis_data, function(action){
@@ -68,7 +72,7 @@
     }
 
     $rootScope.$on('live-data-received', function (event, data) {
-      patch_qsc_analysis();
+      vm.patch_qsc_analysis();
     });
 
   });

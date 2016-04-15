@@ -1,7 +1,6 @@
 (function() {
   angular.module( 'livefeed.live', [
     'ui.router',
-    'livefeed.authService',
     'livefeed.live.api',
     'helper_factories',
     'livefeed.live.top_concerns',

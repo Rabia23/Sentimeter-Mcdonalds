@@ -2,7 +2,7 @@
   angular.module('livefeed.live.leader_board')
 
 
-  .controller('LeaderBoardCtrl', function BenchmarkMapController($scope, $rootScope) {
+  .controller('LeaderBoardCtrl', function LeaderBoardController($scope, $rootScope) {
 
     var vm = this;
     vm.leader_board = leader_board;
