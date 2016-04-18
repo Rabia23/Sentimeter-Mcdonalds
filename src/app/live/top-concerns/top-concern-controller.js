@@ -1,9 +1,10 @@
 (function() {
   angular.module( 'livefeed.live.top_concerns')
 
+  .controller( 'TopConcernCtrl', ['$scope', 'Global','$rootScope', function( $scope, Global, $rootScope ) {
 
-
-  .controller( 'TopConcernCtrl', ['$scope', '_','Global','$rootScope', function( $scope, _, Global, $rootScope ) {
+    var vm = this;
+    vm.top_concern = top_concern;
     
     function top_concern(){
       var concern_list = $scope.concerns.concern_list;
@@ -26,7 +27,7 @@
     }
 
     $rootScope.$on('live-data-received', function (event, data) {
-      top_concern();
+      vm.top_concern();
     });
     
   }]);

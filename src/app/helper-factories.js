@@ -1,6 +1,6 @@
-angular.module( 'helper_factories', ['ngResource'])
+angular.module( 'helper_factories', [])
 
-.factory('Global', [ '_', function(_) {
+.factory('Global', function() {
 
   return {
 
@@ -152,4 +152,4 @@ angular.module( 'helper_factories', ['ngResource'])
 
   };
 
-}]);
+});

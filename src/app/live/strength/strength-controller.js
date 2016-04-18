@@ -1,9 +1,10 @@
 (function() {
   angular.module( 'livefeed.live.strength')
 
+  .controller( 'StrengthCtrl', ['$scope','Global','$rootScope', function( $scope, Global, $rootScope ) {
 
-
-  .controller( 'StrengthCtrl', ['$scope', '_','Global','$rootScope', function( $scope, _, Global, $rootScope ) {
+    var vm = this;
+    vm.strength = strength;
 
     function strength(){
       var strength_list = $scope.strength.feedbacks;
@@ -20,7 +21,7 @@
     }
 
     $rootScope.$on('live-data-received', function (event, data) {
-      strength();
+      vm.strength();
     });
     
   }]);

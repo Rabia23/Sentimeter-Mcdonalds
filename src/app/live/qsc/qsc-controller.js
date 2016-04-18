@@ -1,10 +1,10 @@
 (function() {
   angular.module( 'livefeed.live.qsc')
 
+  .controller( 'QscCtrl', function QscController( $scope, Global, $rootScope ) {
 
-
-  .controller( 'QscCtrl', function TopConcernController( $scope, _, Global, $rootScope ) {
-    
+    var vm = this;
+    vm.qscfunc = qscfunc;
 
     function qscfunc(){
       var qsc = {quality: [], service: [], cleanliness: []};
@@ -38,12 +38,11 @@
           "column-2": qsc.service[index],
           "column-3": qsc.cleanliness[index]
         });
-        
       });
     }
 
     $rootScope.$on('live-data-received', function (event, data) {
-      qscfunc();
+      vm.qscfunc();
     });
 
 
