@@ -60,10 +60,10 @@
         return { option_name: value.option__text, option_count: value.count, priority: Global.qscPriority[value.option__text] };
       });
       $scope.qsc_ranking = _.sortBy($scope.qsc_ranking, function (value) { return value.priority; });
-      console.log($scope.qsc_ranking);
     }
 
     $rootScope.$on('web-socket-message', function (event, data) {
+
       var dat = JSON.parse(data);
       $scope.top_ranking = dat.top_rankings;
       $scope.overall_ratings = dat.overall_rating;
@@ -81,8 +81,8 @@
     function display(){
       var date = new Date();
       $scope.time = Clock.formatAMPM(date);
-      var date_string = date.toString().split(" ");
-      $scope.date_output = date_string[0] + " - " + date_string[1] + " " + date_string[2] + " - " + date_string[3].substr(2,2);
+      vm.date_string = date.toString().split(" ");
+      $scope.date_output = vm.date_string[0] + " - " + vm.date_string[1] + " " + vm.date_string[2] + " - " + vm.date_string[3].substr(2,2);
     }
 
     $rootScope.$on('web-socket-close', function (event, data) {
