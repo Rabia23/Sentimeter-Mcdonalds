@@ -24,7 +24,8 @@ describe('TopConcernsCtrl', function(){
           concern_list: [{
             id: 1,
             name: "Bun",
-            weight: 20
+            weight: 20,
+            color_code: "#cb1e24"
           }]
         }
         

@@ -5,16 +5,6 @@ angular.module( 'helper_factories', [])
   return {
 
 
-    topConcernsColors: function(index){
-      var colors = [ "#cb1e24","#178aea","#434347","#f1d400","#90ec7c"];
-      return colors[index];
-    },
-
-    questionnaireDonutColors: function(index){
-      var colors = [ "#f7ca17","#e84c3d"];
-      return colors[index];
-    },
-
     opportunityClass: {
       "Quality of Food": [1, "#4CCC72"],
       "Friendly & Courteous Staff": [2, "#3598DC"],

@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.questionnaire')
 
-  .controller( 'QuestionnaireDetailCtrl', function QuestionnaireDetailCtrl( $scope, $rootScope, Global, QuestionnaireChartTypeEnum, flashService, $stateParams, QuestionnaireApi) {
+  .controller( 'QuestionnaireDetailCtrl', function QuestionnaireDetailCtrl( $scope, $rootScope, QuestionnaireChartTypeEnum, flashService, $stateParams, QuestionnaireApi) {
 
     var inc = 1;
     $scope.all_zero = true;
@@ -75,7 +75,7 @@
           name: data.option__text,
           count: data.count,
           percentage: data.count === 0 ? 0 : Math.round((data.count/feedback_count)*100),
-          colour: Global.topConcernsColors(index)
+          colour: data.option__color_code
         };
       });
       return question_analysis;

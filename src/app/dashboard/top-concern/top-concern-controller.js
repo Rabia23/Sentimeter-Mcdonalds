@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.dashboard.top_concern')
 
-  .controller( 'TopConcernsCtrl', function TopConcernsCtrl( $rootScope, $scope, Graphs, Global, flashService ) {
+  .controller( 'TopConcernsCtrl', function TopConcernsCtrl( $rootScope, $scope, Graphs, flashService ) {
 
     $scope.show_loading = true;
 
@@ -19,7 +19,7 @@
         });
 
         _.each($scope.concern_list, function (value, index) {
-          $scope.data.push({"category": value.name, "column-1": value.weight, "color": Global.topConcernsColors(index)});
+          $scope.data.push({"category": value.name, "column-1": value.weight, "color": value.color_code});
 
         });
         $scope.show_loading = false;
