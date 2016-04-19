@@ -38,25 +38,6 @@ angular.module( 'helper_factories', [])
       "Monthly": [4, "#34495E"]
     },
 
-    promotionBarChartClass: {
-      "Fliers": [1, "#4CCC72"],
-      "Restaurants": [2, "#3598DC"],
-      "Billboards": [3, "#9C59B8"],
-      "Digital": [4, "#34495E"],
-      "Radio": [5, "#F0C547"],
-      "Print": [6, "#E74D3D"]
-    },
-
-    promotionPieChartColorScheme: {
-      "Yes": "#f7ca17",
-      "No": "#e84c3d"
-    },
-
-    promotionPieChartPriority: {
-      "Yes": 1,
-      "No": 2
-    },
-
     complaintAnalysisAction: {
       1: ["Unprocessed", "#cb1e24"],
       2: ["Unrecoverable", "#ffd200"],
@@ -80,14 +61,6 @@ angular.module( 'helper_factories', [])
       1: "",
       2: "item2",
       3: "processed"
-    },
-
-    mainRatingColorScheme: {
-      "Few concerns": '#e73a3a',
-      "Not happy enough": '#ac1a1a',
-      "Everything on track": '#01ad0f',
-      "I'm lovin' it": '#0E590A'
-
     },
 
     optionsColorScheme: {

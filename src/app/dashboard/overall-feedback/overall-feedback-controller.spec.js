@@ -19,7 +19,7 @@ describe('OverallFeedbackCtrl', function(){
         "feedbacks": [
           {
             "count": 3,
-            "option__color_code": null,
+            "option__color_code": "#0E590A",
             "option__parent_id": null,
             "option__score": 4,
             "option__text": "I'm lovin' it",
@@ -27,7 +27,7 @@ describe('OverallFeedbackCtrl', function(){
           },
           {
             "count": 21,
-            "option__color_code": null,
+            "option__color_code": "#e73a3a",
             "option__parent_id": null,
             "option__score": 2,
             "option__text": "Few concerns",

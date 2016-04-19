@@ -2,7 +2,7 @@
   angular.module( 'livefeed.promotions')
 
 
-  .controller( 'PromotionsDetailCtrl', function PromotionDetailCtrl( $scope, $rootScope, Global, PromotionsChartTypeEnum, flashService, $stateParams, PromotionsApi) {
+  .controller( 'PromotionsDetailCtrl', function PromotionDetailCtrl( $scope, $rootScope, PromotionsChartTypeEnum, flashService, $stateParams, PromotionsApi) {
     var promotionId = $stateParams.promotionId;
     var inc = 1;
     $scope.show_loading = true;
@@ -47,6 +47,7 @@
       PromotionsApi.promotion_detail(promotionId, start_date, end_date).$promise.then(function(data){
         $scope.show_loading = false;
         $scope.show_loader  = false;
+        console.log(data);
         if(data.success){
           $scope.promotion = data.response.promotion;
           $rootScope.page_heading = $scope.promotion.title + " Promotions";
@@ -79,8 +80,7 @@
           name: data.option__text,
           count: data.count,
           percentage: data.count === 0 ? 0 : Math.round((data.count/feedback_count)*100),
-          colour: Global.promotionBarChartClass[data.option__text][1],
-          priority: Global.promotionBarChartClass[data.option__text][0]
+          colour: data.option__color_code
         };
       });
       question_analysis = _.sortBy(question_analysis, function (value) { return value.priority;  });
@@ -93,11 +93,9 @@
         pie_chart_data.push({
           "category": value.option__text,
           "column-1": value.count,
-          "priority": Global.promotionPieChartPriority[value.option__text],
-          "color": Global.promotionPieChartColorScheme[value.option__text]
+          "color": value.option__color_code
         });
       });
-      pie_chart_data = _.sortBy(pie_chart_data, function(value){ return value.priority; });
       return pie_chart_data;
     }
 
