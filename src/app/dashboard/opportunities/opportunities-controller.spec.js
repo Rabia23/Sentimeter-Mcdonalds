@@ -14,7 +14,7 @@ describe('OpportunitiesCtrl', function(){
     window.ga = function(){};
   }));
 
-  it('success with data init $scope.data', function(){
+  it('success with data init $scope.opportunity_data', function(){
     $httpBackend.whenGET(apilink)
     .respond(
       {
@@ -24,7 +24,7 @@ describe('OpportunitiesCtrl', function(){
           "feedbacks": [
             {
               "option__parent_id": null,
-              "option__color_code": null,
+              "option__color_code": "#4CCC72",
               "option__score": 0,
               "option__text": "Quality of Food",
               "option_id": 37,
