@@ -4,13 +4,6 @@ angular.module( 'helper_factories', [])
 
   return {
 
-    questionnaireBarChartClass: {
-      "Weekly": [3, "#4CCC72"],
-      "Very Rare": [1, "#3598DC"],
-      "Daily": [2, "#9C59B8"],
-      "Monthly": [4, "#34495E"]
-    },
-
     complaintAnalysisAction: {
       1: ["Unprocessed", "#cb1e24"],
       2: ["Unrecoverable", "#ffd200"],
@@ -83,19 +76,12 @@ angular.module( 'helper_factories', [])
       "Service": 2
     },
 
-
-
     overallFeedbackPriority: {
       "Few concerns": 3,
       "Not happy enough": 4,
       "Everything is on track!": 2,
       "I'm lovin' it": 1
-    },
-
-    overallFeedbackColumn:{
-      ranges: [_.range(0,15), _.range(15,30), _.range(30, 45), _.range(45, 60), _.range(60, 75), _.range(75,101)]
     }
-
   };
 
 });

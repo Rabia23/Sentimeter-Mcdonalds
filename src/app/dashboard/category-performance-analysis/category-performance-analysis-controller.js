@@ -1,21 +1,23 @@
 (function() {
   angular.module( 'livefeed.dashboard.category_performance_analysis')
 
-  .controller('CategoryPerformanceAnalysisCtrl', function CategoryPerformanceAnalysisCtrl($scope, feedbackService, CategoryPerformanceApi, $timeout, flashService, $uibModal) {
-
-    var category_performance_array = [];
+  .controller('CategoryPerformanceAnalysisCtrl', function CategoryPerformanceAnalysisCtrl($scope, feedbackService, CategoryPerformanceApi, flashService, $uibModal) {
 
     $scope.show_loading = false;
     $scope.class = '';
-    $scope.option_id = null;
-
+    $scope.today = new Date();
+    $scope.mainView = true;
+    var category_performance_array = [];
+    var option_id = null;
+    var string = 'All';
     var start_date = null;
     var end_date = null;
 
 
-    $scope.today = new Date();
+    resetDates();
+    showCategoryData();
+    showSegmentData();
 
-    $scope.mainView = true;
 
     function resetDates(){
       $scope.date = {
@@ -23,8 +25,6 @@
         endDate: moment()
       };
     }
-
-    resetDates();
 
     $scope.datePickerOption = {
       eventHandlers: {
@@ -53,14 +53,9 @@
           $scope.category_data = _.map(category_performance_array[0], function (data) {
             return feedbackService.getCategoryFeedbacks(data, performance_data.response.feedback_count, option_id, string);
           });
-          $scope.category_data = _.sortBy($scope.category_data, function (value) {
-            return value.priority;
-          });
 
           if (option_id == null) {
-            $scope.QualityID = $scope.category_data[0].id;
-            $scope.ServiceID = $scope.category_data[1].id;
-            $scope.CleanlinessID = $scope.category_data[2].id;
+            $scope.labels = $scope.category_data;
           }
         }
         else{
@@ -85,16 +80,11 @@
               data.option_data = options_array;
             });
           }
-          $timeout(function () {
-            $scope.segments = [];
-            $scope.segments = _.map(segment_data.response.segments, function (data) {
-              return feedbackService.getSegmentFeedbacks(data, option_id, string);
-            });
-            $scope.segments = _.sortBy($scope.segments, function (value) {
-              return value.priority;
-            });
-            $scope.show_loading = false;
-          }, 500);
+          $scope.segments = [];
+          $scope.segments = _.map(segment_data.response.segments, function (data) {
+            return feedbackService.getSegmentFeedbacks(data, option_id, string);
+          });
+          $scope.show_loading = false;
         }
         else{
           flashService.createFlash(segment_data.message, "danger");
@@ -118,10 +108,16 @@
       }
     };
 
-    $scope.onClick = function(option_id,string){
-      $scope.string = string;
-      $scope.option_id = option_id;
-      $scope.onOptionSelect(string,option_id);
+    $scope.onClick = function(label_object){
+      if(label_object){
+        string = label_object.name;
+        option_id = label_object.id;
+      }
+      else{
+        string = 'All';
+        option_id = null;
+      }
+      $scope.onOptionSelect(string, option_id);
     };
 
     $scope.open = function () {
@@ -131,10 +127,10 @@
         size: 900,
         resolve: {
           option_id: function () {
-            return $scope.option_id;
+            return option_id;
           },
           string: function () {
-            return $scope.string;
+            return string;
           },
           start_date: function () {
             return start_date;
@@ -145,10 +141,5 @@
         }
       });
     };
-
-    resetDates();
-    showCategoryData();
-    showSegmentData();
-
   });
 })();
