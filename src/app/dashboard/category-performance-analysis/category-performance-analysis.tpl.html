@@ -13,7 +13,7 @@
             </a>
           </li>
           <li ng-repeat="label in labels" ng-class="{active: class == label.name}">
-            <a ng-click="onClick(label)" ng-disabled = "show_loading">
+            <a ng-click="onClick(label)" id = "{{label.name}}" ng-disabled = "show_loading">
               {{label.name}}
             </a>
           </li>
@@ -41,7 +41,7 @@
               <div class="progress-inner">
                 <small>
                   <em>
-                    <a bar-click data-name = "dat.name" ng-if = "mainView">
+                    <a ng-click="onClick(dat)" ng-if = "mainView">
                       {{dat.name}}
                     </a>
                     <span ng-if = "!mainView">
@@ -52,7 +52,7 @@
                     </b>
                   </em>
                 </small>
-                <div class="progress-block main" bar-click data-name = "dat.name" ng-if = "mainView">
+                <div class="progress-block main" ng-click="onClick(dat)" ng-if = "mainView">
                   <uib-progressbar animate="false" value="dat.percentage" type="success"></uib-progressbar>
                 </div>
                 <div class="progress-block" ng-if = "!mainView">

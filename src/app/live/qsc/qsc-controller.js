@@ -13,9 +13,9 @@
       $scope.qsc_labels = [];
 
       _.each($scope.overall_ratings[0].data.feedbacks, function(value){
-        $scope.qsc_labels.push({option_name: value.option__text, option_class: Global.qscClass[value.option__text]});
+        $scope.qsc_labels.push({option_name: value.option__text, option_class: Global.liveQscClass[value.option__text]});
       });
-      $scope.qsc_labels = _.sortBy($scope.qsc_labels, function (value) { return Global.qscPriority[value.option_name];});
+      $scope.qsc_labels = _.sortBy($scope.qsc_labels, function (value) { return Global.liveQscPriority[value.option_name];});
 
       _.each($scope.overall_ratings, function(value,index){
         var new_date_array = value.date.split("-");

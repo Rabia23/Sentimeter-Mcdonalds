@@ -12,8 +12,6 @@
       _.each($scope.overall_feedback.feedbacks, function(data){
         $scope.overall_rating_data.push({"category": data.option__text.toUpperCase(),"column-1": data.count, "color": data.option__color_code});
       });
-      console.log("overall rating");
-      console.log($scope.overall_rating_data);
     }
 
     $rootScope.$on('live-data-received', function (event, data) {

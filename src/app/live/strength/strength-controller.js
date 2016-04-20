@@ -1,7 +1,7 @@
 (function() {
   angular.module( 'livefeed.live.strength')
 
-  .controller( 'StrengthCtrl', ['$scope','Global','$rootScope', function( $scope, Global, $rootScope ) {
+  .controller( 'StrengthCtrl', ['$scope', '$rootScope', function( $scope, $rootScope ) {
 
     var vm = this;
     vm.strength = strength;

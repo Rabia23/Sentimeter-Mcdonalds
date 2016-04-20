@@ -47,7 +47,6 @@
       PromotionsApi.promotion_detail(promotionId, start_date, end_date).$promise.then(function(data){
         $scope.show_loading = false;
         $scope.show_loader  = false;
-        console.log(data);
         if(data.success){
           $scope.promotion = data.response.promotion;
           $rootScope.page_heading = $scope.promotion.title + " Promotions";
