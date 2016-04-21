@@ -524,7 +524,7 @@ module.exports = function ( grunt ) {
 
         root: '<%= build_dir %>',
         port: 4000,
-        host: "172.16.12.9",
+        host: "localhost",
         ext: "html",
         runInBackground: false,
         openBrowser : false
