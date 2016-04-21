@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.dashboard.age_group_analysis')
 
-  .directive('ageGroupAnalysis', function(GenderColors, $timeout) {
+  .directive('ageGroupAnalysis', function($timeout) {
     return {
       restrict: 'A',
       scope: {
@@ -11,6 +11,20 @@
         scope.$watchCollection('data', function(watchedData) {
           if(watchedData !== undefined){
             var data = scope.data;
+            var graphs = [];
+            _.each(data[1],function(dat){
+              graphs.push({
+                "balloonText": "[[title]]: [[value]]",
+                "fillAlphas": 1,
+                "id": dat.id,
+                "title": dat.title,
+                "type": "column",
+                "valueField": dat.valueField,
+                "color": dat.color,
+                "fillColors": dat.color,
+                "lineColor": dat.color
+              });
+            });
             var chart = AmCharts.makeChart("agechartdiv",
             {
               "type": "serial",
@@ -28,30 +42,7 @@
                 "fontSize": 12
               },
               "trendLines": [],
-              "graphs": [
-                {
-                  "balloonText": "[[title]]: [[value]]",
-                  "fillAlphas": 1,
-                  "id": "AmGraph-1",
-                  "title": "MALE",
-                  "type": "column",
-                  "valueField": "column-1",
-                  "color": "#808080",
-                  "fillColors": GenderColors.get_male_color(),
-                  "lineColor": GenderColors.get_male_color()
-                },
-                {
-                  "balloonText": "[[title]]: [[value]]",
-                  "fillAlphas": 1,
-                  "id": "AmGraph-2",
-                  "title": "FEMALE",
-                  "type": "column",
-                  "valueField": "column-2",
-                  "color": "#808080",
-                  "fillColors": GenderColors.get_female_color(),
-                  "lineColor": GenderColors.get_female_color()
-                }
-              ],
+              "graphs": graphs,
               "guides": [],
               "valueAxes": [
                 {
@@ -74,7 +65,7 @@
                 "useGraphSettings": true
               },
               "titles": [],
-              "dataProvider": data
+              "dataProvider": data[0]
             });
             $timeout(function(){
               window.initSameHeight();

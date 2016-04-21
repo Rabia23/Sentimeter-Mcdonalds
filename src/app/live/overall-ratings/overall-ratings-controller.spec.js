@@ -14,7 +14,7 @@ describe('OverallRatingCtrl', function(){
       "feedbacks": [
         {
           "count": 0,
-          "option__color_code": null,
+          "option__color_code": "#0E590A",
           "option__parent_id": null,
           "option__score": 4,
           "option__text": "I'm lovin' it",

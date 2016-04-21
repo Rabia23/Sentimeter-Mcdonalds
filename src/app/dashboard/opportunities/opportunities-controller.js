@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.dashboard.opportunities')
 
-  .controller( 'OpportunitiesCtrl', function OpportunitiesCtrl( $scope, Graphs, Global, flashService ) {
+  .controller( 'OpportunitiesCtrl', function OpportunitiesCtrl( $scope, Graphs, flashService ) {
     var start_date = null;
     var end_date = null;
     $scope.show_loading = true;
@@ -15,12 +15,8 @@
             name: data.option__text,
             complaints: data.count,
             percentage: data.count === 0 ? 0 : Math.round((data.count / opportunity_data.response.feedback_count) * 100),
-            colour: Global.opportunityClass[data.option__text][1],
-            priority: Global.opportunityClass[data.option__text][0]
+            colour: data.option__color_code
           };
-        });
-        $scope.opportunity_data = _.sortBy($scope.opportunity_data, function (value) {
-          return value.priority;
         });
       }
       else{

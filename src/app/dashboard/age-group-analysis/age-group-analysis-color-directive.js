@@ -8,7 +8,11 @@
         color: '='
       },
       link: function(scope, ele, attrs) {
-        $(ele).css("background-color", scope.color);
+        scope.$watchCollection('color', function(watchedData) {
+          if(watchedData !== undefined){
+            $(ele).css("background-color", scope.color);
+          }
+        });
       }
     };
   });

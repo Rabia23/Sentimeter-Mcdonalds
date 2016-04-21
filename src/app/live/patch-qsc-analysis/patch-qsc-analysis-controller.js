@@ -41,9 +41,9 @@
       });
 
       _.each($scope.complaint_view[0].data.action_analysis, function (value) {
-        $scope.patch_qsc_labels.push({action_name: Global.complaintAnalysisAction[value.action_taken][0], action_class: Global.complaintAnalysisActionClass[value.action_taken]});
+        $scope.patch_qsc_labels.push({action_name: Global.complaintAnalysisAction[value.action_taken][0], action_class: Global.liveComplaintAnalysisActionClass[value.action_taken]});
       });
-      $scope.patch_qsc_labels = _.sortBy($scope.patch_qsc_labels, function (value) { return Global.complaintAnalysisActionPriority[value.action_name];});
+      $scope.patch_qsc_labels = _.sortBy($scope.patch_qsc_labels, function (value) { return Global.liveComplaintAnalysisActionPriority[value.action_name];});
 
       if($scope.complaint_view[0].data.feedback_count === 0){
         $scope.all_zeros = true;

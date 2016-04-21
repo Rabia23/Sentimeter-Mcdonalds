@@ -1,7 +1,7 @@
 (function() {
   angular.module( 'livefeed.live.top_concerns')
 
-  .controller( 'TopConcernCtrl', ['$scope', 'Global','$rootScope', function( $scope, Global, $rootScope ) {
+  .controller( 'TopConcernCtrl', ['$scope', '$rootScope', function( $scope, $rootScope ) {
 
     var vm = this;
     vm.top_concern = top_concern;
