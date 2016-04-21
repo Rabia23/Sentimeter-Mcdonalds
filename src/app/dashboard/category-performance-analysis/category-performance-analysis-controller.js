@@ -31,8 +31,8 @@
         'apply.daterangepicker': function(ev, picker){
           start_date = ev.model.startDate._i;
           end_date =  ev.model.endDate._i;
-          showCategoryData("","","",$scope.option_id,$scope.class);
-          showSegmentData("","","",$scope.option_id,$scope.class);
+          showCategoryData("","","",option_id,$scope.class);
+          showSegmentData("","","",option_id,$scope.class);
         }
       },
       opens: "left"
