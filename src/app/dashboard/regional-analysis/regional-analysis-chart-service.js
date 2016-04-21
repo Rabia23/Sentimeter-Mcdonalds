@@ -16,7 +16,7 @@ angular.module('livefeed.regional_analysis.chart', []
         donutOptions: _.map(graph_data.analysis,  function(data){
           return   {
             colors: _.map(data.data.feedbacks, function(dat){
-                return (question_type == 1) ? Global.mainRatingColorScheme[dat.option__text] : dat.option__color_code;
+                return dat.option__color_code;
               })
             };
         })

@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.dashboard.overall_feedback')
 
-  .controller( 'OverallFeedbackCtrl', function DashboardController( $scope, Graphs, Global, overallFeedbackChartService, flashService ) {
+  .controller( 'OverallFeedbackCtrl', function DashboardController( $scope, Graphs, overallFeedbackChartService, flashService ) {
 
     $scope.show_loading = true;
     $scope.show_labels = true;
@@ -38,7 +38,7 @@
           $scope.feedback_count = graph_data.response.feedback_count;
           $scope.show_labels = graph_data.response.feedback_count === 0 ? false : true;
           $scope.labels = _.map(graph_data.response.feedbacks, function (value) {
-            return {option_name: value.option__text, color: Global.mainRatingColorScheme[value.option__text]};
+            return {option_name: value.option__text, color: value.option__color_code};
           });
           $scope.show_canvas = graph_data.response.feedback_count === 0 ? false : true;
           vm.maximum = {};

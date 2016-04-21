@@ -12,9 +12,9 @@
       $scope.business_segments_labels = [];
 
       _.each($scope.segmentation_ratings.segments[0].option_data, function(value) {
-        $scope.business_segments_labels.push({option_name: value.option__text, option_class: Global.qscClass[value.option__text]});
+        $scope.business_segments_labels.push({option_name: value.option__text, option_class: Global.liveQscClass[value.option__text]});
       });
-      $scope.business_segments_labels = _.sortBy($scope.business_segments_labels, function (value) { return Global.qscPriority[value.option_name];});
+      $scope.business_segments_labels = _.sortBy($scope.business_segments_labels, function (value) { return Global.liveQscPriority[value.option_name];});
       _.each($scope.segmentation_ratings.segments, function(value, index){
         _.each(value.option_data, function(item){
           if (item.option__text === 'Quality'){

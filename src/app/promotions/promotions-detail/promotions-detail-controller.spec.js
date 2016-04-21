@@ -37,7 +37,7 @@ describe('PromotionsDetailCtrl', function(){
                   "option__score": 0,
                   "option__text": "No",
                   "option_id": 36,
-                  "option__color_code": null
+                  "option__color_code": "#e84c3d"
               },
               {
                   "option__parent_id": null,
@@ -45,7 +45,7 @@ describe('PromotionsDetailCtrl', function(){
                   "option__score": 0,
                   "option__text": "Yes",
                   "option_id": 35,
-                  "option__color_code": null
+                  "option__color_code": "#f7ca17"
               }
             ],
             "question": "Are you satisfied with the taste?"
@@ -95,36 +95,36 @@ describe('PromotionsDetailCtrl', function(){
   });
 
   describe('getPieChartData method', function(){
-    it('returns sorted pie chart data', function(){
+    it('pie chart data', function(){
       expect(controller.getPieChartData(mockResponse.response.analysis[0].feedbacks))
-      .toEqual([{category: 'Yes', 'column-1': 0, priority: 1, color: '#f7ca17'}, {category: 'No', 'column-1': 0, priority: 2, color: '#e84c3d'}]);
+      .toEqual([{category: 'No', 'column-1': 0, color: '#e84c3d'}, {category: 'Yes', 'column-1': 0, color: '#f7ca17'}]);
     });
 
   });
 
   describe('getBarChartData method', function(){
-    it('returns sorted bar chart data', function(){
+    it('bar chart data', function(){
       var output = {category: 'Yes', 'column-1': 0, priority: 1, color: '#f7ca17'};
       var feedbacks =  [
         {
           "option__parent_id": null,
           "count": 0,
           "option__score": 0,
-          "option__text": "Digital",
-          "option_id": 27,
-          "option__color_code": null
+          "option__text": "Billboards",
+          "option_id": 28,
+          "option__color_code": "#9C59B8"
         },
         {
           "option__parent_id": null,
           "count": 0,
           "option__score": 0,
-          "option__text": "Billboards",
-          "option_id": 28,
-          "option__color_code": null
+          "option__text": "Radio",
+          "option_id": 27,
+          "option__color_code": "#F0C547"
         }
       ];
 
-      expect(controller.getBarChartData(feedbacks, 2)).toEqual([{id: 28, name: 'Billboards', count: 0, percentage: 0, colour: '#9C59B8', priority: 3}, {id: 27, name: 'Digital', count: 0, percentage: 0, colour: '#34495E', priority: 4}]);
+      expect(controller.getBarChartData(feedbacks, 2)).toEqual([{id: 28, name: 'Billboards', count: 0, percentage: 0, colour: '#9C59B8'}, {id: 27, name: 'Radio', count: 0, percentage: 0, colour: '#F0C547'}]);
     });
 
   });

@@ -1,12 +1,10 @@
 (function() {
   angular.module('livefeed.dashboard.age_group_analysis')
 
-  .controller( 'AgeAnalysisCtrl', function ( $scope, flashService, AgeAnalysisApi, GenderColors ) {
+  .controller( 'AgeAnalysisCtrl', function ( $scope, flashService, AgeAnalysisApi ) {
 
     $scope.today = new Date();
     $scope.show_loading = true;
-    $scope.men_color = GenderColors.get_male_color();
-    $scope.female_color = GenderColors.get_female_color();
 
     var vm = this;
     vm.resetDates = resetDates;
@@ -39,7 +37,7 @@
         $scope.show_loading = false;
         if(data.success) {
           $scope.customer_analysis_data = [];
-          $scope.customer_analysis_data = _.map(data.response.customer_analysis, function(item, index){
+          var graph_data = _.map(data.response.customer_analysis, function(item, index){
             var obj = {"category": item.age_group_label};
             _.each(item.gender_division, function(value, ind){
               if(value.gender_group_label === "MALE"){
@@ -51,6 +49,27 @@
             });
             return obj;
           });
+
+          var graph_labels = _.map(data.response.customer_analysis[0].gender_division, function(value,index){
+            var label_obj = {};
+            if(value.gender_group_label === "MALE"){
+              $scope.men_color = value.color_code;
+              label_obj["valueField"] = "column-"+(index+1);
+              label_obj["color"] = value.color_code;
+              label_obj["title"] = value.gender_group_label;
+              label_obj["id"]= "AmGraph-"+(index+1);
+              return label_obj;
+            }
+            else if(value.gender_group_label === "FEMALE"){
+              $scope.female_color = value.color_code;
+              label_obj["valueField"] = "column-"+(index+1);
+              label_obj["color"] = value.color_code;
+              label_obj["title"] = value.gender_group_label;
+              label_obj["id"]= "AmGraph-"+(index+1);
+              return label_obj;
+            }
+          });
+          $scope.customer_analysis_data = [graph_data, graph_labels];
         }
         else{
           flashService.createFlash(data.message, "danger");

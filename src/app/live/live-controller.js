@@ -57,7 +57,7 @@
         $scope.top_ranking.top_segment.segment = "N/A";
       }
       $scope.qsc_ranking = _.map($scope.top_ranking.qsc_count, function(value){
-        return { option_name: value.option__text, option_count: value.count, priority: Global.qscPriority[value.option__text] };
+        return { option_name: value.option__text, option_count: value.count, priority: Global.liveQscPriority[value.option__text] };
       });
       $scope.qsc_ranking = _.sortBy($scope.qsc_ranking, function (value) { return value.priority; });
     }

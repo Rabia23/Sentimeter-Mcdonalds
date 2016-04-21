@@ -2,7 +2,7 @@
   angular.module('livefeed.dashboard.category_performance_analysis.feedback_service', 
   [])
   
-  .service('feedbackService', function(_, Global){
+  .service('feedbackService', function(){
 
     return {
       getCategoryFeedbacks: function(data, feedback_count, option_id, string){
@@ -10,10 +10,9 @@
         var name = data.option__text;
         var complaints = data.count;
         var percentage = data.count === 0 ? 0 : Math.round((data.count / feedback_count) * 100);
-        var priority = option_id == null ? Global.qscPriority[data.option__text] : "";
         var colour =  data.option__color_code;
         return {
-          id: id, name: name, complaints: complaints, percentage: percentage, priority: priority, colour: colour };
+          id: id, name: name, complaints: complaints, percentage: percentage, colour: colour };
       },
       getSegmentFeedbacks: function(data, option_id, string){
         return {
@@ -37,8 +36,7 @@
             tooltipXPadding: 2,
             tooltipCornerRadius: 0,
             tooltipFontSize: 14
-          },
-          priority: Global.segmentationPriority[data.segment]
+          }
         };
       }
 

@@ -1,15 +1,14 @@
 describe('AgeAnalysisCtrl', function(){
 
-  var $rootScope, GenderColors, AgeAnalysisApi, httpResponse, flashService;
+  var $rootScope, AgeAnalysisApi, httpResponse, flashService;
   var apiLink = 'https://stagingapimcdonalds.sentimeter.io/api/customer_analysis?branch=&city=&date_from=&date_to=&region=';
 
   beforeEach(module('livefeed.dashboard.age_group_analysis'));
   beforeEach(module('livefeed'));
 
-  beforeEach(inject(function(_AgeAnalysisApi_, _$rootScope_, $controller, _GenderColors_, _$httpBackend_, _flashService_) {
+  beforeEach(inject(function(_AgeAnalysisApi_, _$rootScope_, $controller, _$httpBackend_, _flashService_) {
 
     $rootScope = _$rootScope_;
-    GenderColors = _GenderColors_;
     $httpBackend = _$httpBackend_;
     flashService = _flashService_;
     window.ga = function(){};
@@ -27,12 +26,14 @@ describe('AgeAnalysisCtrl', function(){
               {
                 "count": 2,
                 "gender_group_id": 0,
-                "gender_group_label": "MALE"
+                "gender_group_label": "MALE",
+                "color_code": "#26AAE2"
               },
               {
                 "count": 2,
                 "gender_group_id": 1,
-                "gender_group_label": "FEMALE"
+                "gender_group_label": "FEMALE",
+                "color_code": "#F174AC"
               }
             ]
           }
@@ -58,29 +59,16 @@ describe('AgeAnalysisCtrl', function(){
 
   });
 
-
-  describe('get male and female colors', function(){
-
-    it('sets the male color', function(){
-      var male_color = GenderColors.get_male_color();
-      expect($rootScope.men_color).toBe(male_color);
-    });
-
-    it('sets the female color', function(){
-      var female_color = GenderColors.get_female_color();
-      expect($rootScope.female_color).toBe(female_color);
-    });
-
-  });
-
   describe('drawAgeAnalysis method', function(){
-    it('init scope array when api call succeeds', function(){
+    it('init scope array and variables when api call succeeds', function(){
       controller.draw_age_analysis();
 
       $httpBackend.whenGET(apiLink).respond(httpResponse);
       $httpBackend.flush();
 
-      expect($rootScope.customer_analysis_data[0]["category"]).toEqual("Below 18");
+      expect($rootScope.customer_analysis_data[0][0]["category"]).toEqual("Below 18");
+      expect($rootScope.men_color).toBe("#26AAE2");
+      expect($rootScope.female_color).toBe("#F174AC");
 
     });
 

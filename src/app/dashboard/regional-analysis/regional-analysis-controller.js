@@ -98,12 +98,11 @@
               name: "Pakistan",
               show_chart: $scope.donut_graph_data.objects[0].show_chart === false && $scope.donut_graph_data.objects[1].show_chart === false ? false : true
             });
-            _.each($scope.donut_graph_data.donutData[0], function (data) {
-              _.find($scope.donut_graph_data.donutData[1], function (dat) {
-                if (data['label'] === dat['label']) {
-                  donut_data.push({id: dat['id'], label: dat['label'], value: data['value'] + dat['value']});
-                  var color = $scope.question_type == 1 ? Global.mainRatingColorScheme[dat['label']] : Global.optionsColorScheme[dat['label']];
-                  donut_colors.push(color);
+            _.each(area_data.response.analysis[0].data.feedbacks, function(data){
+              _.find(area_data.response.analysis[1].data.feedbacks, function(dat){
+                if(data.option__text === dat.option__text){
+                  donut_data.push({id: dat.option_id, label: dat.option__text, value: data.count + dat.count});
+                  donut_colors.push(dat.option__color_code);
                 }
               });
             });
