@@ -7,7 +7,7 @@
     vm.qscfunc = qscfunc;
 
     function qscfunc(){
-      var qsc = {quality: [], service: [], cleanliness: []};
+      var qsc = {workplace: [], culture: [], food: []};
 
       $scope.overall_rating_data = [];
       $scope.qsc_labels = [];
@@ -21,22 +21,22 @@
         var new_date_array = value.date.split("-");
         var date = new_date_array[2]+"-"+new_date_array[1]+"-"+new_date_array[0].substr(2, 2);
         _.each(value.data.feedbacks, function(item, index2){
-          if (item.option__text === 'Quality'){
-            qsc.quality.push(item.count);
+          if (item.option__text === 'Workplace'){
+            qsc.workplace.push(item.count);
           }
-          if (item.option__text === 'Service'){
-            qsc.service.push(item.count);
+          if (item.option__text === 'Culture'){
+            qsc.culture.push(item.count);
           }
-          if (item.option__text === 'Cleanliness'){
-            qsc.cleanliness.push(item.count);
+          if (item.option__text === 'Food'){
+            qsc.food.push(item.count);
           }
         });
         
         $scope.overall_rating_data.push({
           "category": date,
-          "column-1": qsc.quality[index],
-          "column-2": qsc.service[index],
-          "column-3": qsc.cleanliness[index]
+          "column-1": qsc.culture[index],
+          "column-2": qsc.food[index],
+          "column-3": qsc.workplace[index]
         });
       });
     }

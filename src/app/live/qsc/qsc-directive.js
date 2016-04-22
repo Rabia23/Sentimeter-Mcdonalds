@@ -77,7 +77,7 @@
                     "legendColor": "#E90000",
                     "lineColor": "#FF8800",
                     "lineThickness": 3,
-                    "title": "Quality",
+                    "title": "Culture",
                     "type": "smoothedLine",
                     "valueField": "column-1",
                     "visibleInLegend": false
@@ -97,7 +97,7 @@
                     "markerType": "square",
                     "negativeFillAlphas": 1,
                     "negativeFillColors": "#FFFFFF",
-                    "title": "Service",
+                    "title": "Food",
                     "type": "smoothedLine",
                     "valueField": "column-2",
                     "visibleInLegend": false
@@ -115,7 +115,7 @@
                     "lineColor": "#12E9F0",
                     "lineThickness": 3,
                     "negativeFillAlphas": 0,
-                    "title": "Cleanliness",
+                    "title": "Workplace",
                     "type": "smoothedLine",
                     "valueAxis": "ValueAxis-1",
                     "valueField": "column-3",
