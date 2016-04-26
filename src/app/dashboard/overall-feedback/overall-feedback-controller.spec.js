@@ -1,7 +1,7 @@
 describe('OverallFeedbackCtrl', function(){
 
   var $rootScope, $httpBackend, controller, flashService, mockResponse;
-  var apilink = 'https://stagingapimcdonalds.sentimeter.io/api/overall_feedback';
+  var apilink = 'https://apiarbisoft.sentimeter.io/api/overall_feedback';
 
   beforeEach(module('livefeed.dashboard.overall_feedback'));
   beforeEach(module('livefeed'));

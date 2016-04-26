@@ -1,7 +1,7 @@
 describe('OpportunitiesCtrl', function(){
   
   var $rootScope, $httpBackend, controller, flashService;
-  var apilink = 'https://stagingapimcdonalds.sentimeter.io/api/opportunity_analysis?branch=&city=&date_from=&date_to=&region=';
+  var apilink = 'https://apiarbisoft.sentimeter.io/api/opportunity_analysis?branch=&city=&date_from=&date_to=&region=';
   
   beforeEach(module('livefeed.dashboard.opportunities'));
   beforeEach(module('livefeed'));

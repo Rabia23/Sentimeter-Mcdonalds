@@ -1,7 +1,7 @@
 describe('LiveCtrl', function(){
 
   var $rootScope, controller, WebSocket, $timeout, $httpBackend, Clock;
-  var apiLink = 'https://stagingapimcdonalds.sentimeter.io/api/livedashboard';
+  var apiLink = 'https://apiarbisoft.sentimeter.io/api/livedashboard';
 
   beforeEach(module('livefeed.live'));
   beforeEach(module('helper_factories'));
@@ -340,7 +340,7 @@ describe('LiveCtrl', function(){
   describe('top_rankings method', function(){
     it('init scope array when function calls', function(){
       controller.top_rankings();
-      expect($rootScope.qsc_ranking[0].option_name).toEqual("Quality");
+      expect($rootScope.qsc_ranking[0].option_name).toEqual("Service");
     });
   });
 

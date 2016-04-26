@@ -1,8 +1,8 @@
 describe('OverallRatingCtrl', function(){
   
   var $rootScope, $httpBackend, controller, flashService, mockResponse;
-  var apiLink = 'https://stagingapimcdonalds.sentimeter.io/api/overall_rating?option=';
-  var apiSegmentationLink = 'https://stagingapimcdonalds.sentimeter.io/api/feedback_segmentation?date_to=07-04-16&option=48';
+  var apiLink = 'https://apiarbisoft.sentimeter.io/api/overall_rating?option=';
+  var apiSegmentationLink = 'https://apiarbisoft.sentimeter.io/api/feedback_segmentation?date_to=07-04-16&option=48';
 
   beforeEach(module('livefeed.dashboard.overall_rating'));
   beforeEach(module('livefeed'));

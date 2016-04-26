@@ -1,7 +1,7 @@
 describe('TopConcernsCtrl', function(){
   
   var $rootScope, $httpBackend, controller, flashService;
-  var apilink = 'https://stagingapimcdonalds.sentimeter.io/api/';
+  var apilink = 'https://apiarbisoft.sentimeter.io/api/';
   
   beforeEach(module('livefeed.dashboard.top_concern'));
   beforeEach(module('livefeed'));
