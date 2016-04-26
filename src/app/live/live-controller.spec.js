@@ -152,7 +152,6 @@ describe('LiveCtrl', function(){
               "option__text": "A delicious & healthy lunch",
               "option__color_code" : "#F0C547",
               "option__parent_id": null,
-              "option__color_code": null,
               "option_id": 29,
               "count": 19,
               "option__score": 0
