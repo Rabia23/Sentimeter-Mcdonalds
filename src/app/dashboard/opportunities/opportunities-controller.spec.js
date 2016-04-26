@@ -43,11 +43,11 @@ describe('OpportunitiesCtrl', function(){
               "feedbacks": [
                 {
                   "option__parent_id": null,
-                  "option__color_code": "#4CCC72",
+                  "option__color_code": "#F0C547",
                   "option__score": 0,
-                  "option__text": "Quality of Food",
-                  "option_id": 37,
-                  "count": 10
+                  "option__text": "A delicious & healthy lunch",
+                  "option_id": 29,
+                  "count": 9
                 }
               ]
             }
@@ -55,7 +55,7 @@ describe('OpportunitiesCtrl', function(){
           });
 
       $httpBackend.flush();
-      expect($rootScope.opportunity_data[0].name).toEqual("Quality of Food");
+      expect($rootScope.opportunity_data[0].name).toEqual("A delicious & healthy lunch");
     });
 
     it('show flash when api request failure', function(){

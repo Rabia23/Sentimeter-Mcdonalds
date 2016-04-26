@@ -22,8 +22,8 @@ describe('TopConcernsCtrl', function(){
         response: {
           concern_count: 1,
           concern_list: [{
-            id: 1,
-            name: "Bun",
+            id: 5,
+            name: "Smoking",
             weight: 20,
             color_code: "#cb1e24"
           }]
@@ -33,8 +33,7 @@ describe('TopConcernsCtrl', function(){
     );
 
     $httpBackend.flush();
-    expect($rootScope.data[0].category).toEqual("Bun");
-    expect($rootScope.all_zero).toBe(false);
+    expect($rootScope.data[0].category).toEqual("Smoking");
   });
 
   it('show flash when api request fails', function(){

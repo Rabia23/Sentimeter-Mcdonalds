@@ -2,7 +2,7 @@ describe('OverallRatingCtrl', function(){
   
   var $rootScope, $httpBackend, controller, flashService, mockResponse;
   var apiLink = 'https://apiarbisoft.sentimeter.io/api/overall_rating?option=';
-  var apiSegmentationLink = 'https://apiarbisoft.sentimeter.io/api/feedback_segmentation?date_to=07-04-16&option=48';
+  var apiSegmentationLink = 'https://apiarbisoft.sentimeter.io/api/feedback_segmentation?date_to=21-04-16&option=8';
 
   beforeEach(module('livefeed.dashboard.overall_rating'));
   beforeEach(module('livefeed'));
@@ -26,24 +26,24 @@ describe('OverallRatingCtrl', function(){
                 "option__color_code": "#cb1e24",
                 "option__parent_id": null,
                 "option__score": 0,
-                "option__text": "Quality",
-                "option_id": 48
+                "option__text": "Workplace",
+                "option_id": 8
               },
               {
                 "count": 0,
                 "option__color_code": "#ffd200",
                 "option__parent_id": null,
                 "option__score": 0,
-                "option__text": "Service",
-                "option_id": 52
+                "option__text": "Culture",
+                "option_id": 7
               },
               {
                 "count": 0,
                 "option__color_code": "#1f9aec",
                 "option__parent_id": null,
                 "option__score": 0,
-                "option__text": "Cleanliness",
-                "option_id": 42
+                "option__text": "Food",
+                "option_id": 6
               }
             ]
           },
@@ -59,8 +59,8 @@ describe('OverallRatingCtrl', function(){
         "options": [
           {
             "option__color_code" : "#4CCC72",
-            "option__text": "Not Fresh",
-            "option_id": 49,
+            "option__text": "Cleanliness",
+            "option_id": 9,
             "segment_list":[
               {
                 "option_count": 0,
@@ -69,22 +69,22 @@ describe('OverallRatingCtrl', function(){
               },
               {
                 "option_count": 0,
-                "segment": "Breakfast",
+                "segment": "Morning",
                 "segment_end_time" : "06:00"
               },
               {
                 "option_count": 0,
-                "segment": "Lunch",
+                "segment": "Afternoon",
                 "segment_end_time" : "10:00"
               },
               {
                 "option_count": 0,
-                "segment": "Snack",
+                "segment": "Evening",
                 "segment_end_time" : "14:00"
               },
               {
                 "option_count": 0,
-                "segment": "Dinner",
+                "segment": "Night",
                 "segment_end_time" : "18:00"
               }
             ]
@@ -95,15 +95,15 @@ describe('OverallRatingCtrl', function(){
 
     option_object = {
       "item" : {
-        "category": "07-04-16",
+        "category": "21-04-16",
         "dataContext": {
-          "category": "07-04-16",
+          "category": "21-04-16",
           "column-1": 40,
-          "column-1-id": 48,
+          "column-1-id": 8,
           "column-2": 29,
-          "column-2-id": 52,
+          "column-2-id": 7,
           "column-3": 18,
-          "column-3-id": 42
+          "column-3-id": 6
         }
       },
       "graph": {
@@ -116,7 +116,7 @@ describe('OverallRatingCtrl', function(){
         {
           "color": "#cb1e24",
           "column": "column-1",
-          "value": "Quality"
+          "value": "Workplace"
         }
       ]
     };
@@ -126,9 +126,9 @@ describe('OverallRatingCtrl', function(){
         "color": "#4CCC72",
         "id": "column-1-id",
         "lineColor": "#4CCC72",
-        "option_name": "Not Fresh",
+        "option_name": "Cleanliness",
         "parent_id": "",
-        "title": "Not Fresh",
+        "title": "Cleanliness",
         "valueField" : "column-1"
       }
     ];
@@ -145,32 +145,32 @@ describe('OverallRatingCtrl', function(){
     graph_output = [
       [
         {
-          option_id: 48,
-          option_name: 'Quality',
+          option_id: 8,
+          option_name: 'Workplace',
           parent_id: null,
           color: '#cb1e24',
           lineColor: '#cb1e24',
-          title: 'Quality',
+          title: 'Workplace',
           id: 'column-1-id',
           valueField: 'column-1'
         },
         {
-          option_id: 52,
-          option_name: 'Service',
+          option_id: 7,
+          option_name: 'Culture',
           parent_id: null,
           color: '#ffd200',
           lineColor: '#ffd200',
-          title: 'Service',
+          title: 'Culture',
           id: 'column-2-id',
           valueField: 'column-2'
         },
         {
-          option_id: 42,
-          option_name: 'Cleanliness',
+          option_id: 6,
+          option_name: 'Food',
           parent_id: null,
           color: '#1f9aec',
           lineColor: '#1f9aec',
-          title: 'Cleanliness',
+          title: 'Food',
           id: 'column-3-id',
           valueField: 'column-3'
         }
@@ -179,11 +179,11 @@ describe('OverallRatingCtrl', function(){
         {
           "category": '02-04-16',
           "column-1": 0,
-          "column-1-id": 48,
+          "column-1-id": 8,
           "column-2": 0,
-          "column-2-id": 52,
+          "column-2-id": 7,
           "column-3": 0,
-          "column-3-id": 42
+          "column-3-id": 6
         }
       ]
     ];
@@ -194,9 +194,9 @@ describe('OverallRatingCtrl', function(){
           color: '#4CCC72',
           id: 'column-1-id',
           lineColor: '#4CCC72',
-          option_name: 'Not Fresh',
+          option_name: 'Cleanliness',
           parent_id: '',
-          title: 'Not Fresh',
+          title: 'Cleanliness',
           valueField: 'column-1'
         }
       ],
@@ -238,7 +238,7 @@ describe('OverallRatingCtrl', function(){
       $httpBackend.flush();
 
       expect($rootScope.data_array[0][0].date).toEqual("2016-04-02");
-      expect($rootScope.overall_rating_data[0][0].option_name).toEqual("Quality");
+      expect($rootScope.overall_rating_data[0][0].option_name).toEqual("Workplace");
 
     });
 
@@ -265,8 +265,8 @@ describe('OverallRatingCtrl', function(){
 
       expect(controller.qsc_sub_options_data.data[0].category).toEqual("Late Night");
       expect(controller.qsc_sub_options_data.labels[0]).toEqual("Late Night");
-      expect($rootScope.labels[0].title).toEqual("Not Fresh");
-      expect($rootScope.overall_rating_data[0][0].option_name).toEqual("Not Fresh");
+      expect($rootScope.labels[0].title).toEqual("Cleanliness");
+      expect($rootScope.overall_rating_data[0][0].option_name).toEqual("Cleanliness");
     });
 
     it('shows flash when api call fails', function(){
@@ -282,7 +282,7 @@ describe('OverallRatingCtrl', function(){
 
     it('init option object', function(){
       $rootScope.optionClick(option_object);
-      expect($rootScope.option_object.item.category).toBe("07-04-16");
+      expect($rootScope.option_object.item.category).toBe("21-04-16");
     });
 
   });
@@ -303,7 +303,7 @@ describe('OverallRatingCtrl', function(){
   describe('getLabelColor method', function(){
 
     it('returns label color', function(){
-      expect(controller.getLabelColor(timelinedata, mockResponse.response[0].data.feedbacks[0])).toEqual({value: 'Quality', color: '#cb1e24', column: 'column-1'});
+      expect(controller.getLabelColor(timelinedata, mockResponse.response[0].data.feedbacks[0])).toEqual({value: 'Workplace', color: '#cb1e24', column: 'column-1'});
     });
 
   });

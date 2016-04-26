@@ -14,13 +14,13 @@ describe('TopConcernCtrl', function(){
       "concern_list": [
         {
           "id": 1,
-          "name": "Bun",
-          "weight": 37
+          "name": "Smoking",
+          "weight": 5
         },
         {
           "id": 24,
-          "name": "Wifi",
-          "weight": 37
+          "name": "Parking",
+          "weight": 5
         }
       ]
 
@@ -31,7 +31,7 @@ describe('TopConcernCtrl', function(){
   describe('strength method', function(){
     it('init scope array when function calls ', function(){
       controller.top_concern();
-      expect($rootScope.top_concern_data[0].category).toEqual("BUN [Burnt, Dry]");
+      expect($rootScope.top_concern_data[0].category).toEqual("SMOKING");
     });
   });
 
