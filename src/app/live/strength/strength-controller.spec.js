@@ -13,18 +13,20 @@ describe('StrengthCtrl', function(){
       "feedback_count": 99,
       "feedbacks": [
         {
-          "count": 19,
+          "count": 9,
+          "option__color_code": "#F0C547",
           "option__parent_id": null,
           "option__score": 0,
-          "option__text": "Quality of Food",
-          "option_id": 37
+          "option__text": "A delicious & healthy lunch",
+          "option_id": 29
         },
         {
-          "count": 19,
+          "count": 6,
+          "option__color_code": "#3598DC",
           "option__parent_id": null,
           "option__score": 0,
-          "option__text": "Friendly & Courteous Staff",
-          "option_id": 38
+          "option__text": "On-site daycare",
+          "option_id": 27
         }
       ]
     };
@@ -34,7 +36,7 @@ describe('StrengthCtrl', function(){
   describe('strength method', function(){
     it('init scope array when function calls ', function(){
       controller.strength();
-      expect($rootScope.strength_data[0].category).toEqual("Quality of Food");
+      expect($rootScope.strength_data[0].category).toEqual("A delicious & healthy lunch");
     });
   });
 

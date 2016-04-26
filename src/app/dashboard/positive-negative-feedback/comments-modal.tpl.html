@@ -13,7 +13,6 @@
             <thead>
               <tr>
                 <th class="item1">Name</th>
-                <th class="item2">Phone / Email</th>
                 <th class="item3">Branch</th>
                 <th class="item4">Segment</th>
                 <th class="item5">
@@ -43,10 +42,6 @@
               <tbody>
                 <tr ng-repeat="comment in comments" ng-class="{negative: comment.data.is_negative, recovered: comment.action_string === 'Recovered', NaN: comment.action_string === 'NAN', unprocessed: comment.action_string === 'Unprocessed', unrecoverable: comment.action_string === 'Unrecoverable'}">
                   <td class="item1">{{comment.data.user_name}}</td>
-                  <td class="item2">
-                    <a href="tel:{{comment.phone_no}}" class="tel">{{comment.phone_no}}</a>
-                    <span class="email-holder">{{comment.email}}</span>
-                  </td>
                   <td class="item3">{{comment.data.branch}}</td>
                   <td class="item4">{{comment.data.segment}}</td>
                   <td class="item5">

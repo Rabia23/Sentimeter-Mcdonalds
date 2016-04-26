@@ -11,9 +11,9 @@
 
         var graph_show = false;
         var live_top_concerns;
-        // TODO this code is repeating in 2 directives, make a service for this
+
         var width = screen.width;
-        var marginRight = "-35%";
+        var marginRight = "-20%";
         var marginLeft = "-15%";
         var fontsize = 40;
         if((width <= 1439) && (width >= 1201)){

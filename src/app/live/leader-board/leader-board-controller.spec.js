@@ -13,11 +13,11 @@ describe('LeaderBoardCtrl', function(){
         {
           "branch" : {
             "branch_id": 1,
-            "branch_name": "River Jhelum"
+            "branch_name": "WestWood"
           },
           "city": {
             "city_id": 3,
-            "city_name": "Jhelum"
+            "city_name": "Lahore"
           },
           "count": 3
         }
@@ -29,7 +29,7 @@ describe('LeaderBoardCtrl', function(){
   describe('leader_board method', function(){
     it('init scope array when function calls', function(){
       controller.leader_board();
-      expect($rootScope.branches[0].branch.branch_name).toEqual("River Jhelum");
+      expect($rootScope.branches[0].branch.branch_name).toEqual("WestWood");
     });
   });
 

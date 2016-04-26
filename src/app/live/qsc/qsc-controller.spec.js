@@ -19,24 +19,24 @@ describe('QscCtrl', function(){
               "option__color_code": "#cb1e24",
               "option__parent_id": null,
               "option__score": 0,
-              "option__text": "Quality",
-              "option_id": 48
+              "option__text": "Workplace",
+              "option_id": 8
             },
             {
               "count": 0,
               "option__color_code": "#ffd200",
               "option__parent_id": null,
               "option__score": 0,
-              "option__text": "Service",
-              "option_id": 52
+              "option__text": "Culture",
+              "option_id": 7
             },
             {
               "count": 0,
               "option__color_code": "#1f9aec",
               "option__parent_id": null,
               "option__score": 0,
-              "option__text": "Cleanliness",
-              "option_id": 42
+              "option__text": "Food",
+              "option_id": 6
             }
           ]
         },
@@ -49,7 +49,7 @@ describe('QscCtrl', function(){
   describe('qscfunc method', function(){
     it('init scope arrays when function calls ', function(){
       controller.qscfunc();
-      expect($rootScope.qsc_labels[0].option_name).toEqual("Quality");
+      expect($rootScope.qsc_labels[0].option_name).toEqual("Culture");
       expect($rootScope.overall_rating_data[0].category).toEqual("09-04-16");
     });
   });

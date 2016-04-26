@@ -38,7 +38,7 @@ describe('API_interceptor_service', function(){
     });
 
     it('should place token in http request header', function(){
-      var apiLink = 'https://stagingapimcdonalds.sentimeter.io/api/recommendation_analysis?branch=&city=&date_from=&date_to=&region=';
+      var apiLink = 'https://apiarbisoft.sentimeter.io/api/recommendation_analysis?branch=&city=&date_from=&date_to=&region=';
       var token = "c644639a6b60a8e4afb9709668d790e2058a9fc5";
       var httpResponse = {
         success: true,

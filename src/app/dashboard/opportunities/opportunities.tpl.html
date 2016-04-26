@@ -2,6 +2,18 @@
   <div class="title-outer">
     <div class="ibox-title">
       <h5>What would make you happier at work Today?</h5>
+      <div class="ibox-tools">
+        <ul class="tab-links">
+          <li>
+            <div class="calender-outer">
+              <span class="calendar-holder">
+                <input date-range-picker id="daterange-map" readonly="readonly" name="daterange-map" class="date-picker" type="text" ng-model="date" max="today" options = "datePickerOption" readonly="true"/>
+                <i class="fa fa-calendar" map-range-click></i>
+              </span>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
   <div class="content-holder">
@@ -11,11 +23,15 @@
           <div class="chart-outer">
             <div class="progress-container">
               <div class="progress-area">
-                <div class="progress-holder" ng-repeat="dat in ::opportunity_data" data-color="::dat.colour" data-data="::opportunity_data" opportunity-bar-background>
+                <div class="progress-holder" ng-repeat="dat in opportunity_data" data-color="dat.colour" data-data="opportunity_data" opportunity-bar-background>
                   <div class="progress-inner">
-                    <small><em>{{::dat.name}} </em></small>
+                    <small>
+                      <em>
+                        {{dat.name}}<b>{{dat.people}} people</b>
+                      </em>
+                    </small>
                     <div class="progress-block">
-                      <uib-progressbar animate="false" value="::dat.percentage" type="success"></uib-progressbar>
+                      <uib-progressbar animate="false" value="dat.percentage" type="success"></uib-progressbar>
                     </div>
                   </div>
                 </div>

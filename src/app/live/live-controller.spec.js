@@ -1,7 +1,7 @@
 describe('LiveCtrl', function(){
 
   var $rootScope, controller, WebSocket, $timeout, $httpBackend, Clock;
-  var apiLink = 'https://stagingapimcdonalds.sentimeter.io/api/livedashboard';
+  var apiLink = 'https://apiarbisoft.sentimeter.io/api/livedashboard';
 
   beforeEach(module('livefeed.live'));
   beforeEach(module('helper_factories'));
@@ -28,20 +28,20 @@ describe('LiveCtrl', function(){
               "feedback_count": 0,
               "option_data": [
                 {
-                  "option_id": 48,
-                  "option__text": "Quality",
+                  "option_id": 8,
+                  "option__text": "Workplace",
                   "option__color_code": "#cb1e24",
                   "count": 0
                 },
                 {
-                  "option_id": 52,
-                  "option__text": "Service",
+                  "option_id": 7,
+                  "option__text": "Culture",
                   "option__color_code": "#ffd200",
                   "count": 0
                 },
                 {
-                  "option_id": 42,
-                  "option__text": "Cleanliness",
+                  "option_id": 6,
+                  "option__text": "Food",
                   "option__color_code": "#1f9aec",
                   "count": 0
                 }
@@ -139,7 +139,7 @@ describe('LiveCtrl', function(){
             {
               "branch": {
                 "branch_id": 1,
-                "branch_name": "River Jhelum"
+                "branch_name": "WestWood"
               },
               "count": 62
             }
@@ -149,10 +149,11 @@ describe('LiveCtrl', function(){
           "feedback_count": 99,
           "feedbacks": [
             {
-              "option__text": "Quality of Food",
+              "option__text": "A delicious & healthy lunch",
+              "option__color_code" : "#F0C547",
               "option__parent_id": null,
               "option__color_code": null,
-              "option_id": 37,
+              "option_id": 29,
               "count": 19,
               "option__score": 0
             }
@@ -165,27 +166,27 @@ describe('LiveCtrl', function(){
               "feedback_count": 0,
               "feedbacks": [
                 {
-                  "option__text": "Quality",
+                  "option__text": "Workplace",
                   "option__parent_id": null,
                   "count": 0,
                   "option__color_code": "#cb1e24",
-                  "option_id": 48,
+                  "option_id": 8,
                   "option__score": 0
                 },
                 {
-                  "option__text": "Service",
+                  "option__text": "Culture",
                   "option__parent_id": null,
                   "count": 0,
                   "option__color_code": "#ffd200",
-                  "option_id": 52,
+                  "option_id": 7,
                   "option__score": 0
                 },
                 {
-                  "option__text": "Cleanliness",
+                  "option__text": "Food",
                   "option__parent_id": null,
                   "count": 0,
                   "option__color_code": "#1f9aec",
-                  "option_id": 42,
+                  "option_id": 6,
                   "option__score": 0
                 }
               ]
@@ -196,14 +197,14 @@ describe('LiveCtrl', function(){
           "concern_count": 5,
           "concern_list": [
             {
-              "weight": 37,
-              "id": 1,
-              "name": "Bun"
+              "weight": 5,
+              "id": 5,
+              "name": "Smoking"
             },
             {
-              "weight": 37,
-              "id": 24,
-              "name": "Wifi"
+              "weight": 5,
+              "id": 6,
+              "name": "Parking"
             }
           ]
         },
@@ -211,12 +212,12 @@ describe('LiveCtrl', function(){
           "feedback_count": 63,
           "feedbacks": [
             {
-              "option__text": "I'm lovin' it",
+              "option__text": "Very happy",
               "option__parent_id": null,
-              "option__color_code": null,
-              "option_id": 57,
-              "count": 2,
-              "option__score": 4
+              "option__color_code": "#0E590A",
+              "option_id": 5,
+              "count": 10,
+              "option__score": 5
             }
           ]
         },
@@ -226,69 +227,38 @@ describe('LiveCtrl', function(){
             "negative_feedback_count": 59
           },
           "top_segment": {
-            "segment": "Lunch",
-            "segment_end_time": "10:00",
-            "option_count": 62
+            "segment": "Night",
+            "segment_end_time": "18:00",
+            "option_count": 21
           },
           "qsc_count": [
           {
-            "option_id": 52,
-            "option__text": "Service",
-            "count": 49
+            "option_id": 8,
+            "option__text": "Workplace",
+            "count": 5
           },
           {
-            "option_id": 48,
-            "option__text": "Quality",
-            "count": 55
+            "option_id": 7,
+            "option__text": "Culture",
+            "count": 7
           },
           {
-            "option_id": 42,
-            "option__text": "Cleanliness",
-            "count": 36
+            "option_id": 6,
+            "option__text": "Food",
+            "count": 4
           }
         ],
         "overall_experience": {
-          "option__id": 60,
-          "option__text": "Not happy enough",
-          "count": 42
+          "option__id": 4,
+          "option__text": "Happy",
+          "count": 15
         }
       }
       },
       "success": true
     };
-    $rootScope.top_ranking = {
-      "positive_negative_feedback": {
-        "positive_feedback_count": 4,
-        "negative_feedback_count": 59
-      },
-      "top_segment": {
-        "segment": "Lunch",
-        "segment_end_time": "10:00",
-        "option_count": 62
-      },
-      "qsc_count": [
-        {
-          "option_id": 52,
-          "option__text": "Service",
-          "count": 49
-        },
-        {
-          "option_id": 48,
-          "option__text": "Quality",
-          "count": 55
-        },
-        {
-          "option_id": 42,
-          "option__text": "Cleanliness",
-          "count": 36
-        }
-      ],
-      "overall_experience": {
-        "option__id": 60,
-        "option__text": "Not happy enough",
-        "count": 42
-      }
-    };
+
+    $rootScope.top_ranking = mockResponse["response"]["top_rankings"];
 
     $httpBackend.whenGET(apiLink).respond(mockResponse);
 
@@ -318,14 +288,14 @@ describe('LiveCtrl', function(){
 
       $httpBackend.flush();
 
-      expect($rootScope.top_ranking.overall_experience.option__text).toEqual("Not happy enough");
+      expect($rootScope.top_ranking.overall_experience.option__text).toEqual("Happy");
       expect($rootScope.overall_ratings[0].date).toEqual("2016-04-09");
       expect($rootScope.complaint_view[0].object.name).toEqual("Pakistan");
-      expect($rootScope.overall_feedback.feedbacks[0].option__text).toEqual("I'm lovin' it");
-      expect($rootScope.leader_board_data.branches[0].branch.branch_name).toEqual("River Jhelum");
+      expect($rootScope.overall_feedback.feedbacks[0].option__text).toEqual("Very happy");
+      expect($rootScope.leader_board_data.branches[0].branch.branch_name).toEqual("WestWood");
       expect($rootScope.segmentation_ratings.segments[0].segment).toEqual("Late Night");
-      expect($rootScope.concerns.concern_list[0].name).toEqual("Bun");
-      expect($rootScope.strength.feedbacks[0].option__text).toEqual("Quality of Food");
+      expect($rootScope.concerns.concern_list[0].name).toEqual("Smoking");
+      expect($rootScope.strength.feedbacks[0].option__text).toEqual("A delicious & healthy lunch");
     });
   });
 
@@ -340,7 +310,7 @@ describe('LiveCtrl', function(){
   describe('top_rankings method', function(){
     it('init scope array when function calls', function(){
       controller.top_rankings();
-      expect($rootScope.qsc_ranking[0].option_name).toEqual("Quality");
+      expect($rootScope.qsc_ranking[0].option_name).toEqual("Culture");
     });
   });
 

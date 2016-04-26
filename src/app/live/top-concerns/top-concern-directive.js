@@ -14,7 +14,7 @@
 
         var width = screen.width;
         var marginRight = "-35%";
-        var marginLeft = "-15%";
+        var marginLeft = "-25%";
         var fontsize = 40;
         if((width <= 1439) && (width >= 1201)){
           marginRight = "0";
@@ -86,7 +86,7 @@
                   "valueText": "",
                   "valueWidth": 0,
                   "position": "right",
-                  "marginRight":-20,
+                  "marginRight": 230,
                   "marginTop": 50,
                   "autoMargins":false,
                   "fontSize": fontsize,
