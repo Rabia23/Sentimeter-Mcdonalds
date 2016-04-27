@@ -1,7 +1,7 @@
 describe('QuestionnaireApi', function(){
 
   var QuestionnaireApi, $httpBackend, $rootScope, apiLinks;
-  var apilink = 'https://stagingapimcdonalds.sentimeter.io/api/';
+  var apilink = 'https://apiarbisoft.sentimeter.io/api/';
 
   beforeEach(module('livefeed.questionnaire.api'));
 

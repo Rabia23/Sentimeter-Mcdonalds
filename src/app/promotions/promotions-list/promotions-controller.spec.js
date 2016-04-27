@@ -1,7 +1,7 @@
 describe('PromotionsCtrl', function(){
   
   var $state, $rootScope, $httpBackend, controller, flashService;
-  var apilink = 'https://stagingapimcdonalds.sentimeter.io/api/';
+  var apilink = 'https://apiarbisoft.sentimeter.io/api/';
   
   beforeEach(module('livefeed.promotions'));
   beforeEach(module('livefeed'));

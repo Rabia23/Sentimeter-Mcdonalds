@@ -13,12 +13,12 @@ describe('OverallRatingCtrl', function(){
       "feedback_count": 4,
       "feedbacks": [
         {
-          "count": 0,
+          "count": 10,
           "option__color_code": "#0E590A",
           "option__parent_id": null,
-          "option__score": 4,
-          "option__text": "I'm lovin' it",
-          "option_id": 57
+          "option__score": 5,
+          "option__text": "Very happy",
+          "option_id": 5
         }
       ]
     };
@@ -28,7 +28,7 @@ describe('OverallRatingCtrl', function(){
   describe('rating method', function(){
     it('init scope array when function calls', function(){
       controller.rating();
-      expect($rootScope.overall_rating_data[0].category).toEqual("I'M LOVIN' IT");
+      expect($rootScope.overall_rating_data[0].category).toEqual("VERY HAPPY");
     });
   });
 

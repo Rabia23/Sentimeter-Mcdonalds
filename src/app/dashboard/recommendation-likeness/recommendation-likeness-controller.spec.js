@@ -1,7 +1,7 @@
 describe('RecommendationLikenessCtrl', function(){
 
   var $rootScope, GenderColors, AgeAnalysisApi, httpResponse, flashService;
-  var apiLink = 'https://stagingapimcdonalds.sentimeter.io/api/recommendation_analysis?branch=&city=&date_from=&date_to=&region=';
+  var apiLink = 'https://apiarbisoft.sentimeter.io/api/recommendation_analysis?branch=&city=&date_from=&date_to=&region=';
 
   beforeEach(module('livefeed.dashboard.recommendation_likeness'));
   beforeEach(module('livefeed'));

@@ -14,15 +14,7 @@
         if(value.weight > 0){
           $scope.all_zero = false;
         }
-        if(value.name == "Bun"){
-          $scope.top_concern_data.push({"category": value.name.toUpperCase()+" [Burnt, Dry]", "column-1": value.weight});
-        }
-        else if(value.name == "Menu"){
-          $scope.top_concern_data.push({"category": value.name.toUpperCase()+" [Variety, Patty size, Bun size]", "column-1": value.weight});
-        }
-        else{
-          $scope.top_concern_data.push({"category": value.name.toUpperCase(), "column-1": value.weight});
-        }
+        $scope.top_concern_data.push({"category": value.name.toUpperCase(), "column-1": value.weight});
       });
     }
 

@@ -1,7 +1,7 @@
 describe('OverallFeedbackCtrl', function(){
 
   var $rootScope, $httpBackend, controller, flashService, mockResponse;
-  var apilink = 'https://stagingapimcdonalds.sentimeter.io/api/overall_feedback';
+  var apilink = 'https://apiarbisoft.sentimeter.io/api/overall_feedback';
 
   beforeEach(module('livefeed.dashboard.overall_feedback'));
   beforeEach(module('livefeed'));
@@ -18,20 +18,20 @@ describe('OverallFeedbackCtrl', function(){
         "feedback_count": 48,
         "feedbacks": [
           {
-            "count": 3,
+            "count": 10,
             "option__color_code": "#0E590A",
             "option__parent_id": null,
-            "option__score": 4,
-            "option__text": "I'm lovin' it",
-            "option_id": 57
+            "option__score": 5,
+            "option__text": "Very happy",
+            "option_id": 5
           },
           {
-            "count": 21,
-            "option__color_code": "#e73a3a",
+            "count": 15,
+            "option__color_code": "#01ad0f",
             "option__parent_id": null,
-            "option__score": 2,
-            "option__text": "Few concerns",
-            "option_id": 59
+            "option__score": 4,
+            "option__text": "Happy",
+            "option_id": 4
           }
         ]
       }
@@ -64,9 +64,9 @@ describe('OverallFeedbackCtrl', function(){
       $httpBackend.flush();
 
       expect($rootScope.feedback_count).toBe(48);
-      expect($rootScope.labels[0]).toEqual({option_name: "I'm lovin' it", color: '#0E590A'});
-      expect(controller.maximum.count).toBe(21);
-      expect($rootScope.bar.labels[0]).toEqual("I'm lovin' it");
+      expect($rootScope.labels[0]).toEqual({option_name: 'Very happy', color: '#0E590A'});
+      expect(controller.maximum.count).toBe(15);
+      expect($rootScope.bar.labels[0]).toEqual('Very happy');
     });
 
     it('shows flash when api call fails', function(){
