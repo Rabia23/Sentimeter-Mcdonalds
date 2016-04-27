@@ -3296,9 +3296,9 @@ li.active,
     min-width: inherit;
     height: 41px;
   }
-  .business-segment .tab-links li {width: 25%;}
-  .business-segment .tab-links li.item2,
-  .business-segment .tab-links li.item3 {width: 21%;}
+  .business-segment .tab-links li:first-child + li,
+  .business-segment .tab-links li:first-child + li + li{width: 21%;}
+  .business-segment .tab-links li {width: 24%;}
   .business-segment .tab-links li:first-child,
   .business-segment .tab-links li.item5,
   .business-segment .tab-links li:last-child {width: 11%;}
