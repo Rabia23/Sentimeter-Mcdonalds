@@ -6,15 +6,16 @@
   padding: 15px;
 	z-index: 5;
   background: $black-squeeze;
+  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,.14), inset 0 0 1px #fff;
+	-moz-box-shadow: 0 5px 5px rgba(0,0,0,.14), inset 0 0 1px #fff;
+	box-shadow: 0 5px 5px rgba(0,0,0,.14), inset 0 0 1px #fff;
   
-	@include media("≥widescreen"){padding: 18px 20px;}
-	@include media("≥largeScreen"){padding: 18px 30px;}
+	@include media("≥widescreen"){padding: 15px 20px;}
+	@include media("≥largeScreen"){padding: 15px 30px;}
 }
 
 .logo{
 	@include inline-block(bottom);
-	width: 94px;
-  height: 94px;
   background: $white;
 	letter-spacing: 0;
 	margin: 0 20px 4px 0;
@@ -23,25 +24,24 @@
   a{
     display: block;
     padding: 8px;
+    width: 94px;
+    height: 94px;
+    @include v-align(100%, middle, before);
   }
   
 	img{
-		display: block;
-		max-width: 50%;
+		max-width: 100%;
 		height: auto;
-    margin: 5px auto;
-    
-    + img{max-width: 90%;}
+    margin: 0 0 0 -4px;
+    @include inline-block(middle);
 	}
   
   @include media("≥largeScreen"){
-    width: 114px;
-    height: 114px;
     margin: 0 25px 4px 0;
-    a{padding: 15px 10px;}
-    img{
-      max-width: 100%;
-      + img{max-width: 100%;}
+    a{
+      padding: 15px 10px;
+      width: 114px;
+      height: 114px;
     }
   }
 }

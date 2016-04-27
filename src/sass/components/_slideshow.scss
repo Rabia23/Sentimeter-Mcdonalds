@@ -21,9 +21,9 @@
 		right: 0;
 		top: 0;
 		bottom: 0;
-		padding: 130px 0 72px;
+		padding: 128px 0 72px;
 		
-		@include media("≥widescreen"){padding: 165px 0 72px;}
+		@include media("≥widescreen"){padding: 160px 0 72px;}
 		
 		&:before{
 			position: absolute;
@@ -150,9 +150,9 @@
 			
 			a{
 				display: block;
-				color: rgba($white,0.25);
+				color: rgba($white,0.2);
 				position: relative;
-				background: rgba($black,0.4);
+				background: rgba($black,0.5);
 
 				span{
 					display: block;
@@ -208,7 +208,7 @@
 			
 			&.active{
 				a{
-					text-shadow: 0 0 15px $supernova;
+					text-shadow: 0 0 15px $white;
 					color: $white;
 					background: rgba($black,0.1);
 					z-index: 999;

@@ -3,7 +3,7 @@ html body {
   min-width: 320px;
   -ms-overflow-style: scrollbar;
 }
-html body.login {background: #eee;}
+html body.login {background: #f1f1f1;}
 .feedback-count{
   display: block;
   margin: 0 0 5px;
@@ -833,7 +833,7 @@ html body.errorpage {background: #eee;}
 }
 #header .logo {
   display: block;
-  width: 150px;
+  width: 160px;
   margin: 5px auto 20px;
 }
 #header .logo img {
