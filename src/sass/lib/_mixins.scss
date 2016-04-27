@@ -258,3 +258,11 @@ $animation-speed: .3s !default;
 	-webkit-transition: $val $duration $function;
 	transition: $val $duration $function;
 }
+
+@mixin border-radius($val){
+  -webkit-border-radius: $val;
+  -moz-border-radius: $val;
+  -ms-border-radius: $val;
+  -o-border-radius: $val;
+  border-radius: $val;
+}

@@ -1,41 +1,49 @@
 #header{
 	position: absolute;
-	left: 15px;
-	right: 15px;
-	top: 15px;
+	left: 0;
+	right: 0;
+	top: 0;
+  padding: 15px;
 	z-index: 5;
-	@include media("≥widescreen"){
-		left: 20px;
-		right: 20px;
-		top: 24px;
-	}
-	@include media("≥largeScreen"){
-		left: 30px;
-		right: 30px;
-	}
+  background: $black-squeeze;
+  
+	@include media("≥widescreen"){padding: 18px 20px;}
+	@include media("≥largeScreen"){padding: 18px 30px;}
 }
 
 .logo{
 	@include inline-block(bottom);
-	width: 95px;
+	width: 94px;
+  height: 94px;
+  background: $white;
 	letter-spacing: 0;
-	margin: 0 10px 4px 0;
-	
-	@include media("≥widescreen"){
-		width: 110px;
-		margin: 0 20px 6px 0;
-	}
-	
-	@include media("≥largeScreen"){
-		width: 116px;
-		margin: 0 27px 6px 0;
-	}
-	
+	margin: 0 20px 4px 0;
+	@include border-radius(5px);
+  
+  a{
+    display: block;
+    padding: 8px;
+  }
+  
 	img{
 		display: block;
-		width: 100%;
+		max-width: 50%;
 		height: auto;
+    margin: 5px auto;
+    
+    + img{max-width: 90%;}
 	}
+  
+  @include media("≥largeScreen"){
+    width: 114px;
+    height: 114px;
+    margin: 0 25px 4px 0;
+    a{padding: 15px 10px;}
+    img{
+      max-width: 100%;
+      + img{max-width: 100%;}
+    }
+  }
 }
 
 .header-block{
@@ -46,23 +54,18 @@
 .header-content{
 	overflow: hidden;
 	text-align: right;
-	padding: 7px 6px 0 0;
 	
 	time{
 		display: block;
 		font-size: 14px;
 		line-height: 18px;
 		text-transform: uppercase;
-		margin: 0 2px 24px 0;
+		margin: 0 0 17px 0;
 		
 		strong{
-			@include inline-block(top);
-			margin: 0 10px 0 0;
+      display: block;
+      text-align: right;
 		}
-		
-		@include media("≥largeDesktop"){margin: 0 2px 18px 0;}
-		@include media("≥widescreen"){margin: 0 2px 25px 0;}
-		@include media("≥largeScreen"){margin: 0 2px 25px 0;}
 	}
 }
 
@@ -72,7 +75,7 @@
 	letter-spacing: -6px;
 	text-align: right;
 	text-transform: uppercase;
-	color: $mine-shaft;
+	color: $gray2;
 	
 	
 	> li{
@@ -109,7 +112,7 @@
 	ul{
 		@extend %listreset;
 		text-align: left;
-		color: $rosso-corsa;
+    color: $lochmara;
 		letter-spacing: 0;
 		@include transition($val:all, $duration:1s, $function:linear);
 		font: {
@@ -145,13 +148,14 @@
 	
 	h1{
 		@include inline-block(bottom);
+    color: $lochmara;
 	}
 	
 	.timer-slider{
 		@include inline-block(bottom);
 		@extend %listreset;
 		position: relative;
-		color: $rosso-corsa;
+    color: $mine-shaft2;
 		margin: 0 0 4px 5px;
 		
 		font-size: 14px;
