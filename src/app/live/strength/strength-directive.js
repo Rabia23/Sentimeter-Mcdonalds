@@ -77,6 +77,7 @@
                 "allLabels": [],
                 "balloon": {},
                 "legend": {
+                  "color": "#FFFFFF",
                   "enabled": true,
                   "switchable" : false,
                   "align": "center",

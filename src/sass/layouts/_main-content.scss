@@ -1,146 +1,73 @@
-#wrapper{
-	overflow: hidden;
-	position: relative;
-	width: 100%;
-	min-height: 100%;
+#wrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  min-height: 100%;
 }
 
-.chart-outer{
-	width: 100%;
-	height: 100%;
-	@extend %clearfix;
-	padding: 0 2%;
-	
-	@include media("≥widescreen"){padding: 0 5%;}
-	
-	> div{
-		width: 100% !important;
-		height: 100% !important;
-	}
+.chart-outer {
+  width: 100%;
+  height: 100%;
+  @extend %clearfix;
+  padding: 0 2%;
+  
+  @include media("≥widescreen") {padding: 0 5%;}
+  
+  > div {
+    width: 100% !important;
+    height: 100% !important;
+  }
 }
 
 #piechart,
 #container,
-#strengthPieChart{
-	width: 100% !important;
-	height: 100% !important;
-
-	.amcharts-chart-div{
-		z-index: 1;
-		position: relative;
-
-//		&:after{
-//			position: absolute;
-//			bottom: 0;
-//			content: '';
-//			pointer-events: none;
-//			z-index: -1;
-//			background: -moz-radial-gradient(center, ellipse cover, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 70%);
-//background: -webkit-radial-gradient(center, ellipse cover, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 70%);
-//background: radial-gradient(ellipse at center, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 70%);
-//filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cc000000', endColorstr='#00000000',GradientType=1 );
-//			max-width: 770px;
-//			margin: 0 auto;
-//		}
-	}
+#strengthPieChart {
+  width: 100% !important;
+  height: 100% !important;
+  
+  .amcharts-chart-div {
+    z-index: 1;
+    position: relative;
+  }
 }
 
-//#piechart{
-//	.amcharts-chart-div{
-//		&:after{
-//			left: 19%;
-//			right: 19%;
-//			top: 30%;
-//			bottom: 5%;
-//			
-//			@include media("≥widescreen"){
-//				left: 21%;
-//				right: 21%;
-//				bottom: 0;
-//			}			
-//		}
-//	}
-//}
-
-//#strengthPieChart{
-//	.amcharts-chart-div{
-//		&:after{
-//			left: 5%;
-//			right: 0;
-//			top: 36%;
-//			bottom: -5%;
-//            max-width: 630px;
-//			
-//			@include media("≥widescreen"){
-//				left: 5%;
-//				right: 0%;
-//				bottom: -50px;
-//                max-width: 770px; 
-//			}
-//            @include media("≥widerScreen"){
-//				left: 25%;
-//				right: 3%;
-//			}
-//		}
-//	}
-//}
-//
-//#container{
-//	.amcharts-chart-div{
-//		&:after{
-//			left: 0;
-//			right: 0;
-//			top: 36%;
-//			bottom: -5%;
-//			
-//			@include media("≥widescreen"){
-//				left: 12%;
-//				right: 0;
-//				bottom: -50px;
-//			}
-//            @include media("≥widerScreen"){
-//				left: 28%;
-//				right: 7%;
-//			}
-//		}
-//	}
-//}
-
-#area-chart{
-	overflow: visible !important;
-	
-	.amcharts-chart-div{overflow: visible !important;}
-	.amcharts-legend-div{
-		display: none !important;
-		font-size: 0;
-		line-height: 0;
-	}
+#area-chart {
+  overflow: visible !important;
+  
+  .amcharts-chart-div {overflow: visible !important;}
+  
+  .amcharts-legend-div {
+    display: none !important;
+    font-size: 0;
+    line-height: 0;
+  }
 }
 
-svg{
-	text{text-shadow: 0 0 1px #000;}
+svg {
+  text {text-shadow: 0 0 1px #000;}
 }
 
-.amChartsLegend.amcharts-legend-div{
-	text{text-shadow: none !important;}
+.amChartsLegend.amcharts-legend-div {
+  text {text-shadow: none !important;}
 }
 
-.block-holder{
-  .error-msg{
+.block-holder {
+  
+  .error-msg {
     display: table-cell;
     vertical-align: middle;
   }
 }
 
-.error-msg{
-	width: 100%;
-	text-align: center;
-	
-	> *{
-		@include inline-block(middle);
-		text-transform: capitalize;
-		color: $mine-shaft;
-		font-size: 30px;
-		line-height: 30px;
-	}
+.error-msg {
+  width: 100%;
+  text-align: center;
+  
+  > * {
+    @include inline-block(middle);
+    text-transform: capitalize;
+    color: $mine-shaft;
+    font-size: 30px;
+    line-height: 30px;
+  }
 }

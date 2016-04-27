@@ -3,7 +3,7 @@ html body {
   min-width: 320px;
   -ms-overflow-style: scrollbar;
 }
-html body.login {background: #eee;}
+html body.login {background: #f1f1f1;}
 .feedback-count{
   display: block;
   margin: 0 0 5px;
@@ -833,7 +833,7 @@ html body.errorpage {background: #eee;}
 }
 #header .logo {
   display: block;
-  width: 150px;
+  width: 160px;
   margin: 5px auto 20px;
 }
 #header .logo img {
@@ -1824,11 +1824,11 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
   height: 100%;
 }
 .business-segment .progress-area .progress-holder .progress-inner {
-  padding: 20px 0 15px;
+  padding: 17px 0 15px;
   position: relative;
 }
 .business-segment .progress-area .progress-holder .progress-block .progress {
-  min-height: 20px;
+  min-height: 18px;
   max-height: 50px;
   height: 100%;
 }
@@ -1870,7 +1870,7 @@ body > .jcf-select-drop.jcf-drop-flipped {margin: 1px 0 0;}
 .business-segment .progress-area .progress-holder .progress-block {height: 100%;}
 .business-segment .progress-area .progress-holder .progress-block.main {cursor: pointer;}
 .opportunities .progress-area .progress-holder {
-  padding: 0 0 12px;
+  padding: 0 0 10px;
   min-height: inherit;
 }
 .opportunities .progress-area .progress {
@@ -3085,8 +3085,8 @@ li.active,
 }
 
 @media screen and (min-width: 1200px) {
-  .blocks-holder > .row {height: 35%;}
-  .blocks-holder > .row:first-child {height: 65%;}
+  .blocks-holder > .row {height: 37%;}
+  .blocks-holder > .row:first-child {height: 63%;}
   .blocks-holder > .row > div,
   .blocks-holder > .row > div > *,
   .blocks-holder > .row > div > * >div {height: 100%;}
@@ -3331,12 +3331,12 @@ li.active,
     min-width: inherit;
     height: 41px;
   }
-  .business-segment .tab-links li {width: 25%;}
+  .business-segment .tab-links li {width: 22%;}
   .business-segment .tab-links li.item2,
   .business-segment .tab-links li.item3 {width: 21%;}
   .business-segment .tab-links li:first-child,
   .business-segment .tab-links li.item5,
-  .business-segment .tab-links li:last-child {width: 11%;}
+  .business-segment .tab-links li:last-child {width: 11.3%;}
   .patch-section .tab-links li {width: 25%;}
   .patch-section .tab-links li:last-child {width: 20%;}
   .patch-section .tab-links li:first-child {width: 30%;}
