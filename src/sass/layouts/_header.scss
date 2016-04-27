@@ -1,27 +1,28 @@
-#header{
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
+#header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
   padding: 15px;
-	z-index: 5;
+  z-index: 5;
   background: $black-squeeze;
-  -webkit-box-shadow: 0 5px 5px rgba(0,0,0,.14), inset 0 0 1px #fff;
-	-moz-box-shadow: 0 5px 5px rgba(0,0,0,.14), inset 0 0 1px #fff;
-	box-shadow: 0 5px 5px rgba(0,0,0,.14), inset 0 0 1px #fff;
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, .14), inset 0 0 1px #fff;
+  -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, .14), inset 0 0 1px #fff;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, .14), inset 0 0 1px #fff;
   
-	@include media("≥widescreen"){padding: 15px 20px;}
-	@include media("≥largeScreen"){padding: 15px 30px;}
+  @include media("≥widescreen") {padding: 15px 20px;}
+  
+  @include media("≥largeScreen") {padding: 15px 30px;}
 }
 
-.logo{
-	@include inline-block(bottom);
+.logo {
+  @include inline-block(bottom);
   background: $white;
-	letter-spacing: 0;
-	margin: 0 20px 4px 0;
-	@include border-radius(5px);
+  letter-spacing: 0;
+  margin: 0 20px 4px 0;
+  @include border-radius(5px);
   
-  a{
+  a {
     display: block;
     padding: 8px;
     width: 94px;
@@ -29,16 +30,17 @@
     @include v-align(100%, middle, before);
   }
   
-	img{
-		max-width: 100%;
-		height: auto;
+  img {
+    max-width: 100%;
+    height: auto;
     margin: 0 0 0 -4px;
     @include inline-block(middle);
-	}
+  }
   
-  @include media("≥largeScreen"){
+  @include media("≥largeScreen") {
     margin: 0 25px 4px 0;
-    a{
+    
+    a {
       padding: 15px 10px;
       width: 114px;
       height: 114px;
@@ -46,136 +48,137 @@
   }
 }
 
-.header-block{
-	float: left;
-	letter-spacing: -4px;
+.header-block {
+  float: left;
+  letter-spacing: -4px;
 }
 
-.header-content{
-	overflow: hidden;
-	text-align: right;
-	
-	time{
-		display: block;
-		font-size: 14px;
-		line-height: 18px;
-		text-transform: uppercase;
-		margin: 0 0 17px 0;
-		
-		strong{
+.header-content {
+  overflow: hidden;
+  text-align: right;
+  
+  time {
+    display: block;
+    font-size: 14px;
+    line-height: 18px;
+    text-transform: uppercase;
+    margin: 0 0 17px 0;
+    
+    strong {
       display: block;
       text-align: right;
-		}
-	}
+    }
+  }
 }
 
-.info-list{
-	overflow: hidden;
-	@extend %listreset;
-	letter-spacing: -6px;
-	text-align: right;
-	text-transform: uppercase;
-	color: $gray2;
-	
-	
-	> li{
-		@include inline-block(top);
-		letter-spacing: 0;
-		text-align: left;
-		margin: 0 0 0 10px;
-		@include transition($val:all, $duration:1s, $function:linear);
-		
-		@include media("≥largeDesktop"){margin: 0 0 0 20px;}
-		@include media("≥widescreen"){margin: 0 0 0 30px;}
-		@include media("≥largeScreen"){margin: 0 0 0 40px;}
-		
-		&:first-child{margin: 0;}
-	}
-	.title{
-		display: block;
-		font-weight: 400;
-		margin: 0 0 4px;
-		font-size: 13px;
-		
-		@include media("≥largeDesktop"){
-			font-size: 15px;
-			margin: 0 0 2px;
-		}
-		@include media("≥widescreen"){
-			font-size: 17px;
-		}
-		@include media("≥largeScreen"){
-			font-size: 18px;
-			margin: 0 0 4px;
-		}
-	}
-	ul{
-		@extend %listreset;
-		text-align: left;
+.info-list {
+  overflow: hidden;
+  @extend %listreset;
+  letter-spacing: -6px;
+  text-align: right;
+  text-transform: uppercase;
+  color: $gray2;
+  
+  > li {
+    @include inline-block(top);
+    letter-spacing: 0;
+    text-align: left;
+    margin: 0 0 0 10px;
+    @include transition($val: all, $duration: 1s, $function: linear);
+    
+    @include media("≥largeDesktop") {margin: 0 0 0 20px;}
+    @include media("≥widescreen") {margin: 0 0 0 30px;}
+    @include media("≥largeScreen") {margin: 0 0 0 40px;}
+    &:first-child {margin: 0;}
+  }
+  
+  .title {
+    display: block;
+    font-weight: 400;
+    margin: 0 0 4px;
+    font-size: 13px;
+    
+    @include media("≥largeDesktop") {
+      font-size: 15px;
+      margin: 0 0 2px;
+    }
+    
+    @include media("≥widescreen") {font-size: 17px;}
+  
+    @include media("≥largeScreen") {
+      font-size: 18px;
+      margin: 0 0 4px;
+    }
+  }
+  
+  ul {
+    @extend %listreset;
+    text-align: left;
     color: $lochmara;
-		letter-spacing: 0;
-		@include transition($val:all, $duration:1s, $function:linear);
-		font: {
-			size: 20px;
-			weight: 300;
-		}
-		
-		@include media("≥largeDesktop"){font-size: 24px;}
-		@include media("≥widescreen"){font-size: 30px;}
-		@include media("≥largeScreen"){font-size: 33px;}
-		
-		li{
-			float: left;
-			@include transition($val:all, $duration:1s, $function:linear);
-			
-			+li{
-				&:before{
-					float: left;
-					margin: 0 1px;
-					content: "/";
-					color: $mine-shaft;
-				}
-			}
-			&.positive{color: $india-green;}
-			&.item2{color: darken($yellow-orange,20%);}
-			&.item3{color: $rich-electric-blue;}
-		}
-	}
+    letter-spacing: 0;
+    @include transition($val: all, $duration: 1s, $function: linear);
+    font: {
+      size: 20px;
+      weight: 300;
+    }
+    
+    @include media("≥largeDesktop") {font-size: 24px;}
+    @include media("≥widescreen") {font-size: 30px;}
+    @include media("≥largeScreen") {font-size: 33px;}
+    
+    li {
+      float: left;
+      @include transition($val: all, $duration: 1s, $function: linear);
+      
+      +li {
+        &:before {
+          float: left;
+          margin: 0 1px;
+          content: "/";
+          color: $mine-shaft;
+        }
+      }
+      
+      &.positive {color: $india-green;}
+      &.item2 {color: darken($yellow-orange, 20%);}
+      &.item3 {color: $rich-electric-blue;}
+    }
+  }
 }
 
-.heading-holder{
-	@extend %clearfix;
-	
-	h1{
-		@include inline-block(bottom);
+.heading-holder {
+  @extend %clearfix;
+  
+  h1 {
+    @include inline-block(bottom);
     color: $lochmara;
-	}
-	
-	.timer-slider{
-		@include inline-block(bottom);
-		@extend %listreset;
-		position: relative;
+  }
+  
+  .timer-slider {
+    @include inline-block(bottom);
+    @extend %listreset;
+    position: relative;
     color: $mine-shaft2;
-		margin: 0 0 4px 5px;
-		
-		font-size: 14px;
-  		@include media("≥largeDesktop"){font-size: 15px;}
-  		@include media("≥widescreen"){font-size: 17px;}
-		
-		li{
-			position: absolute;
-			left: 0;
-			top: 0;
-			@include transition($val:ease-in, $duration:3s, $function:linear);
-
-			&.active{
-				z-index: 2;
-				position: relative;
-			}
-
-			+ li{
-				&:before{display: none;}
-			}
-		}
-	}
+    margin: 0 0 4px 5px;
+    font-size: 14px;
+    
+    @include media("≥largeDesktop") {font-size: 15px;}
+    @include media("≥widescreen") {font-size: 17px;}
+    
+    li {
+      position: absolute;
+      left: 0;
+      top: 0;
+      @include transition($val: ease-in, $duration: 3s, $function: linear);
+      
+      &.active {
+        z-index: 2;
+        position: relative;
+      }
+      
+      + li {
+        &:before {display: none;}
+      }
+    }
+  }
 }
