@@ -3,7 +3,7 @@
     <div class="holder">
       <div class="inner-holder">
         <div class="list-holder">
-          <ul class="list">
+          <ul class="list" ng-hide="all_zeros">
             <li class = {{label.action_class}} ng-repeat="label in patch_qsc_labels">
               <span class="bullet"></span>
               {{label.action_name}}
