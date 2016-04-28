@@ -3210,7 +3210,6 @@ li.active,
 }
 
 @media screen and (max-width: 1199px) {
-  .flot-chart{max-width: inherit;}
   .opportunities {padding-bottom: 0;}
   .modal-1200 {width: 970px;}
   .ibox.detail-block .ibox-content,
@@ -3261,6 +3260,7 @@ li.active,
 }
 
 @media screen and (max-width: 991px) {
+  .flot-chart{max-width: inherit;}
   .feedback-count{font-size: 12px;}
   .modal-1200 .table td .dropdown-menu{right: -15px;}
   .promotions .btn.dim {
