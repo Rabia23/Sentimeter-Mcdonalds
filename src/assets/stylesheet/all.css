@@ -3112,6 +3112,8 @@ li.active,
 }
 
 @media screen and (max-width: 1600px) {
+  .feedback-count{font-size: 12px;}
+  .morris-block-holder .morris-content-holder{padding: 0 3px;}
   .wrapper .ibox-title h5{font-size: 13px;}
   .tab-links li a {padding: 13px 5px;}
   .calender-outer {min-width: 35px;}
@@ -3154,6 +3156,8 @@ li.active,
 }
 
 @media screen and (max-width: 1279px) {
+  .feedback-count{font-size: 13px;}
+  .morris-block-holder .morris-content-holder{padding: 0 5px;}
   #wrapper .data-block .ibox-content:after{min-height: inherit;}
   .wrapper .ibox-title h5{font-size: 14px;}
   .tab-links li a {padding: 13px 15px;}
@@ -3199,6 +3203,10 @@ li.active,
     line-height: 20px;
   }
   .grid-container .grid-item {width: 33.33%;}
+  .flot-chart{
+    max-width: 490px;
+    margin: 0 auto;
+  }
 }
 
 @media screen and (max-width: 1199px) {
@@ -3252,6 +3260,8 @@ li.active,
 }
 
 @media screen and (max-width: 991px) {
+  .flot-chart{max-width: inherit;}
+  .feedback-count{font-size: 12px;}
   .modal-1200 .table td .dropdown-menu{right: -15px;}
   .promotions .btn.dim {
     font-size: 15px;
@@ -3297,8 +3307,8 @@ li.active,
     height: 41px;
   }
   .business-segment .tab-links li {width: 25%;}
-  .business-segment .tab-links li.item2,
-  .business-segment .tab-links li.item3 {width: 21%;}
+  .business-segment .tab-links li:first-child + li,
+  .business-segment .tab-links li:first-child + li + li{width: 21%;}
   .business-segment .tab-links li:first-child,
   .business-segment .tab-links li.item5,
   .business-segment .tab-links li:last-child {width: 11%;}
