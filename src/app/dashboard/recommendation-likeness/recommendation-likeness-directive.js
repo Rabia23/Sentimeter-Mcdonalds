@@ -60,7 +60,13 @@
               "dataProvider": data
             });
             $timeout(function(){
-              window.initSameHeight();
+              jQuery('.same-height-parent').sameHeight({
+                elements: '.data-block .equal-height',
+                flexible: true,
+                multiLine: true,
+                biggestHeight: true,
+                useMinHeight: false
+              });
             },200);
           }
         });
