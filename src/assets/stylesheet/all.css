@@ -1180,6 +1180,10 @@ textarea.form-control{
   text-overflow: ellipsis;
   z-index: 99;
 }
+.modal-1200 .table th.item3 .btn.btn-info{
+  width: 0;
+  min-width: 100%;
+}
 .modal-1200 .table th .btn .caret,
 .modal-1200 .table th.item6 .btn .caret{
   position: absolute;
@@ -1205,18 +1209,21 @@ textarea.form-control{
   -moz-transform: rotate(180deg);
   transform: rotate(180deg);
 }
-.modal-1200 .table th.item3 .jcf-scrollable-wrapper,
-.modal-1200 .table th.item3 .jcf-scrollable{
-  height: 200px !important;
-  min-width: 150px;
-}
-.modal-1200 .table th.item3 .jcf-scrollable-wrapper{
-  position: absolute !important;
+.modal-1200 .table th.item3 .drop-holder{
+  position: absolute;
+  left: -9999em;
+  top: -9999em;
+  height: 200px;
+  z-index: 999;
 }
 .modal-1200 .table th.item3 .dropdown-menu{
   min-width: 150px;
   display: block;
   position: static;
+}
+.modal-1200 .table th.item3 .open .drop-holder{
+  left: 0;
+  top: 100%;
 }
 .modal-1200 .table .dropdown-menu {
   left: auto;
@@ -1241,12 +1248,15 @@ textarea.form-control{
   border-top: 1px solid #e5e5e5;
   white-space: normal;
   word-wrap: normal;
+  position: relative;
+  z-index: 99;
 }
 .modal-1200 .table .dropdown-menu > li:first-child > a {border-top: 0;}
 .modal-1200 .table th .dropdown-menu > li > a {
   text-align: left;
   padding: 10px;
 }
+.modal-1200 .table th.item3 .dropdown-menu>li>a{padding-right: 13px;}
 .modal-1200 .table .dropdown-menu > li > a:hover,
 .modal-1200 .table .dropdown-menu > li > a:active,
 .modal-1200 .table .dropdown-menu > li > a:focus,
@@ -1373,7 +1383,9 @@ textarea.form-control{
 .comments-drop .comments-holder .jcf-scrollable-wrapper,
 .comments-drop .comments-holder .jcf-scrollable,
 #wrapper #side-menu .jcf-scrollable-wrapper,
-#wrapper #side-menu .jcf-scrollable{height: 100% !important;}
+#wrapper #side-menu .jcf-scrollable,
+.modal-1200 .table th.item3 .jcf-scrollable-wrapper,
+.modal-1200 .table th.item3 .jcf-scrollable{height: 100% !important;}
 
 .modal-1200 .modal-body .table-block {min-height: inherit !important;}
 
