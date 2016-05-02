@@ -19,11 +19,13 @@
                     <button id="single-button2" type="button" class="btn btn-info" uib-dropdown-toggle>
                       <span class="caret"></span> {{statusOption}}
                     </button>
-                    <ul uib-dropdown-menu role="menu" aria-labelledby="dropdown-button">
-                      <li role="menuitem" ng-repeat="option in status_options">
-                        <a style="cursor: pointer" ng-click="showComments(option)">{{option}}</a>
-                      </li>
-                    </ul>
+                    <div class="jcf-scrollable">
+                      <ul uib-dropdown-menu role="menu" aria-labelledby="dropdown-button">
+                        <li role="menuitem" ng-repeat="option in status_options">
+                          <a style="cursor: pointer" ng-click="showComments(option)">{{option}}</a>
+                        </li>
+                      </ul>
+                    </div>
                   </div>
                 </th>
                 <th class="item4">Segment</th>

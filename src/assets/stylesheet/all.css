@@ -981,7 +981,9 @@ textarea.form-control{
 }
 .modal-1200 .modal-body .table-block {position: relative;}
 .jcf-scrollbar-dec,
-.jcf-scrollbar-inc {
+.jcf-scrollbar-inc,
+.modal-1200 th .jcf-scrollbar-dec,
+.modal-1200 th .jcf-scrollbar-inc{
   width: 5px;
   height: 5px;
 }
@@ -1176,6 +1178,7 @@ textarea.form-control{
   padding-right: 25px;
   overflow: hidden;
   text-overflow: ellipsis;
+  z-index: 99;
 }
 .modal-1200 .table th .btn .caret,
 .modal-1200 .table th.item6 .btn .caret{
@@ -1201,6 +1204,19 @@ textarea.form-control{
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   transform: rotate(180deg);
+}
+.modal-1200 .table th.item3 .jcf-scrollable-wrapper,
+.modal-1200 .table th.item3 .jcf-scrollable{
+  height: 200px !important;
+  min-width: 150px;
+}
+.modal-1200 .table th.item3 .jcf-scrollable-wrapper{
+  position: absolute !important;
+}
+.modal-1200 .table th.item3 .dropdown-menu{
+  min-width: 150px;
+  display: block;
+  position: static;
 }
 .modal-1200 .table .dropdown-menu {
   left: auto;
@@ -1336,7 +1352,9 @@ textarea.form-control{
 .comments-drop .comments-holder .jcf-scrollable-wrapper,
 .comments-drop .comments-holder .jcf-scrollable,
 #wrapper #side-menu .jcf-scrollable-wrapper,
-#wrapper #side-menu .jcf-scrollable{width: 100% !important;}
+#wrapper #side-menu .jcf-scrollable,
+.modal-1200 .table th.item3 .jcf-scrollable-wrapper,
+.modal-1200 .table th.item3 .jcf-scrollable{width: 100% !important;}
 
 .modal-1200 .content .jcf-scrollable-wrapper,
 .modal-1200 .content .table-container,
