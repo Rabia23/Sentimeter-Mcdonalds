@@ -1163,7 +1163,10 @@ textarea.form-control{
   background: #01940d;
   border-color: #01940d;
 }
-.modal-1200 .table th.item6 .btn.btn-info {
+.modal-1200 .table th .btn-group,
+.modal-1200 .table th .btn-group-vertical{width: 100%;}
+.modal-1200 .table th .btn.btn-info,
+.modal-1200 .table th.item6 .btn.btn-info{
   background: none;
   border: 0;
   box-shadow: none;
@@ -1171,8 +1174,11 @@ textarea.form-control{
   width: 100%;
   text-align: left;
   padding-right: 25px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.modal-1200 .table th.item6 .btn .caret {
+.modal-1200 .table th .btn .caret,
+.modal-1200 .table th.item6 .btn .caret{
   position: absolute;
   right: 13px;
   top: 50%;
@@ -1181,6 +1187,9 @@ textarea.form-control{
   border-right: 6px solid transparent;
   border-top: 6px dashed;
 }
+.modal-1200 .table th .btn.btn-info:hover,
+.modal-1200 .table th .btn.btn-info:active,
+.modal-1200 .table th .btn.btn-info:fcous ,
 .modal-1200 .table th.item6 .btn.btn-info:hover,
 .modal-1200 .table th.item6 .btn.btn-info:active,
 .modal-1200 .table th.item6 .btn.btn-info:fcous {
@@ -3249,7 +3258,9 @@ li.active,
     left: -10px;
     right: -10px;
   }
+  .modal-1200 .table th .btn.btn-info,
   .modal-1200 .table th.item6 .btn.btn-info{font-size: 12px;}
+  .modal-1200 .table th .btn .caret,
   .modal-1200 .table th.item6 .btn .caret{
     border-left-width: 4px;
     border-right-width: 4px;
@@ -3362,6 +3373,7 @@ li.active,
   .modal-1200 .modal-body {padding: 0 0 15px;}
   .modal-1200 .table th .dropdown-menu {margin: 0 -5px 0 0;}
   .content-inner{background: #fff;}
+  .modal-1200 .table th .btn.btn-info,
   .modal-1200 .table th.item6 .btn.btn-info{font-size: 11px;}
 }
 
@@ -3548,6 +3560,7 @@ li.active,
   #wrapper .doc-block .navbar-static-side a.btn-top {margin: -65px 0 0;}
   .modal-1200{padding: 15px 0;}
   #wrapper .middle-box h1{font-size: 120px;}
+  .modal-1200 .table th .btn.btn-info,
   .modal-1200 .table th.item6 .btn.btn-info{padding-right: 10px;}
   .modal .modal-dialog.modal-1200{padding: 15px 0;}
   .modal .modal-dialog .modal-content{margin: 15px 0;}
