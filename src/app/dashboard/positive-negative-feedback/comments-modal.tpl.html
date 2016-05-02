@@ -14,7 +14,18 @@
               <tr>
                 <th class="item1">Name</th>
                 <th class="item2">Phone / Email</th>
-                <th class="item3">Branch</th>
+                <th class="item3">
+                  <div class="btn-group" uib-dropdown>
+                    <button id="single-button2" type="button" class="btn btn-info" uib-dropdown-toggle>
+                      <span class="caret"></span> {{statusOption}}
+                    </button>
+                    <ul uib-dropdown-menu role="menu" aria-labelledby="dropdown-button">
+                      <li role="menuitem" ng-repeat="option in status_options">
+                        <a style="cursor: pointer" ng-click="showComments(option)">{{option}}</a>
+                      </li>
+                    </ul>
+                  </div>
+                </th>
                 <th class="item4">Segment</th>
                 <th class="item5">
                   <div class="search-holder">
@@ -22,7 +33,7 @@
                   </div>
                 </th>
                 <th class="item6">
-                  <div class="btn-group" uib-dropdown is-open="status.isopen">
+                  <div class="btn-group" uib-dropdown>
                     <button id="single-button" type="button" class="btn btn-info" uib-dropdown-toggle>
                       <span class="caret"></span> {{statusOption}}
                     </button>
