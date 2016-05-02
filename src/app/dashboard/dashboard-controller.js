@@ -25,6 +25,7 @@
       });
 
       var $chart;
+      $rootScope.chartInstances = [];
       $scope.$on('create', function (event, chart) {
         if(chart.chart.canvas.id === "bar"){
           if (typeof $chart !== "undefined") {
@@ -32,7 +33,9 @@
           }
           $chart = chart;
         }
-
+        if(chart.chart.canvas.id === "doughnut"){
+          $rootScope.chartInstances.push(chart);
+        }
       });
 
     });
