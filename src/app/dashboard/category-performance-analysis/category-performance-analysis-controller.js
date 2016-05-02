@@ -1,7 +1,7 @@
 (function() {
   angular.module( 'livefeed.dashboard.category_performance_analysis')
 
-  .controller('CategoryPerformanceAnalysisCtrl', function CategoryPerformanceAnalysisCtrl($scope, feedbackService, CategoryPerformanceApi, flashService, $uibModal) {
+  .controller('CategoryPerformanceAnalysisCtrl', function CategoryPerformanceAnalysisCtrl($rootScope, $scope, feedbackService, CategoryPerformanceApi, flashService, $uibModal) {
 
     $scope.show_loading = false;
     $scope.class = '';
@@ -80,6 +80,10 @@
               data.option_data = options_array;
             });
           }
+          _.each($rootScope.chartInstances, function(chart) {
+            chart.destroy();
+          });
+          $rootScope.chartInstances = [];
           $scope.segments = [];
           $scope.segments = _.map(segment_data.response.segments, function (data) {
             return feedbackService.getSegmentFeedbacks(data, option_id, string);
