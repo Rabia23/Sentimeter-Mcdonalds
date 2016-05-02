@@ -1,7 +1,7 @@
 (function() {
   angular.module('livefeed.dashboard.positive_negative_feedback')
 
-  .controller('ModalInstanceCtrl', function ($scope, $uibModal, $uibModalInstance, text, Graphs, commentService, StatusEnum, flashService) {
+  .controller('ModalInstanceCtrl', function ($scope, $uibModal, $uibModalInstance, text, Graphs, Filters, commentService, StatusEnum, flashService) {
 
     $scope.comments = [];
     $scope.page = 1;
@@ -15,7 +15,20 @@
     $scope.text = text;
 
     $scope.statusOption = "All";
+    $scope.selectedBranch = {id: "", name: "All"};
     $scope.status_options = StatusEnum.get_status_options();
+
+    getBranches();
+
+    function getBranches(){
+      $scope.branches = [];
+      Filters.specific_branch().$promise.then(function(branches_data){
+        $scope.branches.push({id: "", name: "All"});
+        _.each(branches_data.response, function(data){
+          $scope.branches.push(data);
+        });
+      });
+    }
 
     $scope.selectedValue = function(value, comment){
       var modalInstance = $uibModal.open({
@@ -34,7 +47,8 @@
       });
     };
 
-    $scope.showComments = function(option, text){
+    $scope.showComments = function(option, branch, text){
+      $scope.selectedBranch = branch;
       $scope.statusOption = option;
       $scope.page = 1;
       var status_id = StatusEnum.get_index(option);
@@ -42,7 +56,7 @@
         $scope.show_loader = true;
       }
       if($scope.text){
-        Graphs.comments_text_search($scope.page, status_id, $scope.text).$promise.then(function(data){
+        Graphs.comments_text_search($scope.page, branch.id, status_id, $scope.text).$promise.then(function(data){
           $scope.show_loader = false;
           if(data.response.feedback_count === 0){
             $scope.lock = false;
@@ -54,7 +68,7 @@
         });
       }
       else{
-        Graphs.comments($scope.page, status_id).$promise.then(function(data){
+        Graphs.comments($scope.page, branch.id, status_id).$promise.then(function(data){
           $scope.show_loader = false;
           showCommentsFunction(data);
         });
@@ -62,19 +76,19 @@
       modal_opened = true;
     };
 
-    $scope.getMoreComments = function(option, text){
+    $scope.getMoreComments = function(option, branch, text){
       var status_id = StatusEnum.get_index(option);
       var show_dropdown, action_string;
       if(!$scope.is_last_page){
         $scope.page = $scope.page + 1;
         $scope.lock = true;
         if(text){
-          Graphs.comments_text_search($scope.page, status_id, text).$promise.then(function(data){
+          Graphs.comments_text_search($scope.page, branch.id, status_id, text).$promise.then(function(data){
             showGetMoreFunction(data);
           });
         }
         else{
-          Graphs.comments($scope.page,status_id, text).$promise.then(function(data){
+          Graphs.comments($scope.page, branch.id, status_id).$promise.then(function(data){
             showGetMoreFunction(data);
           });
         }
@@ -123,7 +137,7 @@
       $uibModalInstance.dismiss('cancel');
     };
 
-    $scope.showComments($scope.statusOption, text);
+    $scope.showComments($scope.statusOption, $scope.selectedBranch, text);
 
     $scope.openComment = function (action_comment) {
       var modalInstance = $uibModal.open({
