@@ -50,7 +50,9 @@ describe('RecommendationLikenessCtrl', function(){
   describe('resetDates method', function(){
     it('reset dates', function(){
       controller.resetDates();
-      expect($rootScope.date.startDate._d.getDate()).toBe(new Date().getUTCDate()-1);
+      var d = new Date();
+      d.setDate(d.getUTCDate() - 1);
+      expect($rootScope.date.startDate._d.getDate()).toBe(d.getUTCDate());
       expect($rootScope.date.endDate._d.getDate()).toBe(new Date().getUTCDate());
     });
 
