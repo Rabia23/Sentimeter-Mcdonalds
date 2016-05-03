@@ -10,7 +10,8 @@ angular.module( 'factories', [
     {
       allRegions: {method: "GET",isArray: false, params: {endpoint: "region"}},
       Cities: {method: "GET",isArray: false, params: {endpoint: "city"}},
-      Branches: {method: "GET",isArray: false, params: {endpoint: "branch"}}
+      Branches: {method: "GET",isArray: false, params: {endpoint: "branch"}},
+      specific_branch: {method: "GET",isArray: false, params: {endpoint: "specific_branch"}}
     });
   }
   Filters.prototype.allRegions = function(){
@@ -19,8 +20,8 @@ angular.module( 'factories', [
   Filters.prototype.Cities = function(region_id){
     return this.service.Cities({region_id: region_id});
   };
-  Filters.prototype.Branches = function(city_id, region_id){
-    return this.service.Branches({city: city_id, region: region_id});
+  Filters.prototype.specific_branch = function(city_id, region_id){
+    return this.service.specific_branch({city: city_id, region: region_id});
   };
   return new Filters();
 }])
@@ -122,16 +123,18 @@ angular.module( 'factories', [
     type_id = type_id || "";
     return this.service.feedback_analysis({type: type_id, date_from: start_date, date_to: end_date, city: city_id, question_type: question_type});
   };
-  Graphs.prototype.comments = function(page, status_id, text){
+  Graphs.prototype.comments = function(page, branch_id, status_id){
     page = page || 1;
     status_id = status_id || "";
-    return this.service.comments({page: page, action_taken: status_id});
+    branch_id = branch_id || "";
+    return this.service.comments({branch_id: branch_id, action_taken: status_id, page: page});
   };
 
-  Graphs.prototype.comments_text_search = function(page, status_id, text){
+  Graphs.prototype.comments_text_search = function(page, branch_id, status_id, text){
     page = page || 1;
     status_id = status_id || "";
-    var comment_json = {page: page, action_taken: status_id, text: text};
+    branch_id = branch_id || "";
+    var comment_json = {branch_id: branch_id, page: page, action_taken: status_id, text: text};
     var area = TokenHandler.get_area();
     if(area.branch_id){
       comment_json.branch_id = area.branch_id;
