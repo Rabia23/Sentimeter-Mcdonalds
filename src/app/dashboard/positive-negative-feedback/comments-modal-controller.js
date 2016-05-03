@@ -21,8 +21,8 @@
     getBranches();
 
     function getBranches(){
-      $scope.branches = [];
       Filters.specific_branch().$promise.then(function(branches_data){
+        $scope.branches = [];
         $scope.branches.push({id: "", name: "All"});
         _.each(branches_data.response, function(data){
           $scope.branches.push(data);
