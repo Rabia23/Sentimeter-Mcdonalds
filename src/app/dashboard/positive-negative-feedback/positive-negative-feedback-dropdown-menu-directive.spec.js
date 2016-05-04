@@ -18,7 +18,6 @@ describe('positiveNegativeDropDownMenuDirective', function(){
     spyOn(window, 'initCustomForms');
     setFixtures('<button id="single-button2"> </button>');
     $element.scope().$apply();
-    var spyEvent = spyOnEvent('#single-button2', 'click');
     $('#single-button2').trigger('click');
     $timeout.flush();
     expect(window.initCustomForms).toHaveBeenCalled();
