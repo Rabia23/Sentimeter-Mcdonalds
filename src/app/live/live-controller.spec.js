@@ -347,7 +347,7 @@ describe('LiveCtrl', function(){
   describe('display method', function(){
     it('sets date and time when function calls', function(){
       expect($rootScope.time).toBe(Clock.formatAMPM(new Date()));
-      expect(controller.date_string[2]).toBe(new Date().getUTCDate().toString());
+      expect(controller.date_string[2]).toBe(new Date().toString().split(" ")[2]);
     });
   });
 
