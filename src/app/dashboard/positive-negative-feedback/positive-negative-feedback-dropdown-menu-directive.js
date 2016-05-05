@@ -12,7 +12,7 @@
           if (branch !== undefined) {
             $('#single-button2').on('click', function () {
               $timeout(function () {
-                window.initCustomForms();
+                jcf.refresh($('.drop-holder .jcf-scrollable-wrapper'));
               }, 0.1);
             });
           }

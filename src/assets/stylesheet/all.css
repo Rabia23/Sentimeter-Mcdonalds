@@ -1221,9 +1221,9 @@ textarea.form-control{
 .modal-1200 .table th.item3 .open .drop-holder{height: 200px;}
 .modal-1200 .table th.item3 .dropdown-menu{
   min-width: 150px;
+  display: block;
   position: static;
 }
-.modal-1200 .table th.item3 .open .dropdown-menu{display: block;}
 .modal-1200 .table .dropdown-menu {
   left: auto;
   right: 0;

@@ -16,11 +16,11 @@
                 <th class="item2">Phone / Email</th>
                 <th class="item3">
                   <div class="btn-group" uib-dropdown>
-                    <button id="single-button2" type="button" class="btn btn-info" uib-dropdown-toggle>
+                    <button id="dropdown-button" type="button" class="btn btn-info" uib-dropdown-toggle>
                       <span class="caret"></span> {{selectedBranch.name}}
                     </button>
                     <div class="drop-holder" drop-menu data-branches='branches'>
-                      <div class="jcf-scrollable">
+                      <div id="scroller" class="jcf-scrollable">
                         <ul uib-dropdown-menu role="menu" aria-labelledby="dropdown-button">
                           <li role="menuitem" ng-repeat="branch in branches">
                             <a style="cursor: pointer" ng-click="showComments(statusOption, branch)">{{branch.name}}</a>
