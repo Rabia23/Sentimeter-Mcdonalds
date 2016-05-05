@@ -2929,6 +2929,8 @@ li.active,
   font-size: 14px;
   text-align: center;
 }
+#wrapper .main-table > tbody > tr > td{padding: 0;}
+#wrapper .main-table .table{margin: 0;}
 @media screen and (min-width: 768px) {
   .progress-box .progress-area{
     position: relative;
