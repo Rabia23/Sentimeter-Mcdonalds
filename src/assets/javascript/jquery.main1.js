@@ -1171,12 +1171,12 @@ jQuery.onFontResize = (function($) {
       return instance;
     },
     refresh: function(elements) {
-      $(elements).each(function() {
-        var instance = $(this).data(commonOptions.dataKey);
+      
+        var instance = $(elements).data(commonOptions.dataKey);
         if (instance) {
           instance.refresh();
         }
-      });
+    
     },
     destroy: function(elements) {
       $(elements).each(function() {
@@ -2251,7 +2251,9 @@ jQuery.onFontResize = (function($) {
     },
     onScroll: function() {
       this.redrawScrollbars();
-      if ($(document.activeElement).is(':input')) {
+      //if ($(document.activeElement).is(':input') && (!$(document.activeElement).is('button'))){
+      //if ($(document.activeElement).is(':input') && ($(document.activeElement).attr('id') != 'dropdown-button')){
+      if ($(document.activeElement).is(':input')){
         this.rebuildScrollbars();
       }
     },
