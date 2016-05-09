@@ -16,11 +16,12 @@ describe('ageGroupAnalysisBarChart', function(){
   }));
 
   it('should apply same height', function(){
-
-    spyOn(window, 'initSameHeight');
+    setStyleFixtures('.equal-height { height: 392px }');
+    fixture = setFixtures('<div class="equal-height same-height-left"></div>');
     $element.scope().$apply();
     $timeout.flush();
-    expect(window.initSameHeight).toHaveBeenCalled();
+    var span = fixture.find('.equal-height');
+    expect(span.css('height')).toEqual('392px');
 
   });
 
