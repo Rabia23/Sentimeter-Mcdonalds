@@ -14,16 +14,13 @@ describe('positiveNegativeDropDownMenuDirective', function(){
   }));
 
 
-  it('should call window.initCustomForms method when button clicked', function(){
-    spyOn(window, 'initCustomForms');
+  it('should call jcf.refresh method when button clicked', function(){
+    spyOn(jcf, 'refresh');
     setFixtures('<button id="single-button2"> </button>');
     $element.scope().$apply();
     $('#single-button2').trigger('click');
     $timeout.flush();
-    expect(window.initCustomForms).toHaveBeenCalled();
+    expect(jcf.refresh).toHaveBeenCalled();
   });
-
-
-
 
 });
