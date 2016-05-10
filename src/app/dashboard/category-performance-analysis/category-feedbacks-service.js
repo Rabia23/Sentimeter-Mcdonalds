@@ -5,7 +5,7 @@
   .service('feedbackService', function(){
 
     return {
-      getCategoryFeedbacks: function(data, feedback_count, option_id, string){
+      getCategoryFeedbacks: function(data, feedback_count){
         var id = data.option_id;
         var name = data.option__text;
         var complaints = data.count;
@@ -14,7 +14,7 @@
         return {
           id: id, name: name, complaints: complaints, percentage: percentage, colour: colour };
       },
-      getSegmentFeedbacks: function(data, option_id, string){
+      getSegmentFeedbacks: function(data){
         return {
           name: data.segment,
           total_feedback_count: data.feedback_count,

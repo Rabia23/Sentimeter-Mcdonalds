@@ -1,34 +1,28 @@
 (function() {
   angular.module('livefeed.dashboard.category_performance_analysis')
 
-  .controller('CategoryModalCtrl', function ($scope, $uibModalInstance, feedbackService, CategoryPerformanceApi, flashService, option_id, string, start_date, end_date) {
+  .controller('CategoryModalCtrl', function ($scope, $uibModalInstance, performance_response, segment_response, feedbackService, flashService) {
 
-    $scope.show_loading = true;
+    if(performance_response.success) {
+      $scope.category_data = [];
+      $scope.total_feedback_count = performance_response.response.feedback_count;
+      $scope.category_data = _.map(performance_response.response.feedbacks, function (data) {
+        return feedbackService.getCategoryFeedbacks(data, performance_response.response.feedback_count);
+      });
+    }
+    else{
+      flashService.createFlash(performance_response.message, "danger");
+    }
 
-    CategoryPerformanceApi.category_performance("","","",option_id, start_date, end_date).$promise.then(function(performance_data){
-      if(performance_data.success) {
-        $scope.total_feedback_count = performance_data.response.feedback_count;
-        $scope.category_data = _.map(performance_data.response.feedbacks, function (data) {
-          return feedbackService.getCategoryFeedbacks(data, performance_data.response.feedback_count, option_id, string);
-        });
-      }
-      else{
-        flashService.createFlash(performance_data.message, "danger");
-      }
-    });
-
-    CategoryPerformanceApi.segmentation_rating("","","",option_id, start_date, end_date).$promise.then(function (segment_data) {
-      if(segment_data.success) {
-        $scope.segments = [];
-        $scope.segments = _.map(segment_data.response.segments, function (data) {
-          return feedbackService.getSegmentFeedbacks(data, option_id, string);
-        });
-        $scope.show_loading = false;
-      }
-      else{
-        flashService.createFlash(segment_data.message, "danger");
-      }
-    });
+    if(segment_response.success) {
+      $scope.segments = [];
+      $scope.segments = _.map(segment_response.response.segments, function (data) {
+        return feedbackService.getSegmentFeedbacks(data);
+      });
+    }
+    else{
+      flashService.createFlash(segment_response.message, "danger");
+    }
 
     $scope.ok = function () {
       $uibModalInstance.close();

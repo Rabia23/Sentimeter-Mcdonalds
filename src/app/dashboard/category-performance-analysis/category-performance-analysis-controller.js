@@ -12,7 +12,8 @@
     var string = 'All';
     var start_date = null;
     var end_date = null;
-
+    var performance_response = null;
+    var segment_response = null;
 
     resetDates();
     showCategoryData();
@@ -39,19 +40,20 @@
     };
 
     function showCategoryData(region_id,city_id,branch_id,option_id,string){
-      category_performance_array = [];
       $scope.show_loading = true;
-      CategoryPerformanceApi.category_performance(region_id,city_id,branch_id,option_id, start_date, end_date).$promise.then(function(performance_data){
+      CategoryPerformanceApi.category_performance(region_id, city_id, branch_id, option_id, start_date, end_date).$promise.then(function(performance_data){
+        performance_response = angular.copy(performance_data);
         if(performance_data.success) {
+          category_performance_array = [];
           $scope.total_feedback_count = performance_data.response.feedback_count;
           if(performance_data.response.feedbacks.length > 6){
-            category_performance_array.push(performance_data.response.feedbacks.splice(0, 6));
+            category_performance_array.push(performance_data.response.feedbacks.splice(0,6));
           }
           else{
             category_performance_array[0] = performance_data.response.feedbacks;
           }
           $scope.category_data = _.map(category_performance_array[0], function (data) {
-            return feedbackService.getCategoryFeedbacks(data, performance_data.response.feedback_count, option_id, string);
+            return feedbackService.getCategoryFeedbacks(data, performance_data.response.feedback_count);
           });
 
           if (option_id == null) {
@@ -66,6 +68,7 @@
 
     function showSegmentData(region_id,city_id,branch_id,option_id,string) {
       CategoryPerformanceApi.segmentation_rating(region_id, city_id, branch_id, option_id, start_date, end_date).$promise.then(function (segment_data) {
+        segment_response = angular.copy(segment_data);
         if(segment_data.success) {
           if(segment_data.response.segments[0].option_data.length > 6){
             _.each(segment_data.response.segments, function (data){
@@ -86,7 +89,7 @@
           $rootScope.chartInstances = [];
           $scope.segments = [];
           $scope.segments = _.map(segment_data.response.segments, function (data) {
-            return feedbackService.getSegmentFeedbacks(data, option_id, string);
+            return feedbackService.getSegmentFeedbacks(data);
           });
           $scope.show_loading = false;
         }
@@ -130,17 +133,11 @@
         controller: 'CategoryModalCtrl',
         size: 900,
         resolve: {
-          option_id: function () {
-            return option_id;
+          performance_response: function () {
+            return performance_response;
           },
-          string: function () {
-            return string;
-          },
-          start_date: function () {
-            return start_date;
-          },
-          end_date: function () {
-            return end_date;
+          segment_response: function () {
+            return segment_response;
           }
         }
       });
