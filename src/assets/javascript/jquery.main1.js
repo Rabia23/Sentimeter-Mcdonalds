@@ -2251,9 +2251,9 @@ jQuery.onFontResize = (function($) {
     },
     onScroll: function() {
       this.redrawScrollbars();
-      //if ($(document.activeElement).is(':input') && (!$(document.activeElement).is('button'))){
+      //if ($(document.activeElement).is(':input')){
       //if ($(document.activeElement).is(':input') && ($(document.activeElement).attr('id') != 'dropdown-button')){
-      if ($(document.activeElement).is(':input')){
+      if ($(document.activeElement).is(':input') && (!$(document.activeElement).is('button'))){
         this.rebuildScrollbars();
       }
     },

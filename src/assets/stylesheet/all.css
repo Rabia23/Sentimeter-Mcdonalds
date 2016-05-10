@@ -2929,8 +2929,136 @@ li.active,
   font-size: 14px;
   text-align: center;
 }
-#wrapper .main-table > tbody > tr > td{padding: 0;}
+#wrapper .main-table.add > tbody > tr > td{padding: 0;}
 #wrapper .main-table .table{margin: 0;}
+#wrapper .main-table th,
+#wrapper .main-table td{
+  font-size: 13px;
+  line-height: 18px;
+}
+#wrapper .main-table .title{
+  display: block;
+  overflow: hidden;
+}
+#wrapper .main-table .badge{
+  float: right;
+  margin: 0 0 0 3px;
+}
+#wrapper .business-segment td{width: 33.33%;}
+#wrapper .main-table .heading{
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.detail-list{
+  overflow: hidden;
+  margin: 0 -5px;
+  letter-spacing: -6px;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.detail-list .badge{
+  float: right;
+  font-size: 13px;
+  line-height: 18px;
+  padding: 0 6px;
+}
+.detail-list .title{
+  display: block;
+  overflow: hidden;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.detail-list > li h5{
+  display: block;
+  overflow: hidden;
+  font-size: 16px;
+  line-height: 18px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin: 7px 0 0;
+}
+
+.detail-list > li{
+  display: inline-block;
+  vertical-align: top;
+  letter-spacing: 0;
+  width: 33.33%;
+  padding: 0 5px;
+  position: relative;
+  background: #fff;
+}
+
+.detail-list > li:after,
+.detail-list > li:before{
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  content: '';
+  background: #e7eaec;
+  width: 1px;
+  z-index: 5;
+}
+
+.detail-list > li:before{
+  left: auto;
+  right: 5px;
+}
+
+.detail-list > li ol{
+  padding: 0;
+  overflow: hidden;
+  counter-reset: item;
+}
+
+.detail-list > li ol li{
+  overflow: hidden;
+  counter-increment: item;
+  position: relative;
+  background: #fff;
+  padding: 10px 5px 10px 35px;
+  border-bottom: 1px solid #e7eaec;
+}
+
+.detail-list > li ol li:hover,
+.detail-list > li ol li:active{background: #f5f5f5;}
+
+.detail-list > li ol li:before{
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  font-size: 12px;
+  width: 25px;
+  height: 18px;
+  text-align: center;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  content: counter(item) ' )';
+}
+
+.reports .title-outer,
+.reports .content-holder{display: block;}
+
+.reports .content-holder{border-top: 1px solid #e7eaec;}
+.reports .ibox-content{border-top: 0;}
+
+.detail-list .ibox-title{
+  overflow: hidden;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  border-bottom: 2px solid #e7eaec;
+}
+.detail-list .count {
+  float: right;
+  color: #a6a6ab;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1;
+}
+
 @media screen and (min-width: 768px) {
   .progress-box .progress-area{
     position: relative;
@@ -3655,4 +3783,97 @@ li.active,
   .mini-navbar .tab-links li a{padding: 10px 2px;}
   .mini-navbar .tab-links li a i{font-size: 11px;}
   #wrapper .middle-box{font-size: 12px;}
+}
+
+.report-section{
+  overflow: hidden;
+  max-width: 1170px;
+  margin: 0 auto 20px;
+  background: #fff;
+  padding: 10px;
+}
+
+.report-section > .table{margin: 0 0 20px;}
+
+.report-section .table th{
+  background: #f3f3f4;
+  border-color: #f3f3f4;
+  color: #313131;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 600;
+}
+
+.report-section .item1{width: }
+
+@media print {
+  *{
+    background: none !important;
+    color: #000 !important;
+    overflow: visible !important;
+    position: static !important;
+  }
+  .logo-holder,
+  html{height: auto;}
+  body{
+    min-width: inherit;
+    color: #000;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+  }
+  #wrapper .sidebar-collapse #side-menu .logo-holder,
+  #wrapper .sidebar-collapse #side-menu .logo-holder .logo,
+  #wrapper .sidebar-collapse #side-menu .logo-holder .logo a{
+    display: none;
+    width: 118px;
+    margin: 0 auto;
+  }
+  #wrapper > .ng-scope,
+  body > .ng-scope{
+    display: block;
+    width: 100%;
+  }
+  #wrapper{
+    width: 100%;
+    overflow: hidden;
+    height: auto;
+  }
+  #wrapper #side-menu{padding: 0 0 10px;}
+  .mini-navbar #wrapper #page-wrapper,
+  #wrapper #page-wrapper{
+    padding: 0 15px;
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+    clear: both;
+    height: auto;
+  }
+  #wrapper .sidebar-collapse,
+  #wrapper #side-menu,
+  #wrapper .navbar-default.navbar-static-side{
+    position: static;
+    display: block;
+    width: 100%;
+    height: auto;
+    clear: both;
+  }
+  .ibox{
+    page-break-inside: avoid;
+    overflow: hidden;
+    float: none;
+    display: block;
+    margin-bottom: 10px;
+  }
+  *:after,
+  *:before,
+  .sidebar-collapse:before,
+  #wrapper .navbar-static-side .jcf-scrollable-wrapper,
+  .calendar-box,
+  #footer,
+  .header-visual,
+  #world-map{
+    display: none;
+    background: none;
+  }
 }

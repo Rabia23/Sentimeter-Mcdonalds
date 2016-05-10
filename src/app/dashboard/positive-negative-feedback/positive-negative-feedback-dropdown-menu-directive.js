@@ -10,9 +10,9 @@
       link: function (scope, ele, attrs) {
         scope.$watch('branches', function (branch) {
           if (branch !== undefined) {
-            $('#single-button2').on('click', function () {
+            $('#dropdown-button').on('click', function () {
               $timeout(function () {
-                jcf.refresh($('.drop-holder .jcf-scrollable-wrapper'));
+                jcf.refresh($('#scroller'));
               }, 0.1);
             });
           }
